@@ -38,61 +38,40 @@ public class MonsterManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        touchAttack();
+        //update shake
+        DmgShake(false);
 
-
-        Vector3 forward = transform.TransformDirection(Vector3.forward) * 10;
-        Debug.DrawRay(transform.position, forward, Color.green);
-
-
-        if ((Input.touchCount > 0) && (Input.GetTouch(0).phase == TouchPhase.Began))
+        if(StartMonster.HealthStatus <= 0) 
         {
-            Ray raycast = Camera.main.ScreenPointToRay(Input.GetTouch(0).position);
-            RaycastHit raycastHit;
-
-            
-            if (Physics.Raycast(raycast, out raycastHit))
-            {
-                Debug.Log("Something Hit");
-                if (raycastHit.collider.name == "Soccer")
-                {
-                    Debug.Log("Soccer Ball clicked");
-                }
-
-                //OR with Tag
-
-                if (raycastHit.collider.CompareTag("SoccerTag"))
-                {
-                    Debug.Log("Soccer Ball clicked");
-                }
-            }
+            death();
         }
     }
 
 
     private void touchAttack() 
     {
-        //Getting Touch input
-        if (Input.touchCount > 0 || Input.GetMouseButtonDown(0)) 
+        if (StartMonster.CombatStatus)
         {
-
-            switch (touch.phase)
+            //Getting Touch input
+            if (Input.touchCount > 0 || Input.GetMouseButtonDown(0))
             {
+                switch (touch.phase)
+                {
+                    //if touch began deal dmg and add shake
+                    case TouchPhase.Began:
 
-                case TouchPhase.Began:
-
-                    StartMonster.DealDmg(1);
-                    DmgShake(true);
-                    break;
-                default:
-                    break;
+                        StartMonster.DealDmg(1);
+                        DmgShake(true);
+                        break;
+                    default:
+                        break;
+                }
+            }
+            else //update shake
+            {
+                DmgShake(false);
             }
         }
-        else 
-        {
-            DmgShake(false);
-        }
-        
     }
 
     //Adds shake Time to monster
@@ -109,7 +88,7 @@ public class MonsterManager : MonoBehaviour
             CounterShake = 0.25f;
             if (HasMoved) 
             {
-                transform.position = StartMonster.resetPosition();
+                transform.position = StartMonster.GetOriginPos();
                 HasMoved = false;
             }
         }
@@ -121,7 +100,16 @@ public class MonsterManager : MonoBehaviour
         }
     }
 
+    private void death()
+    {
+        transform.rotation = new Quaternion(0f, 0f, 0.707106709f, 0.707106948f);
+        StartMonster.CombatActive(false);
+    }
+
+    private void OnMouseDown()
+    {
+        touchAttack();
+    }
+
     
-
 }
-

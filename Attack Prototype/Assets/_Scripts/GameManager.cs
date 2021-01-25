@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -26,7 +27,7 @@ public class GameManager : MonoBehaviour
 public class Monster
 {
     
-    //Monster Status variables
+    //Monster variable statuses
     string MonsterName;
     private int Health; 
     private int Hunger;
@@ -44,7 +45,9 @@ public class Monster
     //Health Bar
     Slider HealthBar;
 
-    //Monster Class Constructor
+    //------------------Monster Class Constructor---------------------
+
+
     public Monster(string name) 
     {
         MonsterName = name;
@@ -55,6 +58,60 @@ public class Monster
         IsMedicated = false;
     }
 
+
+    //------------------------Properties------------------------
+
+
+    //------------Combat------------
+
+
+    //Check Combat Status
+    public bool CombatStatus
+    {
+        get => IsInComat;
+    }
+
+
+    //Updates The monsters Combat Status and health bar visibility
+    public void CombatActive(bool state)
+    {
+        IsInComat = state;
+        if (IsInComat)
+        {
+            if (HealthBar == null)
+            {
+                Debug.LogError("The Monster Must have a health bar to activate combat");
+            }
+            else
+            {
+                HealthBar.gameObject.SetActive(true);
+            }
+        }
+        else
+        {
+            if (HealthBar == null)
+            {
+                Debug.LogError("The Monster Must have a health bar to activate combat");
+            }
+            else
+            {
+                HealthBar.gameObject.SetActive(false);
+            }
+        }
+    }
+
+
+    //Sets desired healthbar to the monster
+    public void AssignHealthBar(Slider Slider)
+    {
+        HealthBar = Slider;
+        HealthBar.maxValue = MaxHealth;
+        HealthBar.minValue = 0;
+        HealthBar.value = Health;
+    }
+
+
+    //Deal DMG to monster
     public void DealDmg(int dmg) 
     {
         if (IsInComat)
@@ -69,7 +126,27 @@ public class Monster
         }
         
     }
-    
+
+
+    //sets new health and updates health bar
+    public void UpdateHealth(int NewHealth)
+    {
+        if (NewHealth < MaxHealth && NewHealth > -1)
+        {
+            Health = NewHealth;
+            HealthBar.value = Health;
+        }
+        else
+        {
+            Debug.LogError("Cant Assign Health Outside of peremeters: " + 0 + "-" + MaxHealth);
+        }
+    }
+
+
+    //------------Shake------------
+
+
+    //Shakes the monster
     public Vector3 Shake() 
     {
 
@@ -82,6 +159,8 @@ public class Monster
         return new Vector3(x, originY, originZ);
     }
 
+
+    //Sets origin position. required to reset position after shake -> would be ideal to use an animation instead
     public void SetOriginPos(Transform originalPos) 
     {
         originX = originalPos.position.x;
@@ -89,95 +168,48 @@ public class Monster
         originZ = originalPos.position.z;
     }
 
-    public Vector3 resetPosition() 
+
+    //get original position
+    public Vector3 GetOriginPos() 
     {
         return new Vector3(originX, originY, originZ);
     }
 
-    //Updates The monsters Combat Status and health bar visibility
-    public void CombatActive(bool state) 
-    {
-        IsInComat = state;
-        if (IsInComat)
-        {
-            if (HealthBar == null)
-            {
-                Debug.LogError("The Monster Must have a health bar to activate combat");
-            }
-            else
-            {
-                HealthBar.gameObject.SetActive(true);
-            }
-        }
-        else 
-        {
-            if (HealthBar == null)
-            {
-                Debug.LogError("The Monster Must have a health bar to activate combat");
-            }
-            else 
-            {
-                HealthBar.gameObject.SetActive(false);
-            }
-        }
-    }
 
-    //Sets desired healthbar to the monster
-    public void AssignHealthBar(Slider Slider)
-    {
-        HealthBar = Slider;
-        HealthBar.maxValue = MaxHealth;
-        HealthBar.minValue = 0;
-        HealthBar.value = Health;
-    }
+    //------------Get/Set------------
 
-    //Update Health
-    public void UpdateHealth(int NewHealth) 
-    {
-        if (NewHealth < MaxHealth && NewHealth > -1)
-        {
-            Health = NewHealth;
-            HealthBar.value = Health;
-        }
-        else 
-        {
-            Debug.LogError("Cant Assign Health Outside of peremeters: " + 0 + "-" + MaxHealth);
-        }
-    }
 
-    //Check Combat Status
-    public bool CombatStatus
-    {
-        get => IsInComat;
-    }
-
-    //Set Health
+    //Set/get health
     public int HealthStatus
     {
         get => Health;
         set => Health = value;
     }
 
-    //Set Hunger
+
+    //Set/get Hunger
     public int HungerStatus
     {
         get => Hunger;
         set => Hunger = value;
     }
 
-    //Set Sleep
+
+    //Set/get Sleep
     public int SleepStatus
     {
         get => Sleep;
         set => Sleep = value;
     }
 
-    //Set Medicine
+
+    //Set/get Medicine
     public bool MedicineStatus
     {
         get => IsMedicated;
         set => IsMedicated = value;
     }
+
 
     //Print All Statuses
     public void DebugStatus() 
