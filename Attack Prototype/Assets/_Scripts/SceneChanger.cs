@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class SceneChanger : MonoBehaviour
 {
     private Button ThisButton;
-    public int SceneNumber;
+    public int SceneNumber = 0;
     public string SceneName;
 
     // Start is called before the first frame update
@@ -22,11 +22,11 @@ public class SceneChanger : MonoBehaviour
     {
         if (SceneName == null)
         {
-            SceneManager.LoadScene(SceneNumber);
+            SceneManager.LoadScene(SceneName);
         }
         else 
         {
-            SceneManager.LoadScene(SceneName);
+            SceneManager.LoadScene(SceneNumber);
         }
     }
 }
