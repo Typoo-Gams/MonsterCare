@@ -2,31 +2,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
 
-public class SceneChanger : MonoBehaviour
+public class HealMonster : MonoBehaviour
 {
     private Button ThisButton;
-    public int SceneNumber = 0;
-    public string SceneName;
+    public MonsterManager HealThisMonster;
+    Monster Heal;
+    public int HealBy = 10;
 
     // Start is called before the first frame update
     void Start()
     {
         ThisButton = gameObject.GetComponent<Button>();
         ThisButton.onClick.AddListener(TaskOnClick);
+        HealThisMonster.StartMonster.DebugStatus();
     }
 
-    // Update is called once per frame
     private void TaskOnClick() 
     {
-        if (SceneName == null)
-        {
-            SceneManager.LoadScene(SceneName);
-        }
-        else 
-        {
-            SceneManager.LoadScene(SceneNumber);
-        }
+        HealThisMonster.StartMonster.UpdateHealth(HealThisMonster.StartMonster.HealthStatus + HealBy);
     }
 }

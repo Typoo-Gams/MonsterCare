@@ -35,6 +35,7 @@ public class Monster
     private bool IsSleepDeprived;
     private bool IsMedicated;
     private bool IsInComat;
+    private bool IsDead;
 
     //Max & Min Border readOnly's
     readonly int MaxHealth = 100;
@@ -136,9 +137,19 @@ public class Monster
             Health = NewHealth;
             HealthBar.value = Health;
         }
-        else
+        else if(NewHealth > MaxHealth)
         {
-            Debug.LogError("Cant Assign Health Outside of peremeters: " + 0 + "-" + MaxHealth);
+            Health = MaxHealth;
+            HealthBar.value = Health;
+        }
+        if (Health <= 0)
+        {
+            IsDead = true;
+            Health = 0;
+        }
+        else if (Health >= 1)
+        {
+            IsDead = false;
         }
     }
 
@@ -208,6 +219,13 @@ public class Monster
     {
         get => IsMedicated;
         set => IsMedicated = value;
+    }
+
+
+    //Get Death Status
+    public bool DeathStatus 
+    {
+        get => IsDead;
     }
 
 

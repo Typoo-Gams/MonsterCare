@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class MonsterManager : MonoBehaviour
 {
     //monster stuff
-    Monster StartMonster;
+    public Monster StartMonster;
     public Slider SliderPrefab;
     private Canvas CurrentCanvas;
 
@@ -21,7 +21,7 @@ public class MonsterManager : MonoBehaviour
 
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         //getting canvas
         CurrentCanvas = GameObject.FindGameObjectWithTag("Canvas").GetComponent<Canvas>();
@@ -44,6 +44,10 @@ public class MonsterManager : MonoBehaviour
         if(StartMonster.HealthStatus <= 0) 
         {
             death();
+        }
+        if (StartMonster.HealthStatus > 0)
+        {
+            revive();
         }
     }
 
@@ -105,6 +109,12 @@ public class MonsterManager : MonoBehaviour
         transform.rotation = new Quaternion(0f, 0f, 0.707106709f, 0.707106948f);
         StartMonster.CombatActive(false);
     }
+    private void revive()
+    {
+        transform.rotation = new Quaternion(0f, 0f, 0.0f, 0.0f);
+        StartMonster.CombatActive(true);
+    }
+
 
     private void OnMouseDown()
     {
