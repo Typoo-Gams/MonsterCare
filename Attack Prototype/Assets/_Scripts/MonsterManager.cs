@@ -38,12 +38,19 @@ public class MonsterManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //touchAttack();
+        touchAttack();
+
+
+        Vector3 forward = transform.TransformDirection(Vector3.forward) * 10;
+        Debug.DrawRay(transform.position, forward, Color.green);
+
 
         if ((Input.touchCount > 0) && (Input.GetTouch(0).phase == TouchPhase.Began))
         {
             Ray raycast = Camera.main.ScreenPointToRay(Input.GetTouch(0).position);
             RaycastHit raycastHit;
+
+            
             if (Physics.Raycast(raycast, out raycastHit))
             {
                 Debug.Log("Something Hit");
@@ -66,9 +73,8 @@ public class MonsterManager : MonoBehaviour
     private void touchAttack() 
     {
         //Getting Touch input
-        if (Input.touchCount > 0) 
+        if (Input.touchCount > 0 || Input.GetMouseButtonDown(0)) 
         {
-            touch = Input.GetTouch(0);
 
             switch (touch.phase)
             {
@@ -77,6 +83,8 @@ public class MonsterManager : MonoBehaviour
 
                     StartMonster.DealDmg(1);
                     DmgShake(true);
+                    break;
+                default:
                     break;
             }
         }
