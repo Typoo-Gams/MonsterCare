@@ -1,0 +1,21 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class MonsterAtHome_Prototype : MonoBehaviour
+{
+
+    public Monster Monster;
+    // Start is called before the first frame update
+    void Start()
+    {
+        Monster = new Monster("PleaseFeedMe");
+        Monster.DebugStatus();
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
+}
