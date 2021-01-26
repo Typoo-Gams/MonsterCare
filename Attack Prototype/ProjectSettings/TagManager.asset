@@ -7,6 +7,8 @@ TagManager:
   - GameManager
   - UnusedSlider
   - Canvas
+  - Camera
+  - Monster
   layers:
   - Default
   - TransparentFX
