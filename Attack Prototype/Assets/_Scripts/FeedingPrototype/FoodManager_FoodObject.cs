@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class FoodManager_FoodObject : MonoBehaviour
 {
-    MonsterAtHome_Prototype FeedThisMonster;
+    DefaultStarting_MonsterController FeedThisMonster;
     public int FoodPower = 10;
     public Text UI;
     Canvas CurrentCanvas;
@@ -15,7 +15,7 @@ public class FoodManager_FoodObject : MonoBehaviour
     void Start()
     {
         CurrentCanvas = GameObject.FindGameObjectWithTag("Canvas").GetComponent<Canvas>();
-        FeedThisMonster = GameObject.FindGameObjectWithTag("Monster").GetComponent<MonsterAtHome_Prototype>();
+        FeedThisMonster = GameObject.FindGameObjectWithTag("Monster").GetComponent<DefaultStarting_MonsterController>();
     }
 
     // Update is called once per frame
@@ -28,13 +28,12 @@ public class FoodManager_FoodObject : MonoBehaviour
     {
         if (collision.gameObject.tag.Equals("Monster")) 
         {
-            FeedThisMonster.Monster.HungerStatus += FoodPower;
+            FeedThisMonster.monster.UpdateHunger(FeedThisMonster.monster.HungerStatus + 1);
             Text spawn = Instantiate(UI);
-            spawn.transform.parent = CurrentCanvas.transform;
+            spawn.transform.SetParent(CurrentCanvas.transform, false);
             spawn.transform.localPosition = new Vector3(347f, 276f, -19439.998f);
             spawn.transform.localScale = new Vector3(1,1,1);
             
-            FeedThisMonster.Monster.DebugStatus();
             Destroy(gameObject);
         }
     }

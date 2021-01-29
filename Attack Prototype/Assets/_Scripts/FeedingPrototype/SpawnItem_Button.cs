@@ -59,12 +59,5 @@ public class SpawnItem_Button : MonoBehaviour
         }
         else
             Instantiate(SpawnObject);
-
-
-         //  SpawnedObject.transform.parent = ParentObject.transform;
-         //  SpawnedObject.transform.localPosition = SpawnLocation;
-         //  SpawnedObject.transform.localRotation = SpawnRotation
-         //  SpawnedObject.transform.localScale = new Vector3(10, 10, 10);
-    
     }
 }

@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class HealMonster : MonoBehaviour
 {
     private Button ThisButton;
-    public MonsterManager_Prototype HealThisMonster;
+    public MonsterManager_AttackPrototype HealThisMonster;
     public int HealBy = 10;
 
     // Start is called before the first frame update

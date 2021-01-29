@@ -26,21 +26,40 @@ public class GameManager : MonoBehaviour
 
 public class Monster
 {
-    
-    //Monster variable statuses
+
+    //Monster variables
     string MonsterName;
-    private int Health; 
+    private int Health;
     private int Hunger;
     private int Sleep;
-    private bool IsSleepDeprived;
+    private int Happiness;
+
+    //todo
+    private int Playfull;
+    private int Toughness;
+
+
+    //Status Bools
     private bool IsMedicated;
-    private bool IsInComat;
+    private bool IsInCombat;
     private bool IsDead;
+    private bool IsStarving;
+    private bool IsFull;
+    private bool IsSleeping;
+    private bool IsSleepDeprived;
+    private bool IsRested;
+    private bool IsHappy;
+    private bool IsSad;
+
+    //todo
+    private bool IsOverRested;
+
 
     //Max & Min Border readOnly's
     readonly int MaxHealth = 100;
     readonly int MaxHunger = 10;
     readonly int MaxSleep = 24;
+    readonly int MaxHappiness = 10;
     static float originX, originY, originZ;
 
     //Health Bar
@@ -49,7 +68,7 @@ public class Monster
     //------------------Monster Class Constructor---------------------
 
 
-    public Monster(string name) 
+    public Monster(string name)
     {
         MonsterName = name;
         Health = MaxHealth;
@@ -69,15 +88,15 @@ public class Monster
     //Check Combat Status
     public bool CombatStatus
     {
-        get => IsInComat;
+        get => IsInCombat;
     }
 
 
     //Updates The monsters Combat Status and health bar visibility
     public void CombatActive(bool state)
     {
-        IsInComat = state;
-        if (IsInComat)
+        IsInCombat = state;
+        if (IsInCombat)
         {
             if (HealthBar == null)
             {
@@ -113,9 +132,9 @@ public class Monster
 
 
     //Deal DMG to monster
-    public void DealDmg(int dmg) 
+    public void DealDmg(int dmg)
     {
-        if (IsInComat)
+        if (IsInCombat)
         {
             Health -= dmg;
             UpdateHealth(Health);
@@ -125,7 +144,7 @@ public class Monster
             Debug.LogError("Monster is not in combat");
 
         }
-        
+
     }
 
 
@@ -137,7 +156,7 @@ public class Monster
             Health = NewHealth;
             HealthBar.value = Health;
         }
-        else if(NewHealth > MaxHealth)
+        else if (NewHealth > MaxHealth)
         {
             Health = MaxHealth;
             HealthBar.value = Health;
@@ -158,21 +177,21 @@ public class Monster
 
 
     //Shakes the monster
-    public Vector3 Shake() 
+    public Vector3 Shake()
     {
 
         float speed = 75.0f; //how fast it shakes
         float amount = 0.25f; //how much it shakes
 
         float x = Mathf.Sin(Time.time * speed) * amount;
-        
+
 
         return new Vector3(x, originY, originZ);
     }
 
 
     //Sets origin position. required to reset position after shake -> would be ideal to use an animation instead
-    public void SetOriginPos(Transform originalPos) 
+    public void SetOriginPos(Transform originalPos)
     {
         originX = originalPos.position.x;
         originY = originalPos.position.y;
@@ -181,7 +200,7 @@ public class Monster
 
 
     //get original position
-    public Vector3 GetOriginPos() 
+    public Vector3 GetOriginPos()
     {
         return new Vector3(originX, originY, originZ);
     }
@@ -198,11 +217,50 @@ public class Monster
     }
 
 
-    //Set/get Hunger
+    //get Hunger
     public int HungerStatus
     {
         get => Hunger;
-        set => Hunger = value;
+    }
+
+
+    //Get isStarving
+    public bool IStarvingStatus 
+    {
+        get => IsStarving;
+    }
+
+
+    //Get isStarving
+    public bool IsFullStatus
+    {
+        get => IsFull;
+    }
+
+
+    //Update Hunger
+    public void UpdateHunger(int NewHunger) 
+    {
+        Hunger = NewHunger;
+        switch (Hunger) 
+        {
+            case 10:
+                if (Hunger > MaxHunger) 
+                    Hunger = MaxHunger;
+                IsFull = true;
+                break;
+            case 0:
+                if (Hunger < 0) 
+                    Hunger = 0;
+                IsStarving = true;
+                break;
+            default:
+                if (Hunger > 0)
+                    IsStarving = false;
+                if (Hunger < MaxHunger)
+                    IsFull = false;
+                break;
+        }
     }
 
 
@@ -211,6 +269,106 @@ public class Monster
     {
         get => Sleep;
         set => Sleep = value;
+    }
+
+
+    //Get IsSleeping
+    public bool IsSleepingStatus
+    {
+        get => IsSleeping;
+    }
+
+
+    //Update SleepStatus
+    public void UpdateSleep(bool sleeping) 
+    {
+        if (sleeping)
+            IsSleeping = true;
+        else
+            IsSleeping = false;
+
+        if (IsSleeping)
+        {
+            Sleep++;
+            if (Sleep > 24)
+                Sleep = 24;
+            switch (Sleep)
+            {
+                case 24:
+                    IsRested = true;
+                    Sleep = MaxSleep;
+                    break;
+                case 0:
+                    IsSleepDeprived = true;
+                    Sleep = 0;
+                    break;
+                case 5:
+                    IsSleepDeprived = false;
+                    break;
+                case 16:
+                    IsRested = false;
+                    break;
+            }
+        }
+    }
+
+
+    //Get IsSleepDeprived
+    public bool IsSleepDeprivedStatus
+    {
+        get => IsSleepDeprived;
+    }
+
+
+    //Get IsRested
+    public bool IsRestedStatus
+    {
+        get => IsRested;
+    }
+
+
+    //Get MaxSleep
+    public int SleepMaxBorder
+    {
+        get => MaxSleep;
+    }
+
+
+    //Set/get Happiness
+    public int HappinessStatus
+    {
+        get => Happiness;
+        set => Happiness = value;
+    }
+
+
+    //Get IsSad
+    public bool IsSadStatus
+    {
+        get => IsSad;
+    }
+
+
+    //Get IsHappy
+    public bool IsHappyStatus
+    {
+        get => IsHappy;
+    }
+
+    //Update Happiness
+    public void UpdateHappiness(int NewHappiness) 
+    {
+        Happiness = NewHappiness;
+        if (Happiness <= 0) 
+        {
+            IsHappy = false;
+            Happiness = 0;
+        }
+        if (Happiness >= MaxHappiness)
+        {
+            IsHappy = true;
+            Happiness = MaxHappiness;
+        }
     }
 
 
@@ -226,6 +384,13 @@ public class Monster
     public bool DeathStatus 
     {
         get => IsDead;
+    }
+
+
+    //Get Name
+    public string Name
+    {
+        get => MonsterName;
     }
 
 
