@@ -33,8 +33,6 @@ public class Monster
     private int Hunger;
     private int Sleep;
     private int Happiness;
-
-    //todo
     private int Playfull;
     private int Toughness;
 
@@ -50,8 +48,6 @@ public class Monster
     private bool IsRested;
     private bool IsHappy;
     private bool IsSad;
-
-    //todo
     private bool IsOverRested;
 
 
@@ -68,6 +64,18 @@ public class Monster
     //------------------Monster Class Constructor---------------------
 
 
+    public Monster()
+    {
+        MonsterName = "Default";
+        Health = MaxHealth;
+        Hunger = 0;
+        Sleep = 0;
+        IsSleepDeprived = false;
+        IsMedicated = false;
+        UpdateHunger(0);
+    }
+
+
     public Monster(string name)
     {
         MonsterName = name;
@@ -76,6 +84,7 @@ public class Monster
         Sleep = 0;
         IsSleepDeprived = false;
         IsMedicated = false;
+        UpdateHunger(0);
     }
 
 
@@ -295,6 +304,8 @@ public class Monster
             switch (Sleep)
             {
                 case 24:
+                    if(IsRested)
+                        IsOverRested = true;
                     IsRested = true;
                     Sleep = MaxSleep;
                     break;
@@ -324,6 +335,13 @@ public class Monster
     public bool IsRestedStatus
     {
         get => IsRested;
+    }
+
+
+    //Get IsOverRested
+    public bool IsOverRestedStatus
+    {
+        get => IsOverRested;
     }
 
 
@@ -369,6 +387,22 @@ public class Monster
             IsHappy = true;
             Happiness = MaxHappiness;
         }
+    }
+
+
+    //Get/set Thoughness
+    public int ThoughnessStatus
+    {
+        get => Thoughness;
+        set => Thoughness = value;
+    }
+
+
+    //Get/Set PLayfullness
+    public int PlayfullStatus
+    {
+        get => Playfull;
+        set => Playfull = value;
     }
 
 
