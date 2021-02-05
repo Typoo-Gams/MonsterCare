@@ -8,13 +8,28 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MainMenu.unity
     guid: 31aa9ec70dd757d40b1a9c721fee1d35
-  - enabled: 1
-    path: Assets/Scenes/AttackPrototype.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
     path: Assets/Scenes/MonsterHome_MainPrototype.unity
     guid: 1b3f92e7abc7f5b47b8a4cb62a034554
   - enabled: 1
     path: Assets/Scenes/FeedingPrototype.unity
     guid: e1dd301fcda863c4bbeb72072e99ab66
+  - enabled: 1
+    path: Assets/Scenes/FightScenes_Charlie/Desert_FS.unity
+    guid: 902eded32da6cd546ab9e8d0de710f07
+  - enabled: 1
+    path: Assets/Scenes/FightScenes_Charlie/Forest_FS.unity
+    guid: 6f6bdf3fe4ab9224ca2145902a155a79
+  - enabled: 1
+    path: Assets/Scenes/FightScenes_Charlie/Ice_FS.unity
+    guid: 0a0fa620086a2c14f8e08f9bac02dec1
+  - enabled: 1
+    path: Assets/Scenes/FightScenes_Charlie/Mountain_FS.unity
+    guid: 26dc59e5250d6a64e9efecf885e418a5
+  - enabled: 1
+    path: Assets/Scenes/FightScenes_Charlie/Savannah_FS.unity
+    guid: 3466d4f32eea4514183b99e6b01b72bd
   m_configObjects: {}
