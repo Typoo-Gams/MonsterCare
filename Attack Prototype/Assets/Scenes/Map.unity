@@ -214,6 +214,7 @@ GameObject:
   - component: {fileID: 206267946}
   - component: {fileID: 206267945}
   - component: {fileID: 206267944}
+  - component: {fileID: 206267947}
   m_Layer: 5
   m_Name: Grass2
   m_TagString: Untagged
@@ -323,6 +324,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 206267942}
   m_CullTransparentMesh: 1
+--- !u!114 &206267947
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 206267942}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9fe41c65e30f360439a7495a14e3470a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SceneNumber: 0
+  SceneName: 
 --- !u!1 &430118680
 GameObject:
   m_ObjectHideFlags: 0
@@ -335,6 +350,7 @@ GameObject:
   - component: {fileID: 430118684}
   - component: {fileID: 430118683}
   - component: {fileID: 430118682}
+  - component: {fileID: 430118685}
   m_Layer: 5
   m_Name: Mountain
   m_TagString: Untagged
@@ -444,6 +460,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 430118680}
   m_CullTransparentMesh: 1
+--- !u!114 &430118685
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 430118680}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9fe41c65e30f360439a7495a14e3470a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SceneNumber: 0
+  SceneName: 
 --- !u!1 &998466930
 GameObject:
   m_ObjectHideFlags: 0
@@ -456,6 +486,7 @@ GameObject:
   - component: {fileID: 998466934}
   - component: {fileID: 998466933}
   - component: {fileID: 998466932}
+  - component: {fileID: 998466935}
   m_Layer: 5
   m_Name: Desert2
   m_TagString: Untagged
@@ -565,6 +596,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 998466930}
   m_CullTransparentMesh: 1
+--- !u!114 &998466935
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 998466930}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9fe41c65e30f360439a7495a14e3470a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SceneNumber: 0
+  SceneName: 
 --- !u!1 &1118365525
 GameObject:
   m_ObjectHideFlags: 0
@@ -739,6 +784,7 @@ GameObject:
   - component: {fileID: 1314494825}
   - component: {fileID: 1314494824}
   - component: {fileID: 1314494823}
+  - component: {fileID: 1314494826}
   m_Layer: 5
   m_Name: Desert1
   m_TagString: Untagged
@@ -848,6 +894,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1314494821}
   m_CullTransparentMesh: 1
+--- !u!114 &1314494826
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1314494821}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9fe41c65e30f360439a7495a14e3470a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SceneNumber: 0
+  SceneName: 
 --- !u!1 &1527629368
 GameObject:
   m_ObjectHideFlags: 0
@@ -1105,6 +1165,7 @@ GameObject:
   - component: {fileID: 1793951556}
   - component: {fileID: 1793951555}
   - component: {fileID: 1793951554}
+  - component: {fileID: 1793951557}
   m_Layer: 5
   m_Name: Grass1
   m_TagString: Untagged
@@ -1214,6 +1275,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1793951552}
   m_CullTransparentMesh: 1
+--- !u!114 &1793951557
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1793951552}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9fe41c65e30f360439a7495a14e3470a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SceneNumber: 0
+  SceneName: 
 --- !u!1 &1822404997
 GameObject:
   m_ObjectHideFlags: 0
@@ -1226,6 +1301,7 @@ GameObject:
   - component: {fileID: 1822405001}
   - component: {fileID: 1822405000}
   - component: {fileID: 1822404999}
+  - component: {fileID: 1822405002}
   m_Layer: 5
   m_Name: Ice
   m_TagString: Untagged
@@ -1335,6 +1411,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1822404997}
   m_CullTransparentMesh: 1
+--- !u!114 &1822405002
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1822404997}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9fe41c65e30f360439a7495a14e3470a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SceneNumber: 0
+  SceneName: 
 --- !u!1 &1852459015
 GameObject:
   m_ObjectHideFlags: 0
