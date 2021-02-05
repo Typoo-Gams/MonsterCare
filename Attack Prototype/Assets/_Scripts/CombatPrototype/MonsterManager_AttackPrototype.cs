@@ -120,4 +120,10 @@ public class MonsterManager_AttackPrototype : MonoBehaviour
     {
         TouchAttack();
     }
+
+    public Monster ThisMonster() 
+    {
+        Debug.Log(StartMonster);
+        return StartMonster;
+    }
 }

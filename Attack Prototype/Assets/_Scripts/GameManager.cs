@@ -251,24 +251,24 @@ public class Monster
     public void UpdateHunger(int NewHunger) 
     {
         Hunger = NewHunger;
-        switch (Hunger) 
+
+        if (Hunger > MaxHunger)
         {
-            case 10:
-                if (Hunger > MaxHunger) 
-                    Hunger = MaxHunger;
-                IsFull = true;
-                break;
-            case 0:
-                if (Hunger < 0) 
-                    Hunger = 0;
-                IsStarving = true;
-                break;
-            default:
-                if (Hunger > 0)
-                    IsStarving = false;
-                if (Hunger < MaxHunger)
-                    IsFull = false;
-                break;
+            Hunger = MaxHunger;
+            IsFull = true;
+        }
+        if (Hunger < 0)
+        {
+            IsStarving = true;
+            Hunger = 0;
+        }
+        if (Hunger > 0)
+        {
+            IsStarving = false;
+        }
+        if (Hunger < MaxHunger)
+        {
+            IsFull = false;
         }
     }
 
@@ -299,26 +299,25 @@ public class Monster
         if (IsSleeping)
         {
             Sleep++;
-            if (Sleep > 24)
-                Sleep = 24;
-            switch (Sleep)
+            if (Sleep >= MaxSleep)
             {
-                case 24:
-                    if(IsRested)
-                        IsOverRested = true;
-                    IsRested = true;
-                    Sleep = MaxSleep;
-                    break;
-                case 0:
-                    IsSleepDeprived = true;
-                    Sleep = 0;
-                    break;
-                case 5:
-                    IsSleepDeprived = false;
-                    break;
-                case 16:
-                    IsRested = false;
-                    break;
+                if (IsRested)
+                    IsOverRested = true;
+                IsRested = true;
+                Sleep = MaxSleep;
+            }
+            if (Sleep <= 0)
+            {
+                Sleep = 0;
+                IsSleepDeprived = true;
+            }
+            if (Sleep > 0) 
+            {
+                IsSleepDeprived = false;
+            }
+            if (Sleep < MaxSleep) 
+            {
+                IsRested = false;
             }
         }
     }
@@ -373,6 +372,7 @@ public class Monster
         get => IsHappy;
     }
 
+
     //Update Happiness
     public void UpdateHappiness(int NewHappiness) 
     {
@@ -393,8 +393,8 @@ public class Monster
     //Get/set Thoughness
     public int ThoughnessStatus
     {
-        get => Thoughness;
-        set => Thoughness = value;
+        get => Toughness;
+        set => Toughness = value;
     }
 
 

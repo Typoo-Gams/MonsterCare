@@ -34,11 +34,6 @@ public class DragAndMove_Object : MonoBehaviour
                     case TouchPhase.Began:
                         startPos = touch.position;
                         directionChosen = false;
-                        //  if (gameObject.GetComponent<Rigidbody2D>() != null) 
-                        //  {
-                        //      gameObject.GetComponent<Rigidbody2D>().gravityScale = 0;
-                        //  }
-
                         break;
 
                     // Determine direction by comparing the current touch position with the initial one.
@@ -57,7 +52,6 @@ public class DragAndMove_Object : MonoBehaviour
                 }
             }
         }
-        
     }
     private void OnMouseDown()
     {

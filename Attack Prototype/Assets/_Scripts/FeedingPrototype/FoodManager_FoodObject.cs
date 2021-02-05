@@ -10,12 +10,17 @@ public class FoodManager_FoodObject : MonoBehaviour
     public int FoodPower = 10;
     public Text UI;
     Canvas CurrentCanvas;
+    public List<Sprite> FoodSprites;
 
     // Start is called before the first frame update
     void Start()
     {
+        Monster temp = GameObject.FindGameObjectWithTag("Monster").GetComponent<DefaultStarting_MonsterController>().monster;
+        int random = Random.Range(0, FoodSprites.Count);
+        gameObject.GetComponent<SpriteRenderer>().sprite = FoodSprites[random];
         CurrentCanvas = GameObject.FindGameObjectWithTag("Canvas").GetComponent<Canvas>();
         FeedThisMonster = GameObject.FindGameObjectWithTag("Monster").GetComponent<DefaultStarting_MonsterController>();
+        gameObject.transform.localScale = new Vector3(75, 75, 75);
     }
 
     // Update is called once per frame
