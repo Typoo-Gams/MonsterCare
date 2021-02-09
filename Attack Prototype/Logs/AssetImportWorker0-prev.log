@@ -11,19 +11,19 @@ C:\Program Files\Unity\Hub\Editor\2020.2.2f1\Editor\Unity.exe
 -name
 AssetImportWorker0
 -projectPath
-C:/Users/roock/MonsterCare - Prototype
+C:/Users/roock/OneDrive/Skrivebord/Typoo Gams/MonsterCare/MonsterCare/Attack Prototype
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
-62588
-Successfully changed project path to: C:/Users/roock/MonsterCare - Prototype
-C:/Users/roock/MonsterCare - Prototype
+49840
+Successfully changed project path to: C:/Users/roock/OneDrive/Skrivebord/Typoo Gams/MonsterCare/MonsterCare/Attack Prototype
+C:/Users/roock/OneDrive/Skrivebord/Typoo Gams/MonsterCare/MonsterCare/Attack Prototype
 Using Asset Import Pipeline V2.
-Refreshing native plugins compatible for Editor in 77.58 ms, found 1 plugins.
+Refreshing native plugins compatible for Editor in 42.28 ms, found 1 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2020.2.2f1 (068178b99f32)
 [Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2020.2.2f1/Editor/Data/Resources/UnitySubsystems
-[Subsystems] Discovering subsystems at path C:/Users/roock/MonsterCare - Prototype/Assets
+[Subsystems] Discovering subsystems at path C:/Users/roock/OneDrive/Skrivebord/Typoo Gams/MonsterCare/MonsterCare/Attack Prototype/Assets
 GfxDevice: creating device client; threaded=0
 Direct3D:
     Version:  Direct3D 11.0 [level 11.1]
@@ -35,7 +35,7 @@ Initialize mono
 Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2020.2.2f1/Editor/Data/Managed'
 Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2020.2.2f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
 Mono config path = 'C:/Program Files/Unity/Hub/Editor/2020.2.2f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56232
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56000
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2020.2.2f1/Editor/Data/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll
@@ -43,331 +43,416 @@ Register platform support module: C:/Program Files/Unity/Hub/Editor/2020.2.2f1/E
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2020.2.2f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2020.2.2f1/Editor/Data/PlaybackEngines/LinuxStandaloneSupport/UnityEditor.LinuxStandalone.Extensions.dll
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2020.2.2f1/Editor/Data/PlaybackEngines/LuminSupport/UnityEditor.Lumin.Extensions.dll
-Registered in 0.004419 seconds.
+Registered in 0.002815 seconds.
 Native extension for Lumin target not found
 Native extension for LinuxStandalone target not found
 Native extension for WindowsStandalone target not found
 Native extension for OSXStandalone target not found
 Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 67.00 ms, found 1 plugins.
+Refreshing native plugins compatible for Editor in 37.49 ms, found 1 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Invoked RoslynAnalysisRunner static constructor.
 RoslynAnalysisRunner will not be running.
 RoslynAnalysisRunner has terminated.
 Mono: successfully reloaded assembly
-- Completed reload, in  3.023 seconds
+- Completed reload, in  2.017 seconds
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
-Registered in 0.001953 seconds.
+Registered in 0.000925 seconds.
 Begin MonoManager ReloadAssembly
-Error: Could not load signature of Unity.Android.Logcat.AndroidLogcat:.ctor due to: Could not load file or assembly 'UnityEditor.Android.Extensions, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null' or one of its dependencies. assembly:UnityEditor.Android.Extensions, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null type:<unknown type> member:(null) signature:<none>
-0x00007ff7ec2ff02c (Unity) StackWalker::GetCurrentCallstack
-0x00007ff7ec307409 (Unity) StackWalker::ShowCallstack
-0x00007ff7ed7cfafc (Unity) GetStacktrace
-0x00007ff7ee8aaf63 (Unity) DebugStringToFile
-0x00007ff7ec1259eb (Unity) ScanForAttributesAndInterfaceImplementations
-0x00007ff7ec138dba (Unity) MonoManager::EndReloadAssembly
-0x00007ff7ec13ffe9 (Unity) MonoManager::ReloadAssembly
-0x00007ff7ed4da2a1 (Unity) LoadDomainAndUserAssemblies
-0x00007ff7ed4da74e (Unity) LoadUserAssemblies
-0x00007ff7ece67ee1 (Unity) Application::InitializeProject
-0x00007ff7ed7dd0b2 (Unity) WinMain
-0x00007ff7ef640c66 (Unity) __scrt_common_main_seh
-0x00007ff853867034 (KERNEL32) BaseThreadInitThunk
-0x00007ff8548bd0d1 (ntdll) RtlUserThreadStart
-
-Unloading broken assembly Library/ScriptAssemblies/Unity.Mobile.AndroidLogcat.Editor.dll, this assembly can cause crashes in the runtime
-0x00007ff7ec2ff02c (Unity) StackWalker::GetCurrentCallstack
-0x00007ff7ec307409 (Unity) StackWalker::ShowCallstack
-0x00007ff7ed7cfafc (Unity) GetStacktrace
-0x00007ff7ee8aaf63 (Unity) DebugStringToFile
-0x00007ff7ec141b39 (Unity) MonoManager::SetupLoadedEditorAssemblies
-0x00007ff7ec13910c (Unity) MonoManager::EndReloadAssembly
-0x00007ff7ec13ffe9 (Unity) MonoManager::ReloadAssembly
-0x00007ff7ed4da2a1 (Unity) LoadDomainAndUserAssemblies
-0x00007ff7ed4da74e (Unity) LoadUserAssemblies
-0x00007ff7ece67ee1 (Unity) Application::InitializeProject
-0x00007ff7ed7dd0b2 (Unity) WinMain
-0x00007ff7ef640c66 (Unity) __scrt_common_main_seh
-0x00007ff853867034 (KERNEL32) BaseThreadInitThunk
-0x00007ff8548bd0d1 (ntdll) RtlUserThreadStart
-
 Native extension for Lumin target not found
 Native extension for LinuxStandalone target not found
 Native extension for WindowsStandalone target not found
 Native extension for OSXStandalone target not found
 Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 95.97 ms, found 1 plugins.
+Refreshing native plugins compatible for Editor in 40.19 ms, found 1 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Invoked RoslynAnalysisRunner static constructor.
 RoslynAnalysisRunner will not be running.
 RoslynAnalysisRunner has terminated.
 Mono: successfully reloaded assembly
-- Completed reload, in  3.769 seconds
+- Completed reload, in  0.872 seconds
 Platform modules already initialized, skipping
 ========================================================================
 Worker process is ready to serve import requests
-Launched and connected shader compiler UnityShaderCompiler.exe after 0.07 seconds
-Refreshing native plugins compatible for Editor in 0.89 ms, found 1 plugins.
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.04 seconds
+Refreshing native plugins compatible for Editor in 0.45 ms, found 1 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 1914 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 87.5 MB.
-System memory in use after: 87.6 MB.
+Unloading 1915 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 88.1 MB.
+System memory in use after: 88.2 MB.
 
-Unloading 32 unused Assets to reduce memory usage. Loaded Objects now: 2347.
-Total: 4.886100 ms (FindLiveObjects: 0.291600 ms CreateObjectMapping: 0.119600 ms MarkObjects: 4.349400 ms  DeleteObjects: 0.121500 ms)
-
-========================================================================
-Received Import Request.
-  path: Assets/_Scripts/InfoPanel_Button.cs
-  artifactKey: Guid(4725229933b62c048933b71334ccae64) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/_Scripts/InfoPanel_Button.cs using Guid(4725229933b62c048933b71334ccae64) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a7c4dfad48ca4c6ac38ebe78ae9a236b') in 0.067334 seconds
-  Import took 0.074258 seconds .
+Unloading 32 unused Assets to reduce memory usage. Loaded Objects now: 2348.
+Total: 2.907100 ms (FindLiveObjects: 0.351200 ms CreateObjectMapping: 0.181900 ms MarkObjects: 2.302400 ms  DeleteObjects: 0.070100 ms)
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000383 seconds.
-  path: Assets/_Scripts/MikkelTestMonster.cs
-  artifactKey: Guid(1455671e27f6e5747ab6866ac2f01fbe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/_Scripts/MikkelTestMonster.cs using Guid(1455671e27f6e5747ab6866ac2f01fbe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e1389985109d458c909de866e60fb317') in 0.013961 seconds
-  Import took 0.021283 seconds .
+  path: Assets/Scenes/MonsterHome_MainPrototype.unity
+  artifactKey: Guid(1b3f92e7abc7f5b47b8a4cb62a034554) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/MonsterHome_MainPrototype.unity using Guid(1b3f92e7abc7f5b47b8a4cb62a034554) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bc8783196bbc487a8ace172fdff3fcb6') in 0.017343 seconds
+  Import took 0.020808 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000439 seconds.
-  path: Assets/_Scripts/InfoButton_Mikkel.cs
-  artifactKey: Guid(7577a60d48033ec4284855cb01592e01) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/_Scripts/InfoButton_Mikkel.cs using Guid(7577a60d48033ec4284855cb01592e01) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '91f022e512db59009fd60bffa9397e01') in 0.016389 seconds
-  Import took 0.023677 seconds .
+  Time since last request: 172.773927 seconds.
+  path: Assets/Prefabs/Monsters/DefaultStartingMonster.prefab
+  artifactKey: Guid(100a4ed44447a644faaa607d720395fe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Monsters/DefaultStartingMonster.prefab using Guid(100a4ed44447a644faaa607d720395fe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd45346790fb75b3063d1669d4127fda9') in 0.121569 seconds
+  Import took 0.124955 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 6.549413 seconds.
+  path: Assets/Sprites/BackGround/EarthMonster.png
+  artifactKey: Guid(11194725c537ae04abe958f7aea52d51) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/BackGround/EarthMonster.png using Guid(11194725c537ae04abe958f7aea52d51) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8b5aa3ded7f62c4c275cafaf5a71d840') in 0.061288 seconds
+  Import took 0.064148 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000224 seconds.
+  path: Assets/Sprites/BackGround/MapInspiration.png
+  artifactKey: Guid(75b37e7bc0b21b8439d36db0c6babc62) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/BackGround/MapInspiration.png using Guid(75b37e7bc0b21b8439d36db0c6babc62) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd482465894e14978550b94ea0f585781') in 0.020946 seconds
+  Import took 0.024436 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000219 seconds.
+  path: Assets/Resources/Sprites/Icon_Sprites/Icons_Sprite/image0.png
+  artifactKey: Guid(72bccf3d0f7e59d46b02f988c2e8f366) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Sprites/Icon_Sprites/Icons_Sprite/image0.png using Guid(72bccf3d0f7e59d46b02f988c2e8f366) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '362db9f5381cf8d995a7366b1c45fb17') in 0.044421 seconds
+  Import took 0.047770 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000195 seconds.
+  path: Assets/Sprites/BackGround/ForestMonster 1.png
+  artifactKey: Guid(1d6e3654d385ce945b60d88ebaa778ac) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/BackGround/ForestMonster 1.png using Guid(1d6e3654d385ce945b60d88ebaa778ac) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '08c3daac130d1db29a5dfc15c4037487') in 0.020042 seconds
+  Import took 0.023028 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000199 seconds.
+  path: Assets/_Scripts/prototype1/Battle/monscarebatowl.png
+  artifactKey: Guid(84a3981eebad62f428b3573b89a0fd8d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/_Scripts/prototype1/Battle/monscarebatowl.png using Guid(84a3981eebad62f428b3573b89a0fd8d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '88800ccba8812c442a48685e6c13923a') in 0.020020 seconds
+  Import took 0.022946 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000213 seconds.
+  path: Assets/Resources/Sprites/S_Child_Base.png
+  artifactKey: Guid(b0d8454f883551249a0e7384bd55f5cd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Sprites/S_Child_Base.png using Guid(b0d8454f883551249a0e7384bd55f5cd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0682a8952bffd4825505536df55a63f8') in 0.038832 seconds
+  Import took 0.041789 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000195 seconds.
+  path: Assets/Sprites/BackGround/EarthMonster.png
+  artifactKey: Guid(11194725c537ae04abe958f7aea52d51) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/BackGround/EarthMonster.png using Guid(11194725c537ae04abe958f7aea52d51) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8b5aa3ded7f62c4c275cafaf5a71d840') in 0.012226 seconds
+  Import took 0.015126 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000214 seconds.
+  path: Assets/Square.png
+  artifactKey: Guid(b56c6c29cd8c99242977fdf8e688a158) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Square.png using Guid(b56c6c29cd8c99242977fdf8e688a158) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd1b1a12d4b726a065dcda2eeb656cce6') in 0.016840 seconds
+  Import took 0.020278 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000215 seconds.
+  path: Assets/Resources/Sprites/Map/Map.png
+  artifactKey: Guid(62d6fa5c8937c1d469c44bffe1517e73) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Sprites/Map/Map.png using Guid(62d6fa5c8937c1d469c44bffe1517e73) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7e175d79012f63b84ef354e3e9b59dcd') in 0.035435 seconds
+  Import took 0.038468 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000169 seconds.
+  path: Assets/Resources/Sprites/Square.png
+  artifactKey: Guid(5b421f4d39bd3dc48955133b310a10d9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Sprites/Square.png using Guid(5b421f4d39bd3dc48955133b310a10d9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '17359f05e2d270379830962e9736483b') in 0.009220 seconds
+  Import took 0.012153 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000173 seconds.
+  path: Assets/Resources/Sprites/Map/Map.png
+  artifactKey: Guid(62d6fa5c8937c1d469c44bffe1517e73) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Sprites/Map/Map.png using Guid(62d6fa5c8937c1d469c44bffe1517e73) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7e175d79012f63b84ef354e3e9b59dcd') in 0.025676 seconds
+  Import took 0.028543 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000249 seconds.
+  path: Assets/Resources/Sprites/monscarebatowl.png
+  artifactKey: Guid(400536981d3cc7245b9c597cdee095cc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Sprites/monscarebatowl.png using Guid(400536981d3cc7245b9c597cdee095cc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ce740405537e448b02ca83009b982ae9') in 0.016086 seconds
+  Import took 0.019210 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.605686 seconds.
+  path: Assets/Prefabs/Monsters/DefaultStartingMonster.prefab
+  artifactKey: Guid(100a4ed44447a644faaa607d720395fe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Monsters/DefaultStartingMonster.prefab using Guid(100a4ed44447a644faaa607d720395fe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3399443914474bff06bbfb003abad250') in 0.016298 seconds
+  Import took 0.019342 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 12.048382 seconds.
+  path: Assets/Scenes/Map.unity
+  artifactKey: Guid(5fd01ef05f9c1454ab762fa84d64275c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/Map.unity using Guid(5fd01ef05f9c1454ab762fa84d64275c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b570dae59c62dc48ed58696584504e58') in 0.007553 seconds
+  Import took 0.010539 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.199369 seconds.
+  path: Assets/Scenes/MainMenu.unity
+  artifactKey: Guid(31aa9ec70dd757d40b1a9c721fee1d35) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/MainMenu.unity using Guid(31aa9ec70dd757d40b1a9c721fee1d35) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '92d50d1e28f5c3835d570e1ee622c975') in 0.007782 seconds
+  Import took 0.011010 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000644 seconds.
+  path: Assets/Scenes/MainMenu.unity
+  artifactKey: Guid(31aa9ec70dd757d40b1a9c721fee1d35) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/MainMenu.unity using Guid(31aa9ec70dd757d40b1a9c721fee1d35) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '92d50d1e28f5c3835d570e1ee622c975') in 0.002858 seconds
+  Import took 0.005675 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.661219 seconds.
+  path: Assets/Scenes/MonsterHome.unity
+  artifactKey: Guid(5b9f89ef864a8a54997cf7c64e211181) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/MonsterHome.unity using Guid(5b9f89ef864a8a54997cf7c64e211181) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '80a8f5d36852971c8a14797463761ca7') in 0.007261 seconds
+  Import took 0.010427 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.412419 seconds.
+  path: Assets/Scenes/RayCast_Prototype.unity
+  artifactKey: Guid(77222220960124843ada14ce9ec18c25) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/RayCast_Prototype.unity using Guid(77222220960124843ada14ce9ec18c25) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f247e781ea580ce1d263a031cf3302be') in 0.007132 seconds
+  Import took 0.010372 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000462 seconds.
+  path: Assets/Scenes/RayCast_Prototype.unity
+  artifactKey: Guid(77222220960124843ada14ce9ec18c25) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/RayCast_Prototype.unity using Guid(77222220960124843ada14ce9ec18c25) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f247e781ea580ce1d263a031cf3302be') in 0.003233 seconds
+  Import took 0.006396 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 5.960946 seconds.
+  path: Assets/Scenes/SampleScene.unity
+  artifactKey: Guid(34b300c31bb374d42865a32b26fa49be) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/SampleScene.unity using Guid(34b300c31bb374d42865a32b26fa49be) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4cd8d7232fc7a18e6614d61083e680d5') in 0.007660 seconds
+  Import took 0.010750 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 35.076859 seconds.
+  path: Assets/Scenes/MonsterHome_MainPrototype.unity
+  artifactKey: Guid(1b3f92e7abc7f5b47b8a4cb62a034554) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/MonsterHome_MainPrototype.unity using Guid(1b3f92e7abc7f5b47b8a4cb62a034554) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b3537390ae85ba197737056f00d7c3e5') in 0.003341 seconds
+  Import took 0.006197 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 62.335354 seconds.
+  path: Assets/Prefabs/GameManager.prefab
+  artifactKey: Guid(e940a607c6fae394dbc5a4b617596349) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/GameManager.prefab using Guid(e940a607c6fae394dbc5a4b617596349) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9339f3cc60058cba645a25907aef7dbb') in 0.008553 seconds
+  Import took 0.012361 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 8.474769 seconds.
+  path: Assets/Scenes/FeedingPrototype.unity
+  artifactKey: Guid(e1dd301fcda863c4bbeb72072e99ab66) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/FeedingPrototype.unity using Guid(e1dd301fcda863c4bbeb72072e99ab66) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8a6727089bd8796bd36ae87b665d977c') in 0.007559 seconds
+  Import took 0.010545 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000395 seconds.
+  path: Assets/Scenes/FeedingPrototype.unity
+  artifactKey: Guid(e1dd301fcda863c4bbeb72072e99ab66) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/FeedingPrototype.unity using Guid(e1dd301fcda863c4bbeb72072e99ab66) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8a6727089bd8796bd36ae87b665d977c') in 0.002985 seconds
+  Import took 0.005604 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 54.151595 seconds.
+  path: Assets/Scenes/AttackPrototype.unity
+  artifactKey: Guid(b089d8f083f9ba749b20d5fc17ce839e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/AttackPrototype.unity using Guid(b089d8f083f9ba749b20d5fc17ce839e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8fe40107a73ec8aa07ada7210f4745e4') in 0.007845 seconds
+  Import took 0.010969 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 98.264501 seconds.
+  path: Assets/Scenes/MonsterHome_MainPrototype.unity
+  artifactKey: Guid(1b3f92e7abc7f5b47b8a4cb62a034554) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/MonsterHome_MainPrototype.unity using Guid(1b3f92e7abc7f5b47b8a4cb62a034554) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b147e1aa969f5702f23d1e899a77b6f0') in 0.003147 seconds
+  Import took 0.006634 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 26.597153 seconds.
+  path: Assets/Prefabs/FeedingPrototype
+  artifactKey: Guid(d84b5113687de9447abdb93557c0c1f6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/FeedingPrototype using Guid(d84b5113687de9447abdb93557c0c1f6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'db9420a5d0e5f990a82ed14684327112') in 0.007900 seconds
+  Import took 0.011888 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 19.187259 seconds.
+  path: Assets/Resources/Sprites/BG01_Sprite/bg.png
+  artifactKey: Guid(0b7e5ddaa38707d428865d44aa9f6019) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Sprites/BG01_Sprite/bg.png using Guid(0b7e5ddaa38707d428865d44aa9f6019) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '758ff9c8270e71d3a42b1fe028c135ea') in 0.021064 seconds
+  Import took 0.024470 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000173 seconds.
+  path: Assets/Sprites/BackGround/Blob.png
+  artifactKey: Guid(1fc9a9990b1b6714e817a8c3a83f333d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/BackGround/Blob.png using Guid(1fc9a9990b1b6714e817a8c3a83f333d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'de0d60265d5c7df7719c9c464d27ca50') in 0.022520 seconds
+  Import took 0.025171 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000197 seconds.
+  path: Assets/Resources/Sprites/BackGround/Blob.png
+  artifactKey: Guid(def6d122194b37645b99cea18b89714f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Sprites/BackGround/Blob.png using Guid(def6d122194b37645b99cea18b89714f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '07bda62028fdb530a9e44a58e1c32441') in 0.015617 seconds
+  Import took 0.018493 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000205 seconds.
+  path: Assets/Resources/Sprites/BG01_Sprite/bg-01.png
+  artifactKey: Guid(c10ce6056264fea4e8177bebed93f752) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Sprites/BG01_Sprite/bg-01.png using Guid(c10ce6056264fea4e8177bebed93f752) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '469a4aad7662f3f1d99c077e3d6e1659') in 0.034321 seconds
+  Import took 0.037992 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.495317 seconds.
+  path: Assets/Resources/Sprites/Food_Sprites/Foob_Sprite/+.png
+  artifactKey: Guid(6bc3eb30f95f5e4419b2d5b18705496b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Sprites/Food_Sprites/Foob_Sprite/+.png using Guid(6bc3eb30f95f5e4419b2d5b18705496b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '17a4cd6c9ce913bda754b3b99c05587e') in 0.053862 seconds
+  Import took 0.057067 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000209 seconds.
+  path: Assets/Resources/Background_Png/Background_Ice.png
+  artifactKey: Guid(03935f9123df6504d844e909c9f99a57) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Background_Png/Background_Ice.png using Guid(03935f9123df6504d844e909c9f99a57) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'dda1ea0533f76d205a8084dfe1ebf5a7') in 0.019142 seconds
+  Import took 0.023151 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000186 seconds.
+  path: Assets/Sprites/BackGround/Beach.png
+  artifactKey: Guid(6675d1f5ae0ce3148a0908e87abde5db) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/BackGround/Beach.png using Guid(6675d1f5ae0ce3148a0908e87abde5db) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2175aa0616f1bc2323ba97840047f08f') in 0.018288 seconds
+  Import took 0.021205 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000288 seconds.
+  path: Assets/Resources/Background_Png/Background_Desert.png
+  artifactKey: Guid(0222ac78c61a66b449edecdf7f762a5b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Background_Png/Background_Desert.png using Guid(0222ac78c61a66b449edecdf7f762a5b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '06446014104054c28e56c302917fb730') in 0.023756 seconds
+  Import took 0.026938 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000204 seconds.
+  path: Assets/Resources/Background_Png/Background_Mountain.png
+  artifactKey: Guid(e7e9591f522bdb34da5a3915b86fb2a1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Background_Png/Background_Mountain.png using Guid(e7e9591f522bdb34da5a3915b86fb2a1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ce3f28791f3b42dd92123297b071e647') in 0.017580 seconds
+  Import took 0.020694 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000194 seconds.
+  path: Assets/Resources/Background_Png/Background_Savannah.png
+  artifactKey: Guid(8bfb1f86d3de687488b61d8c04bb4fa9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Background_Png/Background_Savannah.png using Guid(8bfb1f86d3de687488b61d8c04bb4fa9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cfe9a2f33046c2aa9ed3e0167a6c0448') in 0.019271 seconds
+  Import took 0.022288 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000176 seconds.
+  path: Assets/Resources/Background_Png/Background_Forest.png
+  artifactKey: Guid(b6e88d8459b513f41a739decbdf511e3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Background_Png/Background_Forest.png using Guid(b6e88d8459b513f41a739decbdf511e3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0fd3b1e9c535af4769a22d6fe4c054f2') in 0.020831 seconds
+  Import took 0.023690 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000222 seconds.
+  path: Assets/Resources/Sprites/Food_Sprites/Foob_Sprite/+.png
+  artifactKey: Guid(6bc3eb30f95f5e4419b2d5b18705496b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Sprites/Food_Sprites/Foob_Sprite/+.png using Guid(6bc3eb30f95f5e4419b2d5b18705496b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '17a4cd6c9ce913bda754b3b99c05587e') in 0.047533 seconds
+  Import took 0.050593 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 15.983734 seconds.
+  path: Assets/Prefabs/FeedingPrototype/SpawnFood.prefab
+  artifactKey: Guid(54f1127636579de4fb025d83b525608d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/FeedingPrototype/SpawnFood.prefab using Guid(54f1127636579de4fb025d83b525608d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '327616446b7c092cd2426eefb0c22072') in 0.021317 seconds
+  Import took 0.024542 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000800 seconds.
+  path: Assets/Prefabs/FeedingPrototype/SpawnFood.prefab
+  artifactKey: Guid(54f1127636579de4fb025d83b525608d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/FeedingPrototype/SpawnFood.prefab using Guid(54f1127636579de4fb025d83b525608d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '327616446b7c092cd2426eefb0c22072') in 0.004284 seconds
+  Import took 0.006933 seconds .
 
 ========================================================================
 Received Prepare
 Registering precompiled user dll's ...
-Registered in 0.001243 seconds.
+Registered in 0.001350 seconds.
 Begin MonoManager ReloadAssembly
-Error: Could not load signature of Unity.Android.Logcat.AndroidLogcat:.ctor due to: Could not load file or assembly 'UnityEditor.Android.Extensions, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null' or one of its dependencies. assembly:UnityEditor.Android.Extensions, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null type:<unknown type> member:(null) signature:<none>
-0x00007ff7ec2ff02c (Unity) StackWalker::GetCurrentCallstack
-0x00007ff7ec307409 (Unity) StackWalker::ShowCallstack
-0x00007ff7ed7cfafc (Unity) GetStacktrace
-0x00007ff7ee8aaf63 (Unity) DebugStringToFile
-0x00007ff7ec1259eb (Unity) ScanForAttributesAndInterfaceImplementations
-0x00007ff7ec138dba (Unity) MonoManager::EndReloadAssembly
-0x00007ff7ec13ffe9 (Unity) MonoManager::ReloadAssembly
-0x00007ff7ed4da2a1 (Unity) LoadDomainAndUserAssemblies
-0x00007ff7ed4da74e (Unity) LoadUserAssemblies
-0x00007ff7ed9039e9 (Unity) <lambda_fe9441f73272b7bdb4fc543a788e7929>::operator()
-0x00007ff7ed9cdd82 (Unity) asio::detail::completion_handler<core::mutable_function<void __cdecl(void)> >::do_complete
-0x00007ff7ed9cfee0 (Unity) asio::detail::win_iocp_io_service::do_one
-0x00007ff7ed9d366e (Unity) asio::io_service::run
-0x00007ff7ed949ba0 (Unity) RunAssetImportWorkerClientV2
-0x00007ff7ed949bf0 (Unity) RunAssetImporterV2
-0x00007ff7ece67ee6 (Unity) Application::InitializeProject
-0x00007ff7ed7dd0b2 (Unity) WinMain
-0x00007ff7ef640c66 (Unity) __scrt_common_main_seh
-0x00007ff853867034 (KERNEL32) BaseThreadInitThunk
-0x00007ff8548bd0d1 (ntdll) RtlUserThreadStart
-
-Unloading broken assembly Library/ScriptAssemblies/Unity.Mobile.AndroidLogcat.Editor.dll, this assembly can cause crashes in the runtime
-0x00007ff7ec2ff02c (Unity) StackWalker::GetCurrentCallstack
-0x00007ff7ec307409 (Unity) StackWalker::ShowCallstack
-0x00007ff7ed7cfafc (Unity) GetStacktrace
-0x00007ff7ee8aaf63 (Unity) DebugStringToFile
-0x00007ff7ec141b39 (Unity) MonoManager::SetupLoadedEditorAssemblies
-0x00007ff7ec13910c (Unity) MonoManager::EndReloadAssembly
-0x00007ff7ec13ffe9 (Unity) MonoManager::ReloadAssembly
-0x00007ff7ed4da2a1 (Unity) LoadDomainAndUserAssemblies
-0x00007ff7ed4da74e (Unity) LoadUserAssemblies
-0x00007ff7ed9039e9 (Unity) <lambda_fe9441f73272b7bdb4fc543a788e7929>::operator()
-0x00007ff7ed9cdd82 (Unity) asio::detail::completion_handler<core::mutable_function<void __cdecl(void)> >::do_complete
-0x00007ff7ed9cfee0 (Unity) asio::detail::win_iocp_io_service::do_one
-0x00007ff7ed9d366e (Unity) asio::io_service::run
-0x00007ff7ed949ba0 (Unity) RunAssetImportWorkerClientV2
-0x00007ff7ed949bf0 (Unity) RunAssetImporterV2
-0x00007ff7ece67ee6 (Unity) Application::InitializeProject
-0x00007ff7ed7dd0b2 (Unity) WinMain
-0x00007ff7ef640c66 (Unity) __scrt_common_main_seh
-0x00007ff853867034 (KERNEL32) BaseThreadInitThunk
-0x00007ff8548bd0d1 (ntdll) RtlUserThreadStart
-
 Native extension for Lumin target not found
 Native extension for LinuxStandalone target not found
 Native extension for WindowsStandalone target not found
 Native extension for OSXStandalone target not found
 Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 0.69 ms, found 1 plugins.
+Refreshing native plugins compatible for Editor in 0.50 ms, found 1 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Invoked RoslynAnalysisRunner static constructor.
 RoslynAnalysisRunner will not be running.
 RoslynAnalysisRunner has terminated.
 Mono: successfully reloaded assembly
-- Completed reload, in  1.455 seconds
+- Completed reload, in  0.859 seconds
 Platform modules already initialized, skipping
-Switching build target platform(5) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(537395200) extendedPlatform(0)
-Refreshing native plugins compatible for Editor in 0.85 ms, found 1 plugins.
+Refreshing native plugins compatible for Editor in 0.49 ms, found 1 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 1906 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 87.2 MB.
-System memory in use after: 87.3 MB.
+Unloading 1905 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 91.3 MB.
+System memory in use after: 91.4 MB.
 
-Unloading 21 unused Assets to reduce memory usage. Loaded Objects now: 2349.
-Total: 4.296500 ms (FindLiveObjects: 0.462100 ms CreateObjectMapping: 0.153900 ms MarkObjects: 3.634800 ms  DeleteObjects: 0.042800 ms)
+Unloading 21 unused Assets to reduce memory usage. Loaded Objects now: 2422.
+Total: 2.030100 ms (FindLiveObjects: 0.246500 ms CreateObjectMapping: 0.045100 ms MarkObjects: 1.707000 ms  DeleteObjects: 0.029600 ms)
 
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
-========================================================================
-Received Import Request.
-  Time since last request: 70.828622 seconds.
-  path: Assets/_Scripts/monsterScripts/MonsterLoader.cs
-  artifactKey: Guid(2884349f00f2d9a4ea55e339af094819) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/_Scripts/monsterScripts/MonsterLoader.cs using Guid(2884349f00f2d9a4ea55e339af094819) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '09f8b21e2a8cc91705982656887dc0c9') in 0.013030 seconds
-  Import took 0.018060 seconds .
-
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.001735 seconds.
-Begin MonoManager ReloadAssembly
-Error: Could not load signature of Unity.Android.Logcat.AndroidLogcat:.ctor due to: Could not load file or assembly 'UnityEditor.Android.Extensions, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null' or one of its dependencies. assembly:UnityEditor.Android.Extensions, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null type:<unknown type> member:(null) signature:<none>
-0x00007ff7ec2ff02c (Unity) StackWalker::GetCurrentCallstack
-0x00007ff7ec307409 (Unity) StackWalker::ShowCallstack
-0x00007ff7ed7cfafc (Unity) GetStacktrace
-0x00007ff7ee8aaf63 (Unity) DebugStringToFile
-0x00007ff7ec1259eb (Unity) ScanForAttributesAndInterfaceImplementations
-0x00007ff7ec138dba (Unity) MonoManager::EndReloadAssembly
-0x00007ff7ec13ffe9 (Unity) MonoManager::ReloadAssembly
-0x00007ff7ed4da2a1 (Unity) LoadDomainAndUserAssemblies
-0x00007ff7ed4da74e (Unity) LoadUserAssemblies
-0x00007ff7ed9039e9 (Unity) <lambda_fe9441f73272b7bdb4fc543a788e7929>::operator()
-0x00007ff7ed9cdd82 (Unity) asio::detail::completion_handler<core::mutable_function<void __cdecl(void)> >::do_complete
-0x00007ff7ed9cfee0 (Unity) asio::detail::win_iocp_io_service::do_one
-0x00007ff7ed9d366e (Unity) asio::io_service::run
-0x00007ff7ed949ba0 (Unity) RunAssetImportWorkerClientV2
-0x00007ff7ed949bf0 (Unity) RunAssetImporterV2
-0x00007ff7ece67ee6 (Unity) Application::InitializeProject
-0x00007ff7ed7dd0b2 (Unity) WinMain
-0x00007ff7ef640c66 (Unity) __scrt_common_main_seh
-0x00007ff853867034 (KERNEL32) BaseThreadInitThunk
-0x00007ff8548bd0d1 (ntdll) RtlUserThreadStart
-
-Unloading broken assembly Library/ScriptAssemblies/Unity.Mobile.AndroidLogcat.Editor.dll, this assembly can cause crashes in the runtime
-0x00007ff7ec2ff02c (Unity) StackWalker::GetCurrentCallstack
-0x00007ff7ec307409 (Unity) StackWalker::ShowCallstack
-0x00007ff7ed7cfafc (Unity) GetStacktrace
-0x00007ff7ee8aaf63 (Unity) DebugStringToFile
-0x00007ff7ec141b39 (Unity) MonoManager::SetupLoadedEditorAssemblies
-0x00007ff7ec13910c (Unity) MonoManager::EndReloadAssembly
-0x00007ff7ec13ffe9 (Unity) MonoManager::ReloadAssembly
-0x00007ff7ed4da2a1 (Unity) LoadDomainAndUserAssemblies
-0x00007ff7ed4da74e (Unity) LoadUserAssemblies
-0x00007ff7ed9039e9 (Unity) <lambda_fe9441f73272b7bdb4fc543a788e7929>::operator()
-0x00007ff7ed9cdd82 (Unity) asio::detail::completion_handler<core::mutable_function<void __cdecl(void)> >::do_complete
-0x00007ff7ed9cfee0 (Unity) asio::detail::win_iocp_io_service::do_one
-0x00007ff7ed9d366e (Unity) asio::io_service::run
-0x00007ff7ed949ba0 (Unity) RunAssetImportWorkerClientV2
-0x00007ff7ed949bf0 (Unity) RunAssetImporterV2
-0x00007ff7ece67ee6 (Unity) Application::InitializeProject
-0x00007ff7ed7dd0b2 (Unity) WinMain
-0x00007ff7ef640c66 (Unity) __scrt_common_main_seh
-0x00007ff853867034 (KERNEL32) BaseThreadInitThunk
-0x00007ff8548bd0d1 (ntdll) RtlUserThreadStart
-
-Native extension for Lumin target not found
-Native extension for LinuxStandalone target not found
-Native extension for WindowsStandalone target not found
-Native extension for OSXStandalone target not found
-Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 0.69 ms, found 1 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Invoked RoslynAnalysisRunner static constructor.
-RoslynAnalysisRunner will not be running.
-RoslynAnalysisRunner has terminated.
-Mono: successfully reloaded assembly
-- Completed reload, in  1.316 seconds
-Platform modules already initialized, skipping
-Switching build target platform(5) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(537395200) extendedPlatform(0)
-Refreshing native plugins compatible for Editor in 0.65 ms, found 1 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 1907 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 87.5 MB.
-System memory in use after: 87.6 MB.
-
-Unloading 20 unused Assets to reduce memory usage. Loaded Objects now: 2353.
-Total: 3.247600 ms (FindLiveObjects: 0.265100 ms CreateObjectMapping: 0.073800 ms MarkObjects: 2.879600 ms  DeleteObjects: 0.027400 ms)
-
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.001133 seconds.
-Begin MonoManager ReloadAssembly
-Error: Could not load signature of Unity.Android.Logcat.AndroidLogcat:.ctor due to: Could not load file or assembly 'UnityEditor.Android.Extensions, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null' or one of its dependencies. assembly:UnityEditor.Android.Extensions, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null type:<unknown type> member:(null) signature:<none>
-0x00007ff7ec2ff02c (Unity) StackWalker::GetCurrentCallstack
-0x00007ff7ec307409 (Unity) StackWalker::ShowCallstack
-0x00007ff7ed7cfafc (Unity) GetStacktrace
-0x00007ff7ee8aaf63 (Unity) DebugStringToFile
-0x00007ff7ec1259eb (Unity) ScanForAttributesAndInterfaceImplementations
-0x00007ff7ec138dba (Unity) MonoManager::EndReloadAssembly
-0x00007ff7ec13ffe9 (Unity) MonoManager::ReloadAssembly
-0x00007ff7ed4da2a1 (Unity) LoadDomainAndUserAssemblies
-0x00007ff7ed4da74e (Unity) LoadUserAssemblies
-0x00007ff7ed9039e9 (Unity) <lambda_fe9441f73272b7bdb4fc543a788e7929>::operator()
-0x00007ff7ed9cdd82 (Unity) asio::detail::completion_handler<core::mutable_function<void __cdecl(void)> >::do_complete
-0x00007ff7ed9cfee0 (Unity) asio::detail::win_iocp_io_service::do_one
-0x00007ff7ed9d366e (Unity) asio::io_service::run
-0x00007ff7ed949ba0 (Unity) RunAssetImportWorkerClientV2
-0x00007ff7ed949bf0 (Unity) RunAssetImporterV2
-0x00007ff7ece67ee6 (Unity) Application::InitializeProject
-0x00007ff7ed7dd0b2 (Unity) WinMain
-0x00007ff7ef640c66 (Unity) __scrt_common_main_seh
-0x00007ff853867034 (KERNEL32) BaseThreadInitThunk
-0x00007ff8548bd0d1 (ntdll) RtlUserThreadStart
-
-Unloading broken assembly Library/ScriptAssemblies/Unity.Mobile.AndroidLogcat.Editor.dll, this assembly can cause crashes in the runtime
-0x00007ff7ec2ff02c (Unity) StackWalker::GetCurrentCallstack
-0x00007ff7ec307409 (Unity) StackWalker::ShowCallstack
-0x00007ff7ed7cfafc (Unity) GetStacktrace
-0x00007ff7ee8aaf63 (Unity) DebugStringToFile
-0x00007ff7ec141b39 (Unity) MonoManager::SetupLoadedEditorAssemblies
-0x00007ff7ec13910c (Unity) MonoManager::EndReloadAssembly
-0x00007ff7ec13ffe9 (Unity) MonoManager::ReloadAssembly
-0x00007ff7ed4da2a1 (Unity) LoadDomainAndUserAssemblies
-0x00007ff7ed4da74e (Unity) LoadUserAssemblies
-0x00007ff7ed9039e9 (Unity) <lambda_fe9441f73272b7bdb4fc543a788e7929>::operator()
-0x00007ff7ed9cdd82 (Unity) asio::detail::completion_handler<core::mutable_function<void __cdecl(void)> >::do_complete
-0x00007ff7ed9cfee0 (Unity) asio::detail::win_iocp_io_service::do_one
-0x00007ff7ed9d366e (Unity) asio::io_service::run
-0x00007ff7ed949ba0 (Unity) RunAssetImportWorkerClientV2
-0x00007ff7ed949bf0 (Unity) RunAssetImporterV2
-0x00007ff7ece67ee6 (Unity) Application::InitializeProject
-0x00007ff7ed7dd0b2 (Unity) WinMain
-0x00007ff7ef640c66 (Unity) __scrt_common_main_seh
-0x00007ff853867034 (KERNEL32) BaseThreadInitThunk
-0x00007ff8548bd0d1 (ntdll) RtlUserThreadStart
-
-Native extension for Lumin target not found
-Native extension for LinuxStandalone target not found
-Native extension for WindowsStandalone target not found
-Native extension for OSXStandalone target not found
-Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 0.71 ms, found 1 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Invoked RoslynAnalysisRunner static constructor.
-RoslynAnalysisRunner will not be running.
-RoslynAnalysisRunner has terminated.
-Mono: successfully reloaded assembly
-- Completed reload, in  0.907 seconds
-Platform modules already initialized, skipping
-Switching build target platform(5) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(537395200) extendedPlatform(0)
-Refreshing native plugins compatible for Editor in 0.53 ms, found 1 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 1907 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 87.6 MB.
-System memory in use after: 87.7 MB.
-
-Unloading 20 unused Assets to reduce memory usage. Loaded Objects now: 2356.
-Total: 3.034400 ms (FindLiveObjects: 0.566000 ms CreateObjectMapping: 0.158300 ms MarkObjects: 2.284700 ms  DeleteObjects: 0.023300 ms)
-
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
 AssetImportWorkerClient::OnTransportError - code=2 error=End of file
