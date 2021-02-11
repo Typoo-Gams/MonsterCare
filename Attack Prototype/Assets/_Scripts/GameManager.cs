@@ -1,19 +1,28 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+
+
 using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
     public Slider SliderPrefab;
-    private Canvas CurrentCanvas;
+    public DateTime Time = DateTime.Now;
 
+    public int testValue;
+
+    private void Awake()
+    {
+        LoadTime();
+    }
 
     // Start is called before the first frame update
     void Start()
     {
-        CurrentCanvas = GameObject.FindGameObjectWithTag("Canvas").GetComponent<Canvas>();
+
     }
 
     // Update is called once per frame
@@ -21,14 +30,87 @@ public class GameManager : MonoBehaviour
     {
         
     }
-}
 
+    private void OnDestroy()
+    {
+        SaveTime();
+    }
+
+    //------------------------Save Time in PlayerPrefs---------------------//
+
+
+    /// <summary>
+    /// Saves current computer time to a save file.
+    /// </summary>
+    public void SaveTime() 
+    {
+        string[] TimeIndex =
+            {"Hour", "Minutes", "Day", "Month", "Year"};
+        float[] TimeTable =
+            {Time.Hour, Time.Minute, Time.Day, Time.Month, Time.Year};
+        for (int i = 0; i < TimeIndex.Length; i++) 
+        {
+            string FullIndex = "SavedTime_" + TimeIndex[i];
+            PlayerPrefs.SetFloat(FullIndex , TimeTable[i]);
+        }
+    }
+
+
+    /// <summary>
+    /// Loads the saved floats from the saved time as an array.
+    /// </summary>
+    public float[] LoadTime() 
+    {
+        string[] TimeIndex =
+            {"Hour", "Minutes", "Day", "Month", "Year"};
+        float[] TimeTable = new float[5];
+        for( int i = 0; i < TimeIndex.Length; i++) 
+        {
+            string fullIndex = "SavedTime_" + TimeIndex[i];
+            TimeTable[i] = PlayerPrefs.GetFloat(fullIndex);
+        }
+
+        //debug
+        string TimeSaved = TimeTable[0] + ":" + TimeTable[1] + "   " + TimeTable[2] + "/" + TimeTable[3] + "/" + TimeTable[4];
+        Debug.Log(TimeSaved);
+
+        //return
+        return TimeTable;
+    }
+
+
+    /// <summary>
+    /// Loads spesified value from saved time in playerprefs
+    /// </summary>
+    /// <param name="Name">Names: "Hour", "Minutes", "Day", "Month", "Year"</param>
+    /// <returns></returns>
+    public float LoadTime(string Name) 
+    {
+        string fullIndex = "SavedTime_" + Name;
+        return PlayerPrefs.GetFloat(fullIndex);
+    }
+
+
+    /// <summary>
+    /// Loads spesified value from saved time in playerprefs
+    /// </summary>
+    /// <param name="Index">indexes: Hour - 0, Minutes - 1, Day - 2, Month - 3, Year - 4</param>
+    /// <returns></returns>
+    public float LoadTime(int Index) 
+    {
+        string[] TimeIndex =
+            {"Hour", "Minutes", "Day", "Month", "Year"};
+        string fullIndex = "SavedTime_" + TimeIndex[Index];
+        return PlayerPrefs.GetFloat(fullIndex);
+    }
+}
 
 public class Monster
 {
 
     //Monster variables
-    string MonsterName;
+    private string MonsterName;
+    private int MonsterId;
     private int Health;
     private int Hunger;
     private int Sleep;
@@ -63,25 +145,40 @@ public class Monster
 
     //------------------Monster Class Constructor---------------------
 
-
+    //Constructor for no arguments
+    /// <summary>
+    /// Create a new monster Object with default values.
+    /// </summary>
     public Monster()
     {
         MonsterName = "Default";
+        MonsterId = 0;
         Health = MaxHealth;
         Hunger = 0;
         Sleep = 0;
+        Happiness = 0;
+        Playfull = 0;
+        Toughness = 0;
         IsSleepDeprived = false;
         IsMedicated = false;
         UpdateHunger(0);
     }
 
-
-    public Monster(string name)
+    /// <summary>
+    /// Create a Monster Object instantiated with Name And ID
+    /// </summary>
+    /// <param name="name">The name of the new monster</param>
+    /// <param name="ID">The id of the new monster</param>
+    public Monster(string name, int ID)
     {
         MonsterName = name;
+        MonsterId = ID;
         Health = MaxHealth;
         Hunger = 0;
         Sleep = 0;
+        Happiness = 0;
+        Playfull = 0;
+        Toughness = 0;
         IsSleepDeprived = false;
         IsMedicated = false;
         UpdateHunger(0);
@@ -95,6 +192,9 @@ public class Monster
 
 
     //Check Combat Status
+    /// <summary>
+    /// Returns bool IsInCombat.
+    /// </summary>
     public bool CombatStatus
     {
         get => IsInCombat;
@@ -102,6 +202,10 @@ public class Monster
 
 
     //Updates The monsters Combat Status and health bar visibility
+    /// <summary>
+    /// Updates the combat state. hides/shows healthbar
+    /// </summary>
+    /// <param name="state">new combat state</param>
     public void CombatActive(bool state)
     {
         IsInCombat = state;
@@ -131,6 +235,10 @@ public class Monster
 
 
     //Sets desired healthbar to the monster
+    /// <summary>
+    /// Assigns a slider as a healthbar.
+    /// </summary>
+    /// <param name="Slider">Spesified slider for the monster's healthbar</param>
     public void AssignHealthBar(Slider Slider)
     {
         HealthBar = Slider;
@@ -141,6 +249,10 @@ public class Monster
 
 
     //Deal DMG to monster
+    /// <summary>
+    /// Deals damage to the monster's health equal to int.
+    /// </summary>
+    /// <param name="dmg">ammount of damage being dealt</param>
     public void DealDmg(int dmg)
     {
         if (IsInCombat)
@@ -158,6 +270,10 @@ public class Monster
 
 
     //sets new health and updates health bar
+    /// <summary>
+    /// Sets a new Health value and updates the healthbar slider
+    /// </summary>
+    /// <param name="NewHealth">Set new current Health</param>
     public void UpdateHealth(int NewHealth)
     {
         if (NewHealth < MaxHealth && NewHealth > -1)
@@ -186,6 +302,10 @@ public class Monster
 
 
     //Shakes the monster
+    /// <summary>
+    /// returns a new vector3 with a shake applied
+    /// </summary>
+    /// <returns></returns>
     public Vector3 Shake()
     {
 
@@ -200,6 +320,10 @@ public class Monster
 
 
     //Sets origin position. required to reset position after shake -> would be ideal to use an animation instead
+    /// <summary>
+    /// Saves the current position as original position.
+    /// </summary>
+    /// <param name="originalPos">The origin of the monster</param>
     public void SetOriginPos(Transform originalPos)
     {
         originX = originalPos.position.x;
@@ -209,46 +333,24 @@ public class Monster
 
 
     //get original position
+    /// <summary>
+    /// returns the position set by "SetOriginPos"
+    /// </summary>
+    /// <returns>position set by "SetOriginPos". if null then returns Vector3(0, 0, 0) </returns>
     public Vector3 GetOriginPos()
     {
         return new Vector3(originX, originY, originZ);
     }
 
 
-    //------------Get/Set------------
+    //----------- Updates------------
 
-
-    //Set/get health
-    public int HealthStatus
-    {
-        get => Health;
-        set => Health = value;
-    }
-
-
-    //get Hunger
-    public int HungerStatus
-    {
-        get => Hunger;
-    }
-
-
-    //Get isStarving
-    public bool IStarvingStatus 
-    {
-        get => IsStarving;
-    }
-
-
-    //Get isStarving
-    public bool IsFullStatus
-    {
-        get => IsFull;
-    }
-
-
+    /// <summary>
+    /// Updates the hunger value and the statuses if conditions are met.
+    /// </summary>
+    /// <param name="NewHunger">Set new current hunger</param>
     //Update Hunger
-    public void UpdateHunger(int NewHunger) 
+    public void UpdateHunger(int NewHunger)
     {
         Hunger = NewHunger;
 
@@ -273,23 +375,12 @@ public class Monster
     }
 
 
-    //Set/get Sleep
-    public int SleepStatus
-    {
-        get => Sleep;
-        set => Sleep = value;
-    }
-
-
-    //Get IsSleeping
-    public bool IsSleepingStatus
-    {
-        get => IsSleeping;
-    }
-
-
     //Update SleepStatus
-    public void UpdateSleep(bool sleeping) 
+    /// <summary>
+    /// Updates the sleep value and the statuses if conditions are met.
+    /// </summary>
+    /// <param name="sleeping">Set new current sleep</param>
+    public void UpdateSleep(bool sleeping)
     {
         if (sleeping)
             IsSleeping = true;
@@ -311,11 +402,11 @@ public class Monster
                 Sleep = 0;
                 IsSleepDeprived = true;
             }
-            if (Sleep > 0) 
+            if (Sleep > 0)
             {
                 IsSleepDeprived = false;
             }
-            if (Sleep < MaxSleep) 
+            if (Sleep < MaxSleep)
             {
                 IsRested = false;
             }
@@ -323,61 +414,15 @@ public class Monster
     }
 
 
-    //Get IsSleepDeprived
-    public bool IsSleepDeprivedStatus
-    {
-        get => IsSleepDeprived;
-    }
-
-
-    //Get IsRested
-    public bool IsRestedStatus
-    {
-        get => IsRested;
-    }
-
-
-    //Get IsOverRested
-    public bool IsOverRestedStatus
-    {
-        get => IsOverRested;
-    }
-
-
-    //Get MaxSleep
-    public int SleepMaxBorder
-    {
-        get => MaxSleep;
-    }
-
-
-    //Set/get Happiness
-    public int HappinessStatus
-    {
-        get => Happiness;
-        set => Happiness = value;
-    }
-
-
-    //Get IsSad
-    public bool IsSadStatus
-    {
-        get => IsSad;
-    }
-
-
-    //Get IsHappy
-    public bool IsHappyStatus
-    {
-        get => IsHappy;
-    }
-
-
     //Update Happiness
-    public void UpdateHappiness(int NewHappiness) 
+    /// <summary>
+    /// Updates the happiness value and the statuses if conditions are met.
+    /// </summary>
+    /// <param name="NewHappiness">Set new current happiness</param>
+    public void UpdateHappiness(int NewHappiness)
     {
         Happiness = NewHappiness;
-        if (Happiness <= 0) 
+        if (Happiness <= 0)
         {
             IsHappy = false;
             Happiness = 0;
@@ -390,15 +435,174 @@ public class Monster
     }
 
 
-    //Get/set Thoughness
-    public int ThoughnessStatus
+    //------------Get/Set------------
+
+
+    //Get Name
+    /// <summary>
+    /// Get the monster's assigned name
+    /// </summary>
+    public string Name
     {
-        get => Toughness;
-        set => Toughness = value;
+        get => MonsterName;
+    }
+
+    //Get Name
+    /// <summary>
+    /// Get the monster's assigned ID
+    /// </summary>
+    public int ID
+    {
+        get => MonsterId;
+    }
+
+
+    //Print All Statuses
+    /// <summary>
+    /// Prints out all monster variables in the console.
+    /// </summary>
+    public void DebugStatus()
+    {
+        Debug.Log(MonsterName + " Status: \nHealth: " + Health + "\nHunger: " + Hunger + "\nSleepyness: " + Sleep + "\nMedicated: " + IsMedicated);
+    }
+
+
+    //Get health
+    /// <summary>
+    /// Get Health value.
+    /// </summary>
+    public int HealthStatus
+    {
+        get => Health;
+    }
+
+
+    //get Hunger
+    /// <summary>
+    /// Get Hunger value.
+    /// </summary>
+    public int HungerStatus
+    {
+        get => Hunger;
+    }
+
+
+    //Get isStarving
+    /// <summary>
+    /// Get IsStarving Value.
+    /// </summary>
+    public bool IStarvingStatus 
+    {
+        get => IsStarving;
+    }
+
+
+    //Get isStarving
+    /// <summary>
+    /// Get IsFull Value.
+    /// </summary>
+    public bool IsFullStatus
+    {
+        get => IsFull;
+    }
+
+
+    //Set/get Sleep
+    /// <summary>
+    /// Get/Set Sleep Value.
+    /// </summary>
+    public int SleepStatus
+    {
+        get => Sleep;
+        set => Sleep = value;
+    }
+
+
+    //Get IsSleeping
+    /// <summary>
+    /// Get IsSleeping Value.
+    /// </summary>
+    public bool IsSleepingStatus
+    {
+        get => IsSleeping;
+    }
+
+
+    //Get IsSleepDeprived
+    /// <summary>
+    /// Get IsSleepDeprived Value.
+    /// </summary>
+    public bool IsSleepDeprivedStatus
+    {
+        get => IsSleepDeprived;
+    }
+
+
+    //Get IsRested
+    /// <summary>
+    /// Get IsRested Value.
+    /// </summary>
+    public bool IsRestedStatus
+    {
+        get => IsRested;
+    }
+
+
+    //Get IsOverRested
+    /// <summary>
+    /// Get IsOverRested value.
+    /// </summary>
+    public bool IsOverRestedStatus
+    {
+        get => IsOverRested;
+    }
+
+
+    //Get MaxSleep
+    /// <summary>
+    /// Get MaxSleep Value.
+    /// </summary>
+    public int SleepMaxValue
+    {
+        get => MaxSleep;
+    }
+
+
+    //Set/get Happiness
+    /// <summary>
+    /// Get/Set Happiness value.
+    /// </summary>
+    public int HappinessStatus
+    {
+        get => Happiness;
+        set => Happiness = value;
+    }
+
+
+    //Get IsSad
+    /// <summary>
+    /// Get IsSad value.
+    /// </summary>
+    public bool IsSadStatus
+    {
+        get => IsSad;
+    }
+
+
+    //Get IsHappy
+    /// <summary>
+    /// Get IsHapyy Value.
+    /// </summary>
+    public bool IsHappyStatus
+    {
+        get => IsHappy;
     }
 
 
     //Get/Set PLayfullness
+    /// <summary>
+    /// Get/Set Platfull value.
+    /// </summary>
     public int PlayfullStatus
     {
         get => Playfull;
@@ -406,7 +610,21 @@ public class Monster
     }
 
 
+    //Get/set Thoughness
+    /// <summary>
+    /// Get/Set Toughness value.
+    /// </summary>
+    public int ThoughnessStatus
+    {
+        get => Toughness;
+        set => Toughness = value;
+    }
+
+
     //Set/get Medicine
+    /// <summary>
+    /// Get/Set IsMedicated value.
+    /// </summary>
     public bool MedicineStatus
     {
         get => IsMedicated;
@@ -415,22 +633,11 @@ public class Monster
 
 
     //Get Death Status
+    /// <summary>
+    /// Get IsDead value.
+    /// </summary>
     public bool DeathStatus 
     {
         get => IsDead;
-    }
-
-
-    //Get Name
-    public string Name
-    {
-        get => MonsterName;
-    }
-
-
-    //Print All Statuses
-    public void DebugStatus() 
-    {
-        Debug.Log(MonsterName + " Status: \nHealth: " + Health + "\nHunger: " + Hunger + "\nSleepyness: " + Sleep + "\nMedicated: " + IsMedicated);
     }
 }
