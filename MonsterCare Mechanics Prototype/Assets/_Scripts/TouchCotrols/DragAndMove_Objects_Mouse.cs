@@ -6,6 +6,7 @@ public class DragAndMove_Objects_Mouse : MonoBehaviour
 {
     private void OnMouseDown()
     {
-        transform.position = Input.mousePosition;
+        Vector3 direction =  Input.mousePosition;
+        transform.position = Camera.main.ScreenToWorldPoint(direction);
     }
 }

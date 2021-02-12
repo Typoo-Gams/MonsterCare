@@ -10,10 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 4009038705872474411}
   - component: {fileID: 4009038705872474415}
-  - component: {fileID: 4009038705872474409}
   - component: {fileID: 4009038705872474410}
   - component: {fileID: 4009038705872474408}
   - component: {fileID: 4009038705872474414}
+  - component: {fileID: 7362366162444331691}
   m_Layer: 0
   m_Name: FOOD
   m_TagString: Untagged
@@ -87,23 +87,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &4009038705872474409
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4009038705872474452}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 00537f596cf88734fbe84d412d2eb268, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  startPos: {x: 0, y: 0}
-  directionChosen: 0
-  direction: {x: 0, y: 0, z: 0}
-  screenPos: {x: 0, y: 0, z: 0}
-  touched: 0
 --- !u!114 &4009038705872474410
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -181,6 +164,23 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &7362366162444331691
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4009038705872474452}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00537f596cf88734fbe84d412d2eb268, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startPos: {x: 0, y: 0}
+  directionChosen: 0
+  direction: {x: 0, y: 0, z: 0}
+  screenPos: {x: 0, y: 0, z: 0}
+  touched: 0
 --- !u!1 &4009038706176896158
 GameObject:
   m_ObjectHideFlags: 0

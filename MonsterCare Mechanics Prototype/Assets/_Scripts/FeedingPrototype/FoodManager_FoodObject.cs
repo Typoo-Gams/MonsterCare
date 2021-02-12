@@ -12,6 +12,8 @@ public class FoodManager_FoodObject : MonoBehaviour
     public List<Sprite> FoodSprites;
     public GameManager manager;
 
+    GameObject thisMonster;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -20,6 +22,7 @@ public class FoodManager_FoodObject : MonoBehaviour
         CurrentCanvas = GameObject.FindGameObjectWithTag("Canvas").GetComponent<Canvas>();
         gameObject.transform.localScale = new Vector3(75, 75, 75);
         manager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
+        thisMonster = GameObject.FindGameObjectWithTag("Monster");
     }
 
     // Update is called once per frame
@@ -40,6 +43,7 @@ public class FoodManager_FoodObject : MonoBehaviour
             spawn.transform.localScale = new Vector3(1,1,1);
             
             Destroy(gameObject);
+            thisMonster.GetComponent<Animator>().Play("Child_Eating");  //needs generic reference
         }
     }
 }
