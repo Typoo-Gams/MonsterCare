@@ -12,6 +12,7 @@ public class SpawnItem_Button : MonoBehaviour
     public Quaternion SpawnRotationQuaternion;
     public GameObject ParentObject;
     private GameObject SpawnedObject;
+    bool canSpawn = true;
 
     private Button ThisButton;
     
@@ -26,38 +27,46 @@ public class SpawnItem_Button : MonoBehaviour
 
     void TaskOnClick() 
     {
-        if (SpawnLocation != new Vector3(0, 0, 0))
+        if (canSpawn) 
         {
-            if (SpawnRotationQuaternion != new Quaternion(0, 0, 0, 0))
+            if (SpawnLocation != new Vector3(0, 0, 0))
             {
-                if (ParentObject != null)
+                if (SpawnRotationQuaternion != new Quaternion(0, 0, 0, 0))
                 {
-                    SpawnedObject = Instantiate(SpawnObject, SpawnLocation, SpawnRotationQuaternion, ParentObject.transform);
-                    SpawnedObject.transform.localPosition = SpawnLocation;
-                    SpawnedObject.transform.localRotation = SpawnRotationQuaternion;
-                    //SpawnedObject.transform.localScale = new Vector3(10, 10, 10);
+                    if (ParentObject != null)
+                    {
+                        SpawnedObject = Instantiate(SpawnObject, SpawnLocation, SpawnRotationQuaternion, ParentObject.transform);
+                        SpawnedObject.transform.localPosition = SpawnLocation;
+                        SpawnedObject.transform.localRotation = SpawnRotationQuaternion;
+                        //SpawnedObject.transform.localScale = new Vector3(10, 10, 10);
+                    }
+                    else
+                        Instantiate(SpawnObject, SpawnLocation, SpawnRotationQuaternion);
                 }
                 else
-                    Instantiate(SpawnObject, SpawnLocation, SpawnRotationQuaternion);
+                {
+                    if (ParentObject != null)
+                    {
+                        SpawnedObject = Instantiate(SpawnObject, SpawnLocation, Quaternion.identity, ParentObject.transform);
+                        SpawnedObject.transform.localPosition = SpawnLocation;
+                        //SpawnedObject.transform.localScale = new Vector3(10, 10, 10);
+                    }
+                    else
+                        Instantiate(SpawnObject, SpawnLocation, Quaternion.identity);
+                }
+
+            }
+            else if (ParentObject != null)
+            {
+                Instantiate(SpawnObject, ParentObject.transform);
             }
             else
-            {
-                if (ParentObject != null)
-                {
-                    SpawnedObject = Instantiate(SpawnObject, SpawnLocation, Quaternion.identity, ParentObject.transform);
-                    SpawnedObject.transform.localPosition = SpawnLocation;
-                    //SpawnedObject.transform.localScale = new Vector3(10, 10, 10);
-                }
-                else
-                    Instantiate(SpawnObject, SpawnLocation, Quaternion.identity);
-            }
+                Instantiate(SpawnObject);
+        }
+    }
 
-        }
-        else if (ParentObject != null)
-        {
-            Instantiate(SpawnObject, ParentObject.transform);
-        }
-        else
-            Instantiate(SpawnObject);
+    public void ToggleCanSpawn() 
+    {
+        canSpawn = !canSpawn;
     }
 }

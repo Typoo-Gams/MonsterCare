@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3443623198860835149}
   - component: {fileID: 892397381906104138}
   - component: {fileID: 7958125156335829633}
+  - component: {fileID: 4158619150106705293}
   m_Layer: 0
   m_Name: DefaultStartingMonster
   m_TagString: Monster
@@ -122,3 +123,22 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 7.3559594, y: 12.430601}
   m_EdgeRadius: 0
+--- !u!95 &4158619150106705293
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6334183884661785621}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: dcf4c0899dfba7344a11af2b9df7d315, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

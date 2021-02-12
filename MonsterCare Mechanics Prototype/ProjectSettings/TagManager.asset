@@ -9,6 +9,7 @@ TagManager:
   - Canvas
   - Camera
   - Monster
+  - FoodButton
   layers:
   - Default
   - TransparentFX
