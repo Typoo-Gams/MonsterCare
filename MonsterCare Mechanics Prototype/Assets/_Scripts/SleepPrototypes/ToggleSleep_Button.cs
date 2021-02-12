@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class ToggleSleep_Button : MonoBehaviour
 {
-
+    public Image NightTime;
     public GameManager manager;
     public Text zZz;
     Button thisButton;
@@ -14,6 +14,7 @@ public class ToggleSleep_Button : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        NightTime.enabled = false;
         thisButton = gameObject.GetComponent<Button>();
         thisButton.onClick.AddListener(TaskOnClick);
     }
@@ -27,6 +28,8 @@ public class ToggleSleep_Button : MonoBehaviour
 
     void TaskOnClick() 
     {
+        NightTime.enabled = !NightTime.enabled;
+
         manager.ActiveMonster.IsSleepingStatus = !manager.ActiveMonster.IsSleepingStatus;
         manager.ActiveMonster.DebugMonster();
         zZz.gameObject.SetActive(manager.ActiveMonster.IsSleepingStatus);
