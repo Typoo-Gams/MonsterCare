@@ -15,7 +15,7 @@ public class AttackButton_Charlie : MonoBehaviour
     {
         ThisButton = gameObject.GetComponent<Button>();
         ThisButton.onClick.AddListener(SpecialAttack);
-        AttackThisMonster.StartMonster.DebugStatus();
+        AttackThisMonster.StartMonster.DebugMonster();
     }
 
     

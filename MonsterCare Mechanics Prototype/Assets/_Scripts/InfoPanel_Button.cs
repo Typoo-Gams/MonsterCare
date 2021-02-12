@@ -22,8 +22,8 @@ public class InfoPanel_Button : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        string text = string.Format("HomePrototype\nHealth: {0}\n Hunger: {1}\n Sleep: {2}\nSleeping for: {3} hours",
-                    CurrentMonster.monster.HealthStatus, CurrentMonster.monster.HungerStatus, CurrentMonster.monster.SleepStatus, CurrentMonster.TimeToSleep);
+        string text = string.Format("HomePrototype\nHealth: {0}\n Hunger: {1}\n Sleep: {2}",
+                    (int)CurrentMonster.monster.HealthStatus, (int)CurrentMonster.monster.HungerStatus, (int)CurrentMonster.monster.SleepStatus);
         Stats.text = text;
     }
 

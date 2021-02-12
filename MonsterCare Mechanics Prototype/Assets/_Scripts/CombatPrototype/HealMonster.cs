@@ -14,7 +14,7 @@ public class HealMonster : MonoBehaviour
     {
         ThisButton = gameObject.GetComponent<Button>();
         ThisButton.onClick.AddListener(TaskOnClick);
-        HealThisMonster.StartMonster.DebugStatus();
+        HealThisMonster.StartMonster.DebugMonster();
     }
 
     private void TaskOnClick() 

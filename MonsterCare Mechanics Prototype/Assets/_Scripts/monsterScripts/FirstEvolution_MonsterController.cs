@@ -13,8 +13,7 @@ public class FirstEvolution_MonsterController : MonoBehaviour
     void Awake()
     {
         monster = new Monster("Default");
-        monster.UpdateHunger(5);
-        monster.DebugStatus();
+        monster.UpdateHunger(50);
     }
 
 
@@ -62,7 +61,7 @@ public class FirstEvolution_MonsterController : MonoBehaviour
         if(TimeToSleep > 0)
         {
             TimeToSleep--;
-            monster.UpdateSleep(true);
+            monster.UpdateSleeping(true);
             monster.UpdateHunger(0);
         }
         if (monster.IsRestedStatus)

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MonsterAtHome_Prototype : MonoBehaviour
+public class MonsterAtHome_FeedingPrototype : MonoBehaviour
 {
 
     public Monster Monster;
@@ -10,7 +10,7 @@ public class MonsterAtHome_Prototype : MonoBehaviour
     void Start()
     {
         Monster = new Monster("PleaseFeedMe");
-        Monster.DebugStatus();
+        Monster.DebugMonster();
     }
 
     // Update is called once per frame

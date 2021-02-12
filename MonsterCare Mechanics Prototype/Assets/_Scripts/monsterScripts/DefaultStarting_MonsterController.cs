@@ -5,29 +5,33 @@ using UnityEngine;
 public class DefaultStarting_MonsterController : MonoBehaviour
 {
     public Monster monster;
-    public int TimeToSleep = 0;
-    float interval = 1;
-    public float cnt = 0;
+    GameSaver Saver = new GameSaver();
+
+
+    private void Awake()
+    {
+        monster = new Monster("load");
+        Saver.LoadMonster(monster);
+    }
 
     // Start is called before the first frame update
     void Start()
     {
-        monster = new Monster("Default");
+        monster.DebugMonster();
+        monster.AtGameWakeUp(Saver.FindTimeDifference());
+        monster.DebugMonster();
     }
 
 
     // Update is called once per frame
     void Update()
     {
-        if (TimeToSleep > 0)
-        {
-            cnt += Time.deltaTime;
-            if (cnt > interval)
-            {
-                Sleeping();
-                cnt = 0;
-            }
-        }
+        
+    }
+
+    private void OnDestroy()
+    {
+        Saver.SaveMonster(monster);
     }
 
 
@@ -51,20 +55,6 @@ public class DefaultStarting_MonsterController : MonoBehaviour
             Sprite NextEvolution = Resources.Load<Sprite>("Sprites/monscarebatowl");
             Debug.Log(NextEvolution);
             gameObject.GetComponent<SpriteRenderer>().sprite = NextEvolution;
-        }
-    }
-
-
-    private void Sleeping()
-    { 
-        if(TimeToSleep > 0)
-        {
-            TimeToSleep--;
-            monster.UpdateSleep(true);
-        }
-        if (monster.IsRestedStatus)
-        {
-            Evolutution();
         }
     }
 }

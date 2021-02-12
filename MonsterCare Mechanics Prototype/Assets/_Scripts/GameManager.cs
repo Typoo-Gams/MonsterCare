@@ -1,57 +1,87 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
-
 using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
     public Slider SliderPrefab;
-    public DateTime Time = DateTime.Now;
+    GameSaver Save = new GameSaver();
 
     public int testValue;
 
     private void Awake()
     {
-        LoadTime();
+        
     }
 
     // Start is called before the first frame update
     void Start()
     {
-
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     private void OnDestroy()
     {
-        SaveTime();
+        if (SceneManager.GetActiveScene().name == "MonsterHome_MainPrototype")
+            Save.SaveTime();
     }
+}
+
+
+public class GameSaver 
+{
 
     //------------------------Save Time in PlayerPrefs---------------------//
+
+    public DateTime Time = DateTime.Now;
+
+    /// <summary>
+    /// calculates the difference between now and last time "SaveTime" where used.
+    /// </summary>
+    /// <returns>Total seconds that have passed.</returns>c
+    public float FindTimeDifference()
+    {
+        DateTime ThisFrame = DateTime.Now;
+        float[] LastTime = LoadTime();
+        float[] currentTime = { ThisFrame.Hour, ThisFrame.Minute, ThisFrame.Second, ThisFrame.Day, ThisFrame.Month, ThisFrame.Year };
+        float[] TimeDifference = new float[currentTime.Length];
+        float[] conversions = { 3600, 60, 1, 86400, 2629800, 31557600 };
+        float DifferenceInSeconds = 0;
+
+        //Calculating the difference from saved time to now in seconds
+        for (int i = 0; i < currentTime.Length; i++)
+        {
+            TimeDifference[i] = LastTime[i] - currentTime[i];
+            //Turns the difference positive if negative. if there is anything wrong this is where it is. time calculated wrongly.
+            if (TimeDifference[i] < 0)
+                TimeDifference[i] = TimeDifference[i] * -1;
+            if (TimeDifference[i] > 0)
+                DifferenceInSeconds += TimeDifference[i] * conversions[i]; //converts to secs.
+        }
+        return DifferenceInSeconds;
+    }
 
 
     /// <summary>
     /// Saves current computer time to a save file.
     /// </summary>
-    public void SaveTime() 
+    public void SaveTime()
     {
         string[] TimeIndex =
-            {"Hour", "Minutes", "Day", "Month", "Year"};
+            {"Hour", "Minutes", "Seconds", "Day", "Month", "Year"};
         float[] TimeTable =
-            {Time.Hour, Time.Minute, Time.Day, Time.Month, Time.Year};
-        for (int i = 0; i < TimeIndex.Length; i++) 
+            {Time.Hour, Time.Minute, Time.Second, Time.Day, Time.Month, Time.Year};
+        for (int i = 0; i < TimeIndex.Length; i++)
         {
             string FullIndex = "SavedTime_" + TimeIndex[i];
-            PlayerPrefs.SetFloat(FullIndex , TimeTable[i]);
+            PlayerPrefs.SetFloat(FullIndex, TimeTable[i]);
         }
     }
 
@@ -59,20 +89,20 @@ public class GameManager : MonoBehaviour
     /// <summary>
     /// Loads the saved floats from the saved time as an array.
     /// </summary>
-    public float[] LoadTime() 
+    public float[] LoadTime()
     {
         string[] TimeIndex =
-            {"Hour", "Minutes", "Day", "Month", "Year"};
-        float[] TimeTable = new float[5];
-        for( int i = 0; i < TimeIndex.Length; i++) 
+            {"Hour", "Minutes", "Seconds", "Day", "Month", "Year"};
+        float[] TimeTable = new float[TimeIndex.Length];
+        for (int i = 0; i < TimeIndex.Length; i++)
         {
             string fullIndex = "SavedTime_" + TimeIndex[i];
             TimeTable[i] = PlayerPrefs.GetFloat(fullIndex);
         }
 
         //debug
-        string TimeSaved = TimeTable[0] + ":" + TimeTable[1] + "   " + TimeTable[2] + "/" + TimeTable[3] + "/" + TimeTable[4];
-        Debug.Log(TimeSaved);
+        //string TimeSaved = TimeTable[0] + ":" + TimeTable[1] + ":" + TimeTable[2] + "   " + TimeTable[3] + "/" + TimeTable[4] + "/" + TimeTable[5];
+        //Debug.Log(TimeSaved);
 
         //return
         return TimeTable;
@@ -82,9 +112,9 @@ public class GameManager : MonoBehaviour
     /// <summary>
     /// Loads spesified value from saved time in playerprefs
     /// </summary>
-    /// <param name="Name">Names: "Hour", "Minutes", "Day", "Month", "Year"</param>
+    /// <param name="Name">Names: "Hour", "Minutes", "Seconds", "Day", "Month", "Year"</param>
     /// <returns></returns>
-    public float LoadTime(string Name) 
+    public float LoadTime(string Name)
     {
         string fullIndex = "SavedTime_" + Name;
         return PlayerPrefs.GetFloat(fullIndex);
@@ -94,32 +124,75 @@ public class GameManager : MonoBehaviour
     /// <summary>
     /// Loads spesified value from saved time in playerprefs
     /// </summary>
-    /// <param name="Index">indexes: Hour - 0, Minutes - 1, Day - 2, Month - 3, Year - 4</param>
+    /// <param name="Index">indexes: Hour - 0, Minutes - 1, Seconds - 2, Day - 3, Month - 4, Year - 5</param>
     /// <returns></returns>
-    public float LoadTime(int Index) 
+    public float LoadTime(int Index)
     {
         string[] TimeIndex =
-            {"Hour", "Minutes", "Day", "Month", "Year"};
+            {"Hour", "Minutes", "Seconds", "Day", "Month", "Year"};
         string fullIndex = "SavedTime_" + TimeIndex[Index];
         return PlayerPrefs.GetFloat(fullIndex);
     }
+
+
+    /// <summary>
+    /// Save the floats and name of a monster
+    /// </summary>
+    /// <param name="yourMonster">Input a monster to be saved</param>
+    public void SaveMonster(Monster yourMonster) 
+    {
+        string[] StatIndex = 
+            {"Health", "Hunger", "Sleep", "Happiness", "Playfull", "Toughness"};
+        float[] Stats = 
+            {yourMonster.HealthStatus, yourMonster.HungerStatus, yourMonster.SleepStatus, yourMonster.HappinessStatus, yourMonster.PlayfullStatus, yourMonster.ToughnessStatus};
+
+        string MonsterSaveIndex = "SavedMonster_";
+
+        PlayerPrefs.SetString(MonsterSaveIndex + "MonsterName", yourMonster.Name);
+
+        for (int i = 0; i < StatIndex.Length; i++)
+        {
+            PlayerPrefs.SetFloat(MonsterSaveIndex + StatIndex[i], Stats[i]);
+        }
+    }
+
+
+    /// <summary>
+    /// Loads the saved monster into the spesified monster
+    /// </summary>
+    /// <param name="yourMonster">Input a monster to load the stats into</param>
+    public void LoadMonster(Monster yourMonster)
+    {
+        string[] StatIndex =
+            {"Health", "Hunger", "Sleep", "Happiness", "Playfull", "Toughness"};
+
+        string MonsterSaveIndex = "SavedMonster_";
+
+        yourMonster.Name = PlayerPrefs.GetString(MonsterSaveIndex + "MonsterName");
+        yourMonster.HealthStatus = PlayerPrefs.GetFloat(MonsterSaveIndex + StatIndex[0]);
+        yourMonster.HungerStatus = PlayerPrefs.GetFloat(MonsterSaveIndex + StatIndex[1]);
+        yourMonster.SleepStatus = PlayerPrefs.GetFloat(MonsterSaveIndex + StatIndex[2]);
+        yourMonster.HappinessStatus = PlayerPrefs.GetFloat(MonsterSaveIndex + StatIndex[3]);
+        yourMonster.PlayfullStatus = PlayerPrefs.GetFloat(MonsterSaveIndex + StatIndex[4]);
+        yourMonster.ToughnessStatus = PlayerPrefs.GetFloat(MonsterSaveIndex + StatIndex[5]);
+    }
 }
+
 
 public class Monster
 {
 
     //Monster variables
     private string MonsterName;
-    private int MonsterId;
-    private int Health;
-    private int Hunger;
-    private int Sleep;
-    private int Happiness;
-    private int Playfull;
-    private int Toughness;
+    private float Health;
+    private float Hunger;
+    private float Sleep;
+    private float Happiness;
+    private float Playfull;
+    private float Toughness;
 
 
-    //Status Bools
+    //Status effect Bools
     private bool IsMedicated;
     private bool IsInCombat;
     private bool IsDead;
@@ -133,12 +206,20 @@ public class Monster
     private bool IsOverRested;
 
 
-    //Max & Min Border readOnly's
-    readonly int MaxHealth = 100;
-    readonly int MaxHunger = 10;
-    readonly int MaxSleep = 24;
-    readonly int MaxHappiness = 10;
-    static float originX, originY, originZ;
+    //Max & Min Values (Read Only for now)
+    readonly float MaxHealth = 100;
+    readonly float MaxHunger = 100;
+    readonly float MaxSleep = 100;
+    readonly float MaxHappiness = 100;
+
+    //Degration modifiers
+    readonly float HungerDegration = 0.00083f; //1% every _ min
+    readonly float SleepDegration = 0.00083f; //1% every _ min
+    readonly float PlayfullDegration = 0f; //1% every _ min
+    readonly float ToughnessDegration = 0f; //1% every _ min
+
+    //temporary?
+    float originX, originY, originZ;
 
     //Health Bar
     Slider HealthBar;
@@ -152,7 +233,6 @@ public class Monster
     public Monster()
     {
         MonsterName = "Default";
-        MonsterId = 0;
         Health = MaxHealth;
         Hunger = 0;
         Sleep = 0;
@@ -169,10 +249,9 @@ public class Monster
     /// </summary>
     /// <param name="name">The name of the new monster</param>
     /// <param name="ID">The id of the new monster</param>
-    public Monster(string name, int ID)
+    public Monster(string name)
     {
         MonsterName = name;
-        MonsterId = ID;
         Health = MaxHealth;
         Hunger = 0;
         Sleep = 0;
@@ -274,7 +353,7 @@ public class Monster
     /// Sets a new Health value and updates the healthbar slider
     /// </summary>
     /// <param name="NewHealth">Set new current Health</param>
-    public void UpdateHealth(int NewHealth)
+    public void UpdateHealth(float NewHealth)
     {
         if (NewHealth < MaxHealth && NewHealth > -1)
         {
@@ -298,7 +377,7 @@ public class Monster
     }
 
 
-    //------------Shake------------
+    //------------Shake------------ (Temporary?)
 
 
     //Shakes the monster
@@ -345,12 +424,36 @@ public class Monster
 
     //----------- Updates------------
 
+    //Updates all the stat changes when the game opens after being closed.
+    /// <summary>
+    /// Updates every stat based on how many seconds have passed (Basically time travel)
+    /// </summary>
+    /// <param name="TimeInSec">Time in seconds</param>
+    ///<param name="WasSleeping">If the monster was sleeping when game wakes up</param>
+    public void AtGameWakeUp(float TimeInSec) 
+    {
+        float[] statuses = { Hunger, Sleep };
+        float[] degrade = {HungerDegration, SleepDegration };
+
+        for (int i = 0; i < statuses.Length; i++)
+        {
+            statuses[i] -= degrade[i] * TimeInSec;
+            Debug.Log(statuses[i]);
+            if (statuses[i] < 0)
+                statuses[i] = 0;
+        }
+        UpdateHunger(statuses[0]);
+        Sleep = statuses[1];
+        UpdateSleeping(IsSleeping);
+    }
+
+
+    //Update Hunger
     /// <summary>
     /// Updates the hunger value and the statuses if conditions are met.
     /// </summary>
     /// <param name="NewHunger">Set new current hunger</param>
-    //Update Hunger
-    public void UpdateHunger(int NewHunger)
+    public void UpdateHunger(float NewHunger)
     {
         Hunger = NewHunger;
 
@@ -377,10 +480,11 @@ public class Monster
 
     //Update SleepStatus
     /// <summary>
-    /// Updates the sleep value and the statuses if conditions are met.
+    /// Updates the sleep value by the degration value and the statuses if conditions are met.
     /// </summary>
-    /// <param name="sleeping">Set new current sleep</param>
-    public void UpdateSleep(bool sleeping)
+    /// <param name="sleeping">New sleep state, Updates IsSleeping</param>
+    /// <param name="modifier">Changes how much sleep is added</param>
+    public void UpdateSleeping(bool sleeping, float modifier = 2)
     {
         if (sleeping)
             IsSleeping = true;
@@ -389,27 +493,39 @@ public class Monster
 
         if (IsSleeping)
         {
-            Sleep++;
-            if (Sleep >= MaxSleep)
-            {
-                if (IsRested)
-                    IsOverRested = true;
-                IsRested = true;
-                Sleep = MaxSleep;
-            }
-            if (Sleep <= 0)
-            {
+            //Adds sleep
+            Sleep += SleepDegration * modifier;
+        }
+        else 
+        {
+            if (modifier != 2)
+                Sleep -= SleepDegration * modifier;
+            else
+                Sleep -= SleepDegration;
+            if (Sleep < 0)
                 Sleep = 0;
-                IsSleepDeprived = true;
-            }
-            if (Sleep > 0)
-            {
-                IsSleepDeprived = false;
-            }
-            if (Sleep < MaxSleep)
-            {
-                IsRested = false;
-            }
+        }
+
+        //Statusupdates
+        if (Sleep >= MaxSleep)
+        {
+            if (IsRested)
+                IsOverRested = true;
+            IsRested = true;
+            Sleep = MaxSleep;
+        }
+        if (Sleep <= 0)
+        {
+            Sleep = 0;
+            IsSleepDeprived = true;
+        }
+        if (Sleep > 0)
+        {
+            IsSleepDeprived = false;
+        }
+        if (Sleep < MaxSleep)
+        {
+            IsRested = false;
         }
     }
 
@@ -419,7 +535,7 @@ public class Monster
     /// Updates the happiness value and the statuses if conditions are met.
     /// </summary>
     /// <param name="NewHappiness">Set new current happiness</param>
-    public void UpdateHappiness(int NewHappiness)
+    public void UpdateHappiness(float NewHappiness)
     {
         Happiness = NewHappiness;
         if (Happiness <= 0)
@@ -438,22 +554,14 @@ public class Monster
     //------------Get/Set------------
 
 
-    //Get Name
+    //Get/set Name
     /// <summary>
     /// Get the monster's assigned name
     /// </summary>
     public string Name
     {
         get => MonsterName;
-    }
-
-    //Get Name
-    /// <summary>
-    /// Get the monster's assigned ID
-    /// </summary>
-    public int ID
-    {
-        get => MonsterId;
+        set => MonsterName = value;
     }
 
 
@@ -461,19 +569,20 @@ public class Monster
     /// <summary>
     /// Prints out all monster variables in the console.
     /// </summary>
-    public void DebugStatus()
+    public void DebugMonster()
     {
-        Debug.Log(MonsterName + " Status: \nHealth: " + Health + "\nHunger: " + Hunger + "\nSleepyness: " + Sleep + "\nMedicated: " + IsMedicated);
+        Debug.Log(MonsterName + " Status: \nHealth: " + Health + "\nHunger: " + Hunger + "\nStarving: " + IsStarving + "\nFull: " + IsFull + "\nSleepyness: " + Sleep + "\nSleep Deprived: " + IsSleepDeprived + "\nRested: " + IsRested + "\nOver Rested: " + IsOverRested);
     }
 
 
-    //Get health
+    //Get/set health
     /// <summary>
     /// Get Health value.
     /// </summary>
-    public int HealthStatus
+    public float HealthStatus
     {
         get => Health;
+        set => Health = value;
     }
 
 
@@ -481,9 +590,10 @@ public class Monster
     /// <summary>
     /// Get Hunger value.
     /// </summary>
-    public int HungerStatus
+    public float HungerStatus
     {
         get => Hunger;
+        set => Hunger = value;
     }
 
 
@@ -507,24 +617,25 @@ public class Monster
     }
 
 
-    //Set/get Sleep
+    //Get/set Sleep
     /// <summary>
     /// Get/Set Sleep Value.
     /// </summary>
-    public int SleepStatus
+    public float SleepStatus
     {
         get => Sleep;
         set => Sleep = value;
     }
 
 
-    //Get IsSleeping
+    //Get/Set IsSleeping
     /// <summary>
     /// Get IsSleeping Value.
     /// </summary>
     public bool IsSleepingStatus
     {
         get => IsSleeping;
+        set => IsSleeping = value;
     }
 
 
@@ -562,7 +673,7 @@ public class Monster
     /// <summary>
     /// Get MaxSleep Value.
     /// </summary>
-    public int SleepMaxValue
+    public float SleepMaxValue
     {
         get => MaxSleep;
     }
@@ -572,7 +683,7 @@ public class Monster
     /// <summary>
     /// Get/Set Happiness value.
     /// </summary>
-    public int HappinessStatus
+    public float HappinessStatus
     {
         get => Happiness;
         set => Happiness = value;
@@ -603,7 +714,7 @@ public class Monster
     /// <summary>
     /// Get/Set Platfull value.
     /// </summary>
-    public int PlayfullStatus
+    public float PlayfullStatus
     {
         get => Playfull;
         set => Playfull = value;
@@ -614,7 +725,7 @@ public class Monster
     /// <summary>
     /// Get/Set Toughness value.
     /// </summary>
-    public int ThoughnessStatus
+    public float ToughnessStatus
     {
         get => Toughness;
         set => Toughness = value;

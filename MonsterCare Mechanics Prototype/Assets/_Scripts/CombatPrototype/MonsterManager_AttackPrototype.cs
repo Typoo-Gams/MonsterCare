@@ -29,7 +29,7 @@ public class MonsterManager_AttackPrototype : MonoBehaviour
     Instantiate(SliderPrefab).transform.SetParent(CurrentCanvas.transform, false);  
     //testing monster class
     StartMonster = new Monster("Ditto");
-    StartMonster.DebugStatus();
+    StartMonster.DebugMonster();
     StartMonster.AssignHealthBar(GameObject.FindGameObjectWithTag("UnusedSlider").GetComponent<Slider>());
     StartMonster.CombatActive(true);
     StartMonster.SetOriginPos(transform);

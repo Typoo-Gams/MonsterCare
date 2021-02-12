@@ -25,8 +25,8 @@ public class InfoButton_Mikkel : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        string text = string.Format("HomePrototype\nHealth: {0}\n Hunger: {1}\n Sleep: {2}\nSleeping for: {3} hours", 
-                            ThisMonster.HealthStatus, ThisMonster.HungerStatus, ThisMonster.SleepStatus, Monster.TimeToSleep);
+        string text = string.Format("HomePrototype\nHealth: {0}\n Hunger: {1}\n Sleep: {2}", 
+                            ThisMonster.HealthStatus, ThisMonster.HungerStatus, ThisMonster.SleepStatus);
         TextStatBoard.text = text;
     }
 

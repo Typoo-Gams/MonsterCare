@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class AddSleepHours_Button : MonoBehaviour
+public class ToggleSleep_Button : MonoBehaviour
 {
 
     DefaultStarting_MonsterController ThisMonster;
+    public Text zZz;
     Button thisButton;
-
+    float counter;
 
     // Start is called before the first frame update
     void Start()
@@ -18,12 +19,17 @@ public class AddSleepHours_Button : MonoBehaviour
         thisButton.onClick.AddListener(TaskOnClick);
     }
 
+    private void Update()
+    {
+        counter += Time.deltaTime;
+        if (counter > 1) 
+            ThisMonster.monster.UpdateSleeping(ThisMonster.monster.IsSleepingStatus);    
+    }
 
     void TaskOnClick() 
     {
-        if ((ThisMonster.monster.SleepMaxBorder - ThisMonster.monster.SleepStatus) + 1 > ThisMonster.TimeToSleep) 
-        {
-            ThisMonster.TimeToSleep += 1;
-        }
+        ThisMonster.monster.IsSleepingStatus = !ThisMonster.monster.IsSleepingStatus;
+        ThisMonster.monster.DebugMonster();
+        zZz.gameObject.SetActive(ThisMonster.monster.IsSleepingStatus);
     }
 }
