@@ -10,7 +10,8 @@ public class FoodManager_FoodObject : MonoBehaviour
     public Text UI;
     Canvas CurrentCanvas;
     public List<Sprite> FoodSprites;
-    public GameManager manager;
+    GameManager manager;
+    SpawnItem_Button SpawningButton;
 
     GameObject thisMonster;
 
@@ -23,6 +24,8 @@ public class FoodManager_FoodObject : MonoBehaviour
         gameObject.transform.localScale = new Vector3(75, 75, 75);
         manager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
         thisMonster = GameObject.FindGameObjectWithTag("Monster");
+        SpawningButton = GameObject.FindGameObjectWithTag("FoodButton").GetComponent<SpawnItem_Button>();
+        SpawningButton.ToggleCanSpawn();
     }
 
     // Update is called once per frame
@@ -44,6 +47,7 @@ public class FoodManager_FoodObject : MonoBehaviour
             
             Destroy(gameObject);
             thisMonster.GetComponent<Animator>().Play("Child_Eating");  //needs generic reference
+            SpawningButton.ToggleCanSpawn();
         }
     }
 }

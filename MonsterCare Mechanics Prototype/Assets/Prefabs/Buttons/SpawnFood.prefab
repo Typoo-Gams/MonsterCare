@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 1983118780169292164}
   m_Layer: 5
   m_Name: SpawnFood
-  m_TagString: Untagged
+  m_TagString: FoodButton
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
