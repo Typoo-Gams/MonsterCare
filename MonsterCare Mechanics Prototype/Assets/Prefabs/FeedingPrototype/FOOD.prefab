@@ -133,7 +133,7 @@ MonoBehaviour:
   - {fileID: 7701605621825214864, guid: eed7b8ec39b41ca43ae918cc1ebea125, type: 3}
   - {fileID: 3624333184764439694, guid: eed7b8ec39b41ca43ae918cc1ebea125, type: 3}
   - {fileID: -6983887452634888065, guid: eed7b8ec39b41ca43ae918cc1ebea125, type: 3}
-  manager: {fileID: 0}
+  EatingAnimation: {fileID: 0}
 --- !u!61 &4009038705872474408
 BoxCollider2D:
   m_ObjectHideFlags: 0
