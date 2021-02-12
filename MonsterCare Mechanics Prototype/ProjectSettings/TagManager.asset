@@ -9,7 +9,6 @@ TagManager:
   - Canvas
   - Camera
   - Monster
-  - NightTime
   layers:
   - Default
   - TransparentFX

@@ -11,7 +11,6 @@ public class SpawnItem_Button : MonoBehaviour
     public Vector3 SpawnLocation;
     public Quaternion SpawnRotationQuaternion;
     public GameObject ParentObject;
-    
     private GameObject SpawnedObject;
 
     private Button ThisButton;
@@ -27,8 +26,6 @@ public class SpawnItem_Button : MonoBehaviour
 
     void TaskOnClick() 
     {
-        if(SpawnedObject == null)
-
         if (SpawnLocation != new Vector3(0, 0, 0))
         {
             if (SpawnRotationQuaternion != new Quaternion(0, 0, 0, 0))
@@ -62,7 +59,5 @@ public class SpawnItem_Button : MonoBehaviour
         }
         else
             Instantiate(SpawnObject);
-             
-    } 
-    
+    }
 }
