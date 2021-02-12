@@ -31,7 +31,6 @@ public class CombatReset : MonoBehaviour
         if (KillThisMonster.StartMonster.DeathStatus)
         {
             StartCoroutine(Wait());
-            
         }
     }
 }
