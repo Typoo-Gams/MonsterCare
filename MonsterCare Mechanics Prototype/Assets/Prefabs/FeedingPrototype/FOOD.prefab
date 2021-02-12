@@ -117,7 +117,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   FoodPower: 10
-  UI: {fileID: 1137264796170078348, guid: 59dec238f5460de4b9a9ec18df553f74, type: 3}
+  UI: {fileID: 1137264796170078348, guid: ddbc9925f956b8b428311d587a45dd6f, type: 3}
   FoodSprites:
   - {fileID: -7993830526901381209, guid: eed7b8ec39b41ca43ae918cc1ebea125, type: 3}
   - {fileID: -8051068860283565140, guid: eed7b8ec39b41ca43ae918cc1ebea125, type: 3}
@@ -133,6 +133,7 @@ MonoBehaviour:
   - {fileID: 7701605621825214864, guid: eed7b8ec39b41ca43ae918cc1ebea125, type: 3}
   - {fileID: 3624333184764439694, guid: eed7b8ec39b41ca43ae918cc1ebea125, type: 3}
   - {fileID: -6983887452634888065, guid: eed7b8ec39b41ca43ae918cc1ebea125, type: 3}
+  manager: {fileID: 0}
 --- !u!61 &4009038705872474408
 BoxCollider2D:
   m_ObjectHideFlags: 0

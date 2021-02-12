@@ -32,4 +32,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/FightScenes_Charlie/Savannah_FS.unity
     guid: 3466d4f32eea4514183b99e6b01b72bd
+  - enabled: 1
+    path: Assets/Scenes/Map.unity
+    guid: 5fd01ef05f9c1454ab762fa84d64275c
   m_configObjects: {}

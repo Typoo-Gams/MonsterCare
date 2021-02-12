@@ -214,5 +214,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   StatBoard: {fileID: 0}
-  CurrentMonster: {fileID: 0}
+  manager: {fileID: 0}
   Stats: {fileID: 0}

@@ -134,7 +134,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25089bd31e41edd4b93777e17e339362, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SpawnObject: {fileID: 4009038705872474452, guid: c3d7a34e27630fd4482a1367597fad45, type: 3}
+  SpawnObject: {fileID: 4009038705872474452, guid: ce2240698a98717459ae79cf304eb17f, type: 3}
   SpawnLocation: {x: -90.71999, y: 652, z: -19439.998}
   SpawnRotationQuaternion: {x: 0, y: 0, z: 0, w: 0}
   ParentObject: {fileID: 0}

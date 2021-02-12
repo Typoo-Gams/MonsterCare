@@ -796,8 +796,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fe41c65e30f360439a7495a14e3470a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SceneNumber: 2
-  SceneName: 
+  SceneNumber: 0
+  SceneName: MonsterHome_MainPrototype
 --- !u!1 &2007411046
 GameObject:
   m_ObjectHideFlags: 0

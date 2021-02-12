@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class ToggleSleep_Button : MonoBehaviour
 {
 
-    DefaultStarting_MonsterController ThisMonster;
+    public GameManager manager;
     public Text zZz;
     Button thisButton;
     float counter;
@@ -14,7 +14,6 @@ public class ToggleSleep_Button : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        ThisMonster = GameObject.FindGameObjectWithTag("Monster").GetComponent<DefaultStarting_MonsterController>();
         thisButton = gameObject.GetComponent<Button>();
         thisButton.onClick.AddListener(TaskOnClick);
     }
@@ -23,13 +22,13 @@ public class ToggleSleep_Button : MonoBehaviour
     {
         counter += Time.deltaTime;
         if (counter > 1) 
-            ThisMonster.monster.UpdateSleeping(ThisMonster.monster.IsSleepingStatus);    
+            manager.ActiveMonster.UpdateSleeping(manager.ActiveMonster.IsSleepingStatus);    
     }
 
     void TaskOnClick() 
     {
-        ThisMonster.monster.IsSleepingStatus = !ThisMonster.monster.IsSleepingStatus;
-        ThisMonster.monster.DebugMonster();
-        zZz.gameObject.SetActive(ThisMonster.monster.IsSleepingStatus);
+        manager.ActiveMonster.IsSleepingStatus = !manager.ActiveMonster.IsSleepingStatus;
+        manager.ActiveMonster.DebugMonster();
+        zZz.gameObject.SetActive(manager.ActiveMonster.IsSleepingStatus);
     }
 }

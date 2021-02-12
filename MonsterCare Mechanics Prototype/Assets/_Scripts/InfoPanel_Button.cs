@@ -8,9 +8,10 @@ public class InfoPanel_Button : MonoBehaviour
 
     bool isActive;
     public GameObject StatBoard;
-    public DefaultStarting_MonsterController CurrentMonster;
+    public GameManager manager;
     public Text Stats;
-        
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -23,7 +24,7 @@ public class InfoPanel_Button : MonoBehaviour
     void Update()
     {
         string text = string.Format("HomePrototype\nHealth: {0}\n Hunger: {1}\n Sleep: {2}",
-                    (int)CurrentMonster.monster.HealthStatus, (int)CurrentMonster.monster.HungerStatus, (int)CurrentMonster.monster.SleepStatus);
+                    (int)manager.ActiveMonster.HealthStatus, (int)manager.ActiveMonster.HungerStatus, (int)manager.ActiveMonster.SleepStatus);
         Stats.text = text;
     }
 

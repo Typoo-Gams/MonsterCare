@@ -6,35 +6,41 @@ public class DefaultStarting_MonsterController : MonoBehaviour
 {
     public Monster monster;
     GameSaver Saver = new GameSaver();
-
+    float cnt = 0;
 
     private void Awake()
     {
         monster = new Monster("load");
         Saver.LoadMonster(monster);
+        monster.AtGameWakeUp(Saver.FindTimeDifference());
+        SendMonster(monster);
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        monster.DebugMonster();
-        monster.AtGameWakeUp(Saver.FindTimeDifference());
-        monster.DebugMonster();
+        Evolutution();
     }
-
+    
 
     // Update is called once per frame
     void Update()
     {
-        
+        cnt += Time.deltaTime;
+        if (cnt > 1) 
+        {
+            monster.DegradeHunger();
+        }
     }
 
+    //Save the monster's stats when the gameobject is destroyed.
     private void OnDestroy()
     {
         Saver.SaveMonster(monster);
     }
 
 
+    //Simple prototype example of evolution
     private void Evolutution()
     {
         bool Condition1 = false;
@@ -56,5 +62,13 @@ public class DefaultStarting_MonsterController : MonoBehaviour
             Debug.Log(NextEvolution);
             gameObject.GetComponent<SpriteRenderer>().sprite = NextEvolution;
         }
+    }
+
+
+
+    //Send this monster to the GameManager
+    void SendMonster(Monster thisMonster) 
+    {
+        SendMessageUpwards("GetMonster", thisMonster);
     }
 }

@@ -5,8 +5,12 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    public Slider SliderPrefab;
+    //GameSaver for saving info.
     GameSaver Save = new GameSaver();
+    //Currently Active Monster
+    public Monster ActiveMonster;
+    //slider for stuff
+    public Slider SliderPrefab;
 
     public int testValue;
 
@@ -18,13 +22,13 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        Debug.Log(ActiveMonster.Name);
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        
     }
 
     private void OnDestroy()
@@ -32,15 +36,22 @@ public class GameManager : MonoBehaviour
         if (SceneManager.GetActiveScene().name == "MonsterHome_MainPrototype")
             Save.SaveTime();
     }
+
+
+    public void GetMonster(Monster yourMonster) 
+    {
+        ActiveMonster = yourMonster;
+    }
 }
 
 
 public class GameSaver 
 {
-
     //------------------------Save Time in PlayerPrefs---------------------//
 
+
     public DateTime Time = DateTime.Now;
+
 
     /// <summary>
     /// calculates the difference between now and last time "SaveTime" where used.
@@ -205,6 +216,13 @@ public class Monster
     private bool IsSad;
     private bool IsOverRested;
 
+    //potentials
+    /*
+     * IsSick
+     * IsPoisoned
+     * 
+     * */
+
 
     //Max & Min Values (Read Only for now)
     readonly float MaxHealth = 100;
@@ -212,19 +230,24 @@ public class Monster
     readonly float MaxSleep = 100;
     readonly float MaxHappiness = 100;
 
+
     //Degration modifiers
-    readonly float HungerDegration = 0.00083f; //1% every _ min
-    readonly float SleepDegration = 0.00083f; //1% every _ min
+    readonly float HungerDegration = 0.0083f; //1% every _ min
+    readonly float SleepDegration = 0.0083f; //1% every _ min
     readonly float PlayfullDegration = 0f; //1% every _ min
     readonly float ToughnessDegration = 0f; //1% every _ min
 
-    //temporary?
+
+    //needed for shake (temporary?)
     float originX, originY, originZ;
+
 
     //Health Bar
     Slider HealthBar;
 
+
     //------------------Monster Class Constructor---------------------
+
 
     //Constructor for no arguments
     /// <summary>
@@ -438,7 +461,6 @@ public class Monster
         for (int i = 0; i < statuses.Length; i++)
         {
             statuses[i] -= degrade[i] * TimeInSec;
-            Debug.Log(statuses[i]);
             if (statuses[i] < 0)
                 statuses[i] = 0;
         }
@@ -448,14 +470,46 @@ public class Monster
     }
 
 
+
+
+
     //Update Hunger
     /// <summary>
-    /// Updates the hunger value and the statuses if conditions are met.
+    /// Updates the hunger to desired value and the statuses if conditions are met.
     /// </summary>
     /// <param name="NewHunger">Set new current hunger</param>
     public void UpdateHunger(float NewHunger)
     {
         Hunger = NewHunger;
+
+        if (Hunger > MaxHunger)
+        {
+            Hunger = MaxHunger;
+            IsFull = true;
+        }
+        if (Hunger < 0)
+        {
+            IsStarving = true;
+            Hunger = 0;
+        }
+        if (Hunger > 0)
+        {
+            IsStarving = false;
+        }
+        if (Hunger < MaxHunger)
+        {
+            IsFull = false;
+        }
+    }
+
+
+    //Degrade Hunger
+    /// <summary>
+    /// Degrades hunger and updates the statuses if conditions are met.
+    /// </summary>
+    public void DegradeHunger()
+    {
+        Hunger -= HungerDegration;   
 
         if (Hunger > MaxHunger)
         {
