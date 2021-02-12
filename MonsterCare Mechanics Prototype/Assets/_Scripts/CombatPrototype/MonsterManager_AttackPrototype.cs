@@ -44,6 +44,7 @@ public class MonsterManager_AttackPrototype : MonoBehaviour
         if (StartMonster.HealthStatus <= 0)
         {
            Death();
+            Debug.Log(StartMonster.DeathStatus);
         }
         if (StartMonster.HealthStatus > 0)
         {
@@ -64,7 +65,7 @@ public class MonsterManager_AttackPrototype : MonoBehaviour
                    //if touch began deal dmg and add shake
                    case TouchPhase.Began:
  
-                       StartMonster.DealDmg(1);
+                       StartMonster.DealDmg(10);
                        DmgShake(true);
                        break;
                    default:

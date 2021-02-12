@@ -212,6 +212,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3910195835844258146, guid: 923ae5b30f168fd45a23f24e6e84e79e, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3910195835844258158, guid: 923ae5b30f168fd45a23f24e6e84e79e, type: 3}
+      propertyPath: AttackThisMonster
+      value: 
+      objectReference: {fileID: 1087060817}
+    - target: {fileID: 3910195835844258159, guid: 923ae5b30f168fd45a23f24e6e84e79e, type: 3}
+      propertyPath: KillThisMonster
+      value: 
+      objectReference: {fileID: 1087060817}
     - target: {fileID: 7592878070786102400, guid: 923ae5b30f168fd45a23f24e6e84e79e, type: 3}
       propertyPath: m_Name
       value: Canvas_SpecialAttack

@@ -8,9 +8,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MainMenu.unity
     guid: 31aa9ec70dd757d40b1a9c721fee1d35
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
   - enabled: 1
     path: Assets/Scenes/MonsterHome_MainPrototype.unity
     guid: 1b3f92e7abc7f5b47b8a4cb62a034554
@@ -35,4 +32,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Map.unity
     guid: 5fd01ef05f9c1454ab762fa84d64275c
+  - enabled: 1
+    path: Assets/Scenes/LoadScene.unity
+    guid: 8136993a63d09bf41b478f85c354d4cc
   m_configObjects: {}
