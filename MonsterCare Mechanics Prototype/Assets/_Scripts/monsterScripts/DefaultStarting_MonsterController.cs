@@ -71,6 +71,6 @@ public class DefaultStarting_MonsterController : MonoBehaviour
     void SendMonster(Monster thisMonster) 
     {
         SendMessageUpwards("GetMonster", thisMonster);
-        //get gameobject to gamemanager
+        SendMessageUpwards("GetMonster", gameObject);
     }
 }

@@ -14,7 +14,6 @@ public class MonsterFoodDrop : MonoBehaviour
     void Start()
     {
         currentHealth = KillThisMonster.StartMonster.HealthStatus;
-        
     }
 
     private IEnumerator WaitForPick()
@@ -45,5 +44,4 @@ public class MonsterFoodDrop : MonoBehaviour
         GameObject objectToHide = GameObject.Find("Sprite_Chicken Variant");
         objectToHide.GetComponent<Renderer>().enabled = false;
     }
-
 }

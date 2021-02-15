@@ -69,7 +69,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6206557610249406222, guid: 8f34bc1ec0c63334080ee1d111be9213, type: 3}
       propertyPath: m_Name
-      value: Sprite_Chicken
+      value: Sprite_Chicken Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 6206557610249406222, guid: 8f34bc1ec0c63334080ee1d111be9213, type: 3}
+      propertyPath: m_TagString
+      value: MonsterFoodDrop
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8f34bc1ec0c63334080ee1d111be9213, type: 3}

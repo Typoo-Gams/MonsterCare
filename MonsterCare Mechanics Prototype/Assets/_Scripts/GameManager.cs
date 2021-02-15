@@ -5,18 +5,25 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    //Supreme GameManager
+    static GameObject StaticManager;
     //GameSaver for saving info.
     GameSaver Save = new GameSaver();
     //Currently Active Monster
     public Monster ActiveMonster;
+    public GameObject MonsterObject;
     //slider for stuff
     public Slider SliderPrefab;
+    //HomeUI
+    GameObject HomeButtonUI;
 
     public int testValue;
 
     private void Awake()
     {
-        
+        BecomeStatic();
+        DontDestroyOnLoad(gameObject);
+        HomeButtonUI = GameObject.Find("HomeUi");
     }
 
     // Start is called before the first frame update
@@ -37,10 +44,53 @@ public class GameManager : MonoBehaviour
             Save.SaveTime();
     }
 
+    private void OnLevelWasLoaded(int level)
+    {
+        Canvas canvas =  GameObject.Find("Canvas").GetComponent<Canvas>();
+        canvas.worldCamera = Camera.main;
+        if (level != 1)
+        {
+            HomeButtonUI.SetActive(false);
+            MonsterObject.SetActive(false);
 
+        }
+        else
+        {
+            HomeButtonUI.SetActive(true);
+            MonsterObject.SetActive(true);
+        }
+    }
+
+    void BecomeStatic() 
+    {
+        if (StaticManager == null)
+            StaticManager = gameObject;
+        else
+        {
+            Debug.Log("Someone is supreme already");
+            Destroy(gameObject);
+        }
+    }
+
+    //Set active monster so the gamemanager knows the monsters stats.
+    /// <summary>
+    /// Set the active monster
+    /// </summary>
+    /// <param name="yourMonster">Your monster</param>
     public void GetMonster(Monster yourMonster) 
     {
         ActiveMonster = yourMonster;
+    }
+
+
+    //Set the gameobject for the active monster so the gamemanager has acess to it.
+    /// <summary>
+    /// set the gameobject for the active monster
+    /// </summary>
+    /// <param name="yourMonster">your monster gameobject</param>
+    public void GetMonster(GameObject yourMonster)
+    {
+        MonsterObject = yourMonster;
     }
 }
 
