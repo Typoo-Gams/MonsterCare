@@ -857,6 +857,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1010649739}
     m_Modifications:
+    - target: {fileID: 3443623198860835149, guid: 100a4ed44447a644faaa607d720395fe, type: 3}
+      propertyPath: m_SortingOrder
+      value: -2
+      objectReference: {fileID: 0}
     - target: {fileID: 6334183884661785621, guid: 100a4ed44447a644faaa607d720395fe, type: 3}
       propertyPath: m_Name
       value: DefaultStartingMonster
@@ -1139,6 +1143,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 527540620044466288}
     m_Modifications:
+    - target: {fileID: 637458893445485542, guid: d953842622b591d4396253a827ec427d, type: 3}
+      propertyPath: m_SortingOrder
+      value: -3
+      objectReference: {fileID: 0}
     - target: {fileID: 3185612166826352792, guid: d953842622b591d4396253a827ec427d, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -1186,6 +1194,10 @@ PrefabInstance:
     - target: {fileID: 3185612166826352794, guid: d953842622b591d4396253a827ec427d, type: 3}
       propertyPath: m_Name
       value: Background
+      objectReference: {fileID: 0}
+    - target: {fileID: 3185612167028525448, guid: d953842622b591d4396253a827ec427d, type: 3}
+      propertyPath: m_SortingOrder
+      value: -4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d953842622b591d4396253a827ec427d, type: 3}
@@ -1293,6 +1305,10 @@ PrefabInstance:
       propertyPath: manager
       value: 
       objectReference: {fileID: 5009062498840296704}
+    - target: {fileID: 7209496824478658569, guid: b2d34a47ea6d6f84b82c6f9614e7522c, type: 3}
+      propertyPath: NightTime
+      value: 
+      objectReference: {fileID: 4390621257697956419, guid: 8c95f348b43221447adcc8775c485026, type: 3}
     - target: {fileID: 7209496824478658583, guid: b2d34a47ea6d6f84b82c6f9614e7522c, type: 3}
       propertyPath: m_Name
       value: ToggleSleep
