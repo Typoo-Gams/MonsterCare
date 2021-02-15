@@ -10,6 +10,9 @@ public class SceneChanger : MonoBehaviour
     public int SceneNumber = 0;
     public string SceneName = "";
 
+    //Testing Fading between scenes
+    public Animator animator;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -22,11 +25,20 @@ public class SceneChanger : MonoBehaviour
     {
         if (SceneName == "")
         {
+           
             SceneManager.LoadScene(SceneNumber);
+            animator.SetTrigger("FadeToLevel");
         }
         else 
         {
+           
             SceneManager.LoadScene(SceneName);
+            animator.SetTrigger("FadeToLevel");
         }
+    }
+                //Fade to level Test
+    public void FadeToLevel(int levelindex)
+    {
+        animator.SetTrigger("FadeOut");
     }
 }
