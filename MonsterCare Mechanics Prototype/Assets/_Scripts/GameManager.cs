@@ -49,6 +49,7 @@ public class GameManager : MonoBehaviour
 
     private void OnLevelWasLoaded(int level)
     {
+        Debug.Log(level);
         Canvas canvas =  GameObject.Find("Canvas").GetComponent<Canvas>();
         canvas.worldCamera = Camera.main;
         if (level != 1)
