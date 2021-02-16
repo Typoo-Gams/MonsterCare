@@ -26,6 +26,8 @@ public class MonsterFoodDrop : MonoBehaviour
     private void Update()
     {
         FoodDrop();
+        //Tapped();
+        
     }
 
     private void FoodDrop()
@@ -34,14 +36,18 @@ public class MonsterFoodDrop : MonoBehaviour
         {
             GameObject objectToAppear = GameObject.FindGameObjectWithTag("MonsterFoodDrop");
             objectToAppear.GetComponent<Renderer>().enabled = true;
+
+            GameObject objectToHide = GameObject.FindGameObjectWithTag("Monster");
+            objectToHide.GetComponent<Renderer>().enabled = false;
         }
     }
 
-    
-
-    private void OnCollisionExit2D(Collision2D collision)
+    /*private void Tapped()
     {
-        GameObject objectToHide = GameObject.Find("Sprite_Chicken Variant");
-        objectToHide.GetComponent<Renderer>().enabled = false;
-    }
+        if ()
+        {
+            Destroy(GameObject.FindGameObjectWithTag("MonsterFoodDrop"));
+            StartCoroutine(WaitForPick());
+        }
+    }*/
 }
