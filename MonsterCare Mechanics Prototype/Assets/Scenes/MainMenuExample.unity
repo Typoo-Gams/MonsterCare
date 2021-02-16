@@ -233,6 +233,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1489941970, guid: e940a607c6fae394dbc5a4b617596349, type: 3}
+      propertyPath: SceneName
+      value: MainMenuExample
+      objectReference: {fileID: 0}
     - target: {fileID: 5009062498840296705, guid: e940a607c6fae394dbc5a4b617596349, type: 3}
       propertyPath: m_Name
       value: GameManager
