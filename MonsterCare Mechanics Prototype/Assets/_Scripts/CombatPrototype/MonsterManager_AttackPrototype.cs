@@ -65,7 +65,7 @@ public class MonsterManager_AttackPrototype : MonoBehaviour
                    //if touch began deal dmg and add shake
                    case TouchPhase.Began:
  
-                       StartMonster.DealDmg(10);
+                       StartMonster.DealDmg(1);
                        DmgShake(true);
                        break;
                    default:
@@ -77,6 +77,12 @@ public class MonsterManager_AttackPrototype : MonoBehaviour
                DmgShake(false);
            }
        }
+    }
+
+    private void OnDestroy()
+    {
+        Slider destroy = StartMonster.GetHealthbar();
+        Destroy(destroy);
     }
 
     //Adds shake Time to monster

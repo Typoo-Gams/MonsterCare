@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class MonsterFoodDrop : MonoBehaviour
 {
@@ -20,10 +20,15 @@ public class MonsterFoodDrop : MonoBehaviour
 
     private void Update()
     {
-        if(KillThisMonster.StartMonster.DeathStatus && isCreated == false)
+        bool slideBar;
+        slideBar = KillThisMonster.StartMonster.GetHealthbar().IsActive();
+        Debug.Log("slidebar" + slideBar);
+
+        if (!slideBar && isCreated == false)
         {
             isCreated = true;
             FoodDrop();
+            
         }
     }
 

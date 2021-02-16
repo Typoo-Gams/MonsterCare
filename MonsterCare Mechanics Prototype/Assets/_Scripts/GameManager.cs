@@ -681,6 +681,12 @@ public class Monster
         Debug.Log(MonsterName + " Status: \nHealth: " + Health + "\nHunger: " + Hunger + "\nStarving: " + IsStarving + "\nFull: " + IsFull + "\nSleepyness: " + Sleep + "\nSleep Deprived: " + IsSleepDeprived + "\nRested: " + IsRested + "\nOver Rested: " + IsOverRested);
     }
 
+    public Slider GetHealthbar() 
+    {
+        return HealthBar;
+    }
+
+
 
     //Get/set health
     /// <summary>

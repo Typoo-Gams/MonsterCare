@@ -203,7 +203,7 @@ Transform:
   m_LocalScale: {x: 0.5410365, y: 0.5410365, z: 0.5410365}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &965531170
 PrefabInstance:
@@ -214,8 +214,16 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1740130347430442262, guid: 923ae5b30f168fd45a23f24e6e84e79e, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1740130347430442262, guid: 923ae5b30f168fd45a23f24e6e84e79e, type: 3}
+      propertyPath: foodPrefab
+      value: 
+      objectReference: {fileID: 5961485559775060362, guid: 77c55caf1d5bca94e9f243e4a51a8b41, type: 3}
+    - target: {fileID: 1740130347430442262, guid: 923ae5b30f168fd45a23f24e6e84e79e, type: 3}
+      propertyPath: KillThisMonster
+      value: 
+      objectReference: {fileID: 1087060817}
     - target: {fileID: 3910195835844258146, guid: 923ae5b30f168fd45a23f24e6e84e79e, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -232,6 +240,10 @@ PrefabInstance:
       propertyPath: AttackThisMonster
       value: 
       objectReference: {fileID: 1087060817}
+    - target: {fileID: 6903691913758895769, guid: 923ae5b30f168fd45a23f24e6e84e79e, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 7592878070786102400, guid: 923ae5b30f168fd45a23f24e6e84e79e, type: 3}
       propertyPath: m_Name
       value: Canvas_SpecialAttack
@@ -475,5 +487,5 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
