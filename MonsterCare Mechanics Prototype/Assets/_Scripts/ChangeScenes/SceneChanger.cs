@@ -10,9 +10,6 @@ public class SceneChanger : MonoBehaviour
     public int SceneNumber = 0;
     public string SceneName = "";
 
-    //Testing Fading between scenes
-    public Animator animator;
-
     // Start is called before the first frame update
     void Start()
     {
