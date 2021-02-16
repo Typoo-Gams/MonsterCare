@@ -9,45 +9,32 @@ public class MonsterFoodDrop : MonoBehaviour
     public MonsterManager_AttackPrototype KillThisMonster;
     public GameObject foodPrefab;
     float currentHealth;
+    public bool isCreated;
 
     // Start is called before the first frame update
     void Start()
     {
         currentHealth = KillThisMonster.StartMonster.HealthStatus;
+        isCreated = false;
     }
-
-    private IEnumerator WaitForPick()
-    {
-        yield return new WaitForSeconds(1);
-        SceneManager.LoadScene(9);
-    }
-
 
     private void Update()
     {
-        FoodDrop();
-        //Tapped();
-        
+        if(KillThisMonster.StartMonster.DeathStatus && isCreated == false)
+        {
+            isCreated = true;
+            FoodDrop();
+        }
     }
 
     private void FoodDrop()
     {
-        if (KillThisMonster.StartMonster.DeathStatus)
+        if (isCreated == true)
         {
-            GameObject objectToAppear = GameObject.FindGameObjectWithTag("MonsterFoodDrop");
-            objectToAppear.GetComponent<Renderer>().enabled = true;
-
-            GameObject objectToHide = GameObject.FindGameObjectWithTag("Monster");
-            objectToHide.GetComponent<Renderer>().enabled = false;
+            Instantiate(foodPrefab);
+            Destroy(KillThisMonster.gameObject);
         }
     }
 
-    /*private void Tapped()
-    {
-        if ()
-        {
-            Destroy(GameObject.FindGameObjectWithTag("MonsterFoodDrop"));
-            StartCoroutine(WaitForPick());
-        }
-    }*/
+    
 }
