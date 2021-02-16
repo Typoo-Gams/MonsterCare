@@ -430,8 +430,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 539.56976, y: 1614.5181}
-  m_SizeDelta: {x: 1080, y: 515.18994}
+  m_AnchoredPosition: {x: 539.56976, y: 1474.2}
+  m_SizeDelta: {x: 1080, y: 800.7}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1458225490
 CanvasRenderer:
@@ -485,7 +485,7 @@ GameObject:
   - component: {fileID: 1489941971}
   - component: {fileID: 1489941970}
   m_Layer: 5
-  m_Name: Button
+  m_Name: return
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -606,7 +606,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SceneNumber: 0
-  SceneName: MainMenu
+  SceneName: MainMenuExample
 --- !u!1 &1522330170
 GameObject:
   m_ObjectHideFlags: 0
@@ -908,6 +908,22 @@ PrefabInstance:
     - target: {fileID: 6829362575786079707, guid: 100a4ed44447a644faaa607d720395fe, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7958125156335829633, guid: 100a4ed44447a644faaa607d720395fe, type: 3}
+      propertyPath: m_Size.x
+      value: 5.064456
+      objectReference: {fileID: 0}
+    - target: {fileID: 7958125156335829633, guid: 100a4ed44447a644faaa607d720395fe, type: 3}
+      propertyPath: m_Size.y
+      value: 4.853858
+      objectReference: {fileID: 0}
+    - target: {fileID: 7958125156335829633, guid: 100a4ed44447a644faaa607d720395fe, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.055549026
+      objectReference: {fileID: 0}
+    - target: {fileID: 7958125156335829633, guid: 100a4ed44447a644faaa607d720395fe, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.05543375
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 100a4ed44447a644faaa607d720395fe, type: 3}

@@ -10,6 +10,7 @@ public class MonsterFoodDrop : MonoBehaviour
     public GameObject foodPrefab;
     float currentHealth;
     public bool isCreated;
+    bool slideBar = true;
 
     // Start is called before the first frame update
     void Start()
@@ -20,10 +21,10 @@ public class MonsterFoodDrop : MonoBehaviour
 
     private void Update()
     {
-        bool slideBar;
-        slideBar = KillThisMonster.StartMonster.GetHealthbar().IsActive();
-        Debug.Log("slidebar" + slideBar);
-
+        if (KillThisMonster != null)
+            if (KillThisMonster.StartMonster.DeathStatus) 
+                slideBar = KillThisMonster.StartMonster.GetHealthbar().IsActive();
+        
         if (!slideBar && isCreated == false)
         {
             isCreated = true;
@@ -38,6 +39,7 @@ public class MonsterFoodDrop : MonoBehaviour
         {
             Instantiate(foodPrefab);
             Destroy(KillThisMonster.gameObject);
+            KillThisMonster = null;
         }
     }
 

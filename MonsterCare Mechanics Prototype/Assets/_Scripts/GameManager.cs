@@ -400,6 +400,7 @@ public class Monster
         HealthBar.maxValue = MaxHealth;
         HealthBar.minValue = 0;
         HealthBar.value = Health;
+        HealthBar.tag = "UsedHealthbar";
     }
 
 

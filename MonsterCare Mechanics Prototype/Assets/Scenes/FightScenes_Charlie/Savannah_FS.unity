@@ -322,6 +322,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas_SpecialAttack
       objectReference: {fileID: 0}
+    - target: {fileID: 1740130347430442263, guid: 923ae5b30f168fd45a23f24e6e84e79e, type: 3}
+      propertyPath: m_TagString
+      value: CanvasFighting
+      objectReference: {fileID: 0}
     - target: {fileID: 4808484831556523162, guid: 923ae5b30f168fd45a23f24e6e84e79e, type: 3}
       propertyPath: AttackThisMonster
       value: 

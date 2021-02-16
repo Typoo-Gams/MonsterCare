@@ -24,7 +24,7 @@ public class MonsterManager_AttackPrototype : MonoBehaviour
     void Awake()
     {
     //getting canvas
-    CurrentCanvas = GameObject.FindGameObjectWithTag("Canvas").GetComponent<Canvas>();
+    CurrentCanvas = GameObject.FindGameObjectWithTag("CanvasFighting").GetComponent<Canvas>();
     //making health bar
     Instantiate(SliderPrefab).transform.SetParent(CurrentCanvas.transform, false);  
     //testing monster class
@@ -44,7 +44,6 @@ public class MonsterManager_AttackPrototype : MonoBehaviour
         if (StartMonster.HealthStatus <= 0)
         {
            Death();
-            Debug.Log(StartMonster.DeathStatus);
         }
         if (StartMonster.HealthStatus > 0)
         {

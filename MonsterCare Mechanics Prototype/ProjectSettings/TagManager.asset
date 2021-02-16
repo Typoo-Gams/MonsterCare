@@ -10,6 +10,9 @@ TagManager:
   - Camera
   - Monster
   - MonsterFoodDrop
+  - FoodButton
+  - CanvasFighting
+  - UsedHealthbar
   layers:
   - Default
   - TransparentFX
