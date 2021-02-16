@@ -130,25 +130,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 692402123, guid: e940a607c6fae394dbc5a4b617596349, type: 3}
-      propertyPath: NightTime
-      value: 
-      objectReference: {fileID: 4390621257697956419, guid: 8c95f348b43221447adcc8775c485026, type: 3}
-    - target: {fileID: 791970516, guid: e940a607c6fae394dbc5a4b617596349, type: 3}
-      propertyPath: m_SortingOrder
-      value: -4
-      objectReference: {fileID: 0}
     - target: {fileID: 1010649738, guid: e940a607c6fae394dbc5a4b617596349, type: 3}
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 2144906751}
-    - target: {fileID: 2660822670918686906, guid: e940a607c6fae394dbc5a4b617596349, type: 3}
-      propertyPath: m_SortingOrder
-      value: -3
+    - target: {fileID: 1458225488, guid: e940a607c6fae394dbc5a4b617596349, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 800.7
       objectReference: {fileID: 0}
-    - target: {fileID: 3443623197786581306, guid: e940a607c6fae394dbc5a4b617596349, type: 3}
-      propertyPath: m_SortingOrder
-      value: -2
+    - target: {fileID: 1458225488, guid: e940a607c6fae394dbc5a4b617596349, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 1474.2
       objectReference: {fileID: 0}
     - target: {fileID: 5009062498840296705, guid: e940a607c6fae394dbc5a4b617596349, type: 3}
       propertyPath: m_Name
@@ -197,6 +189,22 @@ PrefabInstance:
     - target: {fileID: 5009062498840296711, guid: e940a607c6fae394dbc5a4b617596349, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7958125155258372854, guid: e940a607c6fae394dbc5a4b617596349, type: 3}
+      propertyPath: m_Size.x
+      value: 5.064456
+      objectReference: {fileID: 0}
+    - target: {fileID: 7958125155258372854, guid: e940a607c6fae394dbc5a4b617596349, type: 3}
+      propertyPath: m_Size.y
+      value: 4.853858
+      objectReference: {fileID: 0}
+    - target: {fileID: 7958125155258372854, guid: e940a607c6fae394dbc5a4b617596349, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.055549026
+      objectReference: {fileID: 0}
+    - target: {fileID: 7958125155258372854, guid: e940a607c6fae394dbc5a4b617596349, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.05543375
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e940a607c6fae394dbc5a4b617596349, type: 3}

@@ -10,6 +10,9 @@ public class InfoPanel_Button : MonoBehaviour
     public GameObject StatBoard;
     public GameManager manager;
     public Text Stats;
+    GameSaver saver = new GameSaver();
+    string lastPlay;
+    float lastPlayInSec;
 
 
     // Start is called before the first frame update
@@ -18,13 +21,23 @@ public class InfoPanel_Button : MonoBehaviour
         gameObject.GetComponent<Button>().onClick.AddListener(StatBoardToggle);
         isActive = false;
         StatBoard.SetActive(isActive);
+        for (int i = 0; i < saver.LoadTime().Length; i++) 
+        {
+            if (i == 3)
+                lastPlay += "   ";
+            if (i < 3)
+                lastPlay += saver.LoadTime(i) + ":";
+            else
+                lastPlay += saver.LoadTime(i) + "/";
+        }
+        lastPlayInSec = saver.FindTimeDifference();
     }
 
     // Update is called once per frame
     void Update()
     {
-        string text = string.Format("HomePrototype\nHealth: {0}\n Hunger: {1}\n Sleep: {2}",
-                    (int)manager.ActiveMonster.HealthStatus, (int)manager.ActiveMonster.HungerStatus, (int)manager.ActiveMonster.SleepStatus);
+        string text = string.Format("HomePrototype\nHealth: {0}\n Hunger: {1}\n Sleep: {2}\nLast play session ended at: \n{3}\nTime in seconds since last played: {4}",
+                    (int)manager.ActiveMonster.HealthStatus, (int)manager.ActiveMonster.HungerStatus, (int)manager.ActiveMonster.SleepStatus, lastPlay, (int)lastPlayInSec);
         Stats.text = text;
     }
 
