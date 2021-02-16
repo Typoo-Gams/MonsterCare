@@ -24,6 +24,9 @@ public class GameManager : MonoBehaviour
         BecomeStatic();
         DontDestroyOnLoad(gameObject);
         HomeButtonUI = GameObject.Find("HomeUi");
+
+        if (SceneManager.GetActiveScene().name != "MonsterHome_MainPrototype")
+            HomeButtonUI.SetActive(false);
     }
 
     // Start is called before the first frame update
@@ -52,7 +55,6 @@ public class GameManager : MonoBehaviour
         {
             HomeButtonUI.SetActive(false);
             MonsterObject.SetActive(false);
-
         }
         else
         {
