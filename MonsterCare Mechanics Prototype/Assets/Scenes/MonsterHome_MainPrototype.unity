@@ -134,6 +134,18 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 2144906751}
+    - target: {fileID: 1983118781375656708, guid: e940a607c6fae394dbc5a4b617596349, type: 3}
+      propertyPath: SpawnLocation.x
+      value: 308.58704
+      objectReference: {fileID: 0}
+    - target: {fileID: 1983118781375656708, guid: e940a607c6fae394dbc5a4b617596349, type: 3}
+      propertyPath: SpawnLocation.y
+      value: 1681.5002
+      objectReference: {fileID: 0}
+    - target: {fileID: 1983118781375656708, guid: e940a607c6fae394dbc5a4b617596349, type: 3}
+      propertyPath: SpawnLocation.z
+      value: -20109.09
+      objectReference: {fileID: 0}
     - target: {fileID: 5009062498840296705, guid: e940a607c6fae394dbc5a4b617596349, type: 3}
       propertyPath: m_Name
       value: GameManager
