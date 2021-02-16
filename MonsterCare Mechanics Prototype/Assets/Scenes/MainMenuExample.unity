@@ -754,6 +754,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SceneNumber: 1
+  SleepTime: 1000
   SceneName: 
   animator: {fileID: 647246598}
 --- !u!1 &1336328529

@@ -17,27 +17,41 @@ public class SceneChanger : MonoBehaviour
     void Start()
     {
         ThisButton = gameObject.GetComponent<Button>();
+        
+        ThisButton.onClick.AddListener(FadeToLevel);
         ThisButton.onClick.AddListener(TaskOnClick);
     }
+            private void LoadScene()
+    {
+        SceneManager.LoadScene(1);
+    }
+
+    IEnumerator executeAfter(int A)
+    {
+        LoadScene();
+    }     
 
     // Update is called once per frame
-    private void TaskOnClick() 
+    private void TaskOnClick()
     {
+        
         if (SceneName == "")
         {
-           
-            SceneManager.LoadScene(SceneNumber);
             animator.SetTrigger("FadeToLevel");
+            
+            StartCoroutine(executeAfter(0));
+
         }
-        else 
+        else
         {
-           
-            SceneManager.LoadScene(SceneName);
             animator.SetTrigger("FadeToLevel");
+            SceneManager.LoadScene(SceneName);
+            StartCoroutine(executeAfter(0));
+
         }
     }
                 //Fade to level Test
-    public void FadeToLevel(int levelindex)
+    public void FadeToLevel()
     {
         animator.SetTrigger("FadeOut");
     }
