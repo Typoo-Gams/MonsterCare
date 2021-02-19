@@ -21,31 +21,30 @@ public class MonsterManager_AttackPrototype : MonoBehaviour
 
 
     // Start is called before the first frame update
-    void Awake()
+    void Start()
     {
-    //getting canvas
-    CurrentCanvas = GameObject.FindGameObjectWithTag("CanvasFighting").GetComponent<Canvas>();
-    //making health bar
-    Instantiate(SliderPrefab).transform.SetParent(CurrentCanvas.transform, false);  
-    //testing monster class
-    StartMonster = new Monster("Ditto");
-    StartMonster.DebugMonster();
-    StartMonster.AssignHealthBar(GameObject.FindGameObjectWithTag("UnusedSlider").GetComponent<Slider>());
-    StartMonster.CombatActive(true);
-    StartMonster.SetOriginPos(transform);
+        //getting canvas
+        CurrentCanvas = GameObject.FindGameObjectWithTag("CanvasFighting").GetComponent<Canvas>();
+        //making health bar
+        Instantiate(SliderPrefab).transform.SetParent(CurrentCanvas.transform, false);  
+        //testing monster class
+        StartMonster = new Monster("Enemy_Placeholder");
+        StartMonster.AssignHealthBar(GameObject.FindGameObjectWithTag("UnusedSlider").GetComponent<Slider>());
+        StartMonster.CombatActive(true);
+        StartMonster.SetOriginPos(transform);
     }
 
     // Update is called once per frame
     void Update()
     {
-       //update shake
-       DmgShake(false);
+        //update shake
+        DmgShake(false);
 
-        if (StartMonster.HealthStatus <= 0)
+        if (StartMonster.DeathStatus)
         {
            Death();
         }
-        if (StartMonster.HealthStatus > 0)
+        if (StartMonster.DeathStatus != true)
         {
            Revive();
         }
@@ -54,30 +53,32 @@ public class MonsterManager_AttackPrototype : MonoBehaviour
  
     private void TouchAttack() 
     {
-       if (StartMonster.CombatStatus)
-       {
-           //Getting Touch input
-           if (Input.touchCount > 0 || Input.GetMouseButtonDown(0))
-           {
-               switch (touch.phase)
-               {
-                   //if touch began deal dmg and add shake
-                   case TouchPhase.Began:
- 
-                       StartMonster.DealDmg(10);
-                       DmgShake(true);
-                       break;
-                   default:
-                       break;
-               }
-           }
-           else //update shake
-           {
-               DmgShake(false);
-           }
-       }
+        if (StartMonster.CombatStatus)
+        {
+            //Getting Touch input
+            if (Input.touchCount > 0 || Input.GetMouseButtonDown(0))
+            {
+                switch (touch.phase)
+                {
+                    //if touch began deal dmg and add shake
+                    case TouchPhase.Began:
+                        Debug.Log("Attacked");
+                        StartMonster.DealDmg(10);
+                        DmgShake(true);
+                        break;
+                    default:
+                        Debug.LogError(this.name + " did something weird.");
+                        break;
+                } 
+            }
+            else //update shake
+            {
+                DmgShake(false);
+            }
+        }
     }
 
+    //Removed the healthbar when the enemy is killed.
     private void OnDestroy()
     {
         Slider destroy = StartMonster.GetHealthbar();
@@ -85,14 +86,22 @@ public class MonsterManager_AttackPrototype : MonoBehaviour
     }
 
     //Adds shake Time to monster
+    /// <summary>
+    /// Shakes the monster's transform from left to right
+    /// </summary>
+    /// <param name="addTime">True if time should be added, false to update the shake position if it has time.</param>
     private void DmgShake(bool addTime) 
     {
+        //add time if true (sets the timer to 0)
         if (addTime) 
             CounterShake -= 0.25f; 
         
+        //sets the timer to 0 so it doesnt go negative.
         if (CounterShake < 0)
             CounterShake = 0;
         
+        //if the counter is bigger than the interval then set it to its max value.
+        //when the counter has reached the interval and it has moved then reset its position to its original position.
         if (CounterShake >= intervalShake)
         {
             CounterShake = 0.25f;
@@ -110,26 +119,25 @@ public class MonsterManager_AttackPrototype : MonoBehaviour
         }
     }
 
+    //turns off the combat for the enemy monster.
+    //visually shows the monster is dead by rotating the sprite so its laying down.
     private void Death()
     {
         transform.rotation = new Quaternion(0f, 0f, 0.707106709f, 0.707106948f);
         StartMonster.CombatActive(false);
     }
+
+    //turns on the combat for the enemy monster
+    //visually shows the monster is alive by rotating it so its standing.
     private void Revive()
     {
         transform.rotation = new Quaternion(0f, 0f, 0.0f, 0.0f);
         StartMonster.CombatActive(true);
     }
 
-
+    //On mouse down attack
     private void OnMouseDown()
     {
         TouchAttack();
-    }
-
-    public Monster ThisMonster() 
-    {
-        Debug.Log(StartMonster);
-        return StartMonster;
     }
 }

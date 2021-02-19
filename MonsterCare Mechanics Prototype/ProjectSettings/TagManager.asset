@@ -14,6 +14,7 @@ TagManager:
   - CanvasFighting
   - UsedHealthbar
   - AttackIcon
+  - Note
   layers:
   - Default
   - TransparentFX

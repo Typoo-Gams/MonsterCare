@@ -472,6 +472,38 @@ PrefabInstance:
       propertyPath: IsItDead
       value: 
       objectReference: {fileID: 91151277921769676}
+    - target: {fileID: 8637991652438758500, guid: 923ae5b30f168fd45a23f24e6e84e79e, type: 3}
+      propertyPath: AbilityIcon1
+      value: 
+      objectReference: {fileID: 600486685}
+    - target: {fileID: 8637991652438758500, guid: 923ae5b30f168fd45a23f24e6e84e79e, type: 3}
+      propertyPath: AbilityIcon2
+      value: 
+      objectReference: {fileID: 836744614}
+    - target: {fileID: 8637991652438758500, guid: 923ae5b30f168fd45a23f24e6e84e79e, type: 3}
+      propertyPath: prefabList.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8637991652438758500, guid: 923ae5b30f168fd45a23f24e6e84e79e, type: 3}
+      propertyPath: prefabList.Array.data[0]
+      value: 
+      objectReference: {fileID: 3837360739718795844, guid: 24a9eb23437c56344ae786bfdc6f8e27, type: 3}
+    - target: {fileID: 8637991652438758500, guid: 923ae5b30f168fd45a23f24e6e84e79e, type: 3}
+      propertyPath: prefabList.Array.data[1]
+      value: 
+      objectReference: {fileID: 8352625632777933019, guid: 2f13ea70a335b3047844bb511abe1232, type: 3}
+    - target: {fileID: 8637991652438758500, guid: 923ae5b30f168fd45a23f24e6e84e79e, type: 3}
+      propertyPath: prefabList.Array.data[2]
+      value: 
+      objectReference: {fileID: 5740405622423256014, guid: f18500803474a2d48ac60057e5bd88f5, type: 3}
+    - target: {fileID: 8637991652438758500, guid: 923ae5b30f168fd45a23f24e6e84e79e, type: 3}
+      propertyPath: prefabList.Array.data[3]
+      value: 
+      objectReference: {fileID: 5827904041017366573, guid: a77d8c04f01dfbb4886993a21c8dff3f, type: 3}
+    - target: {fileID: 8637991652438758500, guid: 923ae5b30f168fd45a23f24e6e84e79e, type: 3}
+      propertyPath: prefabList.Array.data[4]
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 8651457838815821350, guid: 923ae5b30f168fd45a23f24e6e84e79e, type: 3}
       propertyPath: m_TagString
       value: AttackIcon

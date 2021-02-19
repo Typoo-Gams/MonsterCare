@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Cooldown_Ability2 : MonoBehaviour
+public class SpecialAbilty : MonoBehaviour
 {
     
     public Image monsterIcon;
@@ -12,7 +12,7 @@ public class Cooldown_Ability2 : MonoBehaviour
 
     bool isCooldown = false;
 
-    private int Damage = 10;
+    public int Damage = 10;
     public MonsterManager_AttackPrototype AttackThisMonster;
 
     // Start is called before the first frame update
@@ -29,8 +29,7 @@ public class Cooldown_Ability2 : MonoBehaviour
 
     void OurMonsterAttack()
     {
-
-            if (Input.touchCount > 1 && isCooldown == false)
+            if (Input.touchCount > 1 && isCooldown == false || Input.GetMouseButtonDown(0) && Input.GetMouseButtonDown(1) && isCooldown == false)
             {
                 isCooldown = true;
                 monsterIcon.fillAmount = 1;
@@ -47,7 +46,6 @@ public class Cooldown_Ability2 : MonoBehaviour
                     isCooldown = false;
                 }
             }
-        
     }
 
     public void SpecialAttack()

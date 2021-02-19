@@ -4,57 +4,36 @@ using UnityEngine;
 
 public class DragAndMove_Object : MonoBehaviour
 {
-    public Vector2 startPos;
-    public bool directionChosen;
     public Vector3 direction;
-    private Camera cam;
     public Vector3 screenPos;
+    //bool checking if the gameobject is being touched.
     public bool touched;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        cam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
-    }
 
     // Update is called once per frame
     void Update()
     {
         if (touched)
         {
-
-            if (Input.touchCount > 0)
-            {
-                Touch touch = Input.GetTouch(0);
-
-                // Handle finger movements based on touch phase.
-                switch (touch.phase)
-                {
-                    // Record initial touch position.
-                    case TouchPhase.Began:
-                        startPos = touch.position;
-                        directionChosen = false;
-                        break;
-
-                    // Determine direction by comparing the current touch position with the initial one.
-                    case TouchPhase.Moved:
-                        direction = touch.position;
-                        screenPos = Camera.main.ScreenToWorldPoint(direction);
-                        screenPos.z = 0;
-                        transform.position = screenPos;
-                        break;
-
-                    // Report that a direction has been chosen when the finger is lifted.
-                    case TouchPhase.Ended:
-                        directionChosen = true;
-                        touched = false;
-                        break;
-                }
-            }
+            //get the touch and move the gameobject to its position
+            Touch touch = Input.GetTouch(0);
+            direction = touch.position;
+            screenPos = Camera.main.ScreenToWorldPoint(direction);
+            screenPos.z = 0;
+            transform.position = screenPos;
         }
     }
+
+
+    //When this gameobject is touched set to true
     private void OnMouseDown()
     {
         touched = true;
+    }
+
+
+    //When this gameobject is let go of set to false
+    private void OnMouseUp()
+    {
+        touched = false;
     }
 }

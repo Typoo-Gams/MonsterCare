@@ -13,6 +13,7 @@ public class SceneChanger : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //add the TaskOnClick function to the button this script is attached to.
         ThisButton = gameObject.GetComponent<Button>();
         ThisButton.onClick.AddListener(TaskOnClick);
     }
@@ -20,7 +21,7 @@ public class SceneChanger : MonoBehaviour
     // Update is called once per frame
     private void TaskOnClick()
     {
-        
+        //If there is no spesificed scene name to load then load the scene with index scene name.
         if (SceneName == "")
         {
             SceneManager.LoadScene(SceneNumber);

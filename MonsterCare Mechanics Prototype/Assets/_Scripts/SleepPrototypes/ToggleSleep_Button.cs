@@ -15,6 +15,7 @@ public class ToggleSleep_Button : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        manager = GameObject.Find("__app").GetComponentInChildren<GameManager>();
         NightTime = Instantiate(NightTime);
         NightTime.SetActive(false);
         NightTime.transform.SetParent(GameObject.FindGameObjectWithTag("Canvas").transform);

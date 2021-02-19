@@ -30,9 +30,17 @@ public class GameManager : MonoBehaviour
 
     private void OnLevelWasLoaded(int level)
     {
-        Canvas canvas =  GameObject.Find("Canvas").GetComponent<Canvas>();
-        canvas.worldCamera = Camera.main;
+        //Canvas canvas =  GameObject.Find("Canvas").GetComponent<Canvas>();
+        //canvas.worldCamera = Camera.main;
         Debug.Log("previous scene: "+PreviousSecene);
+        if (level != 2) 
+        {
+            MonsterObject.SetActive(false);
+        }
+        else
+        {
+            MonsterObject.SetActive(true);
+        }
     }
 
     //Set active monster so the gamemanager knows the monsters stats.
@@ -215,6 +223,8 @@ public class Monster
     private float Playfull;
     private float Toughness;
 
+    //Combat
+    private float AbilityDmg = 10;
 
     //Status effect Bools
     private bool IsMedicated;

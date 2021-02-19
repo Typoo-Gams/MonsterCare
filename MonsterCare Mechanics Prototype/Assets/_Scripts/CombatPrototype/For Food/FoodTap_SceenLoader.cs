@@ -5,10 +5,12 @@ using UnityEngine.SceneManagement;
 
 public class FoodTap_SceenLoader : MonoBehaviour
 {
-
     private void OnMouseDown()
     {
-        Destroy(gameObject);
-        SceneManager.LoadScene(9);
+        if (GameObject.FindGameObjectWithTag("Note") == null) 
+        {
+            Destroy(gameObject);
+            SceneManager.LoadScene(9);
+        }
     }
 }

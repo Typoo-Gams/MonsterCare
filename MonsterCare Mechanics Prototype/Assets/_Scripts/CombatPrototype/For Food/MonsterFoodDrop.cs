@@ -8,14 +8,12 @@ public class MonsterFoodDrop : MonoBehaviour
 
     public MonsterManager_AttackPrototype KillThisMonster;
     public GameObject foodPrefab;
-    float currentHealth;
     public bool isCreated;
     bool slideBar = true;
 
     // Start is called before the first frame update
     void Start()
     {
-        currentHealth = KillThisMonster.StartMonster.HealthStatus;
         isCreated = false;
     }
 
