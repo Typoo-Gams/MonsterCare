@@ -14,20 +14,7 @@ public class GameManager : MonoBehaviour
     public GameObject MonsterObject;
     //slider for stuff
     public Slider SliderPrefab;
-    
 
-    public int testValue;
-
-    private void Awake()
-    {
-        
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
     // Update is called once per frame
     void Update()
@@ -656,6 +643,12 @@ public class Monster
         Debug.Log(MonsterName + " Status: \nHealth: " + Health + "\nHunger: " + Hunger + "\nStarving: " + IsStarving + "\nFull: " + IsFull + "\nSleepyness: " + Sleep + "\nSleep Deprived: " + IsSleepDeprived + "\nRested: " + IsRested + "\nOver Rested: " + IsOverRested);
     }
 
+
+    //Gets the slider used for the healthbar
+    /// <summary>
+    /// Get the healthbar slider
+    /// </summary>
+    /// <returns>Health bar slider</returns>
     public Slider GetHealthbar() 
     {
         return HealthBar;
