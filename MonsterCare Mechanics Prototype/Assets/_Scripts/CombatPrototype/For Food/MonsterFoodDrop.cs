@@ -29,7 +29,6 @@ public class MonsterFoodDrop : MonoBehaviour
         {
             isCreated = true;
             FoodDrop();
-            
         }
     }
 

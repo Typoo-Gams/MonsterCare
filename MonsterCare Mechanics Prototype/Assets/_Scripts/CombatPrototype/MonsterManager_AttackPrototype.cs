@@ -64,7 +64,7 @@ public class MonsterManager_AttackPrototype : MonoBehaviour
                    //if touch began deal dmg and add shake
                    case TouchPhase.Began:
  
-                       StartMonster.DealDmg(1);
+                       StartMonster.DealDmg(10);
                        DmgShake(true);
                        break;
                    default:
