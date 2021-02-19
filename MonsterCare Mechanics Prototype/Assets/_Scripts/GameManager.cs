@@ -15,13 +15,6 @@ public class GameManager : MonoBehaviour
     //slider for stuff
     public Slider SliderPrefab;
 
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     private void OnDestroy()
     {
         if (SceneManager.GetActiveScene().name == "MonsterHome_MainPrototype")
@@ -495,9 +488,6 @@ public class Monster
     }
 
 
-
-
-
     //Update Hunger
     /// <summary>
     /// Updates the hunger to desired value and the statuses if conditions are met.
@@ -663,7 +653,6 @@ public class Monster
     {
         return HealthBar;
     }
-
 
 
     //Get/set health

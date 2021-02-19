@@ -22,7 +22,7 @@ public class FoodManager_FoodObject : MonoBehaviour
         gameObject.GetComponent<SpriteRenderer>().sprite = FoodSprites[random];
         CurrentCanvas = GameObject.FindGameObjectWithTag("Canvas").GetComponent<Canvas>();
         gameObject.transform.localScale = new Vector3(75, 75, 75);
-        manager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
+        manager = GameObject.Find("__app").GetComponentInChildren<GameManager>();
         thisMonster = GameObject.FindGameObjectWithTag("Monster");
         SpawningButton = GameObject.FindGameObjectWithTag("FoodButton").GetComponent<SpawnItem_Button>();
         SpawningButton.ToggleCanSpawn();
