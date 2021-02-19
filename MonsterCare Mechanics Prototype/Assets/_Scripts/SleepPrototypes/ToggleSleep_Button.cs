@@ -26,7 +26,7 @@ public class ToggleSleep_Button : MonoBehaviour
     {
         counter += Time.deltaTime;
         if (counter > 1) 
-            manager.ActiveMonster.UpdateSleeping(manager.ActiveMonster.IsSleepingStatus);    
+            manager.ActiveMonster.UpdateSleeping(manager.ActiveMonster.IsSleepingStatus, 1);    
     }
 
     void TaskOnClick() 

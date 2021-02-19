@@ -5,8 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    //Supreme GameManager
-    static GameObject StaticManager;
+    //Previously loaded scene
+    public int PreviousSecene;
     //GameSaver for saving info.
     GameSaver Save = new GameSaver();
     //Currently Active Monster
@@ -14,25 +14,19 @@ public class GameManager : MonoBehaviour
     public GameObject MonsterObject;
     //slider for stuff
     public Slider SliderPrefab;
-    //HomeUI
-    GameObject HomeButtonUI;
+    
 
     public int testValue;
 
     private void Awake()
     {
-        BecomeStatic();
-        DontDestroyOnLoad(gameObject);
-        HomeButtonUI = GameObject.Find("HomeUi");
-
-        if (SceneManager.GetActiveScene().name != "MonsterHome_MainPrototype")
-            HomeButtonUI.SetActive(false);
+        
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log(ActiveMonster.Name);
+        
     }
 
     // Update is called once per frame
@@ -49,30 +43,9 @@ public class GameManager : MonoBehaviour
 
     private void OnLevelWasLoaded(int level)
     {
-        Debug.Log(level);
         Canvas canvas =  GameObject.Find("Canvas").GetComponent<Canvas>();
         canvas.worldCamera = Camera.main;
-        if (level != 1)
-        {
-            HomeButtonUI.SetActive(false);
-            MonsterObject.SetActive(false);
-        }
-        else
-        {
-            HomeButtonUI.SetActive(true);
-            MonsterObject.SetActive(true);
-        }
-    }
-
-    void BecomeStatic() 
-    {
-        if (StaticManager == null)
-            StaticManager = gameObject;
-        else
-        {
-            Debug.Log("Someone is supreme already");
-            Destroy(gameObject);
-        }
+        Debug.Log("previous scene: "+PreviousSecene);
     }
 
     //Set active monster so the gamemanager knows the monsters stats.
@@ -207,7 +180,7 @@ public class GameSaver
     {
         string[] StatIndex = 
             {"Health", "Hunger", "Sleep", "Happiness", "Playfull", "Toughness"};
-        float[] Stats = 
+        float[] Stats =
             {yourMonster.HealthStatus, yourMonster.HungerStatus, yourMonster.SleepStatus, yourMonster.HappinessStatus, yourMonster.PlayfullStatus, yourMonster.ToughnessStatus};
 
         string MonsterSaveIndex = "SavedMonster_";
@@ -521,6 +494,7 @@ public class Monster
         UpdateHunger(statuses[0]);
         Sleep = statuses[1];
         UpdateSleeping(IsSleeping);
+        Debug.Log("calculated");
     }
 
 

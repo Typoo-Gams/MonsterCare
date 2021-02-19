@@ -267,7 +267,7 @@ MonoBehaviour:
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_DisabledColor: {r: 1, g: 0, b: 0, a: 0.77254903}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -281,7 +281,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 206267945}
   m_OnClick:
     m_PersistentCalls:
@@ -336,7 +336,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fe41c65e30f360439a7495a14e3470a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SceneNumber: 4
+  SceneNumber: 5
   SceneName: 
 --- !u!1 &430118680
 GameObject:
@@ -403,7 +403,7 @@ MonoBehaviour:
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_DisabledColor: {r: 1, g: 0, b: 0, a: 0.77254903}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -417,7 +417,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 430118683}
   m_OnClick:
     m_PersistentCalls:
@@ -472,7 +472,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fe41c65e30f360439a7495a14e3470a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SceneNumber: 6
+  SceneNumber: 7
   SceneName: 
 --- !u!1 &758725781
 GameObject:
@@ -687,7 +687,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fe41c65e30f360439a7495a14e3470a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SceneNumber: 7
+  SceneNumber: 8
   SceneName: 
 --- !u!1 &1118365525
 GameObject:
@@ -701,6 +701,7 @@ GameObject:
   - component: {fileID: 1118365527}
   - component: {fileID: 1118365526}
   - component: {fileID: 1118365529}
+  - component: {fileID: 1118365530}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -783,6 +784,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 34794f147027fe34d8e2425038187132, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1118365530
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1118365525}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 417adf2fff8d6f0409906a5b0808bfc8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1215782571
@@ -1131,7 +1144,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fe41c65e30f360439a7495a14e3470a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SceneNumber: 3
+  SceneNumber: 4
   SceneName: 
 --- !u!1 &1527629368
 GameObject:
@@ -1444,7 +1457,7 @@ MonoBehaviour:
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_DisabledColor: {r: 1, g: 0, b: 0, a: 0.77254903}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -1458,7 +1471,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 1793951555}
   m_OnClick:
     m_PersistentCalls:
@@ -1513,7 +1526,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fe41c65e30f360439a7495a14e3470a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SceneNumber: 4
+  SceneNumber: 5
   SceneName: 
 --- !u!1 &1822404997
 GameObject:
@@ -1580,7 +1593,7 @@ MonoBehaviour:
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_DisabledColor: {r: 1, g: 0, b: 0, a: 0.77254903}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -1594,7 +1607,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 1822405000}
   m_OnClick:
     m_PersistentCalls:
@@ -1649,7 +1662,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fe41c65e30f360439a7495a14e3470a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SceneNumber: 5
+  SceneNumber: 6
   SceneName: 
 --- !u!1 &1852459015
 GameObject:

@@ -8,19 +8,19 @@ public class DefaultStarting_MonsterController : MonoBehaviour
     GameSaver Saver = new GameSaver();
     float cnt = 0;
 
-    private void Awake()
-    {
-        monster = new Monster("load");
-        Saver.LoadMonster(monster);
-        monster.AtGameWakeUp(Saver.FindTimeDifference());
-        SendMonster(monster);
-    }
 
     // Start is called before the first frame update
     void Start()
     {
+        monster = new Monster("load");
+        Saver.LoadMonster(monster);
+        Debug.Log("difference: " + Saver.FindTimeDifference());
+        monster.DebugMonster();
+        monster.AtGameWakeUp(Saver.FindTimeDifference());
+        monster.DebugMonster();
+        SendMonster(monster);
         Evolutution();
-
+        Debug.Log("loaded Monster");
     }
     
 
@@ -37,7 +37,15 @@ public class DefaultStarting_MonsterController : MonoBehaviour
     //Save the monster's stats when the gameobject is destroyed.
     private void OnDestroy()
     {
-        Saver.SaveMonster(monster);
+        try
+        {
+            Saver.SaveMonster(monster);
+            Debug.Log("saved monster");
+        }
+        catch
+        {
+            Debug.LogWarning("The monster tried to save before it was created.");
+        }
     }
 
 
