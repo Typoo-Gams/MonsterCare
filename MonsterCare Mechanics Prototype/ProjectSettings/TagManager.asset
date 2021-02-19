@@ -13,6 +13,7 @@ TagManager:
   - FoodButton
   - CanvasFighting
   - UsedHealthbar
+  - AttackIcon
   layers:
   - Default
   - TransparentFX

@@ -206,6 +206,28 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &600486685 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4554980482008394110, guid: 923ae5b30f168fd45a23f24e6e84e79e, type: 3}
+  m_PrefabInstance: {fileID: 3343325902118976285}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &836744614 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8613295694917166185, guid: 923ae5b30f168fd45a23f24e6e84e79e, type: 3}
+  m_PrefabInstance: {fileID: 3343325902118976285}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1972925521
 GameObject:
   m_ObjectHideFlags: 0
@@ -312,7 +334,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1740130347430442262, guid: 923ae5b30f168fd45a23f24e6e84e79e, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1740130347430442262, guid: 923ae5b30f168fd45a23f24e6e84e79e, type: 3}
       propertyPath: foodPrefab
@@ -324,11 +346,15 @@ PrefabInstance:
       objectReference: {fileID: 91151277921769676}
     - target: {fileID: 1740130347430442263, guid: 923ae5b30f168fd45a23f24e6e84e79e, type: 3}
       propertyPath: m_Name
-      value: Canvas_SpecialAttack
+      value: Canvas_EnemyMonster
       objectReference: {fileID: 0}
     - target: {fileID: 1740130347430442263, guid: 923ae5b30f168fd45a23f24e6e84e79e, type: 3}
       propertyPath: m_TagString
       value: CanvasFighting
+      objectReference: {fileID: 0}
+    - target: {fileID: 4564358433975088222, guid: 923ae5b30f168fd45a23f24e6e84e79e, type: 3}
+      propertyPath: m_TagString
+      value: AttackIcon
       objectReference: {fileID: 0}
     - target: {fileID: 4808484831556523162, guid: 923ae5b30f168fd45a23f24e6e84e79e, type: 3}
       propertyPath: AttackThisMonster
@@ -435,9 +461,21 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 5827904041017366573, guid: a77d8c04f01dfbb4886993a21c8dff3f, type: 3}
     - target: {fileID: 8637991652438758500, guid: 923ae5b30f168fd45a23f24e6e84e79e, type: 3}
+      propertyPath: image1
+      value: 
+      objectReference: {fileID: 600486685}
+    - target: {fileID: 8637991652438758500, guid: 923ae5b30f168fd45a23f24e6e84e79e, type: 3}
+      propertyPath: image2
+      value: 
+      objectReference: {fileID: 836744614}
+    - target: {fileID: 8637991652438758500, guid: 923ae5b30f168fd45a23f24e6e84e79e, type: 3}
       propertyPath: IsItDead
       value: 
       objectReference: {fileID: 91151277921769676}
+    - target: {fileID: 8651457838815821350, guid: 923ae5b30f168fd45a23f24e6e84e79e, type: 3}
+      propertyPath: m_TagString
+      value: AttackIcon
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 923ae5b30f168fd45a23f24e6e84e79e, type: 3}
 --- !u!1001 &3456925810003765559

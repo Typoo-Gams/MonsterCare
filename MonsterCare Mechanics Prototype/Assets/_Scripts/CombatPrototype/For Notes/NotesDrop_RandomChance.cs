@@ -1,13 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class NotesDrop_RandomChance : MonoBehaviour
 {
     public MonsterManager_AttackPrototype IsItDead;
     public bool isCreated;
     float currentHealth;
-    const float dropChance = 1f;
+    const float dropChance = 1f / 5f;
+    public Image image1;
+    public Image image2;
 
     List<GameObject> prefabList = new List<GameObject>();
     public GameObject note1;
@@ -32,6 +35,9 @@ public class NotesDrop_RandomChance : MonoBehaviour
     {
         if(IsItDead.StartMonster.DeathStatus && isCreated == false)
         {
+            image1.enabled = false;
+            image2.enabled = false;
+
             isCreated = true;
             EnemyHasDied();
         }
