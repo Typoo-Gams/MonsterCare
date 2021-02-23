@@ -14,7 +14,7 @@ public class DragAndMove_Objects_Mouse : MonoBehaviour
             Vector3 direction = Input.mousePosition;
             Vector3 screenPos = Camera.main.ScreenToWorldPoint(direction);
             screenPos.z = 0;
-            transform.position = screenPos;
+            transform.localPosition = screenPos;
         }
     }
 

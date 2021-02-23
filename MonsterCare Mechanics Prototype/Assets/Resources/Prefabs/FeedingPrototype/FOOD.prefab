@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4009038705872474410}
   - component: {fileID: 4009038705872474408}
   - component: {fileID: 4009038705872474414}
-  - component: {fileID: -2697467221165253137}
+  - component: {fileID: 4093013938709904798}
   m_Layer: 0
   m_Name: FOOD
   m_TagString: Untagged
@@ -29,7 +29,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4009038705872474452}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -248.39998, y: 550.7999, z: 0}
+  m_LocalPosition: {x: -21.2, y: 38.9, z: 187.07507}
   m_LocalScale: {x: 215.99998, y: 215.99998, z: 215.99998}
   m_Children: []
   m_Father: {fileID: 0}
@@ -162,7 +162,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &-2697467221165253137
+--- !u!114 &4093013938709904798
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
