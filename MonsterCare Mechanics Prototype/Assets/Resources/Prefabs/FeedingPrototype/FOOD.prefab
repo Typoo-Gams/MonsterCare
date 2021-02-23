@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4009038705872474410}
   - component: {fileID: 4009038705872474408}
   - component: {fileID: 4009038705872474414}
-  - component: {fileID: 4093013938709904798}
+  - component: {fileID: 4051654495616679118}
   m_Layer: 0
   m_Name: FOOD
   m_TagString: Untagged
@@ -162,7 +162,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &4093013938709904798
+--- !u!114 &4051654495616679118
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

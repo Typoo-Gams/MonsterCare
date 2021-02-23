@@ -22,7 +22,13 @@ public class ToggleSleep_Button : MonoBehaviour
         NightTime.transform.localPosition = new Vector3(-14, 4, -74);
         thisButton = gameObject.GetComponent<Button>();
         thisButton.onClick.AddListener(TaskOnClick);
+
+
+
+        
     }
+
+
 
     private void Update()
     {
@@ -30,6 +36,8 @@ public class ToggleSleep_Button : MonoBehaviour
         if (counter > 1) 
             manager.ActiveMonster.UpdateSleeping(manager.ActiveMonster.IsSleepingStatus, 1);    
     }
+
+
 
     void TaskOnClick() 
     {
@@ -42,3 +50,5 @@ public class ToggleSleep_Button : MonoBehaviour
         zZz.gameObject.SetActive(manager.ActiveMonster.IsSleepingStatus);
     }
 }
+
+

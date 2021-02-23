@@ -35,7 +35,8 @@ public class SpawnItem_Button : MonoBehaviour
                 {
                     if (ParentObject != null)
                     {
-                        SpawnedObject = Instantiate(SpawnObject, SpawnLocation, SpawnRotationQuaternion, ParentObject.transform);
+                        SpawnedObject = Instantiate(SpawnObject, SpawnLocation, SpawnRotationQuaternion);
+                        SpawnedObject.transform.SetParent(ParentObject.transform, false);
                         SpawnedObject.transform.localPosition = SpawnLocation;
                         SpawnedObject.transform.localRotation = SpawnRotationQuaternion;
                         //SpawnedObject.transform.localScale = new Vector3(10, 10, 10);
@@ -47,7 +48,8 @@ public class SpawnItem_Button : MonoBehaviour
                 {
                     if (ParentObject != null)
                     {
-                        SpawnedObject = Instantiate(SpawnObject, SpawnLocation, Quaternion.identity, ParentObject.transform);
+                        SpawnedObject = Instantiate(SpawnObject, SpawnLocation, Quaternion.identity);
+                        SpawnedObject.transform.SetParent(ParentObject.transform, false);
                         SpawnedObject.transform.localPosition = SpawnLocation;
                         //SpawnedObject.transform.localScale = new Vector3(10, 10, 10);
                     }

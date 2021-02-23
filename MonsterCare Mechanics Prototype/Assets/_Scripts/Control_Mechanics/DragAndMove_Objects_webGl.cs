@@ -8,14 +8,13 @@ public class DragAndMove_Objects_webGl : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log(Input.mousePosition);
-
         //If the gameobject is being touched move the object to the mouse position.
         if (clicked)
         {
             Vector3 direction = Input.mousePosition;
             direction.z = 0;
-            transform.position = direction;
+            direction = direction + new Vector3(-537, -305, 0);
+            transform.localPosition = direction;
         }
     }
 
