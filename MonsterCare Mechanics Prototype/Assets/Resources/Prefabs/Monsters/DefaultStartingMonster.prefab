@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3443623198860835149}
   - component: {fileID: 892397381906104138}
   - component: {fileID: 7958125156335829633}
+  - component: {fileID: 4158619150106705293}
   m_Layer: 0
   m_Name: DefaultStartingMonster
   m_TagString: Monster
@@ -28,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 6334183884661785621}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.31676, y: 0.31676, z: 0.31676}
+  m_LocalScale: {x: 0.32113078, y: 0.32113078, z: 0.32113078}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -72,8 +73,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 400536981d3cc7245b9c597cdee095cc, type: 3}
+  m_SortingOrder: -1
+  m_Sprite: {fileID: 21300000, guid: b0d8454f883551249a0e7384bd55f5cd, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -113,7 +114,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 10.8, y: 22.20723}
+    oldSize: {x: 5.15, y: 4.81}
     newSize: {x: 10.8, y: 22.20723}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -122,3 +123,22 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 7.3559594, y: 12.430601}
   m_EdgeRadius: 0
+--- !u!95 &4158619150106705293
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6334183884661785621}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: dcf4c0899dfba7344a11af2b9df7d315, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

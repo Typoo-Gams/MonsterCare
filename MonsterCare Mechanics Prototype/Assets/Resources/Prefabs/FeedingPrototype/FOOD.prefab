@@ -10,10 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 4009038705872474411}
   - component: {fileID: 4009038705872474415}
-  - component: {fileID: 4009038705872474409}
   - component: {fileID: 4009038705872474410}
   - component: {fileID: 4009038705872474408}
   - component: {fileID: 4009038705872474414}
+  - component: {fileID: -7530067815024837962}
   m_Layer: 0
   m_Name: FOOD
   m_TagString: Untagged
@@ -86,23 +86,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &4009038705872474409
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4009038705872474452}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 00537f596cf88734fbe84d412d2eb268, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  startPos: {x: 0, y: 0}
-  directionChosen: 0
-  direction: {x: 0, y: 0, z: 0}
-  screenPos: {x: 0, y: 0, z: 0}
-  touched: 0
 --- !u!114 &4009038705872474410
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -116,7 +99,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   FoodPower: 10
-  UI: {fileID: 1137264796170078348, guid: 59dec238f5460de4b9a9ec18df553f74, type: 3}
+  UI: {fileID: 1137264796170078348, guid: ddbc9925f956b8b428311d587a45dd6f, type: 3}
   FoodSprites:
   - {fileID: -7993830526901381209, guid: 6bc3eb30f95f5e4419b2d5b18705496b, type: 3}
   - {fileID: -8051068860283565140, guid: 6bc3eb30f95f5e4419b2d5b18705496b, type: 3}
@@ -145,7 +128,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.040743113, y: 0.039608657}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -156,7 +139,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 3.093834, y: 3.0089166}
+  m_Size: {x: 3.4594913, y: 3.4083052}
   m_EdgeRadius: 0
 --- !u!50 &4009038705872474414
 Rigidbody2D:
@@ -179,3 +162,15 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &-7530067815024837962
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4009038705872474452}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55cc36b8078db4941bb16dad07592288, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -336,8 +336,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fe41c65e30f360439a7495a14e3470a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SceneNumber: 5
-  SceneName: 
+  SceneNumber: 0
+  SceneName: Forest_FS
 --- !u!1 &430118680
 GameObject:
   m_ObjectHideFlags: 0
@@ -472,8 +472,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fe41c65e30f360439a7495a14e3470a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SceneNumber: 7
-  SceneName: 
+  SceneNumber: 0
+  SceneName: Mountain_FS
 --- !u!1 &758725781
 GameObject:
   m_ObjectHideFlags: 0
@@ -687,8 +687,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fe41c65e30f360439a7495a14e3470a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SceneNumber: 8
-  SceneName: 
+  SceneNumber: 0
+  SceneName: Savannah_FS
 --- !u!1 &1118365525
 GameObject:
   m_ObjectHideFlags: 0
@@ -700,7 +700,6 @@ GameObject:
   - component: {fileID: 1118365528}
   - component: {fileID: 1118365527}
   - component: {fileID: 1118365526}
-  - component: {fileID: 1118365529}
   - component: {fileID: 1118365530}
   m_Layer: 0
   m_Name: Main Camera
@@ -774,18 +773,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1118365529
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1118365525}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 34794f147027fe34d8e2425038187132, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1118365530
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -889,6 +876,7 @@ GameObject:
   - component: {fileID: 1241820915}
   - component: {fileID: 1241820914}
   - component: {fileID: 1241820913}
+  - component: {fileID: 1241820916}
   m_Layer: 5
   m_Name: BackButton
   m_TagString: Untagged
@@ -959,19 +947,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1241820914}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1118365529}
-        m_TargetAssemblyTypeName: BackToHome_Button, Assembly-CSharp
-        m_MethodName: OnClick
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1241820914
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1010,6 +986,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1241820911}
   m_CullTransparentMesh: 1
+--- !u!114 &1241820916
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1241820911}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9fe41c65e30f360439a7495a14e3470a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SceneNumber: 0
+  SceneName: MonsterHome_MainPrototype
 --- !u!1 &1314494821
 GameObject:
   m_ObjectHideFlags: 0
@@ -1144,8 +1134,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fe41c65e30f360439a7495a14e3470a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SceneNumber: 4
-  SceneName: 
+  SceneNumber: 0
+  SceneName: Desert_FS
 --- !u!1 &1527629368
 GameObject:
   m_ObjectHideFlags: 0
@@ -1526,8 +1516,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fe41c65e30f360439a7495a14e3470a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SceneNumber: 5
-  SceneName: 
+  SceneNumber: 0
+  SceneName: Forest_FS
 --- !u!1 &1822404997
 GameObject:
   m_ObjectHideFlags: 0
@@ -1662,8 +1652,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fe41c65e30f360439a7495a14e3470a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SceneNumber: 6
-  SceneName: 
+  SceneNumber: 0
+  SceneName: Ice_FS
 --- !u!1 &1852459015
 GameObject:
   m_ObjectHideFlags: 0

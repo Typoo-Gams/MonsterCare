@@ -26,13 +26,15 @@ public class GameManager : MonoBehaviour
         //Canvas canvas =  GameObject.Find("Canvas").GetComponent<Canvas>();
         //canvas.worldCamera = Camera.main;
         Debug.Log("previous scene: "+PreviousSecene);
-        if (level != 2) 
+        if (SceneManager.GetActiveScene().name == "MonsterHome_MainPrototype") 
         {
-            MonsterObject.SetActive(false);
+            Debug.Log("active");
+            MonsterObject.SetActive(true);
         }
         else
         {
-            MonsterObject.SetActive(true);
+            MonsterObject.SetActive(false);
+            Debug.Log("inactive");
         }
     }
 

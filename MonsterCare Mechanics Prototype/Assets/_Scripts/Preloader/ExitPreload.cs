@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class ExitPreload : MonoBehaviour
 {
+    public int scene;
     void Start()
     {
-        UnityEngine.SceneManagement.SceneManager.LoadScene(1);
+        UnityEngine.SceneManagement.SceneManager.LoadScene(scene);
     }
 }
