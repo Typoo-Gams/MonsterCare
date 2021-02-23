@@ -14,7 +14,6 @@ public class GameManager : MonoBehaviour
     public GameObject MonsterObject;
     //slider for stuff
     public Slider SliderPrefab;
-    public GameObject versionNumber;
 
     private void OnDestroy()
     {
