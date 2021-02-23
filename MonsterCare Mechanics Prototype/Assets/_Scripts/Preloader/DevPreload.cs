@@ -10,6 +10,6 @@ public class DevPreload : MonoBehaviour
         //If the __app doesnt exist then load the preload scene.
         GameObject check = GameObject.Find("__app");
         if (check == null)
-        { UnityEngine.SceneManagement.SceneManager.LoadScene("__preload"); }
+        { UnityEngine.SceneManagement.SceneManager.LoadScene("__preload"); Debug.Log("Loading __app"); }
     }
 }
