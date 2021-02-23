@@ -47,6 +47,7 @@ MonoBehaviour:
   PreviousSecene: 0
   MonsterObject: {fileID: 0}
   SliderPrefab: {fileID: 1054995365406061393, guid: 824c3c572aa6bd84785a2fc04c2d3d0a, type: 3}
+  versionNumber: {fileID: 8333252500442902748, guid: 9669b79d2bf6db340b8c9500527700c7, type: 3}
 --- !u!1001 &8129942001683809099
 PrefabInstance:
   m_ObjectHideFlags: 0
