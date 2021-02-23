@@ -28,13 +28,11 @@ public class GameManager : MonoBehaviour
         Debug.Log("previous scene: "+PreviousSecene);
         if (SceneManager.GetActiveScene().name == "MonsterHome_MainPrototype") 
         {
-            Debug.Log("active");
             MonsterObject.SetActive(true);
         }
         else
         {
             MonsterObject.SetActive(false);
-            Debug.Log("inactive");
         }
     }
 
