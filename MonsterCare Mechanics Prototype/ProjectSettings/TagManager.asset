@@ -15,6 +15,10 @@ TagManager:
   - UsedHealthbar
   - AttackIcon
   - Note
+  - Arms
+  - Legs
+  - Head
+  - Torso
   layers:
   - Default
   - TransparentFX
