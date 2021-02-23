@@ -18,7 +18,8 @@ public class ToggleSleep_Button : MonoBehaviour
         manager = GameObject.Find("__app").GetComponentInChildren<GameManager>();
         NightTime = Instantiate(NightTime);
         NightTime.SetActive(false);
-        NightTime.transform.SetParent(GameObject.FindGameObjectWithTag("Canvas").transform);
+        NightTime.transform.SetParent(GameObject.FindGameObjectWithTag("Canvas").transform, false);
+        NightTime.transform.localPosition = new Vector3(-14, 4, -74);
         thisButton = gameObject.GetComponent<Button>();
         thisButton.onClick.AddListener(TaskOnClick);
     }

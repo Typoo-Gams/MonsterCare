@@ -8,7 +8,7 @@ public class LoadingScene : MonoBehaviour
     private IEnumerator Waiting()
     {
         yield return new WaitForSeconds(1);
-        SceneManager.LoadScene(8);
+        SceneManager.LoadScene("Map");
     }
 
     private void Update()

@@ -10,7 +10,7 @@ public class FoodTap_SceenLoader : MonoBehaviour
         if (GameObject.FindGameObjectWithTag("Note") == null) 
         {
             Destroy(gameObject);
-            SceneManager.LoadScene(9);
+            SceneManager.LoadScene("LoadScene");
         }
     }
 }
