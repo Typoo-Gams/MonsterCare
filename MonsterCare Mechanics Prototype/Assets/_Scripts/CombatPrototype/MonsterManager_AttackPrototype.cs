@@ -42,7 +42,7 @@ public class MonsterManager_AttackPrototype : MonoBehaviour
     {
         //update shake
         DmgShake(false);
-
+        //updating its visuals for being dead/alive
         if (StartMonster.DeathStatus)
         {
            Death();
@@ -53,7 +53,7 @@ public class MonsterManager_AttackPrototype : MonoBehaviour
         }
     }
  
- 
+ //method to deal dmg if the monster is touched/tapped
     private void TouchAttack() 
     {
         if (StartMonster.CombatStatus)

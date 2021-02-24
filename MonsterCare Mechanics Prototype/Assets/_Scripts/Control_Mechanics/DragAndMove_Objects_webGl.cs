@@ -13,6 +13,7 @@ public class DragAndMove_Objects_webGl : MonoBehaviour
         {
             Vector3 direction = Input.mousePosition;
             direction.z = 0;
+            //temporary selution to the mouse position not working as expected in webgl
             direction = direction + new Vector3(-537, -305, 0);
             transform.localPosition = direction;
         }

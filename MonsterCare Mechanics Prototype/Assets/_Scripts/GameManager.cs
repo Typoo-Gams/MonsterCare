@@ -15,12 +15,16 @@ public class GameManager : MonoBehaviour
     //slider for stuff
     public Slider SliderPrefab;
 
+
+    //Called When this is destroyed.
     private void OnDestroy()
     {
         if (SceneManager.GetActiveScene().name == "MonsterHome_MainPrototype")
             Save.SaveTime();
     }
 
+
+    //Called when a new scene is loaded.
     private void OnLevelWasLoaded(int level)
     {
         //Canvas canvas =  GameObject.Find("Canvas").GetComponent<Canvas>();
@@ -28,13 +32,18 @@ public class GameManager : MonoBehaviour
         Debug.Log("previous scene: "+PreviousSecene);
         if (SceneManager.GetActiveScene().name == "MonsterHome_MainPrototype") 
         {
+            //change to renderer so that stats can change while in other scenes?
             MonsterObject.SetActive(true);
         }
         else
         {
+            //change to renderer so that stats can change while in other scenes?
             MonsterObject.SetActive(false);
         }
     }
+
+    //-------------Properties--------------
+
 
     //Set active monster so the gamemanager knows the monsters stats.
     /// <summary>
