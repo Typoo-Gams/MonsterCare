@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System;
 
 public class InfoPanel_Button : MonoBehaviour
 {
@@ -45,7 +46,7 @@ public class InfoPanel_Button : MonoBehaviour
     {
         //formats the display string
         string text = string.Format("HomePrototype\nHealth: {0}\n Hunger: {1}\n Sleep: {2}\nLast play session ended at: \n{3}\nTime in seconds since last played: {4}",
-                    (int)manager.ActiveMonster.HealthStatus, (int)manager.ActiveMonster.HungerStatus, (int)manager.ActiveMonster.SleepStatus, lastPlay, (int)lastPlayInSec);
+                    Math.Truncate(manager.ActiveMonster.HealthStatus), Math.Truncate(manager.ActiveMonster.HungerStatus), Math.Truncate(manager.ActiveMonster.SleepStatus), lastPlay, Math.Truncate(lastPlayInSec));
         Stats.text = text;
     }
 
