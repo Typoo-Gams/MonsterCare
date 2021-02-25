@@ -4,15 +4,18 @@ using UnityEngine;
 
 public class Dmg_BodyParts : MonoBehaviour
 {
-    public MonsterManager_AttackPrototype HealthStats;
-    float currentHealth;
+    public MonsterManager_AttackPrototype AttackingBack;
+    bool currentlyAttacking;
     public List<GameObject> colliders = new List<GameObject>();
 
+    float Torso = 1f;
     float Head = 2f;
+    float Arms = 2f;
+    float Legs = 1f;
 
     private void Start()
     {
-        currentHealth = HealthStats.StartMonster.HealthStatus;
+        currentlyAttacking = AttackingBack.StartMonster.CombatStatus;
     }
 
     private void Update()
@@ -22,12 +25,18 @@ public class Dmg_BodyParts : MonoBehaviour
 
     private void Attacking()
     {
-        if(Input.touchCount > 0)
+        if(currentlyAttacking == true)
         {
-            if(gameObject.tag == "Head")
+            if(Input.touchCount > 0)
             {
-                HealthStats.StartMonster.UpdateHealth(currentHealth - Head);
+                if (gameObject.CompareTag("Head"))
+                {
+                    AttackingBack.StartMonster.HealthStatus += Head;
+                    Debug.Log("Working");
+                }
+                
             }
+            
         }
         
     }

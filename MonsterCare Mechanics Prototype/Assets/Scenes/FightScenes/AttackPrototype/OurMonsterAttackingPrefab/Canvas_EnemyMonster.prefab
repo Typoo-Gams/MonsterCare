@@ -15,9 +15,11 @@ GameObject:
   - component: {fileID: 4808484831556523162}
   - component: {fileID: 1740130347430442262}
   - component: {fileID: 8637991652438758500}
+  - component: {fileID: 629199170}
+  - component: {fileID: 7327075317982823997}
   m_Layer: 5
-  m_Name: Canvas_SpecialAttack
-  m_TagString: Canvas
+  m_Name: Canvas_EnemyMonster
+  m_TagString: CanvasFighting
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -52,7 +54,7 @@ Canvas:
   m_GameObject: {fileID: 1740130347430442263}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 0
+  m_RenderMode: 1
   m_Camera: {fileID: 0}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
@@ -118,6 +120,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   monsterIcon: {fileID: 8613295694917166185}
   Cooldown: 5
+  Damage: 10
   AttackThisMonster: {fileID: 0}
 --- !u!114 &1740130347430442262
 MonoBehaviour:
@@ -132,7 +135,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   KillThisMonster: {fileID: 0}
-  foodPrefab: {fileID: 0}
+  foodPrefab: {fileID: 5961485559775060362, guid: 77c55caf1d5bca94e9f243e4a51a8b41, type: 3}
   isCreated: 0
 --- !u!114 &8637991652438758500
 MonoBehaviour:
@@ -147,11 +150,40 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsItDead: {fileID: 0}
-  isCreated: 0
-  note1: {fileID: 0}
-  note2: {fileID: 0}
-  note3: {fileID: 0}
-  note4: {fileID: 0}
+  AbilityIcon1: {fileID: 4554980482008394110}
+  AbilityIcon2: {fileID: 8613295694917166185}
+  prefabList:
+  - {fileID: 3837360739718795844, guid: 24a9eb23437c56344ae786bfdc6f8e27, type: 3}
+  - {fileID: 8352625632777933019, guid: 2f13ea70a335b3047844bb511abe1232, type: 3}
+  - {fileID: 5740405622423256014, guid: f18500803474a2d48ac60057e5bd88f5, type: 3}
+  - {fileID: 5827904041017366573, guid: a77d8c04f01dfbb4886993a21c8dff3f, type: 3}
+--- !u!114 &629199170
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1740130347430442263}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 605ca19b1227cb84f9676f9f6f811016, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AttackingBack: {fileID: 0}
+  colliders: []
+--- !u!114 &7327075317982823997
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1740130347430442263}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ac8fb088f8b6da46946fd0860a5456e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemy: {fileID: 0}
 --- !u!1 &4564358433975088222
 GameObject:
   m_ObjectHideFlags: 0
@@ -165,7 +197,7 @@ GameObject:
   - component: {fileID: 4554980482008394110}
   m_Layer: 5
   m_Name: Attack Icon
-  m_TagString: Untagged
+  m_TagString: AttackIcon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -178,15 +210,15 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4564358433975088222}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2.1455, y: 2.1455, z: 2.1455}
+  m_LocalPosition: {x: 0, y: 0, z: -9}
+  m_LocalScale: {x: 0.7475214, y: 0.7475214, z: 0.7475214}
   m_Children: []
   m_Father: {fileID: 6903691913758895769}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 346, y: 786}
+  m_AnchoredPosition: {x: 98, y: 210.00003}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8997653429374507934
@@ -240,7 +272,7 @@ GameObject:
   - component: {fileID: 8613295694917166185}
   m_Layer: 5
   m_Name: Attack Icon BW
-  m_TagString: Untagged
+  m_TagString: AttackIcon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -253,15 +285,15 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8651457838815821350}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2.1455, y: 2.1455, z: 2.1455}
+  m_LocalPosition: {x: 0, y: 0, z: -8.999767}
+  m_LocalScale: {x: 0.7475214, y: 0.7475214, z: 0.7475214}
   m_Children: []
   m_Father: {fileID: 6903691913758895769}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 346, y: 786}
+  m_AnchoredPosition: {x: 98, y: 210}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3783799493487708847
