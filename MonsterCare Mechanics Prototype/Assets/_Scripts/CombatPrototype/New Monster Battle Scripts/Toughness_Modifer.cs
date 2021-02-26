@@ -8,6 +8,7 @@ public class Toughness_Modifer : MonoBehaviour
     //public [Insert player health script here]
 
     public GameObject enemyPrefab;
+    GameManager manager;
     bool isActive;
 
     public int minDmg = 1;
@@ -15,6 +16,7 @@ public class Toughness_Modifer : MonoBehaviour
 
     private void Start()
     {
+        manager = GameObject.Find("__app").GetComponentInChildren<GameManager>();
         //playerHealth = 
         isActive = false;
     }
@@ -34,7 +36,7 @@ public class Toughness_Modifer : MonoBehaviour
     {
         if(isActive == true)
         {
-            Instantiate(enemyPrefab);
+            manager.Enemy = Instantiate(enemyPrefab);
             //playerHealth -= Random.Range(minDmg, maxDmg);
             //Debug.Log(playerHealth);
         }

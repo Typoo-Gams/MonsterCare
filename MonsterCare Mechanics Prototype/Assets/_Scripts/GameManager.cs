@@ -12,6 +12,8 @@ public class GameManager : MonoBehaviour
     //Currently Active Monster
     public Monster ActiveMonster;
     public GameObject MonsterObject;
+    //Currently Active Enemy Monster
+    public GameObject Enemy;
     //slider for stuff
     public Slider SliderPrefab;
 
