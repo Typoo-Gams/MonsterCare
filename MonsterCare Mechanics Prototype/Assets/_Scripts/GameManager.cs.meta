@@ -3,7 +3,10 @@ guid: 67226bf4d409ba64f87b84a223ec7d51
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - MonsterObject: {instanceID: 0}
+  - Enemy: {instanceID: 0}
+  - SliderPrefab: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

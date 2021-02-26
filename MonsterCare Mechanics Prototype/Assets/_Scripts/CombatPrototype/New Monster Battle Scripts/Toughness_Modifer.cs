@@ -5,19 +5,21 @@ using UnityEngine;
 
 public class Toughness_Modifer : MonoBehaviour
 {
-    //public [Insert player health script here]
-
-    public GameObject enemyPrefab;
     GameManager manager;
+    //public GameObject enemyMonster;
     bool isActive;
 
+    //this is for the random dmg the enemy does
     public int minDmg = 1;
     public int maxDmg = 10;
+
+    //so that the enemy does dmg every 5 seconds
+    public float dmgDelay = 5f;
+    //private float dmgTimer = 0f;
 
     private void Start()
     {
         manager = GameObject.Find("__app").GetComponentInChildren<GameManager>();
-        //playerHealth = 
         isActive = false;
     }
 
@@ -26,19 +28,18 @@ public class Toughness_Modifer : MonoBehaviour
         if(isActive == false)
         {
             isActive = true;
-            RandomSpawn();
+            RandomDmgSpawn();
         }
     }
 
     //This decides how much dmg the enemy deals
-    //For now this will do...
-    public void RandomSpawn()
+    public void RandomDmgSpawn()
     {
         if(isActive == true)
         {
-            manager.Enemy = Instantiate(enemyPrefab);
-            //playerHealth -= Random.Range(minDmg, maxDmg);
-            //Debug.Log(playerHealth);
+            manager.Enemy = Instantiate(enemyMonster);
+            manager.ActiveMonster.UpdateHealth(Random.Range(minDmg, maxDmg + dmgDelay * Time.deltaTime));
+            Debug.Log("is it working");
         }
     }
 }
