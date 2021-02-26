@@ -49,7 +49,9 @@ public class FoodManager_FoodObject : MonoBehaviour
             //destroys the food
             Destroy(gameObject);
             //plays the monsters eating animation.
-            manager.MonsterObject.GetComponent<Animator>().Play("Child_Eating");  //needs generic reference
+            //temporary
+            if (manager.MonsterObject.GetComponent<DefaultStarting_MonsterController>() != null)
+                manager.MonsterObject.GetComponent<Animator>().Play("Child_Eating");  //needs generic reference
         }
     }
 
