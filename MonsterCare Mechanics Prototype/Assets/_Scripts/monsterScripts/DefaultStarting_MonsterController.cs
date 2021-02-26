@@ -12,6 +12,7 @@ using UnityEngine;
 
 public class DefaultStarting_MonsterController : MonoBehaviour
 {
+    private string prefabLocation = "Prefabs/MonsterStuff/Monsters/DefaultStartingMonster";
     public Monster monster;
     GameSaver Saver = new GameSaver();
     float cnt = 0;
@@ -21,7 +22,7 @@ public class DefaultStarting_MonsterController : MonoBehaviour
     void Start()
     {
         //Creates a new monster object.
-        monster = new Monster("load");
+        monster = new Monster("load", prefabLocation);
         //loads the monster stats.
         Saver.LoadMonster(monster);
         //difference in time since last time. (in seconds)
@@ -45,6 +46,7 @@ public class DefaultStarting_MonsterController : MonoBehaviour
         {
             monster.DegradeHunger();
         }
+        Evolution();
     }
 
     //Save the monster's stats when the gameobject is destroyed.
@@ -64,30 +66,23 @@ public class DefaultStarting_MonsterController : MonoBehaviour
 
     //Simple prototype example of evolution. these will be different for each monster.
     //Each monster should have the same Evolution() method so that it can be called with sendMessage when the evolution trigger is activated.
-    private void Evolutution()
+    private void Evolution()
     {
-
-        //this is meant to show an example of how the evolution conditions is meet. these conditions will be different for each monster.
-        bool Condition1 = false;
-        bool Condition2 = false;
-
-        if (monster.IsFullStatus)
-        {
-            Condition1 = true;
-        }
-        if (monster.IsRestedStatus) 
-        {
-            Condition2 = true;
-        }
-
         //This is what happens when the monster is evolving.
         //Destroy the current monster object. spawn in the new monster. needs to load the new evolved monster when the game is reopened after being closed.
-        if (Condition1 && Condition2)
+        if (monster.CanEvolveStatus)
         {
             Debug.Log(monster.Name + " Is evolving!!");
-            Sprite NextEvolution = Resources.Load<Sprite>("Sprites/monscarebatowl");
+
+            //This loads and positions the new evolution monster prefab
+            GameObject NextEvolution = Resources.Load<GameObject>("Prefabs/MonsterStuff/Monsters/SecondEvolutionMonster");
             Debug.Log(NextEvolution);
-            gameObject.GetComponent<SpriteRenderer>().sprite = NextEvolution;
+            GameObject Parent = GameObject.Find("__app").GetComponentInChildren<GameManager>().gameObject;
+            GameObject Spawned = Instantiate(NextEvolution);
+            Spawned.transform.SetParent(Parent.transform, false);
+            
+            //Destroy the old monster
+            Destroy(gameObject);
         }
     }
 

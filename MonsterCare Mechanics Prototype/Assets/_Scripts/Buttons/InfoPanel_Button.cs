@@ -46,8 +46,8 @@ public class InfoPanel_Button : MonoBehaviour
     {
         //formats the display string
         //Truncate removes the decimal numbers so the display shows only whole numbers. this is because webGl doesnt like converting float to int with using (int)float.
-        string text = string.Format("HomePrototype\nHealth: {0}\n Hunger: {1}\n Sleep: {2}\nLast play session ended at: \n{3}\nTime in seconds since last played: {4}",
-                    Math.Truncate(manager.ActiveMonster.HealthStatus), Math.Truncate(manager.ActiveMonster.HungerStatus), Math.Truncate(manager.ActiveMonster.SleepStatus), lastPlay, Math.Truncate(lastPlayInSec));
+        string text = string.Format("HomePrototype\nHealth: {0}\nEnergy: {1}\n Hunger: {2}\n Sleep: {3}\nLast play session ended at: \n{4}\nTime in seconds since last played: {5}",
+                    Math.Truncate(manager.ActiveMonster.HealthStatus), Math.Truncate(manager.ActiveMonster.EnergyStatus) ,  Math.Truncate(manager.ActiveMonster.HungerStatus), Math.Truncate(manager.ActiveMonster.SleepStatus), lastPlay, Math.Truncate(lastPlayInSec));
         Stats.text = text;
     }
 

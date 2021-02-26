@@ -33,14 +33,15 @@ public class GameManager : MonoBehaviour
         if (SceneManager.GetActiveScene().name == "MonsterHome_MainPrototype") 
         {
             //change to renderer so that stats can change while in other scenes?
-            MonsterObject.SetActive(true);
+            MonsterObject.GetComponent<SpriteRenderer>().enabled = true;
         }
         else
         {
             //change to renderer so that stats can change while in other scenes?
-            MonsterObject.SetActive(false);
+            MonsterObject.GetComponent<SpriteRenderer>().enabled = false;
         }
     }
+
 
     //-------------Properties--------------
 
@@ -183,6 +184,7 @@ public class GameSaver
         string MonsterSaveIndex = "SavedMonster_";
 
         PlayerPrefs.SetString(MonsterSaveIndex + "MonsterName", yourMonster.Name);
+        PlayerPrefs.SetString(MonsterSaveIndex + "PrefabLocation", yourMonster.PrefabLocation);
 
         for (int i = 0; i < StatIndex.Length; i++)
         {
@@ -210,6 +212,16 @@ public class GameSaver
         yourMonster.PlayfullStatus = PlayerPrefs.GetFloat(MonsterSaveIndex + StatIndex[4]);
         yourMonster.ToughnessStatus = PlayerPrefs.GetFloat(MonsterSaveIndex + StatIndex[5]);
     }
+
+
+    //Loads the saved monster's prefab location.
+    /// <summary>
+    /// Gets the prefab location for the currently saved monster
+    /// </summary>
+    public string GetMonsterPrefab() 
+    {
+        return PlayerPrefs.GetString("SavedMonster_" + "PrefabLocation");
+    }
 }
 
 
@@ -224,6 +236,9 @@ public class Monster
     private float Happiness;
     private float Playfull;
     private float Toughness;
+    private float Energy;
+    private bool CanEvolve;
+    private string loadLocation;
 
     //Combat
     private float AbilityDmg = 10;
@@ -292,11 +307,32 @@ public class Monster
         UpdateHunger(0);
     }
 
+
     /// <summary>
     /// Create a Monster Object instantiated with Name And ID
     /// </summary>
     /// <param name="name">The name of the new monster</param>
-    /// <param name="ID">The id of the new monster</param>
+    /// <param name="prefabLocation">The resource location to load this monster's prefab</param>
+    public Monster(string name, string prefabLocation)
+    {
+        loadLocation = prefabLocation;
+        MonsterName = name;
+        Health = MaxHealth;
+        Hunger = 0;
+        Sleep = 0;
+        Happiness = 0;
+        Playfull = 0;
+        Toughness = 0;
+        IsSleepDeprived = false;
+        IsMedicated = false;
+        UpdateHunger(0);
+    }
+
+
+    /// <summary>
+    /// Create a Monster Object instantiated with Name And ID
+    /// </summary>
+    /// <param name="name">The name of the new monster</param>
     public Monster(string name)
     {
         MonsterName = name;
@@ -311,8 +347,17 @@ public class Monster
         UpdateHunger(0);
     }
 
-
     //------------------------Properties------------------------
+
+
+    //Print All Statuses
+    /// <summary>
+    /// Prints out all monster variables in the console.
+    /// </summary>
+    public void DebugMonster()
+    {
+        Debug.Log(MonsterName + " Status: \nHealth: " + Health + "\nEnergy: " + Energy + "\nHunger: " + Hunger + "\nStarving: " + IsStarving + "\nFull: " + IsFull + "\nSleepyness: " + Sleep + "\nSleep Deprived: " + IsSleepDeprived + "\nRested: " + IsRested + "\nOver Rested: " + IsOverRested);
+    }
 
 
     //------------Combat------------
@@ -572,7 +617,23 @@ public class Monster
         if (IsSleeping)
         {
             //Adds sleep
-            Sleep += SleepDegration * modifier;
+            float gainedSleep = SleepDegration * modifier;
+            Sleep += gainedSleep;
+            if (Hunger < 25) 
+            {
+                Energy += gainedSleep * 0.5f;
+            }
+            if (Hunger > 75)
+            {
+                Energy += gainedSleep * 1.5f;
+            }
+            if (Hunger > 25 && Hunger < 75)
+            {
+                Energy += gainedSleep * 1;
+            }
+            if (Energy > 10)
+                Energy = 10;
+
         }
         else 
         {
@@ -632,6 +693,13 @@ public class Monster
     //------------Get/Set------------
 
 
+    //Get loadLocation
+    public string PrefabLocation 
+    {
+        get => loadLocation;
+    }
+
+
     //Get/set Name
     /// <summary>
     /// Get the monster's assigned name
@@ -640,16 +708,6 @@ public class Monster
     {
         get => MonsterName;
         set => MonsterName = value;
-    }
-
-
-    //Print All Statuses
-    /// <summary>
-    /// Prints out all monster variables in the console.
-    /// </summary>
-    public void DebugMonster()
-    {
-        Debug.Log(MonsterName + " Status: \nHealth: " + Health + "\nHunger: " + Hunger + "\nStarving: " + IsStarving + "\nFull: " + IsFull + "\nSleepyness: " + Sleep + "\nSleep Deprived: " + IsSleepDeprived + "\nRested: " + IsRested + "\nOver Rested: " + IsOverRested);
     }
 
 
@@ -839,5 +897,26 @@ public class Monster
     public bool DeathStatus 
     {
         get => IsDead;
+    }
+
+    //Get/Set Energy Status
+    /// <summary>
+    /// Get the Energy value.
+    /// </summary>
+    public float EnergyStatus 
+    {
+        get => Energy;
+        set => Energy = value;
+    }
+
+
+    //Get/Set CanEvolve Status
+    /// <summary>
+    /// Get/Set the CanEvolve bool that triggers evolution when true.
+    /// </summary>
+    public bool CanEvolveStatus 
+    {
+        get => CanEvolve;
+        set => CanEvolve = value;
     }
 }
