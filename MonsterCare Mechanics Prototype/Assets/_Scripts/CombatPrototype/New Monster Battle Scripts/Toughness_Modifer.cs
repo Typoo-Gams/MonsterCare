@@ -37,7 +37,7 @@ public class Toughness_Modifer : MonoBehaviour
     {
         if(isActive == true)
         {
-            manager.Enemy = Instantiate(enemyMonster);
+            //manager.Enemy = Instantiate(enemyMonster);
             manager.ActiveMonster.UpdateHealth(Random.Range(minDmg, maxDmg + dmgDelay * Time.deltaTime));
             Debug.Log("is it working");
         }

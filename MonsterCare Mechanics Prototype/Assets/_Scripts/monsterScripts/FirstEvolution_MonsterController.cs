@@ -31,6 +31,8 @@ public class FirstEvolution_MonsterController : MonoBehaviour
         //Sends the monster object to the gamemanager so that other scripts can easily reference it.
         SendMonster(monster);
         Debug.Log("loaded Monster");
+
+
     }
 
 

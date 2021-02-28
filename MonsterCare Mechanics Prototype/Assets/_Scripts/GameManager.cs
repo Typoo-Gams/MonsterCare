@@ -451,15 +451,13 @@ public class Monster
     /// <param name="NewHealth">Set new current Health</param>
     public void UpdateHealth(float NewHealth)
     {
-        if (NewHealth < MaxHealth && NewHealth > -1)
+        if (NewHealth <= MaxHealth && NewHealth > -1)
         {
             Health = NewHealth;
-            HealthBar.value = Health;
         }
         else if (NewHealth > MaxHealth)
         {
             Health = MaxHealth;
-            HealthBar.value = Health;
         }
         if (Health <= 0)
         {
@@ -470,6 +468,8 @@ public class Monster
         {
             IsDead = false;
         }
+        if (HealthBar != null)
+            HealthBar.value = Health;
     }
 
 
@@ -580,26 +580,8 @@ public class Monster
     /// </summary>
     public void DegradeHunger()
     {
-        Hunger -= HungerDegration;   
-
-        if (Hunger > MaxHunger)
-        {
-            Hunger = MaxHunger;
-            IsFull = true;
-        }
-        if (Hunger < 0)
-        {
-            IsStarving = true;
-            Hunger = 0;
-        }
-        if (Hunger > 0)
-        {
-            IsStarving = false;
-        }
-        if (Hunger < MaxHunger)
-        {
-            IsFull = false;
-        }
+        Hunger -= HungerDegration;
+        UpdateHunger(Hunger);
     }
 
 
