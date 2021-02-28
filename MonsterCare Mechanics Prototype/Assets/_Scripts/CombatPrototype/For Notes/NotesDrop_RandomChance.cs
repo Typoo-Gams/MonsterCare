@@ -5,7 +5,8 @@ using UnityEngine.UI;
 
 public class NotesDrop_RandomChance : MonoBehaviour
 {
-    public MonsterManager_AttackPrototype IsItDead;
+    GameManager manager;
+
     private bool isCreated;
     const float dropChance = 1f / 5f;
     public Image AbilityIcon1;
@@ -16,20 +17,25 @@ public class NotesDrop_RandomChance : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        manager = GameObject.Find("__app").GetComponentInChildren<GameManager>();
         isCreated = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(IsItDead.StartMonster.DeathStatus && isCreated == false)
+        if(manager.EnemyMonster != null)
         {
-            AbilityIcon1.enabled = false;
-            AbilityIcon2.enabled = false;
+            if (manager.EnemyMonster.DeathStatus && isCreated == false)
+            {
+                AbilityIcon1.enabled = false;
+                AbilityIcon2.enabled = false;
 
-            isCreated = true;
-            EnemyHasDied();
+                isCreated = true;
+                EnemyHasDied();
+            }
         }
+        
     }
 
     public void EnemyHasDied()

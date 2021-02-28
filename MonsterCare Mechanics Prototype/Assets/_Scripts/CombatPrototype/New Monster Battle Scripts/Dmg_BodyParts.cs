@@ -4,40 +4,65 @@ using UnityEngine;
 
 public class Dmg_BodyParts : MonoBehaviour
 {
-    public MonsterManager_AttackPrototype AttackingBack;
-    bool currentlyAttacking;
-    public List<GameObject> colliders = new List<GameObject>();
+    GameManager manager;
 
-    float Torso = 1f;
-    float Head = 2f;
-    float Arms = 2f;
-    float Legs = 1f;
+    bool currentlyAttacking;
+    public int DmgModifier;
+    float CounterShake;
+    float intervalShake;
+    bool HasMoved = false;
 
     private void Start()
     {
-        currentlyAttacking = AttackingBack.StartMonster.CombatStatus;
+        manager = GameObject.Find("__app").GetComponentInChildren<GameManager>();
+        currentlyAttacking = manager.EnemyMonster.CombatStatus;
+        manager.EnemyMonster.SetOriginPos(transform);
     }
 
     private void Update()
     {
-        Attacking();
+        DmgShake(false);
     }
 
-    private void Attacking()
+    private void OnMouseDown()
     {
-        if(currentlyAttacking == true)
+        if (currentlyAttacking == true)
         {
-            if(Input.touchCount > 0)
-            {
-                if (gameObject.CompareTag("Head"))
-                {
-                    AttackingBack.StartMonster.HealthStatus += Head;
-                    Debug.Log("Working");
-                }
-                
-            }
-            
+            manager.EnemyMonster.DealDmg(1 * DmgModifier);
+            DmgShake(true);
         }
-        
+        else
+        {
+            DmgShake(false);
+        }
+    }
+
+    private void DmgShake(bool addTime)
+    {
+        //add time if true (sets the timer to 0)
+        if (addTime)
+            CounterShake -= 0.25f;
+
+        //sets the timer to 0 so it doesnt go negative.
+        if (CounterShake < 0)
+            CounterShake = 0;
+
+        //if the counter is bigger than the interval then set it to its max value.
+        //when the counter has reached the interval and it has moved then reset its position to its original position.
+        if (CounterShake >= intervalShake)
+        {
+            CounterShake = 0.25f;
+            if (HasMoved)
+            {
+                manager.Enemy.transform.position = manager.EnemyMonster.GetOriginPos();
+                HasMoved = false;
+            }
+        }
+        else
+        {
+            HasMoved = true;
+            CounterShake += Time.deltaTime;
+            manager.Enemy.transform.position = manager.EnemyMonster.Shake();
+        }
     }
 }

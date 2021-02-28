@@ -14,8 +14,10 @@ public class GameManager : MonoBehaviour
     public GameObject MonsterObject;
     //Currently Active Enemy Monster
     public GameObject Enemy;
+    public Monster EnemyMonster;
     //slider for stuff
     public Slider SliderPrefab;
+    public Slider GreenSliderPrefab;
 
 
     //Called When this is destroyed.
@@ -358,7 +360,7 @@ public class Monster
     /// </summary>
     public void DebugMonster()
     {
-        Debug.Log(MonsterName + " Status: \nHealth: " + Health + "\nEnergy: " + Energy + "\nHunger: " + Hunger + "\nStarving: " + IsStarving + "\nFull: " + IsFull + "\nSleepyness: " + Sleep + "\nSleep Deprived: " + IsSleepDeprived + "\nRested: " + IsRested + "\nOver Rested: " + IsOverRested);
+        Debug.Log(MonsterName + " Status: \nHealth: " + Health + "\nEnergy: " + Energy + "\nHunger: " + Hunger + "\nStarving: " + IsStarving + "\nFull: " + IsFull + "\nSleepyness: " + Sleep + "\nSleep Deprived: " + IsSleepDeprived + "\nRested: " + IsRested + "\nOver Rested: " + IsOverRested + "\nIsDead: " + IsDead);
     }
 
 
@@ -387,7 +389,7 @@ public class Monster
         {
             if (HealthBar == null)
             {
-                Debug.LogError("The Monster Must have a health bar to activate combat");
+                //Debug.LogError("The Monster Must have a health bar to activate combat");
             }
             else
             {
@@ -881,6 +883,7 @@ public class Monster
     public bool DeathStatus 
     {
         get => IsDead;
+        set => IsDead = value;
     }
 
     //Get/Set Energy Status
@@ -902,5 +905,12 @@ public class Monster
     {
         get => CanEvolve;
         set => CanEvolve = value;
+    }
+
+    //This is for the enemy toughness
+    public float ToughnessModifier
+    {
+        get => Toughness;
+        set => Toughness = value;
     }
 }

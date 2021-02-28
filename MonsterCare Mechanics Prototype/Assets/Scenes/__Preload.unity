@@ -636,6 +636,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4807834741392806710, guid: c150a5d01097ad944abd05efd3f51de9, type: 3}
+      propertyPath: GreenSliderPrefab
+      value: 
+      objectReference: {fileID: 4697869978205186733, guid: 4589d2aa41b696848b9f7efc419593ed, type: 3}
     - target: {fileID: 7418330458548354933, guid: c150a5d01097ad944abd05efd3f51de9, type: 3}
       propertyPath: m_Name
       value: GameManager

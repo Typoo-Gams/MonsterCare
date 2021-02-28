@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class MonsterManager_AttackPrototype : MonoBehaviour
 {
+    GameManager manager;
+
     //monster stuff
     public Monster StartMonster;
     public Slider SliderPrefab;
@@ -23,6 +25,8 @@ public class MonsterManager_AttackPrototype : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        manager = GameObject.Find("__app").GetComponentInChildren<GameManager>();
+
         //getting canvas
         CurrentCanvas = GameObject.FindGameObjectWithTag("CanvasFighting").GetComponent<Canvas>();
         //making health bar
@@ -32,9 +36,12 @@ public class MonsterManager_AttackPrototype : MonoBehaviour
         healthbarr.transform.localScale = new Vector3(1.66908312f, 1.66908312f, 1.66908312f);
         //testing monster class
         StartMonster = new Monster("Enemy_Placeholder");
-        StartMonster.AssignHealthBar(GameObject.FindGameObjectWithTag("UnusedSlider").GetComponent<Slider>());
+        StartMonster.AssignHealthBar(healthbarr);
         StartMonster.CombatActive(true);
         StartMonster.SetOriginPos(transform);
+
+        manager.EnemyMonster = StartMonster;
+        StartMonster.ToughnessModifier = Random.Range(1, 10);
     }
 
     // Update is called once per frame
@@ -126,7 +133,7 @@ public class MonsterManager_AttackPrototype : MonoBehaviour
     //visually shows the monster is dead by rotating the sprite so its laying down.
     private void Death()
     {
-        transform.rotation = new Quaternion(0f, 0f, 0.707106709f, 0.707106948f);
+        //transform.rotation = new Quaternion(0f, 0f, 0.707106709f, 0.707106948f);
         StartMonster.CombatActive(false);
     }
 

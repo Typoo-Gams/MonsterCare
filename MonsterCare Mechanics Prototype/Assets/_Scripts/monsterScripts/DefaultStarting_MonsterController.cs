@@ -25,6 +25,8 @@ public class DefaultStarting_MonsterController : MonoBehaviour
         monster = new Monster("load", prefabLocation);
         //loads the monster stats.
         Saver.LoadMonster(monster);
+        monster.DeathStatus = false;
+        monster.UpdateHealth(100f);
         //difference in time since last time. (in seconds)
         Debug.Log("difference: " + Saver.FindTimeDifference());
         //debugs the monster stats.
