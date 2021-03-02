@@ -25,6 +25,7 @@ public class FirstEvolution_MonsterController : MonoBehaviour
             //Overwrites the previous monsters saved stats
             Saver.SaveMonster(monster);
         }
+        //monster.UpdateHealth(100);
         monster.DebugMonster();
         //updates the monster stats from how much time passed since the last save to simulate things happening while the player isnt playing the game.
         monster.AtGameWakeUp(Saver.FindTimeDifference());
