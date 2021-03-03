@@ -230,6 +230,10 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 578058205}
+    - target: {fileID: 8129942001750182338, guid: 40193650ec9cf7e4189cc7b3202955b8, type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8129942001750182348, guid: 40193650ec9cf7e4189cc7b3202955b8, type: 3}
       propertyPath: m_Name
       value: Canvas_Home
@@ -242,6 +246,26 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8611278633852648251, guid: 40193650ec9cf7e4189cc7b3202955b8, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.73
+      objectReference: {fileID: 0}
+    - target: {fileID: 8611278633852648251, guid: 40193650ec9cf7e4189cc7b3202955b8, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.7142054
+      objectReference: {fileID: 0}
+    - target: {fileID: 8611278633852648251, guid: 40193650ec9cf7e4189cc7b3202955b8, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.7142054
+      objectReference: {fileID: 0}
+    - target: {fileID: 8611278633852648251, guid: 40193650ec9cf7e4189cc7b3202955b8, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -395
+      objectReference: {fileID: 0}
+    - target: {fileID: 8611278633852648251, guid: 40193650ec9cf7e4189cc7b3202955b8, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -748
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 40193650ec9cf7e4189cc7b3202955b8, type: 3}
 --- !u!1 &84535107 stripped
@@ -249,9 +273,9 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8129942001750182348, guid: 40193650ec9cf7e4189cc7b3202955b8, type: 3}
   m_PrefabInstance: {fileID: 84535106}
   m_PrefabAsset: {fileID: 0}
---- !u!224 &84535108 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 8129942001750182336, guid: 40193650ec9cf7e4189cc7b3202955b8, type: 3}
+--- !u!4 &84535108 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8611278633852648251, guid: 40193650ec9cf7e4189cc7b3202955b8, type: 3}
   m_PrefabInstance: {fileID: 84535106}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &180889012
@@ -440,17 +464,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1286337372}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 10.5277405}
+  m_LocalScale: {x: 4.16763, y: 4.16763, z: 4.16763}
   m_Children:
   - {fileID: 180889013}
   m_Father: {fileID: 84535108}
-  m_RootOrder: 1
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -12, y: -258}
+  m_AnchoredPosition: {x: 526, y: 66}
   m_SizeDelta: {x: 62.66, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1286337374

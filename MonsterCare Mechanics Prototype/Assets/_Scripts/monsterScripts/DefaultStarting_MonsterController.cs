@@ -54,6 +54,35 @@ public class DefaultStarting_MonsterController : MonoBehaviour
     //Save the monster's stats when the gameobject is destroyed.
     private void OnDestroy()
     {
+        if (gameObject.GetComponentInParent<GameManager>().ActiveMonster.PrefabLocation == prefabLocation) 
+        {
+            try
+            {
+                Saver.SaveMonster(monster);
+                Debug.Log("saved monster");
+            }
+            catch
+            {
+                Debug.LogWarning("The monster tried to save before it was created.");
+            }
+        }
+    }
+
+    private void OnApplicationQuit()
+    {
+        try
+        {
+            Saver.SaveMonster(monster);
+            Debug.Log("saved monster");
+        }
+        catch
+        {
+            Debug.LogWarning("The monster tried to save before it was created.");
+        }
+    }
+
+    private void OnApplicationFocus(bool focus)
+    {
         try
         {
             Saver.SaveMonster(monster);
@@ -80,11 +109,12 @@ public class DefaultStarting_MonsterController : MonoBehaviour
             GameObject NextEvolution = Resources.Load<GameObject>("Prefabs/MonsterStuff/Monsters/SecondEvolutionMonster");
             Debug.Log(NextEvolution);
             GameObject Parent = GameObject.Find("__app").GetComponentInChildren<GameManager>().gameObject;
-            GameObject Spawned = Instantiate(NextEvolution);
-            Spawned.transform.SetParent(Parent.transform, false);
-            
             //Destroy the old monster
             Destroy(gameObject);
+            //create the new monster
+            GameObject Spawned = Instantiate(NextEvolution);
+            Spawned.transform.SetParent(Parent.transform, false);
+            Spawned.transform.localPosition = new Vector3(1.17614102f, -0.730000019f, 121.02121f);
         }
     }
 

@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
+
 public class GameManager : MonoBehaviour
 {
     //Previously loaded scene
@@ -19,12 +20,26 @@ public class GameManager : MonoBehaviour
     public Slider SliderPrefab;
     public Slider GreenSliderPrefab;
 
+    //GameVersion
+    public string GameVersion;
 
-    //Called When this is destroyed.
-    private void OnDestroy()
+    private void Start()
     {
-        if (SceneManager.GetActiveScene().name == "MonsterHome_MainPrototype")
-            Save.SaveTime();
+        GameVersion = "8.3";
+    }
+
+    private void OnApplicationQuit()
+    {
+        Save.SaveTime();
+        Save.SaveMonster(ActiveMonster);
+        Save.SaveGameVersion(GameVersion);
+    }
+
+    private void OnApplicationFocus(bool focus)
+    {
+        Save.SaveTime();
+        Save.SaveGameVersion(GameVersion);
+        Save.SaveMonster(ActiveMonster);
     }
 
 
@@ -81,6 +96,56 @@ public class GameSaver
     public DateTime Time = DateTime.Now;
 
 
+    //Sets the savefile version number.
+    /// <summary>
+    /// Saves the game version to the game file. 
+    /// </summary>
+    /// <param name="version">version of the game</param>
+    public void SaveGameVersion(string version) 
+    {
+        PlayerPrefs.SetString("MonsterCare_Version_", version);
+    }
+
+
+    //returns the version. used to check if a savefile has the same game version
+    /// <summary>
+    /// returns the game version as a string.
+    /// </summary>
+    /// <returns>version number</returns>
+    public string LoadgameVersion() 
+    {
+        return PlayerPrefs.GetString("MonsterCare_Version_");
+    }
+
+
+    /// <summary>
+    /// Wipes all the save file data
+    /// </summary>
+    public void WipeSave() 
+    {
+        SaveGameVersion("None");
+        string[] TimeIndex =
+            {"Hour", "Minutes", "Seconds", "Day", "Month", "Year"};
+        for (int i = 0; i < TimeIndex.Length; i++)
+        {
+            string FullIndex = "SavedTime_" + TimeIndex[i];
+            PlayerPrefs.SetFloat(FullIndex, 0);
+        }
+        string[] StatIndex =
+            {"Health", "Hunger", "Sleep", "Happiness", "Playfull", "Toughness"};
+        string MonsterSaveIndex = "SavedMonster_";
+
+        PlayerPrefs.SetString(MonsterSaveIndex + "MonsterName", "None");
+        PlayerPrefs.SetString(MonsterSaveIndex + "PrefabLocation", "None");
+
+        for (int i = 0; i < StatIndex.Length; i++)
+        {
+            PlayerPrefs.SetFloat(MonsterSaveIndex + StatIndex[i], 0);
+        }
+        Debug.LogWarning("Save was wiped");
+    }
+
+
     /// <summary>
     /// calculates the difference between now and last time "SaveTime" where used.
     /// </summary>
@@ -113,6 +178,7 @@ public class GameSaver
     /// </summary>
     public void SaveTime()
     {
+
         string[] TimeIndex =
             {"Hour", "Minutes", "Seconds", "Day", "Month", "Year"};
         float[] TimeTable =
@@ -180,6 +246,7 @@ public class GameSaver
     /// <param name="yourMonster">Input a monster to be saved</param>
     public void SaveMonster(Monster yourMonster) 
     {
+
         string[] StatIndex = 
             {"Health", "Hunger", "Sleep", "Happiness", "Playfull", "Toughness"};
         float[] Stats =
@@ -194,6 +261,7 @@ public class GameSaver
         {
             PlayerPrefs.SetFloat(MonsterSaveIndex + StatIndex[i], Stats[i]);
         }
+        Debug.Log("Monster Was Saved");
     }
 
 

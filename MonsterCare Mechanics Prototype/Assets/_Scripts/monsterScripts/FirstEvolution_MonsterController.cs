@@ -48,8 +48,7 @@ public class FirstEvolution_MonsterController : MonoBehaviour
         Evolution();
     }
 
-    //Save the monster's stats when the gameobject is destroyed.
-    private void OnDestroy()
+    private void OnApplicationQuit()
     {
         try
         {
@@ -62,6 +61,18 @@ public class FirstEvolution_MonsterController : MonoBehaviour
         }
     }
 
+    private void OnApplicationFocus(bool focus)
+    {
+        try
+        {
+            Saver.SaveMonster(monster);
+            Debug.Log("saved monster");
+        }
+        catch
+        {
+            Debug.LogWarning("The monster tried to save before it was created.");
+        }
+    }
 
     //Simple prototype example of evolution. these will be different for each monster.
     //Each monster should have the same Evolution() method so that it can be called with sendMessage when the evolution trigger is activated.
@@ -75,8 +86,8 @@ public class FirstEvolution_MonsterController : MonoBehaviour
             GameObject NextEvolution = Resources.Load<GameObject>("Prefabs/MonsterStuff/Monsters/SecondEvolutionMonster");
             Debug.Log(NextEvolution);
             GameObject Parent = GameObject.Find("__app").GetComponentInChildren<GameManager>().gameObject;
-            Instantiate(NextEvolution, NextEvolution.transform.position, Quaternion.identity, Parent.transform);
             Destroy(gameObject);
+            Instantiate(NextEvolution, NextEvolution.transform.position, Quaternion.identity, Parent.transform);
         }
     }
 
