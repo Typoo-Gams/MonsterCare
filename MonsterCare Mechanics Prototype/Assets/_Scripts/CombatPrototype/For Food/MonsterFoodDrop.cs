@@ -7,7 +7,7 @@ public class MonsterFoodDrop : MonoBehaviour
 {
     GameManager manager;
 
-    public GameObject foodPrefab;
+    public GameObject[] foodPrefab;
     public bool isCreated;
     bool slideBar = true;
 
@@ -42,9 +42,11 @@ public class MonsterFoodDrop : MonoBehaviour
 
     private void FoodDrop()
     {
+        int random = Random.Range(0, foodPrefab.Length);
+
         if (isCreated == true)
         {
-            Instantiate(foodPrefab);
+            Instantiate(foodPrefab[random]);
             Destroy(manager.Enemy.gameObject);
             Destroy(GameObject.FindGameObjectWithTag("CanvasFighting"));
             manager.EnemyMonster = null;

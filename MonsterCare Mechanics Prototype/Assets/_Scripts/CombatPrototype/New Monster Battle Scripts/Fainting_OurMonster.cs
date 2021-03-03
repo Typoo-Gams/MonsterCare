@@ -1,54 +1,43 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class Fainting_OurMonster : MonoBehaviour
 {
     GameManager manager;
+    public GameObject black;
 
-    public GameObject blackOutSquare;
+    public Text text;
+
+    private void Start()
+    {
+        manager = GameObject.Find("__app").GetComponentInChildren<GameManager>();
+    }
 
     // Update is called once per frame
     void Update()
     {
-        if(manager.ActiveMonster.DeathStatus == true)
-        {
-            StartCoroutine(FadeBlackOutSquare());
-        }
-        else
-        {
-            StartCoroutine(FadeBlackOutSquare(false));
-        }
+        Fainting();
     }
 
-    public IEnumerator FadeBlackOutSquare(bool fadeToBlack = true, int fadeSpeed = 3)
+    private IEnumerator Wait()
     {
-        Color objectColor = blackOutSquare.GetComponent<Image>().color;
-        float fadeAmount;
+        yield return new WaitForSeconds(1);
+        black.SetActive(true);
+        text.gameObject.SetActive(true);
+        yield return new WaitForSeconds(1);
+        text.gameObject.SetActive(false);
+        SceneManager.LoadScene("MonsterHome_MainPrototype");
+    }
 
-        if (fadeToBlack)
+    public void Fainting()
+    {
+        if(manager.ActiveMonster.DeathStatus == true)
         {
-            while(blackOutSquare.GetComponent<SpriteRenderer>().color.a < 1)
-            {
-                fadeAmount = objectColor.a + (fadeSpeed * Time.deltaTime);
-
-                objectColor = new Color(objectColor.r, objectColor.g, objectColor.b, fadeAmount);
-                yield return null;
-                SceneManager.LoadScene("Home");
-            }
-        }
-        else
-        {
-            while(blackOutSquare.GetComponent<SpriteRenderer>().color.a > 0)
-            {
-                fadeAmount = objectColor.a - (fadeSpeed * Time.deltaTime);
-
-                objectColor = new Color(objectColor.r, objectColor.g, objectColor.b, fadeAmount);
-                blackOutSquare.GetComponent<SpriteRenderer>().color = objectColor;
-                yield return null;
-            }
+            
+            StartCoroutine(Wait());
         }
     }
 }
