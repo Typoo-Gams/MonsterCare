@@ -46,11 +46,25 @@ public class MonsterFoodDrop : MonoBehaviour
 
         if (isCreated == true)
         {
-            Instantiate(foodPrefab[random]);
-            Destroy(manager.Enemy.gameObject);
-            Destroy(GameObject.FindGameObjectWithTag("CanvasFighting"));
-            manager.EnemyMonster = null;
-            Debug.LogError("Destroyed");
+            Debug.LogWarning(manager.FoodInventory.Length);
+            for(int i = 0; i < manager.FoodInventory.Length; i++)
+            {
+                Debug.LogWarning("searching inv");
+                if(manager.FoodInventory[i] == null)
+                {
+                    manager.FoodInventory[i] = Instantiate(foodPrefab[random]);
+                    Destroy(manager.Enemy.gameObject);
+                    Destroy(GameObject.FindGameObjectWithTag("CanvasFighting"));
+                    manager.EnemyMonster = null;
+                    Debug.Log("Destroyed");
+                    break;
+                }
+                else
+                {
+                    Debug.Log("Inventory is full");
+                }   
+            }
+            
         }
     }
 

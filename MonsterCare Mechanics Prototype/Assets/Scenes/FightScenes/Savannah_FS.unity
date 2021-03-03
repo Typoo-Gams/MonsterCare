@@ -523,10 +523,6 @@ PrefabInstance:
       value: 638.00006
       objectReference: {fileID: 0}
     - target: {fileID: 1740130347430442262, guid: 923ae5b30f168fd45a23f24e6e84e79e, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1740130347430442262, guid: 923ae5b30f168fd45a23f24e6e84e79e, type: 3}
       propertyPath: KillThisMonster
       value: 
       objectReference: {fileID: 3367181997876113915, guid: a4a34ec8bca935e47939182328cac565, type: 3}
@@ -678,10 +674,6 @@ PrefabInstance:
       propertyPath: IsItDead
       value: 
       objectReference: {fileID: 3367181997876113915, guid: a4a34ec8bca935e47939182328cac565, type: 3}
-    - target: {fileID: 8637991652438758500, guid: 923ae5b30f168fd45a23f24e6e84e79e, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 8651457838815821350, guid: 923ae5b30f168fd45a23f24e6e84e79e, type: 3}
       propertyPath: m_Layer
       value: 5
@@ -694,5 +686,9 @@ PrefabInstance:
       propertyPath: m_RenderMode
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 9127926483609262897, guid: 923ae5b30f168fd45a23f24e6e84e79e, type: 3}
+      propertyPath: black
+      value: 
+      objectReference: {fileID: 1745261001}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 923ae5b30f168fd45a23f24e6e84e79e, type: 3}

@@ -23,8 +23,11 @@ public class GameManager : MonoBehaviour
     //GameVersion
     public string GameVersion;
 
+    public GameObject[] FoodInventory;
+
     private void Start()
     {
+        FoodInventory = new GameObject[5];
         GameVersion = "8.3";
     }
 
