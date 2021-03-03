@@ -35,6 +35,11 @@ public class Dmg_BodyParts : MonoBehaviour
         {
             DmgShake(false);
         }
+
+        if(manager.ActiveMonster.HealthStatus == 0)
+        {
+            currentlyAttacking = false;
+        }
     }
 
     private void DmgShake(bool addTime)

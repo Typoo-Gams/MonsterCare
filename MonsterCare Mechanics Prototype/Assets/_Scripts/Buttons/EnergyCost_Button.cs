@@ -24,6 +24,11 @@ public class EnergyCost_Button : MonoBehaviour
             ThisButton.interactable = true;
         else
             ThisButton.interactable = false;
+
+        if(manager.ActiveMonster.HealthStatus == 0)
+        {
+            ThisButton.interactable = false;
+        }
     }   
 
     void PayCost() 
