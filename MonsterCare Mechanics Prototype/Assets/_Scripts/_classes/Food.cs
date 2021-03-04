@@ -8,13 +8,14 @@ public class Food : InventoryItem
     int foodPower;
     string element;
 
-
     /// <summary>
     /// Create a new Food item
     /// </summary>
     /// <param name="type">Set the food type, Special or Normal</param>
-    public Food(string type) 
+    /// <param name="prefabPath">Set the path for the prefab so it can be loaded</param>
+    public Food(string type, string prefabPath) 
     {
+        path = prefabPath;
         foodType = type;
         SetItemType = "Food";
         slot = -1;
@@ -27,8 +28,10 @@ public class Food : InventoryItem
     /// </summary>
     /// <param name="type">Set the food type, special or normal</param>
     /// <param name="elementType">Set the element type: Earth, Ice, Fire, or Wind</param>
-    public Food(string type, string elementType) 
+    /// <param name="prefabPath">Set the path for the prefab so it can be loaded</param>
+    public Food(string type, string elementType, string prefabPath) 
     {
+        path = prefabPath;
         foodType = type;
         SetItemType = "Food";
         element = elementType;
@@ -42,8 +45,10 @@ public class Food : InventoryItem
     /// </summary>
     /// <param name="type">Set the food type, Special or Normal</param>
     /// <param name="power">Set the food power</param>
-    public Food(string type, int power)
+    /// <param name="prefabPath">Set the path for the prefab so it can be loaded</param>
+    public Food(string type, int power, string prefabPath)
     {
+        path = prefabPath;
         foodType = type;
         SetItemType = "Food";
         slot = -1;
@@ -57,8 +62,10 @@ public class Food : InventoryItem
     /// <param name="type">Set the food type, special or normal</param>
     /// <param name="elementType">Set the element type: Earth, Ice, Fire, or Wind</param>
     /// <param name="power">Set the food power</param>
-    public Food(string type, string elementType, int power)
+    /// <param name="prefabPath">Set the path for the prefab so it can be loaded</param>
+    public Food(string type, string elementType, int power, string prefabPath)
     {
+        path = prefabPath;
         foodType = type;
         SetItemType = "Food";
         element = elementType;

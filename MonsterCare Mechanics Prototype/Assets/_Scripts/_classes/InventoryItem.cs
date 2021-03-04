@@ -7,23 +7,16 @@ public class InventoryItem
     //Item variables
     string ItemType;
     int InventorySlot;
+    string prefabPath;
 
-    public InventoryItem() 
-    {
-        ItemType = "none";
-        InventorySlot = -1;
-    }
 
-    public InventoryItem(string type) 
+    /// <summary>
+    /// Set/Get the item prefab path
+    /// </summary>
+    public string path 
     {
-        ItemType = type;
-        InventorySlot = -1;
-    }
-
-    public InventoryItem(string type, int slot)
-    {
-        ItemType = type;
-        InventorySlot = slot;
+        get => prefabPath;
+        set => prefabPath = value;
     }
 
 
