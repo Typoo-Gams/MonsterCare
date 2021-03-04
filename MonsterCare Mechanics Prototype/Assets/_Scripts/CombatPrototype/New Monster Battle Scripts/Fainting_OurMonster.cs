@@ -29,7 +29,7 @@ public class Fainting_OurMonster : MonoBehaviour
         text.gameObject.SetActive(true);
         yield return new WaitForSeconds(1);
         text.gameObject.SetActive(false);
-        SceneManager.LoadScene("MonsterHome_MainPrototype");
+        SceneManager.LoadScene("MonsterHome");
     }
 
     public void Fainting()

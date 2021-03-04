@@ -33,7 +33,7 @@ public class MonsterManager_AttackPrototype : MonoBehaviour
         Slider healthbarr = Instantiate(SliderPrefab);
         healthbarr.transform.SetParent(CurrentCanvas.transform, false);
         healthbarr.transform.localPosition = new Vector3(0, 110, 0);
-        healthbarr.transform.localScale = new Vector3(1.66908312f, 1.66908312f, 1.66908312f);
+        healthbarr.transform.localScale = new Vector3(3f, 3f, 3f);
         //testing monster class
         StartMonster = new Monster("Enemy_Placeholder");
         StartMonster.AssignHealthBar(healthbarr);

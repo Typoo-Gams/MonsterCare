@@ -37,7 +37,7 @@ public class Toughness_Modifer : MonoBehaviour
         Slider Spawned = Instantiate(manager.GreenSliderPrefab);
         manager.ActiveMonster.CombatActive(true);
         Spawned.transform.SetParent(canvas.transform, false);
-        Spawned.transform.localScale = new Vector3(2, 2, 2);
+        Spawned.transform.localScale = new Vector3(3, 3, 3);
         manager.ActiveMonster.AssignHealthBar(Spawned);
         manager.ActiveMonster.DebugMonster();
 
