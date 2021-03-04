@@ -331,7 +331,7 @@ public class GameSaver
 
 
     //Saves the inventory
-    public void SaveInventory(GameObject[] inventory) 
+    public void SaveInventory(InventoryItem[] inventory) 
     {
         string InventorySlot = "InventorySlot_";
         for (int i = 0; i < inventory.Length; i++) 
