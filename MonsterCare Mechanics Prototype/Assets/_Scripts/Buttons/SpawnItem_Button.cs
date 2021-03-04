@@ -21,14 +21,13 @@ public class SpawnItem_Button : MonoBehaviour
     public GameObject ParentObject;
     private GameObject SpawnedObject;
     bool canSpawn = true;
-    private Button ThisButton;
+
     
 
     // Start is called before the first frame update
     void Start()
     {
-        ThisButton = gameObject.GetComponent<Button>();
-        ThisButton.onClick.AddListener(TaskOnClick);
+        gameObject.GetComponent<Button>().onClick.AddListener(TaskOnClick);
     }
 
     //Method called when the button is clicked

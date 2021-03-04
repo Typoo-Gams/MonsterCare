@@ -1026,7 +1026,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SceneNumber: 0
-  SceneName: MonsterHome_MainPrototype
+  SceneName: MonsterHome
 --- !u!1 &1314494821
 GameObject:
   m_ObjectHideFlags: 0

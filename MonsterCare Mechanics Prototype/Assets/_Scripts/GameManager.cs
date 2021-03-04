@@ -25,8 +25,7 @@ public class GameManager : MonoBehaviour
     public string GameVersion;
 
     //Player Inventory
-    public GameObject[] FoodInventory;
-
+    public Food[] FoodInventory;
 
     //Awake is called when the script instance is being loaded
     private void Awake()
@@ -38,7 +37,11 @@ public class GameManager : MonoBehaviour
     //Start is called just before any of the Update methods is called the first time
     private void Start()
     {
-        FoodInventory = new GameObject[5];
+        FoodInventory = new Food[5];
+        FoodInventory[0] = new Food();
+        FoodInventory[1] = new Food("Earth");
+        Save.SaveFood(FoodInventory);
+        Debug.LogWarning("ItemType: " + FoodInventory[0].GetType() + "\npath: " + PlayerPrefs.GetString("InventorySlot_0_Path"));
     }
 
 
@@ -331,16 +334,47 @@ public class GameSaver
 
 
     //Saves the inventory
-    public void SaveInventory(InventoryItem[] inventory) 
+    public void SaveFood(Food[] inventory) 
     {
         string InventorySlot = "InventorySlot_";
         for (int i = 0; i < inventory.Length; i++) 
         {
-            string SaveIndex = InventorySlot + i;
-            //PlayerPrefs.SetString(SaveIndex, );
+            if (inventory[i] != null) 
+            {
+                string SaveIndex = InventorySlot + i;
+                PlayerPrefs.SetInt(SaveIndex + "_Power", inventory[i].Power);
+                PlayerPrefs.SetString(SaveIndex + "_Type", inventory[i].FoodType);
+                PlayerPrefs.SetString(SaveIndex + "_Element", inventory[i].Element);
+            }
         }
     }
 
+
+    //Loads the Food Inventory
+    public Food[] LoadFood() 
+    {
+        string InventorySlot = "InventorySlot_";
+        Food[] load = new Food[5];
+        for (int i = 0; i <= load.Length; i++) 
+        {
+            string SaveIndex = InventorySlot + i;
+            int power = PlayerPrefs.GetInt(SaveIndex + "_Power");
+            string type = PlayerPrefs.GetString(SaveIndex + "_Type");
+            string element = PlayerPrefs.GetString(SaveIndex + "_Element");
+            load[i] = new Food(type, element, power);
+        }
+        return load;
+    }
+
+    public Food LoadFood(int Index) 
+    {
+        string InventorySlot = "InventorySlot_";
+        string SaveIndex = InventorySlot + Index;
+        int power = PlayerPrefs.GetInt(SaveIndex + "_Power");
+        string type = PlayerPrefs.GetString(SaveIndex + "_Type");
+        string element = PlayerPrefs.GetString(SaveIndex + "_Element");
+        return new Food(type, element, power);
+    }
 
     //Loads the saved monster's prefab location.
     /// <summary>

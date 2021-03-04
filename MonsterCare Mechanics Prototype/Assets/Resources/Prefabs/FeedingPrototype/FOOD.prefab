@@ -98,9 +98,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44811e5c367838e4d849af7f6860f80a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FoodPower: 10
-  UI: {fileID: 1137264796170078348, guid: ddbc9925f956b8b428311d587a45dd6f, type: 3}
-  FoodSprites:
+  inventorySpace: 0
+  NormalFoodSprites:
   - {fileID: -7993830526901381209, guid: 6bc3eb30f95f5e4419b2d5b18705496b, type: 3}
   - {fileID: -8051068860283565140, guid: 6bc3eb30f95f5e4419b2d5b18705496b, type: 3}
   - {fileID: 2418449784934886387, guid: 6bc3eb30f95f5e4419b2d5b18705496b, type: 3}
@@ -115,6 +114,12 @@ MonoBehaviour:
   - {fileID: 7701605621825214864, guid: 6bc3eb30f95f5e4419b2d5b18705496b, type: 3}
   - {fileID: 3624333184764439694, guid: 6bc3eb30f95f5e4419b2d5b18705496b, type: 3}
   - {fileID: -6983887452634888065, guid: 6bc3eb30f95f5e4419b2d5b18705496b, type: 3}
+  SpecialFoodSprites:
+  - {fileID: 21300000, guid: b8e5c94bdf9981b428069229105205d5, type: 3}
+  - {fileID: 21300000, guid: 443dcbf4d17660f4d8577b826827332f, type: 3}
+  - {fileID: 21300000, guid: ddda19bd1ab446f4281248b772a2c18e, type: 3}
+  - {fileID: 21300000, guid: aa4a8dfa0088fd6459a9040046881d1b, type: 3}
+  UI: {fileID: 1137264796170078348, guid: ddbc9925f956b8b428311d587a45dd6f, type: 3}
 --- !u!61 &4009038705872474408
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -176,4 +181,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   direction: {x: 0, y: 0, z: 0}
   screenPos: {x: 0, y: 0, z: 0}
-  touched: 0

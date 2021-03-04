@@ -23,7 +23,7 @@ public class InventoryItem
     /// <summary>
     /// Get/Set item type
     /// </summary>
-    public string SetItemType
+    public string Type
     {
         get => ItemType;
         set => ItemType = value;

@@ -10,10 +10,12 @@ public class MonsterFoodDrop : MonoBehaviour
 
     public GameObject[] foodPrefab;
     public GameObject[] specialPrefab;
+    public Sprite[] specialSprites;
 
     public bool isCreated;
     bool slideBar = true;
     int element;
+    string spawnElement;
 
     // Start is called before the first frame update
     void Start()
@@ -26,22 +28,27 @@ public class MonsterFoodDrop : MonoBehaviour
         {
             case "Savannah_FS":
                 element = 0;
+                spawnElement = "Fire";
                 break;
 
             case "Desert_FS":
                 element = 0;
+                spawnElement = "Fire";
                 break;
 
             case "Ice_FS":
                 element = 1;
+                spawnElement = "Water";
                 break;
 
             case "Mountain_FS":
                 element = 2;
+                spawnElement = "Earth";
                 break;
 
             case "Forest_FS":
                 element = 3;
+                spawnElement = "Air";
                 break;
         }
     }
@@ -83,9 +90,17 @@ public class MonsterFoodDrop : MonoBehaviour
                 {
                     if(dropRate == 1)
                     {
-                        manager.FoodInventory[i] = Instantiate(specialPrefab[element]);
+                        //GameObject spawn = Instantiate(specialPrefab[element]);
+                        GameObject spawn = Instantiate(specialPrefab[0]);
+                        spawn.GetComponent<FoodManager_FoodObject>().FoodElement = spawnElement;
+                        spawn.GetComponent<FoodManager_FoodObject>().FoodCategory = "Special";
+                        manager.FoodInventory[i] = new Food(spawnElement);
                     }
-                    manager.FoodInventory[i] = Instantiate(foodPrefab[random]);
+                    else 
+                    {
+                        GameObject spawn = Instantiate(foodPrefab[random]);
+                        manager.FoodInventory[i] = new Food();
+                    }
                     Destroy(manager.Enemy.gameObject);
                     Destroy(GameObject.FindGameObjectWithTag("CanvasFighting"));
                     manager.EnemyMonster = null;
@@ -94,12 +109,10 @@ public class MonsterFoodDrop : MonoBehaviour
                 }
                 else
                 {
-                    Debug.Log("Inventory is full");
+                    Debug.Log("Inventory slot " + i + " is full");
                 }   
             }
             
         }
-    }
-
-    
+    }    
 }

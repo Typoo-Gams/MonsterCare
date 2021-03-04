@@ -6,30 +6,82 @@ using UnityEngine.UI;
 
 public class FoodManager_FoodObject : MonoBehaviour
 {
+    Food ThisFood;
+
     public int FoodPower = 10;
+    public string FoodElement;
+    public string FoodCategory;
+
+    public int inventorySpace;
+
+    public Sprite[] NormalFoodSprites;
+    /// <summary>
+    /// Index: 0 - Air, 1 - Earth, 2 - Fire, 3 - Water
+    /// </summary>
+    public Sprite[] SpecialFoodSprites = new Sprite[4];
+    Sprite ThisSprite;
+
+
     public Text UI;
+
     Canvas CurrentCanvas;
-    public List<Sprite> FoodSprites;
     GameManager manager;
+
     SpawnItem_Button SpawningButton;
+
+
+
 
     // Start is called before the first frame update
     void Start()
     {
-        //Spawn with random food sprite
-        int random = Random.Range(0, FoodSprites.Count);
-        gameObject.GetComponent<SpriteRenderer>().sprite = FoodSprites[random];
+
+
 
         //This can be moved to the spawn object button
-        CurrentCanvas = GameObject.FindGameObjectWithTag("Canvas").GetComponent<Canvas>();
-        gameObject.transform.localScale = new Vector3(13, 13, 13);
+        try
+        {
+            CurrentCanvas = GameObject.FindGameObjectWithTag("Canvas").GetComponent<Canvas>();
+        }
+        catch 
+        {
+            CurrentCanvas = GameObject.FindGameObjectWithTag("CanvasFighting").GetComponent<Canvas>();
+        }
+        gameObject.transform.localScale = new Vector3(100, 100, 100);
         gameObject.transform.localPosition = new Vector3(-118, 204, 0);
 
         //finds the __app for referencing the gamemanager. finds the button that spawns food.
         manager = GameObject.Find("__app").GetComponentInChildren<GameManager>();
-        SpawningButton = GameObject.FindGameObjectWithTag("FoodButton").GetComponent<SpawnItem_Button>();
-        //toggles ability to spawn.
-        SpawningButton.ToggleCanSpawn();
+
+        //gets the food info
+        GetFoodInfo();
+        //checks what type of food it was and sets its sprite.
+        if (FoodCategory == "Normal") 
+        {
+            ThisFood = new Food();
+            ThisSprite = NormalFoodSprites[12];
+        }
+        else
+        {
+            ThisFood = new Food(FoodElement, FoodPower);
+
+            switch (FoodElement)
+            {
+                case "Air":
+                    ThisSprite = SpecialFoodSprites[0];
+                    break;
+                case "Earth":
+                    ThisSprite = SpecialFoodSprites[1];
+                    break;
+                case "Fire":
+                    ThisSprite = SpecialFoodSprites[2];
+                    break;
+                case "Water":
+                    ThisSprite = SpecialFoodSprites[3];
+                    break;
+            }
+        }
+        gameObject.GetComponent<SpriteRenderer>().sprite = ThisSprite;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -48,6 +100,7 @@ public class FoodManager_FoodObject : MonoBehaviour
             
             //destroys the food
             Destroy(gameObject);
+            manager.FoodInventory[inventorySpace] = null;
             //plays the monsters eating animation.
             //temporary
             if (manager.MonsterObject.GetComponent<DefaultStarting_MonsterController>() != null)
@@ -55,9 +108,11 @@ public class FoodManager_FoodObject : MonoBehaviour
         }
     }
 
-    //when the food is destroyed toggle the ability to spawn.
-    private void OnDestroy()
+
+    void GetFoodInfo() 
     {
-        SpawningButton.ToggleCanSpawn();
+        FoodPower = manager.FoodInventory[inventorySpace].Power;
+        FoodElement = manager.FoodInventory[inventorySpace].Element;
+        FoodCategory = manager.FoodInventory[inventorySpace].FoodType;
     }
 }
