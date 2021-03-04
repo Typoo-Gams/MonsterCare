@@ -201,7 +201,7 @@ MonoBehaviour:
   monsterIcon: {fileID: 8613295694917166185}
   Cooldown: 5
   Damage: 10
-  AttackThisMonster: {fileID: 0}
+  AttackThisMonster: {fileID: 3367181997876113915, guid: a4a34ec8bca935e47939182328cac565, type: 3}
 --- !u!114 &1740130347430442262
 MonoBehaviour:
   m_ObjectHideFlags: 0
