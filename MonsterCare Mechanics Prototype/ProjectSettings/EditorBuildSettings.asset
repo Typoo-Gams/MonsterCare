@@ -12,10 +12,10 @@ EditorBuildSettings:
     path: Assets/Scenes/__Preload.unity
     guid: bee17a0fddd33514ba974b1ac0d2322c
   - enabled: 1
-    path: Assets/Scenes/MainMenuExample.unity
+    path: Assets/Scenes/MainMenuScreen.unity
     guid: faddbf5f59d15c84ca5b73ffe2b9f616
   - enabled: 1
-    path: Assets/Scenes/MonsterHome_MainPrototype.unity
+    path: Assets/Scenes/MonsterHome.unity
     guid: 1b3f92e7abc7f5b47b8a4cb62a034554
   - enabled: 1
     path: Assets/Scenes/FightScenes/Desert_FS.unity

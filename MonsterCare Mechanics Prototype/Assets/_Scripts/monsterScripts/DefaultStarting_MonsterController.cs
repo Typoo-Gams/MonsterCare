@@ -74,6 +74,8 @@ public class DefaultStarting_MonsterController : MonoBehaviour
         }
     }
 
+
+    //when the application is closed try to save.
     private void OnApplicationQuit()
     {
         try
@@ -86,7 +88,8 @@ public class DefaultStarting_MonsterController : MonoBehaviour
         }
     }
 
-    private void OnApplicationFocus(bool focus)
+    //when the application is paused save the monster.
+    private void OnApplicationPause(bool focus)
     {
         try
         {

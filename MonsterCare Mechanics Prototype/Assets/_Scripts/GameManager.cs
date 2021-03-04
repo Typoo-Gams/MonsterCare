@@ -28,16 +28,21 @@ public class GameManager : MonoBehaviour
     public GameObject[] FoodInventory;
 
 
+    //Awake is called when the script instance is being loaded
     private void Awake()
     {
         GameVersion = "8.2.4";
     }
 
+
+    //Start is called just before any of the Update methods is called the first time
     private void Start()
     {
         FoodInventory = new GameObject[5];
     }
 
+
+    //When the application is killed then save
     private void OnApplicationQuit()
     {
         try
@@ -52,6 +57,8 @@ public class GameManager : MonoBehaviour
         }
     }
     
+
+    //When the application is paused then save.
     private void OnApplicationPause(bool focus)
     {
         try
@@ -74,7 +81,7 @@ public class GameManager : MonoBehaviour
         //Canvas canvas =  GameObject.Find("Canvas").GetComponent<Canvas>();
         //canvas.worldCamera = Camera.main;
         Debug.Log("previous scene: "+PreviousSecene);
-        if (SceneManager.GetActiveScene().name == "MonsterHome_MainPrototype") 
+        if (SceneManager.GetActiveScene().name == "MonsterHome") 
         {
             //change to renderer so that stats can change while in other scenes?
             MonsterObject.GetComponent<SpriteRenderer>().enabled = true;

@@ -45,6 +45,8 @@ public class FirstEvolution_MonsterController : MonoBehaviour
         Evolution();
     }
 
+
+    //when the application is closed try to save.
     private void OnApplicationQuit()
     {
         try
@@ -57,7 +59,9 @@ public class FirstEvolution_MonsterController : MonoBehaviour
         }
     }
 
-    private void OnApplicationFocus(bool focus)
+
+    //when the application is paused save the monster.
+    private void OnApplicationPause(bool focus)
     {
         try
         {

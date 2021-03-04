@@ -20,7 +20,6 @@ public class InfoPanel_Button : MonoBehaviour
     void Start()
     {
         manager = GameObject.Find("__app").GetComponentInChildren<GameManager>();
-        Debug.Log(manager.gameObject.name);
         //add fuction StatBoardToggle to click
         gameObject.GetComponent<Button>().onClick.AddListener(StatBoardToggle);
         //set the statboard's isActive to false.
