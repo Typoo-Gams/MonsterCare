@@ -21,30 +21,52 @@ public class GameManager : MonoBehaviour
     public Slider GreenSliderPrefab;
 
     //GameVersion
+    [NonSerialized]
     public string GameVersion;
 
+    //Player Inventory
     public GameObject[] FoodInventory;
+
+
+    private void Awake()
+    {
+        GameVersion = "8.2.4";
+    }
 
     private void Start()
     {
         FoodInventory = new GameObject[5];
-        GameVersion = "8.3";
     }
 
     private void OnApplicationQuit()
     {
-        Save.SaveTime();
-        Save.SaveMonster(ActiveMonster);
-        Save.SaveGameVersion(GameVersion);
+        try
+        {
+            Save.SaveTime();
+            Save.SaveMonster(ActiveMonster);
+            Save.SaveGameVersion(GameVersion);
+        }
+        catch
+        {
+            Debug.LogError("Something went wrong when saving");
+        }
     }
-
-    private void OnApplicationFocus(bool focus)
+    
+    private void OnApplicationPause(bool focus)
     {
-        Save.SaveTime();
-        Save.SaveGameVersion(GameVersion);
-        Save.SaveMonster(ActiveMonster);
+        try
+        {
+            Save.SaveTime();
+            Save.SaveMonster(ActiveMonster);
+            Save.SaveGameVersion(GameVersion);
+            Debug.Log("Saved with pause");
+        }
+        catch
+        {
+            Debug.LogError("Something went wrong when saving");
+        }
     }
-
+    
 
     //Called when a new scene is loaded.
     private void OnLevelWasLoaded(int level)
@@ -135,7 +157,7 @@ public class GameSaver
             PlayerPrefs.SetFloat(FullIndex, 0);
         }
         string[] StatIndex =
-            {"Health", "Hunger", "Sleep", "Happiness", "Playfull", "Toughness"};
+            {"Health", "Hunger", "Sleep", "Happiness", "Playfull", "Toughness", "Energy"};
         string MonsterSaveIndex = "SavedMonster_";
 
         PlayerPrefs.SetString(MonsterSaveIndex + "MonsterName", "None");
@@ -249,22 +271,32 @@ public class GameSaver
     /// <param name="yourMonster">Input a monster to be saved</param>
     public void SaveMonster(Monster yourMonster) 
     {
-
-        string[] StatIndex = 
-            {"Health", "Hunger", "Sleep", "Happiness", "Playfull", "Toughness"};
-        float[] Stats =
-            {yourMonster.HealthStatus, yourMonster.HungerStatus, yourMonster.SleepStatus, yourMonster.HappinessStatus, yourMonster.PlayfullStatus, yourMonster.ToughnessStatus};
-
-        string MonsterSaveIndex = "SavedMonster_";
-
-        PlayerPrefs.SetString(MonsterSaveIndex + "MonsterName", yourMonster.Name);
-        PlayerPrefs.SetString(MonsterSaveIndex + "PrefabLocation", yourMonster.PrefabLocation);
-
-        for (int i = 0; i < StatIndex.Length; i++)
+        try 
         {
-            PlayerPrefs.SetFloat(MonsterSaveIndex + StatIndex[i], Stats[i]);
+            string[] StatIndex =
+            {"Health", "Hunger", "Sleep", "Happiness", "Playfull", "Toughness", "Energy"};
+            float[] Stats =
+                {yourMonster.HealthStatus, yourMonster.HungerStatus, yourMonster.SleepStatus, yourMonster.HappinessStatus, yourMonster.PlayfullStatus, yourMonster.ToughnessStatus, yourMonster.EnergyStatus};
+
+            string MonsterSaveIndex = "SavedMonster_";
+
+            PlayerPrefs.SetString(MonsterSaveIndex + "MonsterName", yourMonster.Name);
+            PlayerPrefs.SetString(MonsterSaveIndex + "PrefabLocation", yourMonster.PrefabLocation);
+
+            for (int i = 0; i < StatIndex.Length; i++)
+            {
+                PlayerPrefs.SetFloat(MonsterSaveIndex + StatIndex[i], Stats[i]);
+            }
+            Debug.Log("Monster Was Saved");
+        } 
+        catch 
+        {
+            if (yourMonster == null) 
+            {
+                Debug.LogWarning("The input monster was empty and couldnt save.");
+            }
         }
-        Debug.Log("Monster Was Saved");
+        
     }
 
 
@@ -275,7 +307,7 @@ public class GameSaver
     public void LoadMonster(Monster yourMonster)
     {
         string[] StatIndex =
-            {"Health", "Hunger", "Sleep", "Happiness", "Playfull", "Toughness"};
+            {"Health", "Hunger", "Sleep", "Happiness", "Playfull", "Toughness", "Energy"};
 
         string MonsterSaveIndex = "SavedMonster_";
 
@@ -286,6 +318,7 @@ public class GameSaver
         yourMonster.HappinessStatus = PlayerPrefs.GetFloat(MonsterSaveIndex + StatIndex[3]);
         yourMonster.PlayfullStatus = PlayerPrefs.GetFloat(MonsterSaveIndex + StatIndex[4]);
         yourMonster.ToughnessStatus = PlayerPrefs.GetFloat(MonsterSaveIndex + StatIndex[5]);
+        yourMonster.EnergyStatus = PlayerPrefs.GetFloat(MonsterSaveIndex + StatIndex[6]);
     }
 
 
@@ -613,7 +646,7 @@ public class Monster
         UpdateHunger(statuses[0]);
         Sleep = statuses[1];
         UpdateSleeping(IsSleeping);
-        Debug.Log("calculated");
+        Debug.Log("Monster wakeup. degraded monster stats: " + TimeInSec);
     }
 
 

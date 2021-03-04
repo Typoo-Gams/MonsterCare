@@ -25,15 +25,12 @@ public class FirstEvolution_MonsterController : MonoBehaviour
             //Overwrites the previous monsters saved stats
             Saver.SaveMonster(monster);
         }
-        //monster.UpdateHealth(100);
         monster.DebugMonster();
         //updates the monster stats from how much time passed since the last save to simulate things happening while the player isnt playing the game.
         monster.AtGameWakeUp(Saver.FindTimeDifference());
         //Sends the monster object to the gamemanager so that other scripts can easily reference it.
-        SendMonster(monster);
-        Debug.Log("loaded Monster");
-
-
+        SendMonster();
+        Debug.Log("Current monster: " + this);
     }
 
 
@@ -53,7 +50,6 @@ public class FirstEvolution_MonsterController : MonoBehaviour
         try
         {
             Saver.SaveMonster(monster);
-            Debug.Log("saved monster");
         }
         catch
         {
@@ -66,7 +62,6 @@ public class FirstEvolution_MonsterController : MonoBehaviour
         try
         {
             Saver.SaveMonster(monster);
-            Debug.Log("saved monster");
         }
         catch
         {
@@ -94,9 +89,9 @@ public class FirstEvolution_MonsterController : MonoBehaviour
 
 
     //Send this monster to the GameManager
-    void SendMonster(Monster thisMonster)
+    void SendMonster()
     {
-        SendMessageUpwards("GetMonster", thisMonster);
+        SendMessageUpwards("GetMonster", monster);
         SendMessageUpwards("GetMonster", gameObject);
     }
 }

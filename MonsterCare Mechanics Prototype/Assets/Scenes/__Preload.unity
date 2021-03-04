@@ -833,6 +833,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca765fe468d4c7241b433df4f0bc6f83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  clear: {fileID: 1136924987}
   Manager: {fileID: 1853355646}
   pathText: {fileID: 1869972228}
 --- !u!1 &1612957004
@@ -1290,7 +1291,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5bd09d8af2337d544ac537f19654005e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scene: 0
+  scene: 2
   input: {fileID: 702895237}
 --- !u!1 &2051559916
 GameObject:
@@ -1345,7 +1346,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3404981906630117847, guid: c150a5d01097ad944abd05efd3f51de9, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3404981906630117847, guid: c150a5d01097ad944abd05efd3f51de9, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1386,6 +1387,10 @@ PrefabInstance:
     - target: {fileID: 3404981906630117847, guid: c150a5d01097ad944abd05efd3f51de9, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4807834741392806710, guid: c150a5d01097ad944abd05efd3f51de9, type: 3}
+      propertyPath: DevMode
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4807834741392806710, guid: c150a5d01097ad944abd05efd3f51de9, type: 3}
       propertyPath: GreenSliderPrefab

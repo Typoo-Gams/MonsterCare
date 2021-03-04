@@ -26,17 +26,17 @@ public class DefaultStarting_MonsterController : MonoBehaviour
         //loads the monster stats.
         Saver.LoadMonster(monster);
         monster.DeathStatus = false;
+        //Remove this when we dont need the healing anymore
+        Debug.LogError("remove UpdateHealth from start in " + this);
         monster.UpdateHealth(100f);
-        //difference in time since last time. (in seconds)
-        Debug.Log("difference: " + Saver.FindTimeDifference());
         //debugs the monster stats.
         monster.DebugMonster();
         //updates the monster stats from how much time passed since the last save to simulate things happening while the player isnt playing the game.
         monster.AtGameWakeUp(Saver.FindTimeDifference());
         monster.DebugMonster();
         //Sends the monster object to the gamemanager so that other scripts can easily reference it.
-        SendMonster(monster);
-        Debug.Log("loaded Monster");
+        SendMonster();
+        Debug.Log("Current monster: " + this);
     }
     
 
@@ -54,17 +54,23 @@ public class DefaultStarting_MonsterController : MonoBehaviour
     //Save the monster's stats when the gameobject is destroyed.
     private void OnDestroy()
     {
-        if (gameObject.GetComponentInParent<GameManager>().ActiveMonster.PrefabLocation == prefabLocation) 
+        try 
         {
-            try
+            if (gameObject.GetComponentInParent<GameManager>().ActiveMonster.PrefabLocation == prefabLocation)
             {
-                Saver.SaveMonster(monster);
-                Debug.Log("saved monster");
+                try
+                {
+                    Saver.SaveMonster(monster);
+                }
+                catch
+                {
+                    Debug.LogWarning("The monster tried to save before it was created.");
+                }
             }
-            catch
-            {
-                Debug.LogWarning("The monster tried to save before it was created.");
-            }
+        }
+        catch 
+        {
+            Debug.LogWarning("The this monster was destroyed and couldnt use it's gameObject");
         }
     }
 
@@ -73,7 +79,6 @@ public class DefaultStarting_MonsterController : MonoBehaviour
         try
         {
             Saver.SaveMonster(monster);
-            Debug.Log("saved monster");
         }
         catch
         {
@@ -86,7 +91,6 @@ public class DefaultStarting_MonsterController : MonoBehaviour
         try
         {
             Saver.SaveMonster(monster);
-            Debug.Log("saved monster");
         }
         catch
         {
@@ -121,9 +125,9 @@ public class DefaultStarting_MonsterController : MonoBehaviour
 
 
     //Send this monster to the GameManager
-    void SendMonster(Monster thisMonster) 
+    void SendMonster() 
     {
-        SendMessageUpwards("GetMonster", thisMonster);
+        SendMessageUpwards("GetMonster", monster);
         SendMessageUpwards("GetMonster", gameObject);
     }
 }

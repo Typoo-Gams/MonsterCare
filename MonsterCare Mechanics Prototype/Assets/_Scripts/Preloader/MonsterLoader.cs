@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class MonsterLoader : MonoBehaviour
 {
     GameSaver Saver = new GameSaver();
+    public ClearSave clear;
     public GameObject Manager;
     GameManager manager;
     GameObject SavedMonster;
@@ -16,21 +17,22 @@ public class MonsterLoader : MonoBehaviour
     {
         manager = Manager.GetComponent<GameManager>();
         string path = Saver.GetMonsterPrefab();
-
+        Debug.Log(Saver.LoadgameVersion() + " ?= " + manager.GameVersion + " " + this);
         if (manager.GameVersion != Saver.LoadgameVersion()) 
         {
-            Saver.WipeSave();
+            clear.ResetSave();
+            path = Saver.GetMonsterPrefab();
+            Debug.Log("Detected a different game version");
         }
         if (path == "None")
         {
             SavedMonster = Resources.Load<GameObject>("Prefabs/MonsterStuff/Monsters/DefaultStartingMonster");
         }
-        else
+        if (path != "None")
         {
             SavedMonster = Resources.Load<GameObject>(path);
         }
-        GameObject spawn = Instantiate(SavedMonster, SavedMonster.transform.position, Quaternion.identity, Manager.transform);
-        //spawn.GetComponent<SpriteRenderer>().enabled = false;
+        Instantiate(SavedMonster, SavedMonster.transform.position, Quaternion.identity, Manager.transform);
     }
 
     private void Update()

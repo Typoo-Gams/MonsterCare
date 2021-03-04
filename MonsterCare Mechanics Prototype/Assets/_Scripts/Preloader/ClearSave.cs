@@ -11,16 +11,31 @@ public class ClearSave : MonoBehaviour
     void Start()
     {
         manager = GameObject.Find("__app").GetComponentInChildren<GameManager>();
-        gameObject.GetComponent<Button>().onClick.AddListener(TaskOnClick);
+        gameObject.GetComponent<Button>().onClick.AddListener(ResetSave);
     }
 
-    void TaskOnClick() 
+    public void ResetSave() 
     {
-        Destroy(manager.MonsterObject);
+        try
+        {
+            Destroy(manager.MonsterObject);
+            manager.ActiveMonster = null;
+            manager.MonsterObject = null;
+        }
+        catch
+        {
+            Debug.Log("No Monster was spawned yet to wipe from save.");
+        }
         GameSaver Saver = new GameSaver();
         Saver.WipeSave();
-        manager.ActiveMonster = null;
-        manager.MonsterObject = null;
-        Debug.Log("SaveFiles was wiped.");
+    }
+
+    private void Update()
+    {
+        if (manager.ActiveMonster == null) 
+        {
+            Application.Quit();
+            Debug.LogWarning("exiting");
+        }
     }
 }
