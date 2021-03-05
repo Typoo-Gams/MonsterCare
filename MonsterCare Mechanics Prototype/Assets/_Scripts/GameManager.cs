@@ -100,8 +100,7 @@ public class GameManager : MonoBehaviour
 
     private void OnApplicationFocus(bool focus)
     {
-        //Debug.LogWarning(AssetDatabase.GetAssetPath(Enemy.GetComponent<MonsterManager_AttackPrototype>().ThisPrefab) + "   " + this);
-        //Debug.LogWarning(AssetDatabase.GetAssetPath(temporaryPrefab) + "   " + this);
+        
     }
 
 

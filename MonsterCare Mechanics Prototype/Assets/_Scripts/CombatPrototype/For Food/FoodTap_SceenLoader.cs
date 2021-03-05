@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class FoodTap_SceenLoader : MonoBehaviour
 {
-    private void OnMouseDown()
+    public void OnMouseDown()
     {
         if (GameObject.FindGameObjectWithTag("Note") == null) 
         {

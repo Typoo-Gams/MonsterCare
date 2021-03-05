@@ -10,6 +10,7 @@ public class MonsterFoodDrop : MonoBehaviour
 
     public GameObject[] foodPrefab;
     public GameObject[] specialPrefab;
+    public GameObject FullInventory;
     public Sprite[] specialSprites;
 
     public bool isCreated;
@@ -91,19 +92,21 @@ public class MonsterFoodDrop : MonoBehaviour
                     if(dropRate == 1)
                     {
                         //GameObject spawn = Instantiate(specialPrefab[element]);
+                        //spawn.transform.SetParent(GameObject.FindGameObjectWithTag("CanvasFighting").transform);
                         manager.FoodInventory[i] = new Food(spawnElement);
                         manager.FoodReward = manager.FoodInventory[i];
                         Debug.Log("Special food");
                     }
                     else 
                     {
-                        Instantiate(foodPrefab[random]);
+                        GameObject spawn = Instantiate(foodPrefab[random]);
+                        spawn.transform.SetParent(GameObject.FindGameObjectWithTag("CanvasFighting").transform);
                         manager.FoodInventory[i] = new Food(false);
                         manager.FoodReward = manager.FoodInventory[i];
                         Debug.Log("Normal food");
                     }
                     Destroy(manager.Enemy.gameObject);
-                    Destroy(GameObject.FindGameObjectWithTag("CanvasFighting"));
+                    Destroy(manager.ActiveMonster.GetHealthbar().gameObject);
                     manager.EnemyMonster = null;
                     Debug.Log("Enemey destroyed");
                     break;
@@ -114,6 +117,14 @@ public class MonsterFoodDrop : MonoBehaviour
                     if (i == manager.FoodInventory.Length - 1) 
                     {
                         Debug.LogWarning("The inventory is full");
+
+                        GameObject spawn = Instantiate(FullInventory);
+                        spawn.transform.SetParent(GameObject.FindGameObjectWithTag("CanvasFighting").transform);
+                        Destroy(manager.Enemy.gameObject);
+                        Destroy(manager.ActiveMonster.GetHealthbar().gameObject);
+                        manager.EnemyMonster = null;
+                        Debug.Log("Enemey destroyed");
+                        break;
                     }
                     
                 }   

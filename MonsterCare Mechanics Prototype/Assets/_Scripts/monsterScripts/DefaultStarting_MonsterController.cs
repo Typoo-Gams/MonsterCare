@@ -62,13 +62,11 @@ public class DefaultStarting_MonsterController : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.Mouse0)) Destroy(ReportRefference);
 
-<<<<<<< Updated upstream
-=======
+
         //Don't work because of preload
         if (monster.PrefabLocation != Saver.GetMonsterPrefab() && SceneManager.GetActiveScene().name == "MonsterHome")
             ReportRefference = Instantiate(monster.GetReport());
 
->>>>>>> Stashed changes
         Evolution();
     }
 
