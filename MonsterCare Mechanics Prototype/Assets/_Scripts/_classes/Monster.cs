@@ -17,9 +17,10 @@ public class Monster
     private float Toughness;
     private float Energy;
     private bool CanEvolve;
-    private string loadLocation;
 
+    //Other
     private GameObject MonsterReport;
+    private string loadLocation;
 
     //Combat
     private float AbilityDmg = 10;
@@ -36,6 +37,7 @@ public class Monster
     private bool IsHappy;
     private bool IsSad;
     private bool IsOverRested;
+    private string elementEaten;
 
     //potentials
     /*

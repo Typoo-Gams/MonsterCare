@@ -97,7 +97,7 @@ public class MonsterFoodDrop : MonoBehaviour
                     }
                     else 
                     {
-                        GameObject spawn = Instantiate(foodPrefab[random]);
+                        Instantiate(foodPrefab[random]);
                         manager.FoodInventory[i] = new Food(false);
                         manager.FoodReward = manager.FoodInventory[i];
                         Debug.Log("Normal food");
@@ -111,6 +111,11 @@ public class MonsterFoodDrop : MonoBehaviour
                 else
                 {
                     Debug.Log("Inventory slot " + i + " is full");
+                    if (i == manager.FoodInventory.Length - 1) 
+                    {
+                        Debug.LogWarning("The inventory is full");
+                    }
+                    
                 }   
             }
         }

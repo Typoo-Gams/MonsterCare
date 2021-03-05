@@ -385,6 +385,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SliderPrefab: {fileID: 190257228423986411, guid: 1d0ae7dd89f808e4fad3cd39497bca8e, type: 3}
+  ThisPrefab: {fileID: 6804626471874563473}
 --- !u!1 &6804626472630358573
 GameObject:
   m_ObjectHideFlags: 0

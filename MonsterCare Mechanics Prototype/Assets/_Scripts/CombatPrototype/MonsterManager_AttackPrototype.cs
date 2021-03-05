@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEditor;
 
 public class MonsterManager_AttackPrototype : MonoBehaviour
 {
@@ -20,6 +21,7 @@ public class MonsterManager_AttackPrototype : MonoBehaviour
     //touch stuff
     Touch touch;
 
+    public GameObject ThisPrefab;
 
 
     // Start is called before the first frame update

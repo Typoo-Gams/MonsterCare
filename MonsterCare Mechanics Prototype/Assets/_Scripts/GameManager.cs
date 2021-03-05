@@ -2,6 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEditor;
 
 
 public class GameManager : MonoBehaviour
@@ -30,6 +31,9 @@ public class GameManager : MonoBehaviour
     //latest reward
     public Food FoodReward;
 
+
+    public GameObject temporaryPrefab;
+
     //Awake is called when the script instance is being loaded
     private void Awake()
     {
@@ -53,6 +57,9 @@ public class GameManager : MonoBehaviour
         //FoodInventory[1] = new Food("Earth");
         //Save.SaveFood(FoodInventory);
         Debug.LogWarning("ItemType: " + FoodInventory[0].GetType() + "\npath: " + PlayerPrefs.GetString("InventorySlot_0_Path"));
+
+        
+        
     }
 
 
@@ -88,8 +95,15 @@ public class GameManager : MonoBehaviour
         {
             Debug.LogError("Something went wrong when saving");
         }
+        
     }
-    
+
+    private void OnApplicationFocus(bool focus)
+    {
+        //Debug.LogWarning(AssetDatabase.GetAssetPath(Enemy.GetComponent<MonsterManager_AttackPrototype>().ThisPrefab) + "   " + this);
+        //Debug.LogWarning(AssetDatabase.GetAssetPath(temporaryPrefab) + "   " + this);
+    }
+
 
     //Called when a new scene is loaded.
     private void OnLevelWasLoaded(int level)
