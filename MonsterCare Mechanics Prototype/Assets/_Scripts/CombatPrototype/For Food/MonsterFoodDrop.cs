@@ -93,17 +93,19 @@ public class MonsterFoodDrop : MonoBehaviour
                         //GameObject spawn = Instantiate(specialPrefab[element]);
                         manager.FoodInventory[i] = new Food(spawnElement);
                         manager.FoodReward = manager.FoodInventory[i];
+                        Debug.Log("Special food");
                     }
                     else 
                     {
                         GameObject spawn = Instantiate(foodPrefab[random]);
                         manager.FoodInventory[i] = new Food(false);
                         manager.FoodReward = manager.FoodInventory[i];
+                        Debug.Log("Normal food");
                     }
                     Destroy(manager.Enemy.gameObject);
                     Destroy(GameObject.FindGameObjectWithTag("CanvasFighting"));
                     manager.EnemyMonster = null;
-                    Debug.Log("Destroyed");
+                    Debug.Log("Enemey destroyed");
                     break;
                 }
                 else
