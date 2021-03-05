@@ -295,6 +295,7 @@ GameObject:
   - component: {fileID: 1533433887293042446}
   - component: {fileID: 1533433887293042441}
   - component: {fileID: 1533433887293042447}
+  - component: {fileID: -4579938814133970114}
   m_Layer: 0
   m_Name: FireEnemy2Prefab
   m_TagString: Monster
@@ -384,4 +385,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SliderPrefab: {fileID: 190257228423986411, guid: 1d0ae7dd89f808e4fad3cd39497bca8e, type: 3}
+<<<<<<< Updated upstream
   ThisPrefab: {fileID: 0}
+=======
+  ThisPrefab: {fileID: 1533433887293042440}
+--- !u!114 &-4579938814133970114
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1533433887293042440}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c22d334ce0ca4a48942924169f39be2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+>>>>>>> Stashed changes
