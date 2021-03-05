@@ -481,7 +481,7 @@ public class Monster
         }
         if(IsFull)
         {
-            Happiness = Happiness + 1;
+            Happiness = Happiness + 5;
         }
 
         if(IsDead)
@@ -493,6 +493,8 @@ public class Monster
         {
             Happiness = Happiness - 1;
         }
+
+        if (Health >= 50) Happiness = Happiness + 5;
 
         /*if(IsRested)
         {
