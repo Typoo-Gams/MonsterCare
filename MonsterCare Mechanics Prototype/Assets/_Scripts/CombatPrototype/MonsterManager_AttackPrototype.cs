@@ -12,6 +12,7 @@ public class MonsterManager_AttackPrototype : MonoBehaviour
     public Monster StartMonster;
     public Slider SliderPrefab;
     private Canvas CurrentCanvas;
+    public GameObject ThisPrefab;
 
     //shake stuff
     private float intervalShake = 0.25f;
@@ -29,6 +30,8 @@ public class MonsterManager_AttackPrototype : MonoBehaviour
     {
         manager = GameObject.Find("__app").GetComponentInChildren<GameManager>();
 
+        string path = AssetDatabase.GetAssetPath(ThisPrefab);
+        Debug.Log(path + "   " + this);
         //getting canvas
         CurrentCanvas = GameObject.FindGameObjectWithTag("CanvasFighting").GetComponent<Canvas>();
         //making health bar
@@ -36,11 +39,14 @@ public class MonsterManager_AttackPrototype : MonoBehaviour
         healthbarr.transform.SetParent(CurrentCanvas.transform, false);
         healthbarr.transform.localPosition = new Vector3(0, 110, 0);
         healthbarr.transform.localScale = new Vector3(3f, 3f, 3f);
+        /*SendMessage("SetHealthbar", healthbarr);
+        SendMessage("SetPath", path);*/
         //testing monster class
-        StartMonster = new Monster("Enemy_Placeholder");
+        StartMonster = new Monster("Enemy_Placeholder", path);
         StartMonster.AssignHealthBar(healthbarr);
         StartMonster.CombatActive(true);
         StartMonster.SetOriginPos(transform);
+        
 
         manager.EnemyMonster = StartMonster;
         StartMonster.ToughnessModifier = Random.Range(1, 10);

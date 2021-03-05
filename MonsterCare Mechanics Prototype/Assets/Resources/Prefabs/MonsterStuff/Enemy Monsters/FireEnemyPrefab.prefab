@@ -97,7 +97,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3456925809056685127}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.07, y: -1.56, z: 0}
+  m_LocalPosition: {x: 0.07, y: -1.56, z: 88.1}
   m_LocalScale: {x: 0.54142, y: 0.54142, z: 0.54142}
   m_Children:
   - {fileID: 6360206633789524765}
@@ -147,7 +147,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 07a8e1f1a69fd554e9fff4662136ebda, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -172,6 +172,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SliderPrefab: {fileID: 190257228423986411, guid: 1d0ae7dd89f808e4fad3cd39497bca8e, type: 3}
+  ThisPrefab: {fileID: 0}
 --- !u!1 &3975501795422177995
 GameObject:
   m_ObjectHideFlags: 0
