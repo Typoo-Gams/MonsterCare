@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
 {
     //Previously loaded scene
     public int PreviousSecene;
+    public bool SleepMemory;
     //GameSaver for saving info.
     GameSaver Save = new GameSaver();
     //Currently Active Monster
@@ -26,6 +27,8 @@ public class GameManager : MonoBehaviour
 
     //Player Inventory
     public Food[] FoodInventory;
+    //latest reward
+    public Food FoodReward;
 
     //Awake is called when the script instance is being loaded
     private void Awake()

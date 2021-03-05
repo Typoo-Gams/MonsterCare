@@ -10,7 +10,7 @@ public class LoadingScene : MonoBehaviour
     private IEnumerator Waiting()
     {
         yield return new WaitForSeconds(1);
-        SceneManager.LoadScene("Map");
+        SceneManager.LoadScene("MonsterHome");
     }
 
     //when the loading screen is loaded call the coroutine.

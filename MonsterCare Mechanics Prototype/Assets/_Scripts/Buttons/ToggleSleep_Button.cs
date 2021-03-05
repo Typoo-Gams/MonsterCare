@@ -11,6 +11,9 @@ public class ToggleSleep_Button : MonoBehaviour
     Button thisButton;
     float counter;
     bool toggle;
+    GameSaver saver = new GameSaver();
+
+
 
     // Start is called before the first frame update
     void Start()
@@ -18,8 +21,18 @@ public class ToggleSleep_Button : MonoBehaviour
         //finds the __app in order to reference the gamemanager.
         manager = GameObject.Find("__app").GetComponentInChildren<GameManager>();
         //creates the shade and sets it to inactive, parents it under the canvas and transforms its position under the new parent.
+        toggle = manager.SleepMemory;
         NightTime = Instantiate(NightTime);
-        NightTime.SetActive(false);
+        //sets the current state
+        NightTime.SetActive(toggle);
+        manager.ActiveMonster.IsSleepingStatus = toggle;
+        zZz.gameObject.SetActive(toggle);
+
+        //updates the monsters degration when going to different scenes and back home.
+        //does not degrate from opening the game or coming back from combat
+        if(manager.PreviousSecene != 0 || manager.PreviousSecene != 1 || manager.PreviousSecene != 9)
+            manager.ActiveMonster.AtGameWakeUp(saver.FindTimeDifference());
+
         NightTime.transform.SetParent(GameObject.FindGameObjectWithTag("Canvas").transform, false);
         NightTime.transform.localPosition = new Vector3(-14, 4, -74);
         //adds the sleep toggle method to the button's on click trigger.
@@ -39,6 +52,12 @@ public class ToggleSleep_Button : MonoBehaviour
             manager.ActiveMonster.UpdateSleeping(manager.ActiveMonster.IsSleepingStatus, 1);    
     }
 
+    private void OnDestroy()
+    {
+        manager.SleepMemory = toggle;
+        saver.SaveTime();
+    }
+
 
     //toggle sleep method.
     void TaskOnClick() 
@@ -48,9 +67,9 @@ public class ToggleSleep_Button : MonoBehaviour
         NightTime.SetActive(toggle);
         
         //updates the monster's sleep status.
-        manager.ActiveMonster.IsSleepingStatus = !manager.ActiveMonster.IsSleepingStatus;
+        manager.ActiveMonster.IsSleepingStatus = toggle;
         //temporary UI feedback and debug log
-        zZz.gameObject.SetActive(manager.ActiveMonster.IsSleepingStatus);
+        zZz.gameObject.SetActive(toggle);
         manager.ActiveMonster.DebugMonster();
     }
 }

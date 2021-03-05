@@ -91,15 +91,14 @@ public class MonsterFoodDrop : MonoBehaviour
                     if(dropRate == 1)
                     {
                         //GameObject spawn = Instantiate(specialPrefab[element]);
-                        GameObject spawn = Instantiate(specialPrefab[0]);
-                        spawn.GetComponent<FoodManager_FoodObject>().FoodElement = spawnElement;
-                        spawn.GetComponent<FoodManager_FoodObject>().FoodCategory = "Special";
                         manager.FoodInventory[i] = new Food(spawnElement);
+                        manager.FoodReward = manager.FoodInventory[i];
                     }
                     else 
                     {
                         GameObject spawn = Instantiate(foodPrefab[random]);
                         manager.FoodInventory[i] = new Food();
+                        manager.FoodReward = manager.FoodInventory[i];
                     }
                     Destroy(manager.Enemy.gameObject);
                     Destroy(GameObject.FindGameObjectWithTag("CanvasFighting"));
@@ -112,7 +111,6 @@ public class MonsterFoodDrop : MonoBehaviour
                     Debug.Log("Inventory slot " + i + " is full");
                 }   
             }
-            
         }
-    }    
+    }
 }
