@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 
 public class Monster
-{
+{                     
 
     //Monster variables
     private string MonsterName;
@@ -160,7 +160,7 @@ public class Monster
     /// </summary>
     public void DebugMonster()
     {
-        Debug.Log(MonsterName + " Status: \nHealth: " + Health + "\nEnergy: " + Energy + "\nHunger: " + Hunger + "\nStarving: " + IsStarving + "\nFull: " + IsFull + "\nSleepyness: " + Sleep + "\nSleep Deprived: " + IsSleepDeprived + "\nRested: " + IsRested + "\nOver Rested: " + IsOverRested + "\nIsDead: " + IsDead);
+        Debug.Log(MonsterName + " Status: \nHealth: " + Health + "\nEnergy: " + Energy + "\nHunger: " + Hunger + "\nHappiness: " + HappinessStatus + "\nStarving: " + IsStarving + "\nFull: " + IsFull + "\nSleepyness: " + Sleep + "\nSleep Deprived: " + IsSleepDeprived + "\nRested: " + IsRested + "\nOver Rested: " + IsOverRested + "\nIsDead: " + IsDead + "\nCanEvolve: " + CanEvolveStatus);
     }
 
 
@@ -473,6 +473,34 @@ public class Monster
             IsHappy = true;
             Happiness = MaxHappiness;
         }
+
+
+        if(IsStarving)
+        {
+            Happiness = Happiness - 1;
+        }
+        if(IsFull)
+        {
+            Happiness = Happiness + 1;
+        }
+
+        if(IsDead)
+        {
+            Happiness = 0;
+        }
+
+        if(Health <= 49)
+        {
+            Happiness = Happiness - 1;
+        }
+
+        /*if(IsRested)
+        {
+
+        }   */
+
+        //if(IsMedicated) Potencially adding this later
+
     }
 
 
