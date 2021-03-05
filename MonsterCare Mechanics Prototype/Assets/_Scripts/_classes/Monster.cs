@@ -19,6 +19,8 @@ public class Monster
     private bool CanEvolve;
     private string loadLocation;
 
+    private GameObject MonsterReport;
+
     //Combat
     private float AbilityDmg = 10;
 
@@ -127,6 +129,27 @@ public class Monster
     }
 
     //------------------------Properties------------------------
+
+
+    /// <summary>
+    /// Sets the monster report that shows when the player evolves a new monster
+    /// </summary>
+    /// <param name="report">report prefab</param>
+    public void SetReport(GameObject report) 
+    {
+        MonsterReport = report;
+    }
+
+
+
+    /// <summary>
+    /// Gets the monster report that shows when the player evolves a new monster
+    /// </summary>
+    /// <returns>report prefab</returns>
+    public GameObject GetReport() 
+    {
+        return MonsterReport;
+    }
 
 
     //Print All Statuses

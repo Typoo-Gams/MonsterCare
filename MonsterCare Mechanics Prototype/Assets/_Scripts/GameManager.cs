@@ -34,6 +34,7 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         GameVersion = "8.2.4";
+        FoodInventory = Save.LoadFood();
     }
 
 
@@ -55,6 +56,7 @@ public class GameManager : MonoBehaviour
         {
             Save.SaveTime();
             Save.SaveMonster(ActiveMonster);
+            Save.SaveFood(FoodInventory);
             Save.SaveGameVersion(GameVersion);
         }
         catch
@@ -71,6 +73,7 @@ public class GameManager : MonoBehaviour
         {
             Save.SaveTime();
             Save.SaveMonster(ActiveMonster);
+            Save.SaveFood(FoodInventory);
             Save.SaveGameVersion(GameVersion);
             Debug.Log("Saved with pause");
         }
@@ -356,7 +359,7 @@ public class GameSaver
     {
         string InventorySlot = "InventorySlot_";
         Food[] load = new Food[5];
-        for (int i = 0; i <= load.Length; i++) 
+        for (int i = 0; i < load.Length; i++) 
         {
             string SaveIndex = InventorySlot + i;
             int power = PlayerPrefs.GetInt(SaveIndex + "_Power");

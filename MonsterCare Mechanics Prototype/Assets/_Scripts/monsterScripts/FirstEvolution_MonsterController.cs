@@ -36,9 +36,6 @@ public class FirstEvolution_MonsterController : MonoBehaviour
         SendMonster();
         Debug.Log("Current monster: " + this);
 
-        SendMonster(monster);
-        Debug.Log("loaded Monster");
-
         monster.SetReport(Report);
         if (monster.PrefabLocation != Saver.GetMonsterPrefab())
             ReportRefference = Instantiate(monster.GetReport());
