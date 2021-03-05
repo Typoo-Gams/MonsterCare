@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 
 public class Toughness_Modifer : MonoBehaviour
@@ -9,7 +10,13 @@ public class Toughness_Modifer : MonoBehaviour
     GameManager manager;
     Canvas canvas;
 
-    string[] enemyMonsterPaths = { "Prefabs/MonsterStuff/Enemy Monsters/FireEnemyPrefab"};
+    string[] enemyMonsterPaths = { "Prefabs/MonsterStuff/Enemy Monsters/FireEnemyPrefab",   //0
+                                   "Prefabs/MonsterStuff/Enemy Monsters/FireEnemy2Prefab",  //1
+                                   "Prefabs/MonsterStuff/Enemy Monsters/EarthEnemyPrefab",  //2
+                                   "Prefabs/MonsterStuff/Enemy Monsters/AirEnemyPrefab",    //3
+                                   "Prefabs/MonsterStuff/Enemy Monsters/WaterEnemyPrefab"}; //4
+
+    string monsterPrefab;
     int pathLengths;
 
     //checking if its active so that it only spawns the monster once
@@ -32,6 +39,8 @@ public class Toughness_Modifer : MonoBehaviour
         manager = GameObject.Find("__app").GetComponentInChildren<GameManager>();
         isActive = false;
 
+        string scene = SceneManager.GetActiveScene().name;
+
         /*This spawns the health for our monster and makes sure
             * that the health will go down*/
         Slider Spawned = Instantiate(manager.GreenSliderPrefab);
@@ -41,8 +50,29 @@ public class Toughness_Modifer : MonoBehaviour
         manager.ActiveMonster.AssignHealthBar(Spawned);
         manager.ActiveMonster.DebugMonster();
 
+        //this checks which scene you are using and then spawns the correct enemy
+        switch (scene)
+        {
+            case "Savannah_FS":
+                monsterPrefab = enemyMonsterPaths[0];
+                break;
+            case "Desert_FS":
+                monsterPrefab = enemyMonsterPaths[1];
+                break;
+            case "Mountain_FS":
+                monsterPrefab = enemyMonsterPaths[2];
+                break;
+            case "Forest_FS":
+                monsterPrefab = enemyMonsterPaths[3];
+                break;
+            case "Ice_FS":
+                monsterPrefab = enemyMonsterPaths[4];
+                break;
+        }
+
         isActive = true;
         SpawnEnemy();
+
     }
 
     private void Update()
@@ -63,12 +93,11 @@ public class Toughness_Modifer : MonoBehaviour
         
     }
 
-    //This decides how much dmg the enemy deals
     public void SpawnEnemy()
     {
         if (isActive == true)
         {
-            manager.Enemy = Instantiate(Resources.Load<GameObject>(enemyMonsterPaths[pathLengths]));
+            manager.Enemy = Instantiate(Resources.Load<GameObject>(monsterPrefab));
         }
     }
 }

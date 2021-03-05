@@ -36,7 +36,6 @@ public class Fainting_OurMonster : MonoBehaviour
     {
         if(manager.ActiveMonster.DeathStatus == true)
         {
-            
             StartCoroutine(Wait());
         }
     }

@@ -451,7 +451,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inventorySlot: 0
-  FoodPrefab: {fileID: 4009038705872474452, guid: ce2240698a98717459ae79cf304eb17f, type: 3}
+  FoodPrefab: {fileID: 4009038705872474452, guid: fd4d3902e1523cf4fbf2f516bbcab23d, type: 3}
   parent: {fileID: 8129942001750182348}
   Elemental:
   - {fileID: 21300000, guid: b8e5c94bdf9981b428069229105205d5, type: 3}
@@ -594,7 +594,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inventorySlot: 4
-  FoodPrefab: {fileID: 4009038705872474452, guid: ce2240698a98717459ae79cf304eb17f, type: 3}
+  FoodPrefab: {fileID: 4009038705872474452, guid: fd4d3902e1523cf4fbf2f516bbcab23d, type: 3}
   parent: {fileID: 8129942001750182348}
   Elemental:
   - {fileID: 21300000, guid: b8e5c94bdf9981b428069229105205d5, type: 3}
@@ -737,7 +737,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inventorySlot: 3
-  FoodPrefab: {fileID: 4009038705872474452, guid: ce2240698a98717459ae79cf304eb17f, type: 3}
+  FoodPrefab: {fileID: 4009038705872474452, guid: fd4d3902e1523cf4fbf2f516bbcab23d, type: 3}
   parent: {fileID: 8129942001750182348}
   Elemental:
   - {fileID: 21300000, guid: b8e5c94bdf9981b428069229105205d5, type: 3}
@@ -1028,7 +1028,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inventorySlot: 2
-  FoodPrefab: {fileID: 4009038705872474452, guid: ce2240698a98717459ae79cf304eb17f, type: 3}
+  FoodPrefab: {fileID: 4009038705872474452, guid: fd4d3902e1523cf4fbf2f516bbcab23d, type: 3}
   parent: {fileID: 8129942001750182348}
   Elemental:
   - {fileID: 21300000, guid: b8e5c94bdf9981b428069229105205d5, type: 3}
@@ -1329,7 +1329,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inventorySlot: 1
-  FoodPrefab: {fileID: 4009038705872474452, guid: ce2240698a98717459ae79cf304eb17f, type: 3}
+  FoodPrefab: {fileID: 4009038705872474452, guid: fd4d3902e1523cf4fbf2f516bbcab23d, type: 3}
   parent: {fileID: 8129942001750182348}
   Elemental:
   - {fileID: 21300000, guid: b8e5c94bdf9981b428069229105205d5, type: 3}
