@@ -735,18 +735,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1561521340318166405, guid: e8c4f5f02f969cb4f976de83f8da2611, type: 3}
-      propertyPath: m_BackGroundColor.b
-      value: 0.603
-      objectReference: {fileID: 0}
-    - target: {fileID: 1561521340318166405, guid: e8c4f5f02f969cb4f976de83f8da2611, type: 3}
-      propertyPath: m_BackGroundColor.g
-      value: 0.376
-      objectReference: {fileID: 0}
-    - target: {fileID: 1561521340318166405, guid: e8c4f5f02f969cb4f976de83f8da2611, type: 3}
-      propertyPath: m_BackGroundColor.r
-      value: 1
-      objectReference: {fileID: 0}
+    - target: {fileID: 1350675955, guid: e8c4f5f02f969cb4f976de83f8da2611, type: 3}
+      propertyPath: input
+      value: 
+      objectReference: {fileID: 702895237}
+    - target: {fileID: 1350675956, guid: e8c4f5f02f969cb4f976de83f8da2611, type: 3}
+      propertyPath: clear
+      value: 
+      objectReference: {fileID: 1136924987}
+    - target: {fileID: 1350675956, guid: e8c4f5f02f969cb4f976de83f8da2611, type: 3}
+      propertyPath: Manager
+      value: 
+      objectReference: {fileID: 1853355646}
+    - target: {fileID: 1350675956, guid: e8c4f5f02f969cb4f976de83f8da2611, type: 3}
+      propertyPath: pathText
+      value: 
+      objectReference: {fileID: 1869972228}
     - target: {fileID: 1561521340318166407, guid: e8c4f5f02f969cb4f976de83f8da2611, type: 3}
       propertyPath: m_Name
       value: Main Camera
@@ -802,40 +806,6 @@ Camera:
   m_CorrespondingSourceObject: {fileID: 1561521340318166405, guid: e8c4f5f02f969cb4f976de83f8da2611, type: 3}
   m_PrefabInstance: {fileID: 1350675952}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1350675954 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1561521340318166407, guid: e8c4f5f02f969cb4f976de83f8da2611, type: 3}
-  m_PrefabInstance: {fileID: 1350675952}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1350675955
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1350675954}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5bd09d8af2337d544ac537f19654005e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  scene: 1
-  input: {fileID: 702895237}
---- !u!114 &1350675956
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1350675954}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ca765fe468d4c7241b433df4f0bc6f83, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  clear: {fileID: 1136924987}
-  Manager: {fileID: 1853355646}
-  pathText: {fileID: 1869972228}
 --- !u!1 &1612957004
 GameObject:
   m_ObjectHideFlags: 0
@@ -1293,6 +1263,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scene: 0
   input: {fileID: 702895237}
+--- !u!1 &2042994973 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1561521340318166407, guid: e8c4f5f02f969cb4f976de83f8da2611, type: 3}
+  m_PrefabInstance: {fileID: 1350675952}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2042994974
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2042994973}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca765fe468d4c7241b433df4f0bc6f83, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clear: {fileID: 1136924987}
+  Manager: {fileID: 1853355646}
+  pathText: {fileID: 1869972228}
 --- !u!1 &2051559916
 GameObject:
   m_ObjectHideFlags: 0
@@ -1388,14 +1378,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4807834741392806710, guid: c150a5d01097ad944abd05efd3f51de9, type: 3}
-      propertyPath: DevMode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4807834741392806710, guid: c150a5d01097ad944abd05efd3f51de9, type: 3}
-      propertyPath: GreenSliderPrefab
-      value: 
-      objectReference: {fileID: 4697869978205186733, guid: 4589d2aa41b696848b9f7efc419593ed, type: 3}
     - target: {fileID: 7418330458548354933, guid: c150a5d01097ad944abd05efd3f51de9, type: 3}
       propertyPath: m_Name
       value: GameManager

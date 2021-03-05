@@ -58,7 +58,7 @@ public class FoodManager_FoodObject : MonoBehaviour
         //checks what type of food it was and sets its sprite.
         if (FoodCategory == "Normal") 
         {
-            ThisFood = new Food();
+            ThisFood = new Food(false);
             ThisSprite = NormalFoodSprites[12];
         }
         else
@@ -100,7 +100,7 @@ public class FoodManager_FoodObject : MonoBehaviour
             
             //destroys the food
             Destroy(gameObject);
-            manager.FoodInventory[inventorySpace] = null;
+            manager.FoodInventory[inventorySpace] = new Food(true);
             //plays the monsters eating animation.
             //temporary
             if (manager.MonsterObject.GetComponent<DefaultStarting_MonsterController>() != null)

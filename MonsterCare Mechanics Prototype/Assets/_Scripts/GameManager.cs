@@ -34,6 +34,13 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         GameVersion = "8.2.4";
+        FoodInventory = new Food[]{
+            new Food(true),
+            new Food(true),
+            new Food(true),
+            new Food(true),
+            new Food(true)
+        };
         FoodInventory = Save.LoadFood();
     }
 
@@ -41,10 +48,10 @@ public class GameManager : MonoBehaviour
     //Start is called just before any of the Update methods is called the first time
     private void Start()
     {
-        FoodInventory = new Food[5];
-        FoodInventory[0] = new Food();
-        FoodInventory[1] = new Food("Earth");
-        Save.SaveFood(FoodInventory);
+        
+        //FoodInventory[0] = new Food(false);
+        //FoodInventory[1] = new Food("Earth");
+        //Save.SaveFood(FoodInventory);
         Debug.LogWarning("ItemType: " + FoodInventory[0].GetType() + "\npath: " + PlayerPrefs.GetString("InventorySlot_0_Path"));
     }
 
@@ -87,8 +94,6 @@ public class GameManager : MonoBehaviour
     //Called when a new scene is loaded.
     private void OnLevelWasLoaded(int level)
     {
-        //Canvas canvas =  GameObject.Find("Canvas").GetComponent<Canvas>();
-        //canvas.worldCamera = Camera.main;
         Debug.Log("previous scene: "+PreviousSecene);
         if (SceneManager.GetActiveScene().name == "MonsterHome") 
         {
@@ -338,19 +343,29 @@ public class GameSaver
 
     //Saves the inventory
     public void SaveFood(Food[] inventory) 
-
     {
+        string inv = "Save: ";
+
         string InventorySlot = "InventorySlot_";
-        for (int i = 0; i < inventory.Length; i++) 
+        for (int i = 0; i < inventory.Length; i++)
         {
-            if (inventory[i] != null) 
+            string SaveIndex = InventorySlot + i;
+            if (inventory[i].FoodType != "None")
             {
-                string SaveIndex = InventorySlot + i;
+                
                 PlayerPrefs.SetInt(SaveIndex + "_Power", inventory[i].Power);
                 PlayerPrefs.SetString(SaveIndex + "_Type", inventory[i].FoodType);
                 PlayerPrefs.SetString(SaveIndex + "_Element", inventory[i].Element);
+                inv += "\nInventory Slot " + i + ": Type: " + inventory[i].FoodType + ", Element: " + inventory[i].Element + ", Power: " + inventory[i].Power;
+            }
+            else 
+            {
+                PlayerPrefs.SetInt(SaveIndex + "_Power", 0);
+                PlayerPrefs.SetString(SaveIndex + "_Type", "None");
+                PlayerPrefs.SetString(SaveIndex + "_Element", "None");
             }
         }
+    Debug.Log(inv);
     }
 
 
@@ -359,14 +374,19 @@ public class GameSaver
     {
         string InventorySlot = "InventorySlot_";
         Food[] load = new Food[5];
+        string inv = "Load: ";
         for (int i = 0; i < load.Length; i++) 
         {
             string SaveIndex = InventorySlot + i;
             int power = PlayerPrefs.GetInt(SaveIndex + "_Power");
             string type = PlayerPrefs.GetString(SaveIndex + "_Type");
             string element = PlayerPrefs.GetString(SaveIndex + "_Element");
+            if (type == "") 
+                type = "None";
             load[i] = new Food(type, element, power);
+            inv += "\nInventory Slot " + i + ": Type: " + load[i].FoodType + ", Element: " + load[i].Element + ", Power: " + load[i].Power;
         }
+        Debug.Log(inv);
         return load;
     }
 
@@ -378,6 +398,13 @@ public class GameSaver
         string type = PlayerPrefs.GetString(SaveIndex + "_Type");
         string element = PlayerPrefs.GetString(SaveIndex + "_Element");
         return new Food(type, element, power);
+    }
+
+    public void DeleteFood(int index) 
+    {
+        PlayerPrefs.SetInt("InventorySlot_" + index + "_Power", 0);
+        PlayerPrefs.SetString("InventorySlot_" + index + "_Type", "None");
+        PlayerPrefs.SetString("InventorySlot_" + index + "_Element", "None");
     }
 
     //Loads the saved monster's prefab location.

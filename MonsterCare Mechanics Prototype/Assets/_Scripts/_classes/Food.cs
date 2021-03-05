@@ -9,15 +9,26 @@ public class Food : InventoryItem
     string element;
 
     /// <summary>
-    /// Create a normal Food item.
+    /// Create a normal/empty Food item.
     /// </summary>
-    public Food()
+    public Food(bool empty)
     {
-        path = "Prefabs/FeedingPrototype/FOOD";
-        foodType = "Normal";
-        Type = "Food";
-        element = "None";
-        foodPower = 10;
+        if (!empty) 
+        {
+            path = "Prefabs/FeedingPrototype/FOOD";
+            foodType = "Normal";
+            Type = "Food";
+            element = "None";
+            foodPower = 10;
+        }
+        else 
+        {
+            path = "None";
+            foodType = "None";
+            Type = "Food";
+            element = "None";
+            foodPower = 0;
+        }
     }
 
 

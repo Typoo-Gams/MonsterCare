@@ -34,7 +34,7 @@ public class FoodInventory : MonoBehaviour
         if (spawn == null) 
         {
             //changes the sprite if there is a food item in the inventory
-            if (manager.FoodInventory[inventorySlot] != null)
+            if (manager.FoodInventory[inventorySlot].FoodType != "None")
             {
                 ThisButton.interactable = true;
                 ThisButton.image.color = new Color(1, 1, 1, 1f);

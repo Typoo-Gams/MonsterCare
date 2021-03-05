@@ -44,6 +44,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PreviousSecene: 0
+  SleepMemory: 0
   MonsterObject: {fileID: 0}
   Enemy: {fileID: 0}
   SliderPrefab: {fileID: 1054995365406061393, guid: fc7cc1ab11f2f4f47969794f046e5608, type: 3}
+  GreenSliderPrefab: {fileID: 4697869978205186733, guid: 4589d2aa41b696848b9f7efc419593ed, type: 3}

@@ -60,6 +60,8 @@ public class DefaultStarting_MonsterController : MonoBehaviour
             monster.DegradeHunger();
         }
         if (Input.GetKeyDown(KeyCode.Mouse0)) Destroy(ReportRefference);
+
+        Evolution();
     }
 
     //Save the monster's stats when the gameobject is destroyed.
