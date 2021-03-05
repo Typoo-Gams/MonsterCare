@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 /* 
  *  This script is mean to be a temporary monster for testing the mechanics and the functionality  and properties of the monster class.
@@ -45,22 +46,29 @@ public class DefaultStarting_MonsterController : MonoBehaviour
 
         monster.SetReport(Report);
 
-        if (monster.PrefabLocation != Saver.GetMonsterPrefab())
-            ReportRefference = Instantiate(monster.GetReport());
-
     }
 
 
     // Update is called once per frame
     void Update()
     {
+
+        //ths is where stat changes happen
         cnt += Time.deltaTime;
         if (cnt > 1) 
         {
             monster.DegradeHunger();
+            monster.UpdateHappiness(monster.HappinessStatus);
         }
         if (Input.GetKeyDown(KeyCode.Mouse0)) Destroy(ReportRefference);
 
+<<<<<<< Updated upstream
+=======
+        //Don't work because of preload
+        if (monster.PrefabLocation != Saver.GetMonsterPrefab() && SceneManager.GetActiveScene().name == "MonsterHome")
+            ReportRefference = Instantiate(monster.GetReport());
+
+>>>>>>> Stashed changes
         Evolution();
     }
 

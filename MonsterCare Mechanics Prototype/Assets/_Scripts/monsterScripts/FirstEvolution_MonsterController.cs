@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class FirstEvolution_MonsterController : MonoBehaviour
 {
@@ -15,6 +16,8 @@ public class FirstEvolution_MonsterController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
+
         //Creates a new monster object.
         monster = new Monster("Evolution", "Prefabs/MonsterStuff/Monsters/SecondEvolutionMonster");
         //Checks if this monster is a new evolution or not then loads the monster info or overwrites the old monster's saved stats with the new one.
@@ -37,8 +40,7 @@ public class FirstEvolution_MonsterController : MonoBehaviour
         Debug.Log("Current monster: " + this);
 
         monster.SetReport(Report);
-        if (monster.PrefabLocation != Saver.GetMonsterPrefab())
-            ReportRefference = Instantiate(monster.GetReport());
+        
     }
 
 
@@ -51,6 +53,10 @@ public class FirstEvolution_MonsterController : MonoBehaviour
             monster.DegradeHunger();
         }
         Evolution();
+
+        //Don't work because of Preload
+        if (monster.PrefabLocation != Saver.GetMonsterPrefab() && SceneManager.GetActiveScene().name == "MonsterHome")
+            ReportRefference = Instantiate(monster.GetReport());
     }
 
 
