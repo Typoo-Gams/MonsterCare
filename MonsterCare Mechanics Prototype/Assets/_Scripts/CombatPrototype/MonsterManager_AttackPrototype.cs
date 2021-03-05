@@ -22,16 +22,15 @@ public class MonsterManager_AttackPrototype : MonoBehaviour
     //touch stuff
     Touch touch;
 
-    public GameObject ThisPrefab;
-
 
     // Start is called before the first frame update
     void Start()
     {
         manager = GameObject.Find("__app").GetComponentInChildren<GameManager>();
 
-        string path = AssetDatabase.GetAssetPath(ThisPrefab);
-        Debug.Log(path + "   " + this);
+        //string path = AssetDatabase.GetAssetPath(ThisPrefab);
+        //Debug.Log(path + "   " + this);
+
         //getting canvas
         CurrentCanvas = GameObject.FindGameObjectWithTag("CanvasFighting").GetComponent<Canvas>();
         //making health bar
@@ -42,7 +41,7 @@ public class MonsterManager_AttackPrototype : MonoBehaviour
         /*SendMessage("SetHealthbar", healthbarr);
         SendMessage("SetPath", path);*/
         //testing monster class
-        StartMonster = new Monster("Enemy_Placeholder", path);
+        StartMonster = new Monster("Enemy_Placeholder");
         StartMonster.AssignHealthBar(healthbarr);
         StartMonster.CombatActive(true);
         StartMonster.SetOriginPos(transform);

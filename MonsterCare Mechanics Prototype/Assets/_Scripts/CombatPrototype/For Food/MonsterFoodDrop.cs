@@ -100,7 +100,7 @@ public class MonsterFoodDrop : MonoBehaviour
                     else 
                     {
                         GameObject spawn = Instantiate(foodPrefab[random]);
-                        spawn.transform.SetParent(GameObject.FindGameObjectWithTag("CanvasFighting").transform);
+                        spawn.transform.SetParent(GameObject.FindGameObjectWithTag("CanvasFighting").transform, false);
                         manager.FoodInventory[i] = new Food(false);
                         manager.FoodReward = manager.FoodInventory[i];
                         Debug.Log("Normal food");
@@ -119,7 +119,7 @@ public class MonsterFoodDrop : MonoBehaviour
                         Debug.LogWarning("The inventory is full");
 
                         GameObject spawn = Instantiate(FullInventory);
-                        spawn.transform.SetParent(GameObject.FindGameObjectWithTag("CanvasFighting").transform);
+                        spawn.transform.SetParent(GameObject.FindGameObjectWithTag("CanvasFighting").transform, false);
                         Destroy(manager.Enemy.gameObject);
                         Destroy(manager.ActiveMonster.GetHealthbar().gameObject);
                         manager.EnemyMonster = null;
