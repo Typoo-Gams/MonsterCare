@@ -97,9 +97,6 @@ public class GameManager : MonoBehaviour
     }
 
 
-    //-------------Properties--------------
-
-
     //Set active monster so the gamemanager knows the monsters stats.
     /// <summary>
     /// Set the active monster
@@ -335,6 +332,7 @@ public class GameSaver
 
     //Saves the inventory
     public void SaveFood(Food[] inventory) 
+
     {
         string InventorySlot = "InventorySlot_";
         for (int i = 0; i < inventory.Length; i++) 

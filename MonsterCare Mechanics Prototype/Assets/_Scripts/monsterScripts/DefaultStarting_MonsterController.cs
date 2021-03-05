@@ -12,6 +12,9 @@ using UnityEngine;
 
 public class DefaultStarting_MonsterController : MonoBehaviour
 {
+    public GameObject Report;
+    private GameObject ReportRefference;
+
     private string prefabLocation = "Prefabs/MonsterStuff/Monsters/DefaultStartingMonster";
     public Monster monster;
     GameSaver Saver = new GameSaver();
@@ -21,6 +24,7 @@ public class DefaultStarting_MonsterController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
         //Creates a new monster object.
         monster = new Monster("load", prefabLocation);
         //loads the monster stats.
@@ -37,8 +41,18 @@ public class DefaultStarting_MonsterController : MonoBehaviour
         //Sends the monster object to the gamemanager so that other scripts can easily reference it.
         SendMonster();
         Debug.Log("Current monster: " + this);
+
+        SendMonster(monster);
+        Debug.Log("loaded Monster");
+
+
+        monster.SetReport(Report);
+
+        if (monster.PrefabLocation != Saver.GetMonsterPrefab())
+            ReportRefference = Instantiate(monster.GetReport());
+
     }
-    
+
 
     // Update is called once per frame
     void Update()
@@ -48,7 +62,7 @@ public class DefaultStarting_MonsterController : MonoBehaviour
         {
             monster.DegradeHunger();
         }
-        Evolution();
+        if (Input.GetKeyDown(KeyCode.Mouse0)) Destroy(ReportRefference);
     }
 
     //Save the monster's stats when the gameobject is destroyed.

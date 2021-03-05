@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class FirstEvolution_MonsterController : MonoBehaviour
 {
+    public GameObject Report;
+    private GameObject ReportRefference;
+    
     public Monster monster;
     GameSaver Saver = new GameSaver();
     float cnt = 0;
@@ -29,8 +32,16 @@ public class FirstEvolution_MonsterController : MonoBehaviour
         //updates the monster stats from how much time passed since the last save to simulate things happening while the player isnt playing the game.
         monster.AtGameWakeUp(Saver.FindTimeDifference());
         //Sends the monster object to the gamemanager so that other scripts can easily reference it.
+
         SendMonster();
         Debug.Log("Current monster: " + this);
+
+        SendMonster(monster);
+        Debug.Log("loaded Monster");
+
+        monster.SetReport(Report);
+        if (monster.PrefabLocation != Saver.GetMonsterPrefab())
+            ReportRefference = Instantiate(monster.GetReport());
     }
 
 
