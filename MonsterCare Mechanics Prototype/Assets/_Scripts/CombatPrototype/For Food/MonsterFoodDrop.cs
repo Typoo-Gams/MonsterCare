@@ -86,7 +86,7 @@ public class MonsterFoodDrop : MonoBehaviour
             for(int i = 0; i < manager.FoodInventory.Length; i++)
             {
                 Debug.LogWarning("searching inv");
-                if(manager.FoodInventory[i] == null)
+                if(manager.FoodInventory[i].FoodType == "None")
                 {
                     if(dropRate == 1)
                     {
