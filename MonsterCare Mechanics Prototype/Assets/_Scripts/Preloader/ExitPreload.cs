@@ -8,10 +8,17 @@ public class ExitPreload : MonoBehaviour
 {
     public int scene;
     public Text input;
+    public bool DevBuild;
 
     void Start()
     {
         gameObject.GetComponent<Button>().onClick.AddListener(TaskOnClick);
+    }
+
+    private void Update()
+    {
+        if (!DevBuild)
+            TaskOnClick();
     }
 
     void TaskOnClick() 
