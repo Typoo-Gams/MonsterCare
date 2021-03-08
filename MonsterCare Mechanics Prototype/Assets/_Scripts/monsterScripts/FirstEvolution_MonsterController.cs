@@ -53,7 +53,10 @@ public class FirstEvolution_MonsterController : MonoBehaviour
             monster.DegradeHunger();
         }
         Evolution();
+        if (SceneManager.GetActiveScene().name == "MonsterHome") 
+        {
         Devolution();
+        }
 
         //Don't work because of Preload
         if (monster.PrefabLocation != Saver.GetMonsterPrefab() && SceneManager.GetActiveScene().name == "MonsterHome")
