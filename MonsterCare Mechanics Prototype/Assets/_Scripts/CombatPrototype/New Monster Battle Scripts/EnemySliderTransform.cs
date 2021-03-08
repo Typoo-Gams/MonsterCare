@@ -31,12 +31,16 @@ public class EnemySliderTransform : MonoBehaviour
             case "AirEnemyPrefab":
                 TransformThis.transform.localPosition = new Vector3(500f, 115f, 0f);
                 break;
+
+            case "EarthEnemyPrefab":
+                TransformThis.transform.localPosition = new Vector3(0f, 188f, 0f);
+                break;
         }
         Debug.Log(name + "  " + path);
 
     }
 
-    /*public void SetHealthbar(Slider healthbar)
+    public void SetHealthbar(Slider healthbar)
     {
         TransformThis = healthbar;
     }
@@ -44,5 +48,5 @@ public class EnemySliderTransform : MonoBehaviour
     public void SetPath(string paths)
     {
         path = paths;
-    }*/
+    }
 }

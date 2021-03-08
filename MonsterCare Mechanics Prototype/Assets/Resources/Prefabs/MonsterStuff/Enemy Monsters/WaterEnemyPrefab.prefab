@@ -83,7 +83,7 @@ GameObject:
   - component: {fileID: 8232201681702793646}
   - component: {fileID: 8232201681702793644}
   m_Layer: 0
-  m_Name: S_WaterMonster_Base
+  m_Name: WaterEnemyPrefab
   m_TagString: Monster
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -145,7 +145,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: d7f83323894971a45b4ebda0a796f98c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -170,6 +170,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SliderPrefab: {fileID: 190257228423986411, guid: 1d0ae7dd89f808e4fad3cd39497bca8e, type: 3}
+  ThisPrefab: {fileID: 0}
 --- !u!1 &8232201682366267602
 GameObject:
   m_ObjectHideFlags: 0

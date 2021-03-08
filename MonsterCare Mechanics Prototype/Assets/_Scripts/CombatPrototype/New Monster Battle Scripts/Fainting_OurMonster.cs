@@ -29,6 +29,7 @@ public class Fainting_OurMonster : MonoBehaviour
         black.SetActive(true);
         text.gameObject.SetActive(true);
         manager.ActiveMonster.GetHealthbar().gameObject.SetActive(false);
+        manager.EnemyMonster.GetHealthbar().gameObject.SetActive(false);
         UI[0].SetActive(false);
         UI[1].SetActive(false);
         if (Input.GetMouseButtonDown(0))
