@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1069118779}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 21.968, y: 37.664, z: -14400}
+  m_LocalPosition: {x: 21.968, y: 37.664, z: -515}
   m_LocalScale: {x: 1057.7424, y: 1829.9408, z: 160}
   m_Children: []
   m_Father: {fileID: 6903691913758895769}
@@ -72,7 +72,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 3
   m_Sprite: {fileID: 7482667652216324306, guid: db750325989564987a34393247d883b4, type: 3}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.77254903}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -284,7 +284,6 @@ MonoBehaviour:
   monsterIcon: {fileID: 8613295694917166185}
   Cooldown: 5
   Damage: 10
-  AttackThisMonster: {fileID: 2544040805682310803, guid: 3f8b5ec00b5af5449a474af616257d14, type: 3}
 --- !u!114 &1740130347430442262
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -313,7 +312,11 @@ MonoBehaviour:
   - {fileID: 5886862851862895517, guid: 3c608b704046bec469514f4bd91c4da0, type: 3}
   specialPrefab: []
   FullInventory: {fileID: 2511648202401420337, guid: d231f21a2a34b1648b607654745241d7, type: 3}
-  specialSprites: []
+  specialSprites:
+  - {fileID: 21300000, guid: b6f6cbb635bb03a4f82b39f4a89d89fe, type: 3}
+  - {fileID: 21300000, guid: c3dce375592cfab46babde3fce165f83, type: 3}
+  - {fileID: 21300000, guid: 1084bdac9bba584489134b4f54cdacf3, type: 3}
+  - {fileID: 21300000, guid: 9ab5cc4e7a09a2c48911f00b2ab3c077, type: 3}
   isCreated: 0
 --- !u!114 &8637991652438758500
 MonoBehaviour:

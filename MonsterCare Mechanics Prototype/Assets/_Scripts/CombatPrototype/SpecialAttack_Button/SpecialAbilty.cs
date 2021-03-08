@@ -5,15 +5,15 @@ using UnityEngine.UI;
 
 public class SpecialAbilty : MonoBehaviour
 {
+    GameManager manager;
     
     public Image monsterIcon;
-    public float Cooldown = 10;
+    public float Cooldown;
     
 
     bool isCooldown = false;
 
-    public int Damage = 10;
-    public MonsterManager_AttackPrototype AttackThisMonster;
+    public int Damage;
 
     // Start is called before the first frame update
     void Start()
@@ -50,6 +50,6 @@ public class SpecialAbilty : MonoBehaviour
 
     public void SpecialAttack()
     {
-        AttackThisMonster.StartMonster.UpdateHealth(AttackThisMonster.StartMonster.HealthStatus - Damage);
+        manager.EnemyMonster.UpdateHealth(manager.EnemyMonster.HealthStatus - Damage);
     }
 }

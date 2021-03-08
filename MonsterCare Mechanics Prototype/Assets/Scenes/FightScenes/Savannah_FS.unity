@@ -350,37 +350,17 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1740130347430442262, guid: 6e8dea5fbfa00e74594cb818876d0621, type: 3}
-      propertyPath: specialSprites.Array.size
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 1740130347430442262, guid: 6e8dea5fbfa00e74594cb818876d0621, type: 3}
       propertyPath: specialPrefab.Array.data[0]
       value: 
-      objectReference: {fileID: 4009038705872474452, guid: ce2240698a98717459ae79cf304eb17f, type: 3}
-    - target: {fileID: 1740130347430442262, guid: 6e8dea5fbfa00e74594cb818876d0621, type: 3}
-      propertyPath: specialSprites.Array.data[0]
-      value: 
-      objectReference: {fileID: 21300000, guid: ddda19bd1ab446f4281248b772a2c18e, type: 3}
-    - target: {fileID: 1740130347430442262, guid: 6e8dea5fbfa00e74594cb818876d0621, type: 3}
-      propertyPath: specialSprites.Array.data[1]
-      value: 
-      objectReference: {fileID: 21300000, guid: aa4a8dfa0088fd6459a9040046881d1b, type: 3}
-    - target: {fileID: 1740130347430442262, guid: 6e8dea5fbfa00e74594cb818876d0621, type: 3}
-      propertyPath: specialSprites.Array.data[2]
-      value: 
-      objectReference: {fileID: 21300000, guid: 443dcbf4d17660f4d8577b826827332f, type: 3}
-    - target: {fileID: 1740130347430442262, guid: 6e8dea5fbfa00e74594cb818876d0621, type: 3}
-      propertyPath: specialSprites.Array.data[3]
-      value: 
-      objectReference: {fileID: 21300000, guid: b8e5c94bdf9981b428069229105205d5, type: 3}
+      objectReference: {fileID: 9126330596708894098, guid: 28a0973a828ea74459bdb40e39bd4930, type: 3}
     - target: {fileID: 1740130347430442263, guid: 6e8dea5fbfa00e74594cb818876d0621, type: 3}
       propertyPath: m_Name
       value: Canvas_EnemyMonster
       objectReference: {fileID: 0}
-    - target: {fileID: 3156878189169895672, guid: 6e8dea5fbfa00e74594cb818876d0621, type: 3}
-      propertyPath: m_FontData.m_FontSize
-      value: 50
-      objectReference: {fileID: 0}
+    - target: {fileID: 4808484831556523162, guid: 6e8dea5fbfa00e74594cb818876d0621, type: 3}
+      propertyPath: AttackThisMonster
+      value: 
+      objectReference: {fileID: 3367181997876113915, guid: a4a34ec8bca935e47939182328cac565, type: 3}
     - target: {fileID: 5123784574814657138, guid: 6e8dea5fbfa00e74594cb818876d0621, type: 3}
       propertyPath: m_SortingOrder
       value: 0

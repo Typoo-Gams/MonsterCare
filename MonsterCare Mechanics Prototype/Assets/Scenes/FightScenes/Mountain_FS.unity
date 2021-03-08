@@ -130,6 +130,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1740130347430442262, guid: 6e8dea5fbfa00e74594cb818876d0621, type: 3}
+      propertyPath: specialPrefab.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1740130347430442262, guid: 6e8dea5fbfa00e74594cb818876d0621, type: 3}
+      propertyPath: specialPrefab.Array.data[0]
+      value: 
+      objectReference: {fileID: 591264133665482121, guid: 0cd687833018ef249be9a373334418ef, type: 3}
     - target: {fileID: 1740130347430442263, guid: 6e8dea5fbfa00e74594cb818876d0621, type: 3}
       propertyPath: m_Name
       value: Canvas_EnemyMonster

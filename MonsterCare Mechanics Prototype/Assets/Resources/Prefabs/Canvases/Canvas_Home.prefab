@@ -454,10 +454,10 @@ MonoBehaviour:
   FoodPrefab: {fileID: 4009038705872474452, guid: fd4d3902e1523cf4fbf2f516bbcab23d, type: 3}
   parent: {fileID: 8129942001750182348}
   Elemental:
-  - {fileID: 21300000, guid: b8e5c94bdf9981b428069229105205d5, type: 3}
-  - {fileID: 21300000, guid: 443dcbf4d17660f4d8577b826827332f, type: 3}
-  - {fileID: 21300000, guid: ddda19bd1ab446f4281248b772a2c18e, type: 3}
-  - {fileID: 21300000, guid: aa4a8dfa0088fd6459a9040046881d1b, type: 3}
+  - {fileID: 21300000, guid: b6f6cbb635bb03a4f82b39f4a89d89fe, type: 3}
+  - {fileID: 21300000, guid: c3dce375592cfab46babde3fce165f83, type: 3}
+  - {fileID: 21300000, guid: 1084bdac9bba584489134b4f54cdacf3, type: 3}
+  - {fileID: 21300000, guid: 9ab5cc4e7a09a2c48911f00b2ab3c077, type: 3}
   Normal: {fileID: 3624333184764439694, guid: 6bc3eb30f95f5e4419b2d5b18705496b, type: 3}
 --- !u!1 &801281716
 GameObject:
@@ -597,10 +597,10 @@ MonoBehaviour:
   FoodPrefab: {fileID: 4009038705872474452, guid: fd4d3902e1523cf4fbf2f516bbcab23d, type: 3}
   parent: {fileID: 8129942001750182348}
   Elemental:
-  - {fileID: 21300000, guid: b8e5c94bdf9981b428069229105205d5, type: 3}
-  - {fileID: 21300000, guid: 443dcbf4d17660f4d8577b826827332f, type: 3}
-  - {fileID: 21300000, guid: ddda19bd1ab446f4281248b772a2c18e, type: 3}
-  - {fileID: 21300000, guid: aa4a8dfa0088fd6459a9040046881d1b, type: 3}
+  - {fileID: 21300000, guid: b6f6cbb635bb03a4f82b39f4a89d89fe, type: 3}
+  - {fileID: 21300000, guid: c3dce375592cfab46babde3fce165f83, type: 3}
+  - {fileID: 21300000, guid: 1084bdac9bba584489134b4f54cdacf3, type: 3}
+  - {fileID: 21300000, guid: 9ab5cc4e7a09a2c48911f00b2ab3c077, type: 3}
   Normal: {fileID: 3624333184764439694, guid: 6bc3eb30f95f5e4419b2d5b18705496b, type: 3}
 --- !u!1 &872751109
 GameObject:
@@ -740,10 +740,10 @@ MonoBehaviour:
   FoodPrefab: {fileID: 4009038705872474452, guid: fd4d3902e1523cf4fbf2f516bbcab23d, type: 3}
   parent: {fileID: 8129942001750182348}
   Elemental:
-  - {fileID: 21300000, guid: b8e5c94bdf9981b428069229105205d5, type: 3}
-  - {fileID: 21300000, guid: 443dcbf4d17660f4d8577b826827332f, type: 3}
-  - {fileID: 21300000, guid: ddda19bd1ab446f4281248b772a2c18e, type: 3}
-  - {fileID: 21300000, guid: aa4a8dfa0088fd6459a9040046881d1b, type: 3}
+  - {fileID: 21300000, guid: b6f6cbb635bb03a4f82b39f4a89d89fe, type: 3}
+  - {fileID: 21300000, guid: c3dce375592cfab46babde3fce165f83, type: 3}
+  - {fileID: 21300000, guid: 1084bdac9bba584489134b4f54cdacf3, type: 3}
+  - {fileID: 21300000, guid: 9ab5cc4e7a09a2c48911f00b2ab3c077, type: 3}
   Normal: {fileID: 3624333184764439694, guid: 6bc3eb30f95f5e4419b2d5b18705496b, type: 3}
 --- !u!1 &1286337372
 GameObject:
@@ -1031,10 +1031,10 @@ MonoBehaviour:
   FoodPrefab: {fileID: 4009038705872474452, guid: fd4d3902e1523cf4fbf2f516bbcab23d, type: 3}
   parent: {fileID: 8129942001750182348}
   Elemental:
-  - {fileID: 21300000, guid: b8e5c94bdf9981b428069229105205d5, type: 3}
-  - {fileID: 21300000, guid: 443dcbf4d17660f4d8577b826827332f, type: 3}
-  - {fileID: 21300000, guid: ddda19bd1ab446f4281248b772a2c18e, type: 3}
-  - {fileID: 21300000, guid: aa4a8dfa0088fd6459a9040046881d1b, type: 3}
+  - {fileID: 21300000, guid: b6f6cbb635bb03a4f82b39f4a89d89fe, type: 3}
+  - {fileID: 21300000, guid: c3dce375592cfab46babde3fce165f83, type: 3}
+  - {fileID: 21300000, guid: 1084bdac9bba584489134b4f54cdacf3, type: 3}
+  - {fileID: 21300000, guid: 9ab5cc4e7a09a2c48911f00b2ab3c077, type: 3}
   Normal: {fileID: 3624333184764439694, guid: 6bc3eb30f95f5e4419b2d5b18705496b, type: 3}
 --- !u!1 &1805044982
 GameObject:
@@ -1332,10 +1332,10 @@ MonoBehaviour:
   FoodPrefab: {fileID: 4009038705872474452, guid: fd4d3902e1523cf4fbf2f516bbcab23d, type: 3}
   parent: {fileID: 8129942001750182348}
   Elemental:
-  - {fileID: 21300000, guid: b8e5c94bdf9981b428069229105205d5, type: 3}
-  - {fileID: 21300000, guid: 443dcbf4d17660f4d8577b826827332f, type: 3}
-  - {fileID: 21300000, guid: ddda19bd1ab446f4281248b772a2c18e, type: 3}
-  - {fileID: 21300000, guid: aa4a8dfa0088fd6459a9040046881d1b, type: 3}
+  - {fileID: 21300000, guid: b6f6cbb635bb03a4f82b39f4a89d89fe, type: 3}
+  - {fileID: 21300000, guid: c3dce375592cfab46babde3fce165f83, type: 3}
+  - {fileID: 21300000, guid: 1084bdac9bba584489134b4f54cdacf3, type: 3}
+  - {fileID: 21300000, guid: 9ab5cc4e7a09a2c48911f00b2ab3c077, type: 3}
   Normal: {fileID: 3624333184764439694, guid: 6bc3eb30f95f5e4419b2d5b18705496b, type: 3}
 --- !u!1 &3689481561272326319
 GameObject:
