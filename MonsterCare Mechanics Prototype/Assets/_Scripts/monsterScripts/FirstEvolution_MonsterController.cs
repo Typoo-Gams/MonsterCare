@@ -53,6 +53,7 @@ public class FirstEvolution_MonsterController : MonoBehaviour
             monster.DegradeHunger();
         }
         Evolution();
+        Devolution();
 
         //Don't work because of Preload
         if (monster.PrefabLocation != Saver.GetMonsterPrefab() && SceneManager.GetActiveScene().name == "MonsterHome")
@@ -104,6 +105,21 @@ public class FirstEvolution_MonsterController : MonoBehaviour
         }
     }
 
+
+    private void Devolution()
+    {
+        if (monster.DeathStatus)
+        {
+            //This is what happens when the monster is fainted.
+            //Destroy the current monster object. spawn in the new monster. needs to load the new evolved monster when the game is reopened after being closed.
+            Debug.Log(monster.Name + ": devolution");
+            GameObject NextEvolution = Resources.Load<GameObject>("Prefabs/MonsterStuff/Monsters/DefaultStartingMonster");
+            Debug.Log(NextEvolution);
+            GameObject Parent = GameObject.Find("__app").GetComponentInChildren<GameManager>().gameObject;
+            Destroy(gameObject);
+            Instantiate(NextEvolution, NextEvolution.transform.position, Quaternion.identity, Parent.transform);
+        }
+    }
 
 
     //Send this monster to the GameManager

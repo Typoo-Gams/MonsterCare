@@ -108,16 +108,16 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 100616586768362409}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -1039}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6903691913758895769}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0.5}
+  m_AnchorMax: {x: 1, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 589.2312, y: 90.3101}
+  m_SizeDelta: {x: -210.7688, y: 90.31006}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5342335393821370674
 CanvasRenderer:
@@ -310,7 +310,8 @@ MonoBehaviour:
   - {fileID: 5522923501659234738, guid: f8b8555a90c345348b05b229186a5662, type: 3}
   - {fileID: 6554604095619073653, guid: 3dd162fe69431e140806f7d280776d82, type: 3}
   - {fileID: 5886862851862895517, guid: 3c608b704046bec469514f4bd91c4da0, type: 3}
-  specialPrefab: []
+  specialPrefab:
+  - {fileID: 9126330596708894098, guid: 28a0973a828ea74459bdb40e39bd4930, type: 3}
   FullInventory: {fileID: 2511648202401420337, guid: d231f21a2a34b1648b607654745241d7, type: 3}
   specialSprites:
   - {fileID: 21300000, guid: b6f6cbb635bb03a4f82b39f4a89d89fe, type: 3}

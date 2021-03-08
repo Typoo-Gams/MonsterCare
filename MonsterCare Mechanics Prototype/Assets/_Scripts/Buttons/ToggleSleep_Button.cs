@@ -54,7 +54,11 @@ public class ToggleSleep_Button : MonoBehaviour
 
     private void OnDestroy()
     {
-        manager.SleepMemory = toggle;
+        try 
+        {
+            manager.SleepMemory = toggle;
+        }
+        catch { }
         saver.SaveTime();
     }
 

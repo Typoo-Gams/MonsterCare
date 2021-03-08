@@ -12,13 +12,19 @@ public class EnemySliderTransform : MonoBehaviour
                                    "WaterEnemyPrefab"}; //4
 
     Slider TransformThis;
-    string path;
+    public string path;
+
+    GameManager manager;
 
     // Start is called before the first frame update
     void Start()
     {
+        manager = GameObject.Find("__app").GetComponentInChildren<GameManager>();
+
+        TransformThis = manager.EnemyMonster.GetHealthbar();
+
         string name = "";
-        for (int i = 0; i < enemyMonsterNames.Length; i++)
+        for (int i = 0; i < enemyMonsterNames.Length-1; i++)
         {
             if (path.Contains(enemyMonsterNames[i]))
             {

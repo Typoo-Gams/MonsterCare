@@ -327,6 +327,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c22d334ce0ca4a48942924169f39be2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  path: Prefabs/MonsterStuff/Enemy Monsters/EarthEnemyPrefab
 --- !u!1 &2544040806459741385
 GameObject:
   m_ObjectHideFlags: 0
