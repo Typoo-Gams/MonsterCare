@@ -7,6 +7,7 @@ public class EvolveTrigger_Button : MonoBehaviour
 {
     GameManager manager;
     Button ThisButton;
+    public int EvolveEnergyCost;
 
     // Start is called before the first frame update
     void Start()
@@ -16,8 +17,20 @@ public class EvolveTrigger_Button : MonoBehaviour
         ThisButton.onClick.AddListener(EvolutionTrigger);
     }
 
+    private void Update()
+    {
+        if (manager.ActiveMonster.Element != "None" && manager.ActiveMonster.EnergyStatus > EvolveEnergyCost)
+            ThisButton.interactable = true;
+        else
+            ThisButton.interactable = false;
+
+        if (manager.ActiveMonster.HealthStatus == 0)
+            ThisButton.interactable = false;
+    }
+
     void EvolutionTrigger() 
     {
         manager.ActiveMonster.CanEvolveStatus = true;
+        manager.ActiveMonster.EnergyStatus -= EvolveEnergyCost;
     }
 }

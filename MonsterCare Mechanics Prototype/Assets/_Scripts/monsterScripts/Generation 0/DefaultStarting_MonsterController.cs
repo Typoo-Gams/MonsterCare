@@ -30,15 +30,11 @@ public class DefaultStarting_MonsterController : MonoBehaviour
         monster = new Monster("load", prefabLocation);
         //loads the monster stats.
         Saver.LoadMonster(monster);
-        monster.DeathStatus = false;
         //Remove this when we dont need the healing anymore
         Debug.LogError("remove UpdateHealth from start in " + this);
         monster.UpdateHealth(100f);
-        //debugs the monster stats.
-        monster.DebugMonster();
         //updates the monster stats from how much time passed since the last save to simulate things happening while the player isnt playing the game.
         monster.AtGameWakeUp(Saver.FindTimeDifference());
-        monster.DebugMonster();
         //Sends the monster object to the gamemanager so that other scripts can easily reference it.
         SendMonster();
         Debug.Log("Current monster: " + this);
@@ -55,18 +51,21 @@ public class DefaultStarting_MonsterController : MonoBehaviour
 
         //ths is where stat changes happen
         cnt += Time.deltaTime;
-        if (cnt > 1) 
+        if (cnt > 0.1f) 
         {
             monster.DegradeHunger();
-            monster.UpdateHappiness(monster.HappinessStatus);
+            monster.UpdateHappiness();
+            monster.UpdateSleeping(monster.IsSleepingStatus, 1);
+            cnt = 0;
         }
         if (Input.GetKeyDown(KeyCode.Mouse0)) Destroy(ReportRefference);
 
 
         //Don't work because of preload
+        /*
         if (monster.PrefabLocation != Saver.GetMonsterPrefab() && SceneManager.GetActiveScene().name == "MonsterHome")
             ReportRefference = Instantiate(monster.GetReport());
-
+        */
         Evolution();
     }
 
@@ -129,18 +128,34 @@ public class DefaultStarting_MonsterController : MonoBehaviour
         //Destroy the current monster object. spawn in the new monster. needs to load the new evolved monster when the game is reopened after being closed.
         if (monster.CanEvolveStatus)
         {
+            GameObject Parent = GameObject.Find("__app").GetComponentInChildren<GameManager>().gameObject;
+
             Debug.Log(monster.Name + " Is evolving!!");
 
-            //This loads and positions the new evolution monster prefab
-            GameObject NextEvolution = Resources.Load<GameObject>("Prefabs/MonsterStuff/Monsters/SecondEvolutionMonster");
-            Debug.Log(NextEvolution);
-            GameObject Parent = GameObject.Find("__app").GetComponentInChildren<GameManager>().gameObject;
             //Destroy the old monster
             Destroy(gameObject);
             //create the new monster
+            GameObject NextEvolution = null;
+            switch (monster.Element) 
+            {
+                case "Fire":
+                    NextEvolution = Resources.Load<GameObject>("Prefabs/MonsterStuff/Monsters/Gen 1/FireSleepy_Gen1");
+                    break;
+
+                case "Water":
+                    NextEvolution = Resources.Load<GameObject>("Prefabs/MonsterStuff/Monsters/Gen 1/WaterPlayful_Gen1");
+                    break;
+
+                case "Earth":
+                    NextEvolution = Resources.Load<GameObject>("Prefabs/MonsterStuff/Monsters/Gen 1/BeefMaster_Gen1");
+                    break;
+
+                case "Air":
+                    NextEvolution = Resources.Load<GameObject>("Prefabs/MonsterStuff/Monsters/Gen 1/AirSleepy_Gen1");
+                    break;
+            }
             GameObject Spawned = Instantiate(NextEvolution);
             Spawned.transform.SetParent(Parent.transform, false);
-            Spawned.transform.localPosition = new Vector3(1.17614102f, -0.730000019f, 121.02121f);
         }
     }
 

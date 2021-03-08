@@ -108,7 +108,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 100616586768362409}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -1039}
+  m_LocalPosition: {x: 0, y: 0, z: -933}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6903691913758895769}
@@ -312,6 +312,9 @@ MonoBehaviour:
   - {fileID: 5886862851862895517, guid: 3c608b704046bec469514f4bd91c4da0, type: 3}
   specialPrefab:
   - {fileID: 9126330596708894098, guid: 28a0973a828ea74459bdb40e39bd4930, type: 3}
+  - {fileID: 4444844860384087399, guid: 28c8527c0d913c3439938fb3364ae1e6, type: 3}
+  - {fileID: 591264133665482121, guid: 0cd687833018ef249be9a373334418ef, type: 3}
+  - {fileID: 4312554771803490216, guid: d001ba28ba2d61f489998ce6c8651e38, type: 3}
   FullInventory: {fileID: 2511648202401420337, guid: d231f21a2a34b1648b607654745241d7, type: 3}
   specialSprites:
   - {fileID: 21300000, guid: b6f6cbb635bb03a4f82b39f4a89d89fe, type: 3}

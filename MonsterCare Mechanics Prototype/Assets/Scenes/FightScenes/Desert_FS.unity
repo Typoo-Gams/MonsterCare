@@ -130,26 +130,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 490909695403123566, guid: 6e8dea5fbfa00e74594cb818876d0621, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1740130347430442262, guid: 6e8dea5fbfa00e74594cb818876d0621, type: 3}
-      propertyPath: specialPrefab.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1740130347430442262, guid: 6e8dea5fbfa00e74594cb818876d0621, type: 3}
-      propertyPath: specialPrefab.Array.data[0]
-      value: 
-      objectReference: {fileID: 9126330596708894098, guid: 28a0973a828ea74459bdb40e39bd4930, type: 3}
     - target: {fileID: 1740130347430442263, guid: 6e8dea5fbfa00e74594cb818876d0621, type: 3}
       propertyPath: m_Name
       value: Canvas_EnemyMonster
       objectReference: {fileID: 0}
-    - target: {fileID: 4808484831556523162, guid: 6e8dea5fbfa00e74594cb818876d0621, type: 3}
-      propertyPath: AttackThisMonster
-      value: 
-      objectReference: {fileID: 1533433887293042447, guid: 72930552b31644849b651462f14e11f1, type: 3}
     - target: {fileID: 6903691913758895769, guid: 6e8dea5fbfa00e74594cb818876d0621, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -234,25 +218,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8300247257192490129, guid: 6e8dea5fbfa00e74594cb818876d0621, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -933
-      objectReference: {fileID: 0}
     - target: {fileID: 9104515355766282086, guid: 6e8dea5fbfa00e74594cb818876d0621, type: 3}
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 1869744067}
-    - target: {fileID: 9127926483609262897, guid: 6e8dea5fbfa00e74594cb818876d0621, type: 3}
-      propertyPath: black
-      value: 
-      objectReference: {fileID: 163165836}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6e8dea5fbfa00e74594cb818876d0621, type: 3}
---- !u!1 &163165836 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1069118779, guid: 6e8dea5fbfa00e74594cb818876d0621, type: 3}
-  m_PrefabInstance: {fileID: 163165835}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &395386893
 GameObject:
   m_ObjectHideFlags: 0

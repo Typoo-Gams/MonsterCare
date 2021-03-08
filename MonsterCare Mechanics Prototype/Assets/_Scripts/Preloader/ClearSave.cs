@@ -38,6 +38,7 @@ public class ClearSave : MonoBehaviour
         if (manager.ActiveMonster == null) 
         {
             Application.Quit();
+            ResetSave();
             Debug.LogWarning("exiting");
         }
     }
