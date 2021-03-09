@@ -6,6 +6,10 @@ using UnityEngine.UI;
 public class ClearSave : MonoBehaviour
 {
     GameManager manager;
+    public bool ClearSaveScene;
+    float cnt;
+    public float WhaitTime;
+
 
     // Start is called before the first frame update
     void Start()
@@ -34,12 +38,25 @@ public class ClearSave : MonoBehaviour
 
     private void Update()
     {
-        //There if there is no activemonster in the preload scene then exit the application.
-        if (manager.ActiveMonster == null) 
+        if (ClearSaveScene) 
+            cnt += Time.deltaTime;
+
+        //There if there is no activemonster in the preload scene then exit the application or if the clearsavescene is true then whait for the value of whaitTime
+        if (manager.ActiveMonster == null || cnt > WhaitTime)
         {
             ResetSave();
             Debug.LogWarning("exiting");
             Application.Quit();
+            try
+            {
+                Destroy(manager.MonsterObject);
+                manager.ActiveMonster = null;
+                manager.MonsterObject = null;
+            }
+            catch
+            {
+                //no monster to wipe
+            }
         }
     }
 }
