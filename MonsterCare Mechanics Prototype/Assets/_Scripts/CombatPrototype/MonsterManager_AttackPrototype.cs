@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEditor;
+using UnityEngine.SceneManagement;
 
 public class MonsterManager_AttackPrototype : MonoBehaviour
 {
@@ -13,6 +14,7 @@ public class MonsterManager_AttackPrototype : MonoBehaviour
     public Slider SliderPrefab;
     private Canvas CurrentCanvas;
     public string ThisPrefabPath;
+    string sceneElement;
 
     //shake stuff
     private float intervalShake = 0.25f;
@@ -27,6 +29,7 @@ public class MonsterManager_AttackPrototype : MonoBehaviour
     void Start()
     {
         manager = GameObject.Find("__app").GetComponentInChildren<GameManager>();
+        sceneElement = SceneManager.GetActiveScene().name;
 
         //getting canvas
         CurrentCanvas = GameObject.FindGameObjectWithTag("CanvasFighting").GetComponent<Canvas>();
@@ -35,12 +38,35 @@ public class MonsterManager_AttackPrototype : MonoBehaviour
         healthbarr.transform.SetParent(CurrentCanvas.transform, false);
         healthbarr.transform.localPosition = new Vector3(0, 110, 0);
         healthbarr.transform.localScale = new Vector3(3f, 3f, 3f);
+
         //creating the monster
         StartMonster = new Monster("Enemy_Placeholder");
         StartMonster.AssignHealthBar(healthbarr);
         StartMonster.CombatActive(true);
         StartMonster.SetOriginPos(transform);
-        
+
+        switch (sceneElement)
+        {
+            case "Savannah_FS":
+                StartMonster.Element = "Fire";
+                break;
+
+            case "Desert_FS":
+                StartMonster.Element = "Fire";
+                break;
+
+            case "Forest_FS":
+                StartMonster.Element = "Air";
+                break;
+
+            case "Mountain_FS":
+                StartMonster.Element = "Earth";
+                break;
+
+            case "Ice_FS":
+                StartMonster.Element = "Water";
+                break;
+        }
 
         manager.EnemyMonster = StartMonster;
         StartMonster.ToughnessModifier = Random.Range(1, 10);

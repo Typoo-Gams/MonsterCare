@@ -14,12 +14,16 @@ public class SpecialAbilty : MonoBehaviour
     bool isCooldown = false;
 
     public int Damage;
+    string element;
 
     // Start is called before the first frame update
     void Start()
     {
         manager = GameObject.Find("__app").GetComponentInChildren<GameManager>();
         monsterIcon.fillAmount = 0;
+
+        //Checks the last eaten special food
+        element = manager.ActiveMonster.Element;
     }
 
     // Update is called once per frame
@@ -51,7 +55,23 @@ public class SpecialAbilty : MonoBehaviour
 
     public void SpecialAttack()
     {
-        
-        manager.EnemyMonster.DealDmg(Damage);
+        switch (element)
+        {
+            case "Fire":
+                manager.EnemyMonster.DealDmg(Damage);
+                break;
+
+            case "Air":
+                manager.EnemyMonster.DealDmg(Damage);
+                break;
+
+            case "Earth":
+                manager.EnemyMonster.DealDmg(Damage);
+                break;
+
+            case "Water":
+                manager.EnemyMonster.DealDmg(Damage);
+                break;
+        }
     }
 }
