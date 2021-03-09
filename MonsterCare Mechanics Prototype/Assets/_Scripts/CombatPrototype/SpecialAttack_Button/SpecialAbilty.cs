@@ -18,6 +18,7 @@ public class SpecialAbilty : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        manager = GameObject.Find("__app").GetComponentInChildren<GameManager>();
         monsterIcon.fillAmount = 0;
     }
 
@@ -50,6 +51,7 @@ public class SpecialAbilty : MonoBehaviour
 
     public void SpecialAttack()
     {
-        manager.EnemyMonster.UpdateHealth(manager.EnemyMonster.HealthStatus - Damage);
+        
+        manager.EnemyMonster.DealDmg(Damage);
     }
 }

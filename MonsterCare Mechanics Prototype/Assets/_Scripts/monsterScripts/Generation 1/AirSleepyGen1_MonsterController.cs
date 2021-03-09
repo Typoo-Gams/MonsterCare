@@ -19,7 +19,7 @@ public class AirSleepyGen1_MonsterController : MonoBehaviour
 
 
         //Creates a new monster object.
-        monster = new Monster("Evolution", "Prefabs/MonsterStuff/Monsters/Gen 1/AirSleepy_Gen1");
+        monster = new Monster("AirSleepyGen1", "Prefabs/MonsterStuff/Monsters/Gen 1/AirSleepy_Gen1");
         //Checks if this monster is a new evolution or not then loads the monster info or overwrites the old monster's saved stats with the new one.
         if (monster.PrefabLocation == Saver.GetMonsterPrefab())
         {

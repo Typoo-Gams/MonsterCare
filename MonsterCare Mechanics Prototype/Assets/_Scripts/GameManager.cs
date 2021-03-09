@@ -7,6 +7,8 @@ using UnityEditor;
 
 public class GameManager : MonoBehaviour
 {
+    public bool DevBuild;
+
     //Previously loaded scene
     public int PreviousSecene;
     public bool SleepMemory;
@@ -53,10 +55,10 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         //temporary
-        FoodInventory[0] = new Food(false);
-        FoodInventory[1] = new Food("Air");
-        Save.SaveFood(FoodInventory);
-        Debug.Log("Manager Start");
+        //FoodInventory[0] = new Food(false);
+        //FoodInventory[1] = new Food("Air");
+        //Save.SaveFood(FoodInventory);
+        //Debug.Log("Manager Start");
     }
 
 

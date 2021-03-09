@@ -27,7 +27,7 @@ public class DefaultStarting_MonsterController : MonoBehaviour
     {
 
         //Creates a new monster object.
-        monster = new Monster("load", prefabLocation);
+        monster = new Monster("StartingMonster", prefabLocation);
         //loads the monster stats.
         if (monster.PrefabLocation == Saver.GetMonsterPrefab())
         {

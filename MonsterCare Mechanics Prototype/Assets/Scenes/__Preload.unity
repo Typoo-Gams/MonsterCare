@@ -567,6 +567,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a3276b01a0a43d4aaae9845bb2be0c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ClearSaveScene: 0
+  WhaitTime: 0
 --- !u!114 &1136924988
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1261,9 +1263,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5bd09d8af2337d544ac537f19654005e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scene: 1
+  scene: 0
   input: {fileID: 702895237}
-  DevBuild: 0
 --- !u!1 &2042994973 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1561521340318166407, guid: e8c4f5f02f969cb4f976de83f8da2611, type: 3}
@@ -1378,6 +1379,10 @@ PrefabInstance:
     - target: {fileID: 3404981906630117847, guid: c150a5d01097ad944abd05efd3f51de9, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4807834741392806710, guid: c150a5d01097ad944abd05efd3f51de9, type: 3}
+      propertyPath: DevBuild
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4807834741392806710, guid: c150a5d01097ad944abd05efd3f51de9, type: 3}
       propertyPath: temporaryPrefab
