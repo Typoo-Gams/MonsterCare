@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class FirstEvolution_MonsterController : MonoBehaviour
+
+public class EarthFighterGen1_MonsterController : MonoBehaviour
 {
     public GameObject Report;
     private GameObject ReportRefference;
-    
+
     public Monster monster;
     GameSaver Saver = new GameSaver();
     float cnt = 0;
@@ -19,7 +20,7 @@ public class FirstEvolution_MonsterController : MonoBehaviour
 
 
         //Creates a new monster object.
-        monster = new Monster("Evolution", "Prefabs/MonsterStuff/Monsters/SecondEvolutionMonster");
+        monster = new Monster("Evolution", "Prefabs/MonsterStuff/Monsters/Gen 1/BeefMaster_Gen1");
         //Checks if this monster is a new evolution or not then loads the monster info or overwrites the old monster's saved stats with the new one.
         if (monster.PrefabLocation == Saver.GetMonsterPrefab())
         {
@@ -31,7 +32,6 @@ public class FirstEvolution_MonsterController : MonoBehaviour
             //Overwrites the previous monsters saved stats
             Saver.SaveMonster(monster);
         }
-        monster.DebugMonster();
         //updates the monster stats from how much time passed since the last save to simulate things happening while the player isnt playing the game.
         monster.AtGameWakeUp(Saver.FindTimeDifference());
         //Sends the monster object to the gamemanager so that other scripts can easily reference it.
@@ -40,7 +40,7 @@ public class FirstEvolution_MonsterController : MonoBehaviour
         Debug.Log("Current monster: " + this);
 
         monster.SetReport(Report);
-        
+
     }
 
 
@@ -48,14 +48,17 @@ public class FirstEvolution_MonsterController : MonoBehaviour
     void Update()
     {
         cnt += Time.deltaTime;
-        if (cnt > 1)
+        if (cnt >= 1)
         {
             monster.DegradeHunger();
+            monster.UpdateHappiness();
+            monster.UpdateSleeping(monster.IsSleepingStatus, 1);
+            cnt = 0;
         }
         Evolution();
-        if (SceneManager.GetActiveScene().name == "MonsterHome") 
+        if (SceneManager.GetActiveScene().name == "MonsterHome")
         {
-        Devolution();
+            Devolution();
         }
 
         //Don't work because of Preload
@@ -99,12 +102,33 @@ public class FirstEvolution_MonsterController : MonoBehaviour
         //Destroy the current monster object. spawn in the new monster. needs to load the new evolved monster when the game is reopened after being closed.
         if (monster.CanEvolveStatus)
         {
-            Debug.Log(monster.Name + " Is evolving!!");
-            GameObject NextEvolution = Resources.Load<GameObject>("Prefabs/MonsterStuff/Monsters/SecondEvolutionMonster");
-            Debug.Log(NextEvolution);
             GameObject Parent = GameObject.Find("__app").GetComponentInChildren<GameManager>().gameObject;
-            Destroy(gameObject);
-            Instantiate(NextEvolution, NextEvolution.transform.position, Quaternion.identity, Parent.transform);
+
+            Debug.Log(monster.Name + " Is evolving!!");
+
+            //Destroy the old monster
+
+            //Destroy(gameObject);
+
+            //create the new monster
+            GameObject NextEvolution;
+            switch (monster.Element)
+            {
+                /*case "Fire":
+                    break;
+
+                case "Water":
+                    break;
+
+                case "Earth":
+                    break;
+
+                case "Air":
+                    break;*/
+                default:
+                    Debug.LogError("This monster doesnt have any evolutions yet");
+                    break;
+            }
         }
     }
 
@@ -115,9 +139,7 @@ public class FirstEvolution_MonsterController : MonoBehaviour
         {
             //This is what happens when the monster is fainted.
             //Destroy the current monster object. spawn in the new monster. needs to load the new evolved monster when the game is reopened after being closed.
-            Debug.Log(monster.Name + ": devolution");
             GameObject NextEvolution = Resources.Load<GameObject>("Prefabs/MonsterStuff/Monsters/DefaultStartingMonster");
-            Debug.Log(NextEvolution);
             GameObject Parent = GameObject.Find("__app").GetComponentInChildren<GameManager>().gameObject;
             Destroy(gameObject);
             Instantiate(NextEvolution, NextEvolution.transform.position, Quaternion.identity, Parent.transform);

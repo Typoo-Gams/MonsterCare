@@ -19,7 +19,7 @@ public class Food : InventoryItem
             foodType = "Normal";
             Type = "Food";
             element = "None";
-            foodPower = 10;
+            foodPower = 20;
         }
         else 
         {
@@ -42,7 +42,7 @@ public class Food : InventoryItem
         foodType = "Special";
         Type = "Food";
         element = elementType;
-        foodPower = 20;
+        foodPower = 30;
     }
 
 

@@ -15,11 +15,12 @@ public class MonsterLoader : MonoBehaviour
 
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         manager = Manager.GetComponent<GameManager>();
         //Finds the prefab path.
         string path = Saver.GetMonsterPrefab();
+        Debug.Log("Loaded Path: " + path);
         //if the game version doesnt match the current one, wipe the save
         if (manager.GameVersion != Saver.LoadgameVersion()) 
         {
@@ -31,15 +32,19 @@ public class MonsterLoader : MonoBehaviour
         //if the save doesnt have any previously saved monster then load the starting monster (this happens with new saves/first time boot)
         if (path == "None")
         {
-            SavedMonster = Resources.Load<GameObject>("Prefabs/MonsterStuff/Monsters/DefaultStartingMonster");
+            SavedMonster = Resources.Load<GameObject>("Prefabs/MonsterStuff/Monsters/Gen 0/DefaultStartingMonster");
+            Debug.Log("Default");
         }
         //if there is a saved monster then load it.
-        if (path != "None")
+        else
         {
             SavedMonster = Resources.Load<GameObject>(path);
+            Debug.Log("loaded Monster");
         }
         //create the monster that was loaded.
-        Instantiate(SavedMonster, SavedMonster.transform.position, Quaternion.identity, Manager.transform);
+        GameObject SpawnedMonster = Instantiate(SavedMonster, SavedMonster.transform.position, Quaternion.identity);
+        SpawnedMonster.transform.SetParent(Manager.transform, false);
+
     }
 
     private void Update()

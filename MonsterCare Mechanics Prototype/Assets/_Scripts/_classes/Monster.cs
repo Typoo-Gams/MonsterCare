@@ -55,8 +55,8 @@ public class Monster
 
 
     //Degration modifiers
-    readonly float HungerDegration = 0.0083f; //1% every _ min
-    readonly float SleepDegration = 0.0083f; //1% every _ min
+    readonly float HungerDegration = 0.083f; //1% every _ min
+    readonly float SleepDegration = 0.083f; //1% every _ min
     readonly float PlayfullDegration = 0f; //1% every _ min
     readonly float ToughnessDegration = 0f; //1% every _ min
 
@@ -79,6 +79,7 @@ public class Monster
     public Monster()
     {
         MonsterName = "Default";
+        elementEaten = "None";
         Health = MaxHealth;
         Hunger = 0;
         Sleep = 0;
@@ -100,6 +101,7 @@ public class Monster
     {
         loadLocation = prefabLocation;
         MonsterName = name;
+        elementEaten = "None";
         Health = MaxHealth;
         Hunger = 0;
         Sleep = 0;
@@ -119,6 +121,7 @@ public class Monster
     public Monster(string name)
     {
         MonsterName = name;
+        elementEaten = "None";
         Health = MaxHealth;
         Hunger = 0;
         Sleep = 0;
@@ -459,10 +462,41 @@ public class Monster
     /// <summary>
     /// Updates the happiness value and the statuses if conditions are met.
     /// </summary>
-    /// <param name="NewHappiness">Set new current happiness</param>
-    public void UpdateHappiness(float NewHappiness)
+    public void UpdateHappiness()
     {
-        Happiness = NewHappiness;
+
+
+        if(IsStarving && Happiness != 0)
+        {
+            Happiness = Happiness - 3;
+        }
+        if(IsFull && Happiness <= MaxHappiness - 5)
+        {
+            Happiness = Happiness + 2;
+        }
+
+        if (IsDead)
+        {
+            Happiness = 0;
+        }
+
+        if(Health <= 49)
+        {
+            Happiness = Happiness - 3;
+        }
+
+        if (Health >= 50)
+        {
+            Happiness = Happiness + 1;
+        }
+
+        if (IsRested)
+        {
+            Happiness = Happiness + 2;
+        }
+
+        //if(IsMedicated) Potencially adding this later
+
         if (Happiness <= 0)
         {
             IsHappy = false;
@@ -472,36 +506,8 @@ public class Monster
         {
             IsHappy = true;
             Happiness = MaxHappiness;
+            Debug.Log(Happiness);
         }
-
-
-        if(IsStarving)
-        {
-            Happiness = Happiness - 1;
-        }
-        if(IsFull)
-        {
-            Happiness = Happiness + 5;
-        }
-
-        if(IsDead)
-        {
-            Happiness = 0;
-        }
-
-        if(Health <= 49)
-        {
-            Happiness = Happiness - 1;
-        }
-
-        if (Health >= 50) Happiness = Happiness + 5;
-
-        /*if(IsRested)
-        {
-
-        }   */
-
-        //if(IsMedicated) Potencially adding this later
 
     }
 
@@ -742,5 +748,11 @@ public class Monster
     {
         get => Toughness;
         set => Toughness = value;
+    }
+
+    public string Element 
+    {
+        get => elementEaten;
+        set => elementEaten = value;
     }
 }

@@ -91,8 +91,8 @@ public class MonsterFoodDrop : MonoBehaviour
                 {
                     if(dropRate == 1)
                     {
-                        //GameObject spawn = Instantiate(specialPrefab[element]);
-                        //spawn.transform.SetParent(GameObject.FindGameObjectWithTag("CanvasFighting").transform);
+                        GameObject spawn = Instantiate(specialPrefab[element]);
+                        spawn.transform.SetParent(GameObject.FindGameObjectWithTag("CanvasFighting").transform, false);
                         manager.FoodInventory[i] = new Food(spawnElement);
                         manager.FoodReward = manager.FoodInventory[i];
                         Debug.Log("Special food");

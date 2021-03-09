@@ -89,11 +89,11 @@ public class FoodManager_FoodObject : MonoBehaviour
         if (collision.gameObject.tag.Equals("Monster")) 
         {
             //updates the monsters hunger when it eats the food
-            manager.ActiveMonster.UpdateHunger(manager.ActiveMonster.HungerStatus + FoodPower);
+            manager.ActiveMonster.UpdateHunger(manager.ActiveMonster.HungerStatus + ThisFood.Power);
 
             //spawns temporary feedback UI
             Text spawn = Instantiate(UI);
-            spawn.text = "+" + FoodPower;
+            spawn.text = "+" + ThisFood.Power;
             spawn.transform.SetParent(CurrentCanvas.transform, false);
             spawn.transform.localPosition = new Vector3(347f, 276f, -19439.998f);
             spawn.transform.localScale = new Vector3(1,1,1);
@@ -101,6 +101,9 @@ public class FoodManager_FoodObject : MonoBehaviour
             //destroys the food
             Destroy(gameObject);
             manager.FoodInventory[inventorySpace] = new Food(true);
+            //adds the last special food element to the monster
+            if (ThisFood.FoodType == "Special")
+                manager.ActiveMonster.Element = ThisFood.Element;
             //plays the monsters eating animation.
             //temporary
             if (manager.MonsterObject.GetComponent<DefaultStarting_MonsterController>() != null)

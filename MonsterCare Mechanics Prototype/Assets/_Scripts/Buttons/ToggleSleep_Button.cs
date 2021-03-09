@@ -41,16 +41,6 @@ public class ToggleSleep_Button : MonoBehaviour
     }
 
 
-    //the functionality in update should probably be moved to the monster's script itself
-
-
-    //updates the monster's sleep value every second.
-    private void Update()
-    {
-        counter += Time.deltaTime;
-        if (counter > 1) 
-            manager.ActiveMonster.UpdateSleeping(manager.ActiveMonster.IsSleepingStatus, 1);    
-    }
 
     private void OnDestroy()
     {
