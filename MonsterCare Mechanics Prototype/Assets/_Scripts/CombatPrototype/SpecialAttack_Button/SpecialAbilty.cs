@@ -14,6 +14,7 @@ public class SpecialAbilty : MonoBehaviour
     bool isCooldown = false;
 
     public int Damage;
+    int elementDmg = 2;
     string element;
 
     // Start is called before the first frame update
@@ -55,23 +56,29 @@ public class SpecialAbilty : MonoBehaviour
 
     public void SpecialAttack()
     {
-        switch (element)
+        if (manager.ActiveMonster.Element == "Water" && manager.EnemyMonster.Element == "Fire" || manager.ActiveMonster.Element == "Water" && manager.EnemyMonster.Element == "Air")
         {
-            case "Fire":
-                manager.EnemyMonster.DealDmg(Damage);
-                break;
+            manager.EnemyMonster.DealDmg(Damage * elementDmg);
+        }
 
-            case "Air":
-                manager.EnemyMonster.DealDmg(Damage);
-                break;
+        if (manager.ActiveMonster.Element == "Earth" && manager.EnemyMonster.Element == "Air" || manager.ActiveMonster.Element == "Earth" && manager.EnemyMonster.Element == "Water")
+        {
+            manager.EnemyMonster.DealDmg(Damage * elementDmg);
+        }
 
-            case "Earth":
-                manager.EnemyMonster.DealDmg(Damage);
-                break;
+        if (manager.ActiveMonster.Element == "Air" && manager.EnemyMonster.Element == "Fire")
+        {
+            manager.EnemyMonster.DealDmg(Damage * elementDmg);
+        }
 
-            case "Water":
-                manager.EnemyMonster.DealDmg(Damage);
-                break;
+        if (manager.ActiveMonster.Element == "Fire" && manager.EnemyMonster.Element == "Earth")
+        {
+            manager.EnemyMonster.DealDmg(Damage * elementDmg);
+        }
+
+        if(manager.ActiveMonster.Element == "None")
+        {
+            manager.EnemyMonster.DealDmg(Damage);
         }
     }
 }
