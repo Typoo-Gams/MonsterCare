@@ -376,6 +376,11 @@ public class Monster
         {
             IsFull = false;
         }
+
+        if (Hunger == 0)
+        {
+            DealDmg(1);
+        }
     }
 
 
