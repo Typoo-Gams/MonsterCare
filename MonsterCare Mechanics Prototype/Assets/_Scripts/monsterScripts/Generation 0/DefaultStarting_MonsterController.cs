@@ -180,6 +180,7 @@ public class DefaultStarting_MonsterController : MonoBehaviour
             Destroy(gameObject);
             GameObject SpawnedMonster = Instantiate(NextEvolution);
             SpawnedMonster.transform.SetParent(Parent.transform, false);
+            Saver.SaveMonster(SpawnedMonster.GetComponent<DefaultStarting_MonsterController>().monster);
         }
     }
 
