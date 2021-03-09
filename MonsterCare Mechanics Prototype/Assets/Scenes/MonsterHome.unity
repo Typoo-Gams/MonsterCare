@@ -130,26 +130,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 662687634, guid: 40193650ec9cf7e4189cc7b3202955b8, type: 3}
-      propertyPath: FoodPrefab
-      value: 
-      objectReference: {fileID: 4009038705872474452, guid: ce2240698a98717459ae79cf304eb17f, type: 3}
-    - target: {fileID: 801281718, guid: 40193650ec9cf7e4189cc7b3202955b8, type: 3}
-      propertyPath: FoodPrefab
-      value: 
-      objectReference: {fileID: 4009038705872474452, guid: ce2240698a98717459ae79cf304eb17f, type: 3}
-    - target: {fileID: 872751111, guid: 40193650ec9cf7e4189cc7b3202955b8, type: 3}
-      propertyPath: FoodPrefab
-      value: 
-      objectReference: {fileID: 4009038705872474452, guid: ce2240698a98717459ae79cf304eb17f, type: 3}
-    - target: {fileID: 1422788388, guid: 40193650ec9cf7e4189cc7b3202955b8, type: 3}
-      propertyPath: FoodPrefab
-      value: 
-      objectReference: {fileID: 4009038705872474452, guid: ce2240698a98717459ae79cf304eb17f, type: 3}
-    - target: {fileID: 2107696701, guid: 40193650ec9cf7e4189cc7b3202955b8, type: 3}
-      propertyPath: FoodPrefab
-      value: 
-      objectReference: {fileID: 4009038705872474452, guid: ce2240698a98717459ae79cf304eb17f, type: 3}
     - target: {fileID: 8129942001750182336, guid: 40193650ec9cf7e4189cc7b3202955b8, type: 3}
       propertyPath: m_Pivot.x
       value: 0
