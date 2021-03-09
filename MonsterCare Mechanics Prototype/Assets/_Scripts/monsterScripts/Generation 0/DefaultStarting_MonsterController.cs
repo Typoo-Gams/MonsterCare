@@ -16,7 +16,7 @@ public class DefaultStarting_MonsterController : MonoBehaviour
     public GameObject Report;
     private GameObject ReportRefference;
 
-    private string prefabLocation = "Prefabs/MonsterStuff/Monsters/DefaultStartingMonster";
+    private string prefabLocation = "Prefabs/MonsterStuff/Monsters/Gen 0/DefaultStartingMonster";
     public Monster monster;
     GameSaver Saver = new GameSaver();
     float cnt = 0;
@@ -29,10 +29,16 @@ public class DefaultStarting_MonsterController : MonoBehaviour
         //Creates a new monster object.
         monster = new Monster("load", prefabLocation);
         //loads the monster stats.
-        Saver.LoadMonster(monster);
-        //Remove this when we dont need the healing anymore
-        Debug.LogError("remove UpdateHealth from start in " + this);
-        monster.UpdateHealth(100f);
+        if (monster.PrefabLocation == Saver.GetMonsterPrefab())
+        {
+            //loads the monster stats.
+            Saver.LoadMonster(monster);
+        }
+        else
+        {
+            //Overwrites the previous monsters saved stats
+            Saver.SaveMonster(monster);
+        }
         //updates the monster stats from how much time passed since the last save to simulate things happening while the player isnt playing the game.
         monster.AtGameWakeUp(Saver.FindTimeDifference());
         //Sends the monster object to the gamemanager so that other scripts can easily reference it.
@@ -67,6 +73,10 @@ public class DefaultStarting_MonsterController : MonoBehaviour
             ReportRefference = Instantiate(monster.GetReport());
         */
         Evolution();
+        if (SceneManager.GetActiveScene().name == "MonsterHome")
+        {
+            Devolution();
+        }
     }
 
     //Save the monster's stats when the gameobject is destroyed.
@@ -159,6 +169,19 @@ public class DefaultStarting_MonsterController : MonoBehaviour
         }
     }
 
+    private void Devolution()
+    {
+        if (monster.DeathStatus)
+        {
+            //This is what happens when the monster is fainted.
+            //Destroy the current monster object. spawn in the new monster. needs to load the new evolved monster when the game is reopened after being closed.
+            GameObject NextEvolution = Resources.Load<GameObject>("Prefabs/MonsterStuff/Monsters/Gen 0/DefaultStartingMonster");
+            GameObject Parent = GameObject.Find("__app").GetComponentInChildren<GameManager>().gameObject;
+            Destroy(gameObject);
+            GameObject SpawnedMonster = Instantiate(NextEvolution);
+            SpawnedMonster.transform.SetParent(Parent.transform, false);
+        }
+    }
 
 
     //Send this monster to the GameManager

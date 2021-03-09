@@ -139,10 +139,11 @@ public class EarthFighterGen1_MonsterController : MonoBehaviour
         {
             //This is what happens when the monster is fainted.
             //Destroy the current monster object. spawn in the new monster. needs to load the new evolved monster when the game is reopened after being closed.
-            GameObject NextEvolution = Resources.Load<GameObject>("Prefabs/MonsterStuff/Monsters/DefaultStartingMonster");
+            GameObject NextEvolution = Resources.Load<GameObject>("Prefabs/MonsterStuff/Monsters/Gen 0/DefaultStartingMonster");
             GameObject Parent = GameObject.Find("__app").GetComponentInChildren<GameManager>().gameObject;
             Destroy(gameObject);
-            Instantiate(NextEvolution, NextEvolution.transform.position, Quaternion.identity, Parent.transform);
+            GameObject SpawnedMonster = Instantiate(NextEvolution);
+            SpawnedMonster.transform.SetParent(Parent.transform, false);
         }
     }
 

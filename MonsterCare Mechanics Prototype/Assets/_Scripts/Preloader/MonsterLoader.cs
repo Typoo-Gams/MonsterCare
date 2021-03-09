@@ -44,7 +44,6 @@ public class MonsterLoader : MonoBehaviour
         //create the monster that was loaded.
         GameObject SpawnedMonster = Instantiate(SavedMonster, SavedMonster.transform.position, Quaternion.identity);
         SpawnedMonster.transform.SetParent(Manager.transform, false);
-
     }
 
     private void Update()

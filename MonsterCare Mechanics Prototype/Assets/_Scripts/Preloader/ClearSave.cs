@@ -37,9 +37,9 @@ public class ClearSave : MonoBehaviour
         //There if there is no activemonster in the preload scene then exit the application.
         if (manager.ActiveMonster == null) 
         {
-            Application.Quit();
             ResetSave();
             Debug.LogWarning("exiting");
+            Application.Quit();
         }
     }
 }
