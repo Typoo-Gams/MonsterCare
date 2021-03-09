@@ -14,7 +14,8 @@ public class Toughness_Modifer : MonoBehaviour
                                    "Prefabs/MonsterStuff/Enemy Monsters/FireEnemy2Prefab",  //1
                                    "Prefabs/MonsterStuff/Enemy Monsters/EarthEnemyPrefab",  //2
                                    "Prefabs/MonsterStuff/Enemy Monsters/AirEnemyPrefab",    //3
-                                   "Prefabs/MonsterStuff/Enemy Monsters/WaterEnemyPrefab"}; //4
+                                   "Prefabs/MonsterStuff/Enemy Monsters/AirEnemy2Prefab",   //4
+                                   "Prefabs/MonsterStuff/Enemy Monsters/WaterEnemyPrefab"}; //5
 
     string monsterPrefab;
     int pathLengths;
@@ -63,10 +64,10 @@ public class Toughness_Modifer : MonoBehaviour
                 monsterPrefab = enemyMonsterPaths[2];
                 break;
             case "Forest_FS":
-                monsterPrefab = enemyMonsterPaths[3];
+                monsterPrefab = enemyMonsterPaths[Random.Range(3, 5)];
                 break;
             case "Ice_FS":
-                monsterPrefab = enemyMonsterPaths[4];
+                monsterPrefab = enemyMonsterPaths[5];
                 break;
         }
 
