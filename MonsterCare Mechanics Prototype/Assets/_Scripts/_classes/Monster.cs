@@ -506,7 +506,6 @@ public class Monster
         {
             IsHappy = true;
             Happiness = MaxHappiness;
-            Debug.Log(Happiness);
         }
 
     }

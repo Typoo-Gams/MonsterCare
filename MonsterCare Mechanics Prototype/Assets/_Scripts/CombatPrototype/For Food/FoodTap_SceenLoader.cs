@@ -12,5 +12,6 @@ public class FoodTap_SceenLoader : MonoBehaviour
             Destroy(gameObject);
             SceneManager.LoadScene("LoadScene");
         }
+        Debug.Log("Food Pickup");
     }
 }
