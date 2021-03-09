@@ -379,7 +379,7 @@ public class Monster
 
         if (Hunger == 0)
         {
-            DealDmg(1);
+            Health -= 0.01f;
         }
     }
 
