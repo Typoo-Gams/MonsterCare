@@ -366,6 +366,7 @@ GameObject:
   - component: {fileID: 8275608233959649913}
   - component: {fileID: 8275608233959649912}
   - component: {fileID: 8275608233959649918}
+  - component: {fileID: 1664056347774618592}
   m_Layer: 0
   m_Name: AirEnemy2Prefab
   m_TagString: Monster
@@ -457,3 +458,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SliderPrefab: {fileID: 190257228423986411, guid: 1d0ae7dd89f808e4fad3cd39497bca8e, type: 3}
   ThisPrefabPath: 
+--- !u!114 &1664056347774618592
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8275608233959649915}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c22d334ce0ca4a48942924169f39be2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  path: 
+  HealthbarPosition: {x: 0, y: 289, z: 0}

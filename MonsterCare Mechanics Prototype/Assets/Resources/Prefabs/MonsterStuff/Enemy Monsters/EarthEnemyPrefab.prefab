@@ -314,7 +314,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SliderPrefab: {fileID: 190257228423986411, guid: 1d0ae7dd89f808e4fad3cd39497bca8e, type: 3}
-  ThisPrefab: {fileID: 0}
+  ThisPrefabPath: 
 --- !u!114 &7412030925688161409
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -328,6 +328,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   path: Prefabs/MonsterStuff/Enemy Monsters/EarthEnemyPrefab
+  HealthbarPosition: {x: 0, y: 188, z: 0}
 --- !u!1 &2544040806459741385
 GameObject:
   m_ObjectHideFlags: 0

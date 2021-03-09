@@ -39,7 +39,7 @@ public class GameManager : MonoBehaviour
     //Awake is called when the script instance is being loaded
     private void Awake()
     {
-        GameVersion = "8.4";
+        GameVersion = "8.4.2";
         FoodInventory = new Food[]{
             new Food(true),
             new Food(true),

@@ -19,7 +19,7 @@ public class ExitPreload : MonoBehaviour
     private void Update()
     {
         if (!manager.DevBuild)
-            TaskOnClick();
+            UnityEngine.SceneManagement.SceneManager.LoadScene(1);
     }
 
     void TaskOnClick() 

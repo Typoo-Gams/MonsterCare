@@ -55,10 +55,10 @@ public class Monster
 
 
     //Degration modifiers
-    readonly float HungerDegration = 0.083f; //1% every _ min
-    readonly float SleepDegration = 0.083f; //1% every _ min
-    readonly float PlayfullDegration = 0f; //1% every _ min
-    readonly float ToughnessDegration = 0f; //1% every _ min
+    private float HungerDegration = 0.083f; //1% every _ min
+    private float SleepDegration = 0.083f; //1% every _ min
+    //readonly float PlayfullDegration = 0f; //1% every _ min
+    //readonly float ToughnessDegration = 0f; //1% every _ min
 
 
     //needed for shake (temporary?)
@@ -513,6 +513,21 @@ public class Monster
             Happiness = MaxHappiness;
         }
 
+        if (Happiness > 75) 
+        {
+            HungerDegration = 0.083f * 0.1f;
+            SleepDegration = 0.083f * 0.1f;
+        }
+        if (Happiness < 75 && Happiness > 25) 
+        {
+            HungerDegration = 0.083f;
+            SleepDegration = 0.083f;
+        }
+        if (Happiness < 25)
+        {
+            HungerDegration = 0.083f * 1.1f;
+            SleepDegration = 0.083f * 1.1f;
+        }
     }
 
 
