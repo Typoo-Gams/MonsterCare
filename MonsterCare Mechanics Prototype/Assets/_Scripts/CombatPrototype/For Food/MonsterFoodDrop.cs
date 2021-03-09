@@ -126,7 +126,6 @@ public class MonsterFoodDrop : MonoBehaviour
                         Debug.Log("Enemey destroyed");
                         break;
                     }
-                    
                 }   
             }
         }
