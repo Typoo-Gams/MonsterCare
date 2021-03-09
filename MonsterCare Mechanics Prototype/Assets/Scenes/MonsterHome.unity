@@ -130,10 +130,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1286337378, guid: 40193650ec9cf7e4189cc7b3202955b8, type: 3}
-      propertyPath: EvolveEnergyCost
-      value: 5
-      objectReference: {fileID: 0}
     - target: {fileID: 8129942001750182336, guid: 40193650ec9cf7e4189cc7b3202955b8, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -226,8 +222,7 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas_Home
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 1286337377, guid: 40193650ec9cf7e4189cc7b3202955b8, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 40193650ec9cf7e4189cc7b3202955b8, type: 3}
 --- !u!20 &578058205 stripped
 Camera:

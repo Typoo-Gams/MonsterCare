@@ -1263,7 +1263,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5bd09d8af2337d544ac537f19654005e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scene: 0
+  scene: 1
   input: {fileID: 702895237}
 --- !u!1 &2042994973 stripped
 GameObject:
@@ -1382,7 +1382,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4807834741392806710, guid: c150a5d01097ad944abd05efd3f51de9, type: 3}
       propertyPath: DevBuild
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4807834741392806710, guid: c150a5d01097ad944abd05efd3f51de9, type: 3}
       propertyPath: temporaryPrefab
