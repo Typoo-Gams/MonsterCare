@@ -381,6 +381,9 @@ public class Monster
         {
             UpdateHealth(HealthStatus - 0.01f);
         }
+
+        if (Hunger > 50)
+            UpdateHealth(HealthStatus + 0.01f);
     }
 
 
