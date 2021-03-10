@@ -19,7 +19,7 @@ public class delete_FoodTextUI : MonoBehaviour
 
     IEnumerator Whait() 
     {
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(2f);
         Destroy(gameObject);
     }
 }

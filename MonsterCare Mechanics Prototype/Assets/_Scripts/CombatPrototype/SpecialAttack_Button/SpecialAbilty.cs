@@ -56,22 +56,22 @@ public class SpecialAbilty : MonoBehaviour
 
     public void SpecialAttack()
     {
-        if (manager.ActiveMonster.Element == "Water" && manager.EnemyMonster.Element == "Fire" || manager.ActiveMonster.Element == "Water" && manager.EnemyMonster.Element == "Air")
+        if (manager.ActiveMonster.Element == "Water" && manager.EnemyMonster.Element == "Fire")
         {
             manager.EnemyMonster.DealDmg(Damage * elementDmg);
         }
 
-        if (manager.ActiveMonster.Element == "Earth" && manager.EnemyMonster.Element == "Air" || manager.ActiveMonster.Element == "Earth" && manager.EnemyMonster.Element == "Water")
+        if (manager.ActiveMonster.Element == "Earth" && manager.EnemyMonster.Element == "Water")
         {
             manager.EnemyMonster.DealDmg(Damage * elementDmg);
         }
 
-        if (manager.ActiveMonster.Element == "Air" && manager.EnemyMonster.Element == "Fire")
+        if (manager.ActiveMonster.Element == "Air" && manager.EnemyMonster.Element == "Earth")
         {
             manager.EnemyMonster.DealDmg(Damage * elementDmg);
         }
 
-        if (manager.ActiveMonster.Element == "Fire" && manager.EnemyMonster.Element == "Earth")
+        if (manager.ActiveMonster.Element == "Fire" && manager.EnemyMonster.Element == "Air")
         {
             manager.EnemyMonster.DealDmg(Damage * elementDmg);
         }

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1137264796170078348}
   - component: {fileID: 4846430691876958889}
   m_Layer: 5
-  m_Name: 10+Food
+  m_Name: AddFoodUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -28,7 +28,7 @@ RectTransform:
   m_GameObject: {fileID: 1778242562092832225}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.8151705, y: 1.8151705, z: 1.8151705}
+  m_LocalScale: {x: 2.2777057, y: 2.2777057, z: 2.2777057}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0

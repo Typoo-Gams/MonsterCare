@@ -9,6 +9,7 @@ public class ClearSave : MonoBehaviour
     public bool ClearSaveScene;
     float cnt;
     public float WhaitTime;
+    bool Delete;
 
 
     // Start is called before the first frame update
@@ -26,6 +27,7 @@ public class ClearSave : MonoBehaviour
             Destroy(manager.MonsterObject);
             manager.ActiveMonster = null;
             manager.MonsterObject = null;
+            Delete = true;
         }
         catch
         {
@@ -42,21 +44,12 @@ public class ClearSave : MonoBehaviour
             cnt += Time.deltaTime;
 
         //There if there is no activemonster in the preload scene then exit the application or if the clearsavescene is true then whait for the value of whaitTime
-        if (manager.ActiveMonster == null || cnt > WhaitTime)
+        if (Delete || cnt > WhaitTime)
         {
             ResetSave();
             Debug.LogWarning("exiting");
             Application.Quit();
-            try
-            {
-                Destroy(manager.MonsterObject);
-                manager.ActiveMonster = null;
-                manager.MonsterObject = null;
-            }
-            catch
-            {
-                //no monster to wipe
-            }
+            
         }
     }
 }

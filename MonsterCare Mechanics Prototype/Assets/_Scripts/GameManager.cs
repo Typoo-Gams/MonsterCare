@@ -39,7 +39,8 @@ public class GameManager : MonoBehaviour
     //Awake is called when the script instance is being loaded
     private void Awake()
     {
-        GameVersion = "8.4.2";
+        GameVersion = "9.2";
+        Debug.LogWarning("GameVersion is V." + GameVersion);
         FoodInventory = new Food[]{
             new Food(true),
             new Food(true),
@@ -94,11 +95,6 @@ public class GameManager : MonoBehaviour
         {
             Debug.LogError("Something went wrong when saving");
         }
-        
-    }
-
-    private void OnApplicationFocus(bool focus)
-    {
         
     }
 
@@ -198,6 +194,17 @@ public class GameSaver
         {
             PlayerPrefs.SetFloat(MonsterSaveIndex + StatIndex[i], 0);
         }
+
+        Food[] cleanInv = 
+            { new Food(true),
+              new Food(true),
+              new Food(true),
+              new Food(true),
+              new Food(true),
+            };
+
+        SaveFood(cleanInv);
+
         Debug.LogWarning("Save was wiped");
     }
 
@@ -328,6 +335,10 @@ public class GameSaver
             if (yourMonster == null) 
             {
                 Debug.LogWarning("The input monster was empty and couldnt save.");
+                if(GameObject.FindGameObjectWithTag("Monster") != null) 
+                {
+                    Debug.LogWarning("but the monster is still in the scene.");
+                }
             }
         }
         
@@ -366,7 +377,7 @@ public class GameSaver
     //Saves the inventory
     public void SaveFood(Food[] inventory) 
     {
-        string inv = "Save: ";
+        string inv = "Inventory Save: ";
 
         string InventorySlot = "InventorySlot_";
         for (int i = 0; i < inventory.Length; i++)
@@ -396,7 +407,7 @@ public class GameSaver
     {
         string InventorySlot = "InventorySlot_";
         Food[] load = new Food[5];
-        string inv = "Load: ";
+        string inv = "Inventory Load: ";
         for (int i = 0; i < load.Length; i++) 
         {
             string SaveIndex = InventorySlot + i;

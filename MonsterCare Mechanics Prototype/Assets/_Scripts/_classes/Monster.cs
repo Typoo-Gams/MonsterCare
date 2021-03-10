@@ -379,7 +379,7 @@ public class Monster
 
         if (Hunger == 0)
         {
-            Health -= 0.01f;
+            UpdateHealth(HealthStatus - 0.01f);
         }
     }
 
