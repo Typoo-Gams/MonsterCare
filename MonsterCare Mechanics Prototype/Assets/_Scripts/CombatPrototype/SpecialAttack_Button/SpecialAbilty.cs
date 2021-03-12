@@ -7,7 +7,7 @@ public class SpecialAbilty : MonoBehaviour
 {
     GameManager manager;
     
-    public Image monsterIcon;
+    public Image monsterIconFill, monsterIcon;
     public float Cooldown;
     
 
@@ -21,7 +21,10 @@ public class SpecialAbilty : MonoBehaviour
     void Start()
     {
         manager = GameObject.Find("__app").GetComponentInChildren<GameManager>();
-        monsterIcon.fillAmount = 0;
+        monsterIconFill.sprite = manager.MonsterObject.GetComponent<SpriteRenderer>().sprite;
+        monsterIcon.sprite = manager.MonsterObject.GetComponent<SpriteRenderer>().sprite;
+
+        monsterIconFill.fillAmount = 0;
 
         //Checks the last eaten special food
         element = manager.ActiveMonster.Element;
@@ -38,17 +41,17 @@ public class SpecialAbilty : MonoBehaviour
             if (Input.touchCount > 1 && isCooldown == false || Input.GetMouseButtonDown(0) && Input.GetMouseButtonDown(1) && isCooldown == false)
             {
                 isCooldown = true;
-                monsterIcon.fillAmount = 1;
+                monsterIconFill.fillAmount = 1;
                 SpecialAttack();
             }
 
             if (isCooldown)
             {
-                monsterIcon.fillAmount -= 1 / Cooldown * Time.deltaTime;
+                monsterIconFill.fillAmount -= 1 / Cooldown * Time.deltaTime;
 
-                if (monsterIcon.fillAmount <= 0)
+                if (monsterIconFill.fillAmount <= 0)
                 {
-                    monsterIcon.fillAmount = 0;
+                    monsterIconFill.fillAmount = 0;
                     isCooldown = false;
                 }
             }

@@ -178,6 +178,7 @@ GameObject:
   - component: {fileID: 8637991652438758500}
   - component: {fileID: 7327075317982823997}
   - component: {fileID: 9127926483609262897}
+  - component: {fileID: 2030114411}
   m_Layer: 5
   m_Name: Canvas_EnemyMonster
   m_TagString: CanvasFighting
@@ -281,7 +282,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e1c4d983090af44b9ed5ac3d9f3b9ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  monsterIcon: {fileID: 8613295694917166185}
+  monsterIconFill: {fileID: 8613295694917166185}
+  monsterIcon: {fileID: 4554980482008394110}
   Cooldown: 5
   Damage: 10
 --- !u!114 &1740130347430442262
@@ -373,6 +375,20 @@ MonoBehaviour:
   UI:
   - {fileID: 4564358433975088222}
   - {fileID: 8651457838815821350}
+--- !u!114 &2030114411
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1740130347430442263}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe884e550f6b7fa4ab2ad1052cab5180, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AttackAnime: {fileID: 9105057151704955036, guid: 26b127820c141cb4a80609c459b55428, type: 3}
+  canvas: {fileID: 1740130347430442263}
 --- !u!1 &4564358433975088222
 GameObject:
   m_ObjectHideFlags: 0

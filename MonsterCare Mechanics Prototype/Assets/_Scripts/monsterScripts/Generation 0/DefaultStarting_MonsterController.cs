@@ -38,6 +38,9 @@ public class DefaultStarting_MonsterController : MonoBehaviour
         {
             //Overwrites the previous monsters saved stats
             Saver.SaveMonster(monster);
+            monster.EnergyStatus = 2;
+            monster.HungerStatus = 50;
+            monster.SleepStatus = 50;
         }
         //updates the monster stats from how much time passed since the last save to simulate things happening while the player isnt playing the game.
         monster.AtGameWakeUp(Saver.FindTimeDifference());

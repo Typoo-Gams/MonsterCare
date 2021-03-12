@@ -52,6 +52,7 @@ public class Monster
     readonly float MaxHunger = 100;
     readonly float MaxSleep = 100;
     readonly float MaxHappiness = 100;
+    readonly float MaxEnergy = 10;
 
 
     //Degration modifiers
@@ -428,8 +429,8 @@ public class Monster
             {
                 Energy += gainedSleep * 1;
             }
-            if (Energy > 10)
-                Energy = 10;
+            if (Energy > MaxEnergy)
+                Energy = MaxEnergy;
 
         }
         else
@@ -664,7 +665,7 @@ public class Monster
     /// <summary>
     /// Get MaxSleep Value.
     /// </summary>
-    public float SleepMaxValue
+    public float GetMaxSleep
     {
         get => MaxSleep;
     }
@@ -777,4 +778,27 @@ public class Monster
         get => elementEaten;
         set => elementEaten = value;
     }
+
+    public float GetMaxHealth 
+    {
+        get => MaxHealth;
+    }
+
+    public float GetMaxHunger
+    {
+        get => MaxHunger;
+    }
+
+    public float GetMaxEnergy
+    {
+        get => MaxEnergy;
+    }
+
+    public float GetMaxHappiness
+    {
+        get => MaxHappiness;
+    }
+
+
+    
 }
