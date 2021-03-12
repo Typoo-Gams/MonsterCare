@@ -34,6 +34,10 @@ public class SpecialAbilty : MonoBehaviour
     void Update()
     {
         OurMonsterAttack();
+
+        monsterIconFill.sprite = manager.MonsterObject.GetComponent<SpriteRenderer>().sprite;
+        monsterIcon.sprite = manager.MonsterObject.GetComponent<SpriteRenderer>().sprite;
+
     }
 
     void OurMonsterAttack()
