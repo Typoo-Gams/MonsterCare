@@ -8,6 +8,7 @@ public class EnergyCost_Button : MonoBehaviour
     GameManager manager;
     Button ThisButton;
     public int cost;
+    public GameObject[] elements;
 
     // Start is called before the first frame update
     void Start()
@@ -15,19 +16,34 @@ public class EnergyCost_Button : MonoBehaviour
         manager = GameObject.Find("__app").GetComponentInChildren<GameManager>();
         ThisButton = gameObject.GetComponent<Button>();
         ThisButton.onClick.AddListener(PayCost);
+
     }
 
     // Update is called once per frame
     void Update()
     {
         if (manager.ActiveMonster.EnergyStatus > cost)
+        {
             ThisButton.interactable = true;
+            
+            foreach(GameObject Icons in elements)
+            {
+                Icons.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
+            }
+        }
         else
+        {
             ThisButton.interactable = false;
+            foreach (GameObject Icons in elements)
+            {
+                Icons.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0.5f);
+            }
+        }
 
         if(manager.ActiveMonster.HealthStatus == 0)
         {
             ThisButton.interactable = false;
+
         }
     }   
 
