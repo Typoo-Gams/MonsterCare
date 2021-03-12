@@ -9,34 +9,36 @@ public class SmokeParticle_Box : MonoBehaviour
     public GameObject smokeParticles;
     public int SceneNumber = 0;
     public string SceneName = "";
-    private float timer = 3;
-    bool timerEnabled = false;
+
+    int tapCounter;
 
     private void Update()
     {
-        if (timerEnabled)
-        {
-            timer -= Time.deltaTime;
-            if (timer <= 0)
+        if (tapCounter > 2)
+        { 
+           
+            if (SceneName == "")
             {
-                if (SceneName == "")
-                {
-                    SceneManager.LoadScene(SceneNumber);
-                }
-                else
-                {
+                SceneManager.LoadScene(SceneNumber);
+            }
+            else
+            {
 
-                    SceneManager.LoadScene(SceneName);
-                }
+                SceneManager.LoadScene(SceneName);
             }
         }
     }
 
     private void OnMouseDown()
     {
+        Smoke();
+        tapCounter++;
+    }
+
+    private void Smoke()
+    {
         GameObject smokeParticlesPrefab = Instantiate(smokeParticles);
         smokeParticlesPrefab.transform.position = gameObject.transform.position;
         smokeParticlesPrefab.transform.SetParent(gameObject.transform, true);
-        timerEnabled = true;
     }
 }
