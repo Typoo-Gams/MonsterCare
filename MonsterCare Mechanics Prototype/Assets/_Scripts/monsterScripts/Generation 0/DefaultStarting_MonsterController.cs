@@ -77,6 +77,12 @@ public class DefaultStarting_MonsterController : MonoBehaviour
         {
             Devolution();
         }
+
+        if(gameObject.GetComponent<SpriteRenderer>().sprite.name == "S_Child_Base2.0" && monster.IsSleepingStatus) 
+            gameObject.GetComponent<Animator>().enabled = false;
+        else
+            gameObject.GetComponent<Animator>().enabled = true;
+
     }
 
     //Save the monster's stats when the gameobject is destroyed.

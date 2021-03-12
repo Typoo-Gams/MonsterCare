@@ -56,8 +56,8 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         //temporary
-        //FoodInventory[0] = new Food(false);
-        //FoodInventory[1] = new Food("Air");
+        //FoodInventory[2] = new Food(false);
+        //FoodInventory[4] = new Food("Air");
         //Save.SaveFood(FoodInventory);
         //Debug.Log("Manager Start");
     }

@@ -212,17 +212,53 @@ PrefabInstance:
       propertyPath: FoodPrefab
       value: 
       objectReference: {fileID: 3127997498886388660, guid: ce2240698a98717459ae79cf304eb17f, type: 3}
+    - target: {fileID: 1387702578091771138, guid: 40193650ec9cf7e4189cc7b3202955b8, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1387702578091771138, guid: 40193650ec9cf7e4189cc7b3202955b8, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1387702578091771138, guid: 40193650ec9cf7e4189cc7b3202955b8, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1387702578091771138, guid: 40193650ec9cf7e4189cc7b3202955b8, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1387702578091771138, guid: 40193650ec9cf7e4189cc7b3202955b8, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: -2149.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1387702578091771138, guid: 40193650ec9cf7e4189cc7b3202955b8, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: -4297.793
+      objectReference: {fileID: 0}
+    - target: {fileID: 1387702578091771138, guid: 40193650ec9cf7e4189cc7b3202955b8, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 201.07867
+      objectReference: {fileID: 0}
+    - target: {fileID: 1387702578091771138, guid: 40193650ec9cf7e4189cc7b3202955b8, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 201.09723
+      objectReference: {fileID: 0}
+    - target: {fileID: 1387702578091771138, guid: 40193650ec9cf7e4189cc7b3202955b8, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -10.098632
+      objectReference: {fileID: 0}
     - target: {fileID: 4193759537599864762, guid: 40193650ec9cf7e4189cc7b3202955b8, type: 3}
       propertyPath: m_LocalScale.x
-      value: 106.43
+      value: 203.71767
       objectReference: {fileID: 0}
     - target: {fileID: 4193759537599864762, guid: 40193650ec9cf7e4189cc7b3202955b8, type: 3}
       propertyPath: m_LocalScale.y
-      value: 107.760376
+      value: 206.26414
       objectReference: {fileID: 0}
     - target: {fileID: 4193759537599864762, guid: 40193650ec9cf7e4189cc7b3202955b8, type: 3}
       propertyPath: m_LocalScale.z
-      value: 106.43
+      value: 203.71767
       objectReference: {fileID: 0}
     - target: {fileID: 8129942001750182336, guid: 40193650ec9cf7e4189cc7b3202955b8, type: 3}
       propertyPath: m_Pivot.x

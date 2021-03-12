@@ -8,29 +8,34 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 936940343246680847}
+  - component: {fileID: 2626030103019481527}
   - component: {fileID: 182322127803144113}
   m_Layer: 0
-  m_Name: NewBG
+  m_Name: MonsterHomeBackground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &936940343246680847
-Transform:
+--- !u!224 &2626030103019481527
+RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2037337600997779236}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.7, y: 5.2, z: -61.798058}
-  m_LocalScale: {x: 5.2113, y: 5.2113, z: 5.2113}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -10.1}
+  m_LocalScale: {x: 203.71767, y: 206.26414, z: 203.71767}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 10.8, y: 22.20723}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!212 &182322127803144113
 SpriteRenderer:
   m_ObjectHideFlags: 0

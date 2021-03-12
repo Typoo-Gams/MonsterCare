@@ -262,7 +262,11 @@ MonoBehaviour:
   m_Text: 'Closing Application...
 
 
-    Clearing the save file...'
+    Clearing the save file...
+
+
+    Do not close
+    the game while saving.'
 --- !u!222 &805975338
 CanvasRenderer:
   m_ObjectHideFlags: 0
