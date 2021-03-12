@@ -63,6 +63,21 @@ public class GameManager : MonoBehaviour
     }
 
 
+    private void Update() 
+    {
+        if (Input.GetKeyDown(KeyCode.I)) 
+        {
+            ActiveMonster.UpdateHealth(100);
+            ActiveMonster.HappinessStatus = 100;
+            ActiveMonster.UpdateHappiness();
+            ActiveMonster.UpdateHunger(100);
+            ActiveMonster.SleepStatus = 100;
+            ActiveMonster.UpdateSleeping(false);
+            ActiveMonster.EnergyStatus = 10;
+        }
+    }
+
+
     //When the application is killed then save
     private void OnApplicationQuit()
     {

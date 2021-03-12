@@ -15,20 +15,21 @@ public class StatController : MonoBehaviour
     {
         manager = GameObject.Find("__app").GetComponentInChildren<GameManager>();
 
-        IconBars[0].fillAmount = manager.ActiveMonster.HealthStatus / manager.ActiveMonster.GetMaxHealth;
-        IconBars[1].fillAmount = manager.ActiveMonster.EnergyStatus / manager.ActiveMonster.GetMaxEnergy;
-        IconBars[2].fillAmount = manager.ActiveMonster.HungerStatus / manager.ActiveMonster.GetMaxHunger;
-        IconBars[3].fillAmount = manager.ActiveMonster.SleepStatus / manager.ActiveMonster.GetMaxSleep;
-        //IconBars[4].fillAmount = manager.ActiveMonster.HappinessStatus / manager.ActiveMonster.GetMaxHappiness;
+        IconBars[0].fillAmount = (manager.ActiveMonster.HealthStatus / manager.ActiveMonster.GetMaxHealth);
+        IconBars[1].fillAmount = (manager.ActiveMonster.EnergyStatus / manager.ActiveMonster.GetMaxEnergy);
+        IconBars[2].fillAmount = (manager.ActiveMonster.HungerStatus / manager.ActiveMonster.GetMaxHunger);
+        IconBars[3].fillAmount = (manager.ActiveMonster.SleepStatus / manager.ActiveMonster.GetMaxSleep);
+        IconBars[4].fillAmount = manager.ActiveMonster.HappinessStatus / manager.ActiveMonster.GetMaxHappiness;
     }
 
     // Update is called once per frame
     void Update()
     {
+        Debug.Log("0: " + manager.ActiveMonster.HealthStatus / manager.ActiveMonster.GetMaxHealth + "\n1: " + manager.ActiveMonster.EnergyStatus / manager.ActiveMonster.GetMaxEnergy + "\n2: " + manager.ActiveMonster.HungerStatus / manager.ActiveMonster.GetMaxHunger + "\n3: " + manager.ActiveMonster.SleepStatus / manager.ActiveMonster.GetMaxSleep);
         IconBars[0].fillAmount = manager.ActiveMonster.HealthStatus / manager.ActiveMonster.GetMaxHealth;
         IconBars[1].fillAmount = manager.ActiveMonster.EnergyStatus / manager.ActiveMonster.GetMaxEnergy;
         IconBars[2].fillAmount = manager.ActiveMonster.HungerStatus / manager.ActiveMonster.GetMaxHunger;
         IconBars[3].fillAmount = manager.ActiveMonster.SleepStatus / manager.ActiveMonster.GetMaxSleep;
-        //IconBars[4].fillAmount = manager.ActiveMonster.HappinessStatus / manager.ActiveMonster.GetMaxHappiness;
+        IconBars[4].fillAmount = manager.ActiveMonster.HappinessStatus / manager.ActiveMonster.GetMaxHappiness;
     }
 }
