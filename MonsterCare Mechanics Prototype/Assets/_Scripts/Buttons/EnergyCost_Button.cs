@@ -12,6 +12,9 @@ public class EnergyCost_Button : MonoBehaviour
     public int cost;
     public GameObject[] elements;
 
+
+    public bool PlaySoundWhenClicked;
+
     // Start is called before the first frame update
     void Start()
     {

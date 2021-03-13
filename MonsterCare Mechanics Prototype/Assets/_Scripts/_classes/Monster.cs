@@ -67,7 +67,7 @@ public class Monster
 
 
     //Health Bar
-    Slider HealthBar;
+    GameObject HealthBar;
 
 
     //------------------Monster Class Constructor---------------------
@@ -197,7 +197,7 @@ public class Monster
             }
             else
             {
-                HealthBar.gameObject.SetActive(true);
+                HealthBar.SetActive(true);
             }
         }
         else
@@ -208,7 +208,7 @@ public class Monster
             }
             else
             {
-                HealthBar.gameObject.SetActive(false);
+                HealthBar.SetActive(false);
             }
         }
     }
@@ -216,16 +216,14 @@ public class Monster
 
     //Sets desired healthbar to the monster
     /// <summary>
-    /// Assigns a slider as a healthbar.
+    /// Assigns a healthbar prefab as the mosnters healthbar.
     /// </summary>
     /// <param name="Slider">Spesified slider for the monster's healthbar</param>
-    public void AssignHealthBar(Slider Slider)
+    public void AssignHealthBar(GameObject GivenHealthBar)
     {
-        HealthBar = Slider;
-        HealthBar.maxValue = MaxHealth;
-        HealthBar.minValue = 0;
-        HealthBar.value = Health;
+        HealthBar = GivenHealthBar;
         HealthBar.tag = "UsedHealthbar";
+        HealthBar.GetComponent<HealthBarController>().ThisMonster = this;
     }
 
 
@@ -274,8 +272,6 @@ public class Monster
         {
             IsDead = false;
         }
-        if (HealthBar != null)
-            HealthBar.value = Health;
     }
 
 
@@ -558,11 +554,12 @@ public class Monster
 
     //Gets the slider used for the healthbar
     /// <summary>
-    /// Get the healthbar slider
+    /// Get the healthbar GameObject
     /// </summary>
     /// <returns>Health bar slider</returns>
-    public Slider GetHealthbar()
+    public GameObject GetHealthbar()
     {
+        Debug.Log(HealthBar);
         return HealthBar;
     }
 

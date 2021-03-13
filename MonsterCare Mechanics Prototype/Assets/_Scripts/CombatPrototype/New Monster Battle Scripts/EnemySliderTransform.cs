@@ -11,7 +11,7 @@ public class EnemySliderTransform : MonoBehaviour
        "AirEnemyPrefab",    //3
        "WaterEnemyPrefab"}; */
 
-    Slider TransformThis;
+    GameObject TransformThis;
     public string path;
     public Vector3 HealthbarPosition;
     GameManager manager;
@@ -25,7 +25,7 @@ public class EnemySliderTransform : MonoBehaviour
         TransformThis.transform.localPosition = HealthbarPosition;
     }
 
-    public void SetHealthbar(Slider healthbar)
+    public void SetHealthbar(GameObject healthbar)
     {
         TransformThis = healthbar;
     }

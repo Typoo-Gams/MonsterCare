@@ -60,10 +60,9 @@ public class MonsterFoodDrop : MonoBehaviour
         {
             if (manager.EnemyMonster.DeathStatus)
             {
-                if (!manager.EnemyMonster.GetHealthbar().IsActive())
+                if (!manager.EnemyMonster.GetHealthbar().activeSelf)
                 {
                     slideBar = false;
-                    Debug.Log("sliders?");
                 }
             }
         }
@@ -106,7 +105,7 @@ public class MonsterFoodDrop : MonoBehaviour
                         Debug.Log("Normal food");
                     }
                     Destroy(manager.Enemy.gameObject);
-                    Destroy(manager.ActiveMonster.GetHealthbar().gameObject);
+                    Destroy(manager.ActiveMonster.GetHealthbar());
                     manager.EnemyMonster = null;
                     Debug.Log("Enemey destroyed");
                     break;
