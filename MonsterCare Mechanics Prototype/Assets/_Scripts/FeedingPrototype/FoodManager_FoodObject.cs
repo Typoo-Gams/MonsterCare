@@ -11,6 +11,7 @@ public class FoodManager_FoodObject : MonoBehaviour
     public int FoodPower = 10;
     public string FoodElement;
     public string FoodCategory;
+    public int SpriteIndex;
 
     public int inventorySpace;
 
@@ -59,7 +60,7 @@ public class FoodManager_FoodObject : MonoBehaviour
         if (FoodCategory == "Normal") 
         {
             ThisFood = new Food(false);
-            ThisSprite = NormalFoodSprites[12];
+            ThisSprite = NormalFoodSprites[SpriteIndex];
         }
         else
         {

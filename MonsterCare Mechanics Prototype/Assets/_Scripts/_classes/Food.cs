@@ -7,6 +7,7 @@ public class Food : InventoryItem
     string foodType;
     int foodPower;
     string element;
+    int SpriteIndex;
 
     /// <summary>
     /// Create a normal/empty Food item.
@@ -20,6 +21,7 @@ public class Food : InventoryItem
             Type = "Food";
             element = "None";
             foodPower = 20;
+            SpriteIndex = -1;
         }
         else 
         {
@@ -28,6 +30,7 @@ public class Food : InventoryItem
             Type = "Food";
             element = "None";
             foodPower = 0;
+            SpriteIndex = -1;
         }
     }
 
@@ -91,5 +94,11 @@ public class Food : InventoryItem
     {
         get => element;
         set => element = value;
+    }
+
+    public int Sprite 
+    {
+        get => SpriteIndex;
+        set => SpriteIndex = value;
     }
 }

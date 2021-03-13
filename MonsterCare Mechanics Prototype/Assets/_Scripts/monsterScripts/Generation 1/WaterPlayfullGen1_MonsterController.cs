@@ -38,7 +38,7 @@ public class WaterPlayfullGen1_MonsterController : MonoBehaviour
         SendMonster();
         Debug.Log("Current monster: " + this);
 
-        monster.SetReport(Report);
+        //monster.SetReport(Report);
 
     }
 

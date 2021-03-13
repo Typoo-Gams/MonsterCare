@@ -1383,7 +1383,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4807834741392806710, guid: c150a5d01097ad944abd05efd3f51de9, type: 3}
       propertyPath: DevBuild
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4807834741392806710, guid: c150a5d01097ad944abd05efd3f51de9, type: 3}
       propertyPath: temporaryPrefab

@@ -17,7 +17,7 @@ public class FoodInventory : MonoBehaviour
     /// Index: 0 - Air, 1 - Earth, 2 - Fire, 3 - Water
     /// </summary>
     public Sprite[] Elemental = new Sprite[4];
-    public Sprite Normal;
+    public Sprite[] Normal;
 
     FoodManager_FoodObject spawn;
 
@@ -41,7 +41,10 @@ public class FoodInventory : MonoBehaviour
 
                 if (manager.FoodInventory[inventorySlot].FoodType == "Normal")
                 {
-                    ThisButton.image.sprite = Normal;
+                    if (manager.FoodInventory[inventorySlot].Sprite <= Normal.Length - 1)
+                        ThisButton.image.sprite = Normal[manager.FoodInventory[inventorySlot].Sprite];
+                    else
+                        Debug.Log(Normal.Length);
                 }
                 else
                 {
@@ -76,9 +79,10 @@ public class FoodInventory : MonoBehaviour
     void TaskOnClick() 
     {
         spawn = Instantiate(FoodPrefab, parent.transform).GetComponent<FoodManager_FoodObject>();
+        spawn.SpriteIndex = manager.FoodInventory[inventorySlot].Sprite;
         spawn.inventorySpace = inventorySlot;
         spawn.FoodCategory = manager.FoodInventory[inventorySlot].FoodType;
-        spawn.FoodCategory = manager.FoodInventory[inventorySlot].FoodType;
+        spawn.FoodElement = manager.FoodInventory[inventorySlot].Element;
         spawn.FoodPower = manager.FoodInventory[inventorySlot].Power;
         ThisButton.interactable = false;
     }

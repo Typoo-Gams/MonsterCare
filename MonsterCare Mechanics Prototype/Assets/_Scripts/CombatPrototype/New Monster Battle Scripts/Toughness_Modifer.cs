@@ -33,10 +33,18 @@ public class Toughness_Modifer : MonoBehaviour
     //private float dmgTimer = 0f;
 
     //health indicator//dmg indicator for the player
-    public GameObject HealthIndicator;
+    public GameObject sprikes, gadient;
+    float CounterShake = 0.25f;
+    float intervalShake = 0.25f;
+    bool HasMoved;
+    Vector3 originPos;
+    SpriteRenderer rend_Sprikes, rend_Gradient;
 
     private void Start()
     {
+        originPos = sprikes.transform.position;
+        rend_Sprikes = sprikes.GetComponent<SpriteRenderer>();
+        rend_Gradient = gadient.GetComponent<SpriteRenderer>();
         canvas = GameObject.FindGameObjectWithTag("CanvasFighting").GetComponent<Canvas>();
         pathLengths = Random.Range(0, enemyMonsterPaths.Length);
 
@@ -91,15 +99,14 @@ public class Toughness_Modifer : MonoBehaviour
                 {
                     counter = 0;
                     manager.ActiveMonster.DealDmg(Random.Range(minDmg, maxDmg) + (int)manager.EnemyMonster.ToughnessModifier);
+                    DmgShake(true);
+                    float alpha = 1 - (manager.ActiveMonster.HealthStatus / manager.ActiveMonster.GetMaxHealth);
+                    rend_Gradient.color = new Color(1, 1, 1, alpha);
+                    rend_Sprikes.color = new Color(1, 1, 1, alpha);
                 }
             }
        }
-
-        if (manager.ActiveMonster.HealthStatus != manager.ActiveMonster.GetMaxHealth) 
-        {
-            Shake();
-        }
-        
+        DmgShake(false);
     }
 
     public void SpawnEnemy()
@@ -115,12 +122,47 @@ public class Toughness_Modifer : MonoBehaviour
     /// <param name="sped">how fast it shakes</param>
     /// <param name="amm">how much it shakes</param>
     /// <returns></returns>
-    public Vector3 Shake(float speed = 75.0f, float amount = 0.25f)
+    public Vector3 Shake(float speed = 40.0f, float amount = 0.25f)
     {
 
         float x = Mathf.Sin(Time.time * speed) * amount;
-        float y = Mathf.Sin(Time.time * speed) * amount;
+        float y = Mathf.Sin(Time.time * speed + 0.2f) * amount;
 
         return new Vector3(x, y, 0);
+    }
+
+    //Adds shake Time to monster
+    /// <summary>
+    /// Shakes the monster's transform from left to right
+    /// </summary>
+    /// <param name="addTime">True if time should be added, false to update the shake position if it has time.</param>
+    private void DmgShake(bool addTime)
+    {
+        //add time if true (sets the timer to 0)
+        if (addTime)
+            CounterShake -= 0.25f;
+
+        //sets the timer to 0 so it doesnt go negative.
+        if (CounterShake < 0)
+            CounterShake = 0;
+
+        //if the counter is bigger than the interval then set it to its max value.
+        //when the counter has reached the interval and it has moved then reset its position to its original position.
+        if (CounterShake >= intervalShake)
+        {
+            CounterShake = 0.25f;
+            if (HasMoved)
+            {
+                sprikes.transform.position = originPos;
+                HasMoved = false;
+            }
+        }
+        else
+        {
+            HasMoved = true;
+            CounterShake += Time.deltaTime;
+            Vector3 shakePos = Shake();
+            sprikes.transform.position = shakePos;
+        }
     }
 }
