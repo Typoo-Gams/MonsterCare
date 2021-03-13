@@ -32,6 +32,9 @@ public class Toughness_Modifer : MonoBehaviour
     float counter;
     //private float dmgTimer = 0f;
 
+    //health indicator//dmg indicator for the player
+    public GameObject HealthIndicator;
+
     private void Start()
     {
         canvas = GameObject.FindGameObjectWithTag("CanvasFighting").GetComponent<Canvas>();
@@ -91,6 +94,11 @@ public class Toughness_Modifer : MonoBehaviour
                 }
             }
        }
+
+        if (manager.ActiveMonster.HealthStatus != manager.ActiveMonster.GetMaxHealth) 
+        {
+            Shake();
+        }
         
     }
 
@@ -100,5 +108,19 @@ public class Toughness_Modifer : MonoBehaviour
         {
             manager.Enemy = Instantiate(Resources.Load<GameObject>(monsterPrefab));
         }
+    }
+
+
+
+    /// <param name="sped">how fast it shakes</param>
+    /// <param name="amm">how much it shakes</param>
+    /// <returns></returns>
+    public Vector3 Shake(float speed = 75.0f, float amount = 0.25f)
+    {
+
+        float x = Mathf.Sin(Time.time * speed) * amount;
+        float y = Mathf.Sin(Time.time * speed) * amount;
+
+        return new Vector3(x, y, 0);
     }
 }

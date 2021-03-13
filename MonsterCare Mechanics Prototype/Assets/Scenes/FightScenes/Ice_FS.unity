@@ -207,7 +207,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 8.1119995, y: 0}
+  m_AnchoredPosition: {x: 8.112061, y: 0}
   m_SizeDelta: {x: -789.2, y: -1624.8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &941184364
@@ -345,6 +345,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas_EnemyMonster
       objectReference: {fileID: 0}
+    - target: {fileID: 4554980482008394110, guid: 6e8dea5fbfa00e74594cb818876d0621, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 65b0d2342b9454543b200ba86b3856bf, type: 3}
     - target: {fileID: 4808484831556523162, guid: 6e8dea5fbfa00e74594cb818876d0621, type: 3}
       propertyPath: AttackThisMonster
       value: 
@@ -437,6 +441,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: -15701
       objectReference: {fileID: 0}
+    - target: {fileID: 8613295694917166185, guid: 6e8dea5fbfa00e74594cb818876d0621, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 65b0d2342b9454543b200ba86b3856bf, type: 3}
     - target: {fileID: 9104515355766282086, guid: 6e8dea5fbfa00e74594cb818876d0621, type: 3}
       propertyPath: m_Camera
       value: 
