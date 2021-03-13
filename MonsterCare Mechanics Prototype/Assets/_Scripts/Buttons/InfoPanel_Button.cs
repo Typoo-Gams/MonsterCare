@@ -6,6 +6,8 @@ using System;
 
 public class InfoPanel_Button : MonoBehaviour
 {
+    public bool PlaySounds;
+
     //Statboard is active
     bool isActive;
     public GameObject StatBoard;
@@ -63,5 +65,6 @@ public class InfoPanel_Button : MonoBehaviour
             isActive = true;
             StatBoard.SetActive(isActive);
         }
+        FindObjectOfType<SoundManager>().play("ButtonClick");
     }
 }

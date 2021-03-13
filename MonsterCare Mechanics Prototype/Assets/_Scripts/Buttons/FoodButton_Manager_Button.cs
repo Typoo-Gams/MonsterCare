@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class FoodButton_Manager_Button : MonoBehaviour
 {
+    public bool PlaySounds;
+
     // Start is called before the first frame update
     void Start()
     {
