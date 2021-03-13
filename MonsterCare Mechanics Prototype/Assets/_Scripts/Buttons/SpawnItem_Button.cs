@@ -14,7 +14,6 @@ using UnityEngine.UI;
 
 public class SpawnItem_Button : MonoBehaviour
 {
-    public bool PlaySounds;
 
     public GameObject SpawnObject;
     public Vector3 SpawnLocation;
@@ -76,7 +75,6 @@ public class SpawnItem_Button : MonoBehaviour
             else
                 Instantiate(SpawnObject);
         }
-        FindObjectOfType<SoundManager>().play("ButtonClick");
     }
 
     //Toggles the ability to spawn objects

@@ -5,8 +5,6 @@ using UnityEngine.UI;
 
 public class EvolveTrigger_Button : MonoBehaviour
 {
-    public bool PlaySounds;
-
     GameManager manager;
     Button ThisButton;
     public int EvolveEnergyCost;
@@ -34,6 +32,5 @@ public class EvolveTrigger_Button : MonoBehaviour
     {
         manager.ActiveMonster.CanEvolveStatus = true;
         manager.ActiveMonster.EnergyStatus -= EvolveEnergyCost;
-        FindObjectOfType<SoundManager>().play("ButtonClick");
     }
 }

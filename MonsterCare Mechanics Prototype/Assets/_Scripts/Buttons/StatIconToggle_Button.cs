@@ -5,8 +5,6 @@ using UnityEngine.UI;
 
 public class StatIconToggle_Button : MonoBehaviour
 {
-    public bool PlaySounds;
-
     public Animator anim;
 
     // Start is called before the first frame update
@@ -20,6 +18,5 @@ public class StatIconToggle_Button : MonoBehaviour
         bool IsOpen = anim.GetBool("Open");
 
         anim.SetBool("Open", !IsOpen);
-        FindObjectOfType<SoundManager>().play("ButtonClick");
     }
 }
