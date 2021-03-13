@@ -1051,6 +1051,24 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 7418330458548354933, guid: c150a5d01097ad944abd05efd3f51de9, type: 3}
   m_PrefabInstance: {fileID: 4971190951972135497}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1853355647
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1853355646}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc4e3852b1e276c45bc13a5ec1d4bb2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Sounds:
+  - name: TakingDMG
+    clip: {fileID: 8300000, guid: 856bf5817d7504b41af1345b17a07deb, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
 --- !u!1 &1869972226
 GameObject:
   m_ObjectHideFlags: 0
@@ -1383,8 +1401,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4807834741392806710, guid: c150a5d01097ad944abd05efd3f51de9, type: 3}
       propertyPath: DevBuild
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4807834741392806710, guid: c150a5d01097ad944abd05efd3f51de9, type: 3}
+      propertyPath: temporaryPrefab
+      value: 
+      objectReference: {fileID: 7418330458548354933, guid: c150a5d01097ad944abd05efd3f51de9, type: 3}
     - target: {fileID: 7418330458548354933, guid: c150a5d01097ad944abd05efd3f51de9, type: 3}
       propertyPath: m_Name
       value: GameManager

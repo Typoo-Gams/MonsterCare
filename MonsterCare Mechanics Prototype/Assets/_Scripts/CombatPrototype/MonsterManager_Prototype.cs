@@ -30,7 +30,7 @@ public class MonsterManager_Prototype : MonoBehaviour
     //testing monster class
     StartMonster = new Monster("Ditto");
     StartMonster.DebugMonster();
-    //StartMonster.AssignHealthBar(GameObject.FindGameObjectWithTag("UnusedSlider").GetComponent<Slider>());
+    StartMonster.AssignHealthBar(GameObject.FindGameObjectWithTag("UnusedSlider").GetComponent<Slider>());
     StartMonster.CombatActive(true);
     StartMonster.SetOriginPos(transform);
     }

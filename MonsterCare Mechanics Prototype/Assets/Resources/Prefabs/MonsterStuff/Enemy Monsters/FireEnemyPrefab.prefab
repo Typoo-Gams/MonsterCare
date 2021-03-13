@@ -82,7 +82,6 @@ GameObject:
   - component: {fileID: 3456925809056685125}
   - component: {fileID: 3456925809056685126}
   - component: {fileID: 3367181997876113915}
-  - component: {fileID: 2249448803458344204}
   m_Layer: 0
   m_Name: FireEnemyPrefab
   m_TagString: Monster
@@ -172,22 +171,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cf4242ac0e7cd0438e38fb7e5deb153, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ThisHealthBar: {fileID: 4127832794064725362, guid: bec77db43baf692489e7eb0c2d12d2c5, type: 3}
-  ThisPrefabPath: 
---- !u!114 &2249448803458344204
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3456925809056685127}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1c22d334ce0ca4a48942924169f39be2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  path: 
-  HealthbarPosition: {x: 0, y: 158, z: 0}
+  SliderPrefab: {fileID: 190257228423986411, guid: 1d0ae7dd89f808e4fad3cd39497bca8e, type: 3}
+  ThisPrefab: {fileID: 0}
 --- !u!1 &3975501795422177995
 GameObject:
   m_ObjectHideFlags: 0
