@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.Audio;
 
 
 public class Toughness_Modifer : MonoBehaviour
@@ -99,10 +100,14 @@ public class Toughness_Modifer : MonoBehaviour
                 {
                     counter = 0;
                     manager.ActiveMonster.DealDmg(Random.Range(minDmg, maxDmg) + (int)manager.EnemyMonster.ToughnessModifier);
+
                     DmgShake(true);
                     float alpha = 1 - (manager.ActiveMonster.HealthStatus / manager.ActiveMonster.GetMaxHealth);
                     rend_Gradient.color = new Color(1, 1, 1, alpha);
                     rend_Sprikes.color = new Color(1, 1, 1, alpha);
+
+                    FindObjectOfType<SoundManager>().play("TakingDMG");
+
                 }
             }
        }
