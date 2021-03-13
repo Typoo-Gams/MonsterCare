@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class ToggleGameObjects_Button : MonoBehaviour
 {
+    public bool PlaySounds;
+
     bool IsActive;
     public bool rendererOrEnabled;
     public GameObject[] toggleThis;
@@ -24,6 +26,7 @@ public class ToggleGameObjects_Button : MonoBehaviour
             {
                 toggleThis[i].SetActive(IsActive);
                 IsActive = !IsActive;
+
             }
         }
         else
@@ -34,5 +37,6 @@ public class ToggleGameObjects_Button : MonoBehaviour
                 IsActive = !IsActive;
             }
         }
+        FindObjectOfType<SoundManager>().play("ButtonClick");
     }
 }

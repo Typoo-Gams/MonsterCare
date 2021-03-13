@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class QuitTheApp_Button : MonoBehaviour
 {
+    public bool PlaySounds;
+
     public Canvas exitCanvas;
     public Button Cancel, Quit;
 
@@ -24,6 +26,7 @@ public class QuitTheApp_Button : MonoBehaviour
 
     public void ExitGame()
     {
+        FindObjectOfType<SoundManager>().play("ButtonClick");
         Application.Quit();
     }
 

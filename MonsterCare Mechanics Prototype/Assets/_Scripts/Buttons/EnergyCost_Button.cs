@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class EnergyCost_Button : MonoBehaviour
 {
+    public bool PlaySounds;
+
     GameManager manager;
     Button ThisButton;
     public int cost;
@@ -53,5 +55,6 @@ public class EnergyCost_Button : MonoBehaviour
     void PayCost() 
     {
         manager.ActiveMonster.EnergyStatus -= cost;
+        FindObjectOfType<SoundManager>().play("ButtonClick");
     }
 }
