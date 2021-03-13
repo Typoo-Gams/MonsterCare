@@ -56,11 +56,11 @@ public class Toughness_Modifer : MonoBehaviour
 
         /*This spawns the health for our monster and makes sure
             * that the health will go down*/
-        //GameObject Spawned = Instantiate(manager.GreenSliderPrefab);
+        Slider Spawned = Instantiate(manager.GreenSliderPrefab);
         manager.ActiveMonster.CombatActive(true);
-        //Spawned.transform.SetParent(canvas.transform, false);
-        //Spawned.transform.localScale = new Vector3(3, 3, 3);
-        //manager.ActiveMonster.AssignHealthBar(Spawned);
+        Spawned.transform.SetParent(canvas.transform, false);
+        Spawned.transform.localScale = new Vector3(3, 3, 3);
+        manager.ActiveMonster.AssignHealthBar(Spawned);
         manager.ActiveMonster.DebugMonster();
 
         //this checks which scene you are using and then spawns the correct enemy
@@ -85,10 +85,6 @@ public class Toughness_Modifer : MonoBehaviour
 
         isActive = true;
         SpawnEnemy();
-
-        float alpha = 1 - (manager.ActiveMonster.HealthStatus / manager.ActiveMonster.GetMaxHealth);
-        rend_Gradient.color = new Color(1, 1, 1, alpha);
-        rend_Sprikes.color = new Color(1, 1, 1, alpha);
 
     }
 

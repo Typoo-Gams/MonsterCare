@@ -21,7 +21,7 @@ public class GameManager : MonoBehaviour
     public GameObject Enemy;
     public Monster EnemyMonster;
     //slider for stuff
-    public GameObject HealthBarPrefab;
+    public Slider SliderPrefab;
     public Slider GreenSliderPrefab;
 
     //GameVersion

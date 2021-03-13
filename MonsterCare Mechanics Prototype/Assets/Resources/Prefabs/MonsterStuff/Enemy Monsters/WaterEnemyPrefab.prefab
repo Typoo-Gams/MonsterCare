@@ -169,8 +169,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cf4242ac0e7cd0438e38fb7e5deb153, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ThisHealthBar: {fileID: 4127832794064725362, guid: bec77db43baf692489e7eb0c2d12d2c5, type: 3}
-  ThisPrefabPath: 
+  SliderPrefab: {fileID: 190257228423986411, guid: 1d0ae7dd89f808e4fad3cd39497bca8e, type: 3}
+  ThisPrefab: {fileID: 0}
 --- !u!1 &8232201682366267602
 GameObject:
   m_ObjectHideFlags: 0

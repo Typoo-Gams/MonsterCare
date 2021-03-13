@@ -11,8 +11,7 @@ public class MonsterManager_AttackPrototype : MonoBehaviour
 
     //monster stuff
     public Monster StartMonster;
-    public GameObject ThisHealthBar;
-    GameObject healthbarr;
+    public Slider SliderPrefab;
     private Canvas CurrentCanvas;
     public string ThisPrefabPath;
     string sceneElement;
@@ -35,11 +34,10 @@ public class MonsterManager_AttackPrototype : MonoBehaviour
         //getting canvas
         CurrentCanvas = GameObject.FindGameObjectWithTag("CanvasFighting").GetComponent<Canvas>();
         //making health bar
-        healthbarr = Instantiate(ThisHealthBar);
+        Slider healthbarr = Instantiate(SliderPrefab);
         healthbarr.transform.SetParent(CurrentCanvas.transform, false);
         healthbarr.transform.localPosition = new Vector3(0, 110, 0);
-        healthbarr.transform.localScale = new Vector3(0.562962055f, 0.562962055f, 0.562962055f);
-        healthbarr.GetComponent<HealthBarController>().ThisMonster = StartMonster;
+        healthbarr.transform.localScale = new Vector3(3f, 3f, 3f);
 
         //creating the monster
         StartMonster = new Monster("Enemy_Placeholder");
@@ -121,7 +119,8 @@ public class MonsterManager_AttackPrototype : MonoBehaviour
     //Removed the healthbar when the enemy is killed.
     private void OnDestroy()
     {
-        Destroy(healthbarr);
+        Slider destroy = StartMonster.GetHealthbar();
+        Destroy(destroy);
     }
 
     //Adds shake Time to monster
