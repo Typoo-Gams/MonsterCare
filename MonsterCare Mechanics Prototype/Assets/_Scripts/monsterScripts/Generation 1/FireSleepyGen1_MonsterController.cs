@@ -48,7 +48,7 @@ public class FireSleepyGen1_MonsterController : MonoBehaviour
     void Update()
     {
         cnt += Time.deltaTime;
-        if (cnt >= 1)
+        if (cnt >= 0.1f)
         {
             monster.DegradeHunger();
             monster.UpdateHappiness();

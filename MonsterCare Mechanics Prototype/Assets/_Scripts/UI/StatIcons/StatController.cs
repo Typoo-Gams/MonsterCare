@@ -25,7 +25,6 @@ public class StatController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log("0: " + manager.ActiveMonster.HealthStatus / manager.ActiveMonster.GetMaxHealth + "\n1: " + manager.ActiveMonster.EnergyStatus / manager.ActiveMonster.GetMaxEnergy + "\n2: " + manager.ActiveMonster.HungerStatus / manager.ActiveMonster.GetMaxHunger + "\n3: " + manager.ActiveMonster.SleepStatus / manager.ActiveMonster.GetMaxSleep);
         IconBars[0].fillAmount = manager.ActiveMonster.HealthStatus / manager.ActiveMonster.GetMaxHealth;
         IconBars[1].fillAmount = manager.ActiveMonster.EnergyStatus / manager.ActiveMonster.GetMaxEnergy;
         IconBars[2].fillAmount = manager.ActiveMonster.HungerStatus / manager.ActiveMonster.GetMaxHunger;
