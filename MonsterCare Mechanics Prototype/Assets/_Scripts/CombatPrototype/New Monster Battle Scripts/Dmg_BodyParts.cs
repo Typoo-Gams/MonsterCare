@@ -30,6 +30,7 @@ public class Dmg_BodyParts : MonoBehaviour
         {
             manager.EnemyMonster.DealDmg(1 * DmgModifier);
             DmgShake(true);
+            FindObjectOfType<SoundManager>().play("SwordSwing");
         }
         else
         {
