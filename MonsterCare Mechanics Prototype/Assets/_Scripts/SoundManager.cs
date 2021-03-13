@@ -13,7 +13,7 @@ public class SoundManager : MonoBehaviour
         foreach (Sounds SoundClip in Sounds)
         {
             SoundClip.source = gameObject.AddComponent<AudioSource>();
-            
+            Debug.LogError(SoundClip.source.gameObject.name);
             SoundClip.source.clip = SoundClip.clip;
 
             SoundClip.source.volume = SoundClip.volume;

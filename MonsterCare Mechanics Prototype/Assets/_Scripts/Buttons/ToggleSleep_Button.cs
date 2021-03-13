@@ -5,8 +5,6 @@ using UnityEngine.UI;
 
 public class ToggleSleep_Button : MonoBehaviour
 {
-    public bool PlaySounds;
-
     public GameObject NightTime;
     public GameManager manager;
     public Text zZz;
@@ -67,7 +65,5 @@ public class ToggleSleep_Button : MonoBehaviour
         //temporary UI feedback and debug log
         zZz.gameObject.SetActive(toggle);
         manager.ActiveMonster.DebugMonster();
-
-        FindObjectOfType<SoundManager>().play("ButtonClick");
     }
 }
