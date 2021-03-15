@@ -35,6 +35,8 @@ public class Fainting_OurMonster : MonoBehaviour
         {
             UI[i].SetActive(false);
         }
+
+        //move this
         if (Input.GetMouseButtonDown(0))
         {
             text.gameObject.SetActive(false);

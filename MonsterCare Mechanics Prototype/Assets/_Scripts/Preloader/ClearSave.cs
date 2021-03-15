@@ -10,7 +10,7 @@ public class ClearSave : MonoBehaviour
     float cnt;
     public float WhaitTime;
     bool Delete;
-    public Slider whaitTimer;
+    public GameObject whaitTimer;
 
 
     // Start is called before the first frame update
@@ -21,11 +21,7 @@ public class ClearSave : MonoBehaviour
         {
             gameObject.GetComponent<Button>().onClick.AddListener(ResetSave);
         }
-
-        if (whaitTimer != null) 
-        {
-            whaitTimer.maxValue = WhaitTime;
-        }
+        whaitTimer.GetComponent<LoadingBar>().whaitTime = WhaitTime;
     }
 
     public void ResetSave() 
@@ -52,7 +48,7 @@ public class ClearSave : MonoBehaviour
         if (ClearSaveScene)
         {
             cnt += Time.deltaTime;
-            whaitTimer.value = cnt;
+            whaitTimer.GetComponent<LoadingBar>().CurrentWhaitTime = cnt;
         }
 
         //There if there is no activemonster in the preload scene then exit the application or if the clearsavescene is true then whait for the value of whaitTime
