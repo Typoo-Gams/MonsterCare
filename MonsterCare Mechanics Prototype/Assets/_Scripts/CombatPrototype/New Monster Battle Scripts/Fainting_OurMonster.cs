@@ -30,7 +30,6 @@ public class Fainting_OurMonster : MonoBehaviour
 
             float cnt = Mathf.Clamp(count += Time.deltaTime, 0 , whaitTime);
             timer.text = "" + Math.Truncate(whaitTime - cnt);
-            Debug.Log(cnt);
             if (cnt == whaitTime) 
             {
                 timer.text = "Tap to continue.";
