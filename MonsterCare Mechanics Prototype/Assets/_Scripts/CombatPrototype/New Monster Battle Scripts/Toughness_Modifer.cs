@@ -34,7 +34,7 @@ public class Toughness_Modifer : MonoBehaviour
     //private float dmgTimer = 0f;
 
     //health indicator//dmg indicator for the player
-    public GameObject sprikes, gadient;
+    public GameObject sprikes, gadient, HealthBar;
     float CounterShake = 0.25f;
     float intervalShake = 0.25f;
     bool HasMoved;
@@ -90,11 +90,12 @@ public class Toughness_Modifer : MonoBehaviour
         rend_Gradient.color = new Color(1, 1, 1, alpha);
         rend_Sprikes.color = new Color(1, 1, 1, alpha);
 
+        HealthBar.GetComponent<HealthBarController>().ThisMonster = manager.ActiveMonster;
     }
 
     private void Update()
     {
-       if(manager.EnemyMonster != null)
+       if(manager.EnemyMonster != null && manager.ActiveMonster.HealthStatus != 0)
        {
             if (isActive == true)
             {
@@ -104,7 +105,6 @@ public class Toughness_Modifer : MonoBehaviour
                 {
                     counter = 0;
                     manager.ActiveMonster.DealDmg(Random.Range(minDmg, maxDmg) + (int)manager.EnemyMonster.ToughnessModifier);
-
                     DmgShake(true);
                     float alpha = 1 - (manager.ActiveMonster.HealthStatus / manager.ActiveMonster.GetMaxHealth);
                     rend_Gradient.color = new Color(1, 1, 1, alpha);

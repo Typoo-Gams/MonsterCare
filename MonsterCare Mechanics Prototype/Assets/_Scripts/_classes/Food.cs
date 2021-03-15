@@ -21,7 +21,7 @@ public class Food : InventoryItem
             Type = "Food";
             element = "None";
             foodPower = 20;
-            SpriteIndex = -1;
+            SpriteIndex = 12;
         }
         else 
         {

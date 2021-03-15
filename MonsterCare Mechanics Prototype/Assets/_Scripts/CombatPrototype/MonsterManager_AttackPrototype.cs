@@ -37,8 +37,6 @@ public class MonsterManager_AttackPrototype : MonoBehaviour
         //making health bar
         healthbarr = Instantiate(ThisHealthBar);
         healthbarr.transform.SetParent(CurrentCanvas.transform, false);
-        healthbarr.transform.localPosition = new Vector3(0, 110, 0);
-        healthbarr.transform.localScale = new Vector3(0.562962055f, 0.562962055f, 0.562962055f);
         healthbarr.GetComponent<HealthBarController>().ThisMonster = StartMonster;
 
         //creating the monster

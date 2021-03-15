@@ -74,6 +74,13 @@ public class GameManager : MonoBehaviour
             ActiveMonster.SleepStatus = 100;
             ActiveMonster.UpdateSleeping(false);
             ActiveMonster.EnergyStatus = 10;
+
+            FoodInventory[0] = new Food(false);
+            FoodInventory[1] = new Food("Air");
+            FoodInventory[2] = new Food("Earth");
+            FoodInventory[3] = new Food("Fire");
+            FoodInventory[4] = new Food("Water");
+            Save.SaveFood(FoodInventory);
         }
     }
 

@@ -559,7 +559,6 @@ public class Monster
     /// <returns>Health bar slider</returns>
     public GameObject GetHealthbar()
     {
-        Debug.Log(HealthBar);
         return HealthBar;
     }
 

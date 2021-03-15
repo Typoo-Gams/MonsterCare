@@ -8,6 +8,8 @@ public class StatController : MonoBehaviour
 
     //
     public Image[] IconBars = new Image[5];
+    public Sprite[] ElementSprites = new Sprite[5];
+    public GameObject ElementStat;
     GameManager manager;
 
     // Start is called before the first frame update
@@ -15,20 +17,50 @@ public class StatController : MonoBehaviour
     {
         manager = GameObject.Find("__app").GetComponentInChildren<GameManager>();
 
-        IconBars[0].fillAmount = (manager.ActiveMonster.HealthStatus / manager.ActiveMonster.GetMaxHealth);
-        IconBars[1].fillAmount = (manager.ActiveMonster.EnergyStatus / manager.ActiveMonster.GetMaxEnergy);
-        IconBars[2].fillAmount = (manager.ActiveMonster.HungerStatus / manager.ActiveMonster.GetMaxHunger);
-        IconBars[3].fillAmount = (manager.ActiveMonster.SleepStatus / manager.ActiveMonster.GetMaxSleep);
-        IconBars[4].fillAmount = manager.ActiveMonster.HappinessStatus / manager.ActiveMonster.GetMaxHappiness;
+        UpdateIcons();
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        IconBars[0].fillAmount = manager.ActiveMonster.HealthStatus / manager.ActiveMonster.GetMaxHealth;
-        IconBars[1].fillAmount = manager.ActiveMonster.EnergyStatus / manager.ActiveMonster.GetMaxEnergy;
-        IconBars[2].fillAmount = manager.ActiveMonster.HungerStatus / manager.ActiveMonster.GetMaxHunger;
-        IconBars[3].fillAmount = manager.ActiveMonster.SleepStatus / manager.ActiveMonster.GetMaxSleep;
+        UpdateIcons();
+    }
+
+    void UpdateIcons() 
+    {
+        IconBars[0].fillAmount = (manager.ActiveMonster.HealthStatus / manager.ActiveMonster.GetMaxHealth);
+        IconBars[1].fillAmount = (manager.ActiveMonster.EnergyStatus / manager.ActiveMonster.GetMaxEnergy);
+        IconBars[2].fillAmount = (manager.ActiveMonster.HungerStatus / manager.ActiveMonster.GetMaxHunger);
+        IconBars[3].fillAmount = (manager.ActiveMonster.SleepStatus / manager.ActiveMonster.GetMaxSleep);
         IconBars[4].fillAmount = manager.ActiveMonster.HappinessStatus / manager.ActiveMonster.GetMaxHappiness;
+
+        switch (manager.ActiveMonster.Element)
+        {
+            case "Air":
+                ElementStat.GetComponent<SpriteRenderer>().sprite = ElementSprites[0];
+                ElementStat.transform.localScale = new Vector3(27.5039425f, 27.5039425f, 27.5039425f);
+                break;
+
+            case "Earth":
+                ElementStat.GetComponent<SpriteRenderer>().sprite = ElementSprites[1];
+                ElementStat.transform.localScale = new Vector3(27.5039425f, 27.5039425f, 27.5039425f);
+                break;
+
+            case "Fire":
+                ElementStat.GetComponent<SpriteRenderer>().sprite = ElementSprites[2];
+                ElementStat.transform.localScale = new Vector3(27.5039425f, 27.5039425f, 27.5039425f);
+                break;
+
+            case "Water":
+                ElementStat.GetComponent<SpriteRenderer>().sprite = ElementSprites[3];
+                ElementStat.transform.localScale = new Vector3(27.5039425f, 27.5039425f, 27.5039425f);
+                break;
+
+            case "None":
+                ElementStat.GetComponent<SpriteRenderer>().sprite = ElementSprites[4];
+                ElementStat.transform.localScale = new Vector3(21.6754208f, 21.6754208f, 21.6754208f);
+                break;
+        }
     }
 }

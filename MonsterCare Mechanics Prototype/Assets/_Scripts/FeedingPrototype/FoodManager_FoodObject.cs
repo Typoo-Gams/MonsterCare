@@ -97,7 +97,7 @@ public class FoodManager_FoodObject : MonoBehaviour
             Text spawn = Instantiate(UI);
             spawn.text = "+" + ThisFood.Power;
             spawn.transform.SetParent(CurrentCanvas.transform, false);
-            spawn.transform.localPosition = new Vector3(347f, 276f, -19439.998f);
+            spawn.transform.localPosition = new Vector3(347f, 276f, 60f);
             
             //destroys the food
             Destroy(gameObject);
