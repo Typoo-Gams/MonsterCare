@@ -91,6 +91,7 @@ public class FoodManager_FoodObject : MonoBehaviour
         {
             //updates the monsters hunger when it eats the food
             manager.ActiveMonster.UpdateHunger(manager.ActiveMonster.HungerStatus + ThisFood.Power);
+            FindObjectOfType<SoundManager>().play("MunchSound");
 
             //spawns temporary feedback UI
             Text spawn = Instantiate(UI);
