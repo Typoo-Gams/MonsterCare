@@ -82,6 +82,11 @@ public class GameManager : MonoBehaviour
             FoodInventory[4] = new Food("Water");
             Save.SaveFood(FoodInventory);
         }
+
+        if (Input.GetKeyDown(KeyCode.O)) 
+        {
+            ActiveMonster.UpdateHealth(1);
+        }
     }
 
 

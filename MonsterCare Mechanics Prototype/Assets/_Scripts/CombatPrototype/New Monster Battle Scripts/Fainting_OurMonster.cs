@@ -3,14 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using System;
 
 public class Fainting_OurMonster : MonoBehaviour
 {
     GameManager manager;
     public GameObject black;
 
-    public Text text;
+    public Text text, timer;
     public GameObject[] UI;
+
+    float count;
+    public float whaitTime;
 
     private void Start()
     {
@@ -20,7 +24,23 @@ public class Fainting_OurMonster : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Fainting();
+        if (manager.ActiveMonster.DeathStatus == true)
+        {
+            Fainting();
+
+            float cnt = Mathf.Clamp(count += Time.deltaTime, 0 , whaitTime);
+            timer.text = "" + Math.Truncate(whaitTime - cnt);
+            Debug.Log(cnt);
+            if (cnt == whaitTime) 
+            {
+                timer.text = "Tap to continue.";
+                if (Input.GetMouseButtonDown(0))
+                {
+                    text.gameObject.SetActive(false);
+                    SceneManager.LoadScene("MonsterHome");
+                }
+            }
+        }
     }
 
     private IEnumerator Wait()
@@ -28,28 +48,18 @@ public class Fainting_OurMonster : MonoBehaviour
         yield return new WaitForSeconds(1);
         black.SetActive(true);
         text.gameObject.SetActive(true);
+        timer.gameObject.SetActive(true);
         //manager.ActiveMonster.GetHealthbar().SetActive(false);
         manager.EnemyMonster.GetHealthbar().SetActive(false);
         manager.Enemy.SetActive(false);
         for (int i = 0; i < UI.Length; i++) 
         {
             UI[i].SetActive(false);
-        }
-
-        //move this
-        if (Input.GetMouseButtonDown(0))
-        {
-            text.gameObject.SetActive(false);
-            SceneManager.LoadScene("MonsterHome");
-        }
-        
+        }        
     }
 
     public void Fainting()
     {
-        if(manager.ActiveMonster.DeathStatus == true)
-        {
-            StartCoroutine(Wait());
-        }
+        StartCoroutine(Wait());
     }
 }
