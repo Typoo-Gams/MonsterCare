@@ -315,19 +315,31 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 213113369, guid: 6e8dea5fbfa00e74594cb818876d0621, type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 728705797, guid: 6e8dea5fbfa00e74594cb818876d0621, type: 3}
+      propertyPath: m_RootOrder
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 905119215, guid: 6e8dea5fbfa00e74594cb818876d0621, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 1069118779, guid: 6e8dea5fbfa00e74594cb818876d0621, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1069118780, guid: 6e8dea5fbfa00e74594cb818876d0621, type: 3}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1069118780, guid: 6e8dea5fbfa00e74594cb818876d0621, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -14473
+      value: -752
+      objectReference: {fileID: 0}
+    - target: {fileID: 100616586768362409, guid: 6e8dea5fbfa00e74594cb818876d0621, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 490909695403123566, guid: 6e8dea5fbfa00e74594cb818876d0621, type: 3}
       propertyPath: m_IsActive
@@ -352,6 +364,10 @@ PrefabInstance:
     - target: {fileID: 1740130347430442263, guid: 6e8dea5fbfa00e74594cb818876d0621, type: 3}
       propertyPath: m_Name
       value: Canvas_EnemyMonster
+      objectReference: {fileID: 0}
+    - target: {fileID: 3137939048074698378, guid: 6e8dea5fbfa00e74594cb818876d0621, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4554980482008394110, guid: 6e8dea5fbfa00e74594cb818876d0621, type: 3}
       propertyPath: m_Sprite
@@ -445,9 +461,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7580311023013114472, guid: 6e8dea5fbfa00e74594cb818876d0621, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1568
+      objectReference: {fileID: 0}
     - target: {fileID: 8300247257192490129, guid: 6e8dea5fbfa00e74594cb818876d0621, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -15701
+      value: -1622
       objectReference: {fileID: 0}
     - target: {fileID: 8613295694917166185, guid: 6e8dea5fbfa00e74594cb818876d0621, type: 3}
       propertyPath: m_Sprite
