@@ -28,8 +28,8 @@ public class Fainting_OurMonster : MonoBehaviour
         yield return new WaitForSeconds(1);
         black.SetActive(true);
         text.gameObject.SetActive(true);
-        manager.ActiveMonster.GetHealthbar().gameObject.SetActive(false);
-        manager.EnemyMonster.GetHealthbar().gameObject.SetActive(false);
+        //manager.ActiveMonster.GetHealthbar().SetActive(false);
+        manager.EnemyMonster.GetHealthbar().SetActive(false);
         manager.Enemy.SetActive(false);
         UI[0].SetActive(false);
         UI[1].SetActive(false);

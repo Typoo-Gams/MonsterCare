@@ -9,7 +9,6 @@ public class HealthBarController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(ThisMonster.Name);
         float index = ThisMonster.HealthStatus / ThisMonster.GetMaxHealth;
         HealthBarFill.fillAmount = index;
     }
