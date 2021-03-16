@@ -29,7 +29,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3127997498886388660}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -21.2, y: 38.9, z: 187.07507}
+  m_LocalPosition: {x: 0, y: 1388.0001, z: 0}
   m_LocalScale: {x: 215.99998, y: 215.99998, z: 215.99998}
   m_Children: []
   m_Father: {fileID: 0}
@@ -101,6 +101,7 @@ MonoBehaviour:
   FoodPower: 10
   FoodElement: 
   FoodCategory: 
+  SpriteIndex: 0
   inventorySpace: 0
   NormalFoodSprites:
   - {fileID: -7993830526901381209, guid: 6bc3eb30f95f5e4419b2d5b18705496b, type: 3}

@@ -34,6 +34,7 @@ public class GameManager : MonoBehaviour
     public Food FoodReward;
 
     public bool NewSave;
+    public bool SoundMuted;
 
     //Awake is called when the script instance is being loaded
     private void Awake()
@@ -140,6 +141,9 @@ public class GameManager : MonoBehaviour
             //change to renderer so that stats can change while in other scenes?
             MonsterObject.GetComponent<SpriteRenderer>().enabled = false;
         }
+        if (Camera.main.GetComponent<AudioListener>() != null && SoundMuted)
+            Camera.main.GetComponent<AudioListener>().enabled = false;
+
     }
 
 

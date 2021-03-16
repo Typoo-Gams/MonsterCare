@@ -49,7 +49,7 @@ public class FoodManager_FoodObject : MonoBehaviour
             CurrentCanvas = GameObject.FindGameObjectWithTag("CanvasFighting").GetComponent<Canvas>();
         }
         gameObject.transform.localScale = new Vector3(100, 100, 100);
-        gameObject.transform.localPosition = new Vector3(-118, 204, 0);
+        gameObject.transform.localPosition = new Vector3(0, 1388f, 0);
 
         //finds the __app for referencing the gamemanager. finds the button that spawns food.
         manager = GameObject.Find("__app").GetComponentInChildren<GameManager>();

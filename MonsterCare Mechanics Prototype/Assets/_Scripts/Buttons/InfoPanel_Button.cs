@@ -55,16 +55,19 @@ public class InfoPanel_Button : MonoBehaviour
     //toggle the active state of the statboard.
     public void StatBoardToggle()
     {
-        if (isActive)
+        if (manager.DevBuild)
         {
-            isActive = false;
-            StatBoard.SetActive(isActive);
+            if (isActive)
+            {
+                isActive = false;
+                StatBoard.SetActive(isActive);
+            }
+            else
+            {
+                isActive = true;
+                StatBoard.SetActive(isActive);
+            }
+            FindObjectOfType<SoundManager>().play("ButtonClick");
         }
-        else
-        {
-            isActive = true;
-            StatBoard.SetActive(isActive);
-        }
-        FindObjectOfType<SoundManager>().play("ButtonClick");
     }
 }

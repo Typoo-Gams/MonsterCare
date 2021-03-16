@@ -469,15 +469,17 @@ public class Monster
     /// </summary>
     public void UpdateHappiness()
     {
-
+        float happinessDifference = 0;
 
         if(IsStarving && Happiness != 0)
         {
-            Happiness = Happiness - 3;
+            //Happiness = Happiness - 3;
+            happinessDifference -= 3;
         }
         if(IsFull && Happiness <= MaxHappiness - 5)
         {
-            Happiness = Happiness + 2;
+            //Happiness = Happiness + 2;
+            happinessDifference += 2;
         }
 
         if (IsDead)
@@ -487,20 +489,25 @@ public class Monster
 
         if(Health <= 49)
         {
-            Happiness = Happiness - 3;
+            //Happiness = Happiness - 3;
+            happinessDifference -= 3;
         }
 
         if (Health >= 50)
         {
-            Happiness = Happiness + 1;
+            //Happiness = Happiness + 1;
+            happinessDifference += 1;
         }
 
         if (IsRested)
         {
-            Happiness = Happiness + 2;
+            //Happiness = Happiness + 2;
+            happinessDifference += 2;
+
         }
 
         //if(IsMedicated) Potencially adding this later
+        Happiness = Happiness + happinessDifference;
 
         if (Happiness <= 0)
         {
@@ -528,6 +535,8 @@ public class Monster
             HungerDegration = 0.083f * 1.1f;
             SleepDegration = 0.083f * 1.1f;
         }
+
+
     }
 
 
