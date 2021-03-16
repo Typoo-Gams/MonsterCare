@@ -906,7 +906,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Whait for seconds
+  m_Text: Wait for seconds
 --- !u!1 &4564358433975088222
 GameObject:
   m_ObjectHideFlags: 0

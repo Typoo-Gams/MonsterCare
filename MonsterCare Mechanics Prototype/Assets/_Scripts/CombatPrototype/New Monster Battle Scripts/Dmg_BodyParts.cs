@@ -5,12 +5,15 @@ using UnityEngine;
 public class Dmg_BodyParts : MonoBehaviour
 {
     GameManager manager;
+    public GameObject canvas;
 
     bool currentlyAttacking;
     public int DmgModifier;
     float CounterShake;
     float intervalShake;
     bool HasMoved = false;
+
+    public GameObject[] dmgText;
 
     private void Start()
     {
@@ -31,6 +34,20 @@ public class Dmg_BodyParts : MonoBehaviour
             manager.EnemyMonster.DealDmg(1 * DmgModifier);
             DmgShake(true);
             FindObjectOfType<SoundManager>().play("SwordSwing");
+
+            if(DmgModifier == 1)
+            {
+                GameObject spawn = Instantiate(dmgText[0]);
+                spawn.transform.SetParent(canvas.transform, false);
+                Debug.Log("workinggs");
+            }
+            if(DmgModifier == 2 || DmgModifier == 3)
+            {
+                GameObject spawn = Instantiate(dmgText[0]);
+                spawn.transform.SetParent(canvas.transform, false);
+                Debug.Log("working");
+            }
+
         }
         else
         {

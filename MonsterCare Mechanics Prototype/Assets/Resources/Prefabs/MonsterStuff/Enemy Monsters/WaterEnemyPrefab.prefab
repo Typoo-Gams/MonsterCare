@@ -44,7 +44,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 605ca19b1227cb84f9676f9f6f811016, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canvas: {fileID: 1740130347430442263, guid: 6e8dea5fbfa00e74594cb818876d0621, type: 3}
   DmgModifier: 3
+  dmgText:
+  - {fileID: 6177983777259624540, guid: 6ac4244efade45041950ed27edf95924, type: 3}
 --- !u!61 &8232201681547667560
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -215,7 +218,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 605ca19b1227cb84f9676f9f6f811016, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canvas: {fileID: 1740130347430442263, guid: 7d0a8f74a72c3864e8151fbb3e000d66, type: 3}
   DmgModifier: 1
+  dmgText:
+  - {fileID: 1518074195006038277, guid: 940ac41c6572960419dcd878ba1dd2e8, type: 3}
 --- !u!61 &8232201682366267600
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -286,7 +292,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 605ca19b1227cb84f9676f9f6f811016, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canvas: {fileID: 1740130347430442263, guid: 6e8dea5fbfa00e74594cb818876d0621, type: 3}
   DmgModifier: 1
+  dmgText:
+  - {fileID: 1518074195006038277, guid: 940ac41c6572960419dcd878ba1dd2e8, type: 3}
 --- !u!61 &8232201682625647203
 BoxCollider2D:
   m_ObjectHideFlags: 0
