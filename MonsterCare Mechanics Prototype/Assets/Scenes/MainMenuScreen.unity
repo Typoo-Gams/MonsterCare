@@ -925,7 +925,7 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: 'TAP TO
 
-    START'
+    PLAY'
 --- !u!222 &587463888
 CanvasRenderer:
   m_ObjectHideFlags: 0
