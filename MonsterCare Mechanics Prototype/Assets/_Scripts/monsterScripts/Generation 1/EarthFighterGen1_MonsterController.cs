@@ -127,6 +127,7 @@ public class EarthFighterGen1_MonsterController : MonoBehaviour
                     break;*/
                 default:
                     Debug.LogError("This monster doesnt have any evolutions yet");
+                    monster.CanEvolveStatus = false;
                     break;
             }
         }
