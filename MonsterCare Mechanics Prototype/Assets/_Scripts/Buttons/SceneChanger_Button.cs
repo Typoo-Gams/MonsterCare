@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class SceneChanger_Button : MonoBehaviour
 {
-    public bool PlaySounds;
+
 
     private Button ThisButton;
     public int SceneNumber = 0;
@@ -23,6 +23,7 @@ public class SceneChanger_Button : MonoBehaviour
     // Update is called once per frame
     private void TaskOnClick()
     {
+        FindObjectOfType<SoundManager>().play("ButtonClick");
         //If there is no spesificed scene name to load then load the scene with index scene name.
         if (SceneName == "")
         {
@@ -33,6 +34,6 @@ public class SceneChanger_Button : MonoBehaviour
 
             SceneManager.LoadScene(SceneName);
         }
-        FindObjectOfType<SoundManager>().play("ButtonClick");
+
     }
 }

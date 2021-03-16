@@ -2,15 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class ClearSave : MonoBehaviour
 {
     GameManager manager;
     public bool ClearSaveScene;
+    bool IsWiped;
     float cnt;
     public float WhaitTime;
     bool Delete;
-    public GameObject whaitTimer;
+    public GameObject whaitTimer, StartingMonster;
 
 
     // Start is called before the first frame update
@@ -21,7 +23,8 @@ public class ClearSave : MonoBehaviour
         {
             gameObject.GetComponent<Button>().onClick.AddListener(ResetSave);
         }
-        whaitTimer.GetComponent<LoadingBar>().whaitTime = WhaitTime;
+        if (whaitTimer != null) 
+            whaitTimer.GetComponent<LoadingBar>().whaitTime = WhaitTime;
     }
 
     public void ResetSave() 
@@ -41,6 +44,11 @@ public class ClearSave : MonoBehaviour
         //wipes the savefile.
         GameSaver Saver = new GameSaver();
         Saver.WipeSave();
+        if(Camera.main.GetComponentInChildren<MonsterLoader>() == null)
+        {
+            manager.FoodInventory = Saver.LoadFood();
+            manager.NewSave = true;
+        }
     }
 
     private void Update()
@@ -54,10 +62,20 @@ public class ClearSave : MonoBehaviour
         //There if there is no activemonster in the preload scene then exit the application or if the clearsavescene is true then whait for the value of whaitTime
         if (Delete || cnt > WhaitTime)
         {
-            ClearSaveScene = false;
-            ResetSave();
-            Debug.LogWarning("exiting");
-            Application.Quit();
+            if (!IsWiped) 
+            {
+                ResetSave();
+                IsWiped = true;
+                if (ClearSaveScene)
+                {
+                    GameObject SavedMonster = Resources.Load<GameObject>("Prefabs/MonsterStuff/Monsters/Gen 0/DefaultStartingMonster");
+                    GameObject SpawnedMonster = Instantiate(SavedMonster, SavedMonster.transform.position, Quaternion.identity);
+                    SpawnedMonster.transform.SetParent(manager.gameObject.transform, false);
+
+                    SceneManager.LoadScene("MainMenuScreen");
+                }
+                ClearSaveScene = false;
+            }
         }
     }
 }

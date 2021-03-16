@@ -29,17 +29,16 @@ public class GameManager : MonoBehaviour
     public string GameVersion;
 
     //Player Inventory
-    public Food[] FoodInventory;
+    public Food[] FoodInventory = new Food[5];
     //latest reward
     public Food FoodReward;
 
-
-    public GameObject temporaryPrefab;
+    public bool NewSave;
 
     //Awake is called when the script instance is being loaded
     private void Awake()
     {
-        GameVersion = "10";
+        GameVersion = "10.3";
         Debug.LogWarning("GameVersion is V." + GameVersion);
         FoodInventory = new Food[]{
             new Food(true),
@@ -76,6 +75,7 @@ public class GameManager : MonoBehaviour
             ActiveMonster.EnergyStatus = 10;
 
             FoodInventory[0] = new Food(false);
+            FoodInventory[0].Sprite = 12;
             FoodInventory[1] = new Food("Air");
             FoodInventory[2] = new Food("Earth");
             FoodInventory[3] = new Food("Fire");
@@ -201,7 +201,7 @@ public class GameSaver
     /// </summary>
     public void WipeSave() 
     {
-        SaveGameVersion("None");
+        SaveGameVersion("");
         string[] TimeIndex =
             {"Hour", "Minutes", "Seconds", "Day", "Month", "Year"};
         for (int i = 0; i < TimeIndex.Length; i++)

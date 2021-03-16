@@ -39,6 +39,6 @@ EditorBuildSettings:
     path: Assets/Scenes/LoadScene.unity
     guid: 8136993a63d09bf41b478f85c354d4cc
   - enabled: 1
-    path: Assets/Scenes/ExitingGame.unity
+    path: Assets/Scenes/RestartingGame.unity
     guid: 5e9098df25a4f134cb4264fd708942c8
   m_configObjects: {}

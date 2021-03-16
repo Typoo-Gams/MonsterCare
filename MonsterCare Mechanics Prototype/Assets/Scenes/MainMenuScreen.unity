@@ -372,7 +372,7 @@ GameObject:
   - component: {fileID: 233085106}
   - component: {fileID: 233085109}
   m_Layer: 5
-  m_Name: ClearSave
+  m_Name: NewGame
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -493,7 +493,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SceneNumber: 0
-  SceneName: ExitingGame
+  SceneName: RestartingGame
 --- !u!1 &365197782
 GameObject:
   m_ObjectHideFlags: 0
@@ -1121,7 +1121,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: -75}
-  m_SizeDelta: {x: 446.91003, y: 118.19995}
+  m_SizeDelta: {x: 446.91003, y: 887.3}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1397777971
 MonoBehaviour:
@@ -1156,7 +1156,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Prototype Build [version]
+  m_Text: "Prototype Build [version]\n\nDetected a different game version in save
+    file. \n\nThis might cause unexpected issues."
 --- !u!222 &1397777972
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1327,7 +1328,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Clear Save
+  m_Text: New Game
 --- !u!222 &1450449818
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1349,6 +1350,7 @@ GameObject:
   - component: {fileID: 1523024421}
   - component: {fileID: 1523024424}
   - component: {fileID: 1523024425}
+  - component: {fileID: 1523024426}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1445,6 +1447,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 417adf2fff8d6f0409906a5b0808bfc8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1523024426
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1523024420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 506d0a9423951d5409b3ba06be22bc97, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Play: {fileID: 587463887}
+  NewGameButton: {fileID: 233085104}
 --- !u!1 &1952152736
 GameObject:
   m_ObjectHideFlags: 0

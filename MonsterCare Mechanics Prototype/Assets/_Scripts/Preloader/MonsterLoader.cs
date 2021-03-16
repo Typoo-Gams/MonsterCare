@@ -21,19 +21,21 @@ public class MonsterLoader : MonoBehaviour
         //Finds the prefab path.
         string path = Saver.GetMonsterPrefab();
         Debug.Log("Loaded Path: " + path);
+
         //if the game version doesnt match the current one, wipe the save
-        if (manager.GameVersion != Saver.LoadgameVersion()) 
+        if (Saver.LoadgameVersion() == "")
         {
-            Debug.Log("Detected a different game version");
-            //clear.ResetSave();
+            Debug.Log("Detected first time startup");
+            manager.NewSave = true;
+            clear.ResetSave();
             //resets the path string
             path = Saver.GetMonsterPrefab();
         }
         //if the save doesnt have any previously saved monster then load the starting monster (this happens with new saves/first time boot)
-        if (path == "None")
+        if (path == "None" || path == "" ||manager.NewSave)
         {
             SavedMonster = Resources.Load<GameObject>("Prefabs/MonsterStuff/Monsters/Gen 0/DefaultStartingMonster");
-            Debug.Log("Default");
+            Debug.Log("Loading Start monster");
         }
         //if there is a saved monster then load it.
         else
@@ -42,13 +44,18 @@ public class MonsterLoader : MonoBehaviour
             Debug.Log("loaded Monster");
         }
         //create the monster that was loaded.
-        GameObject SpawnedMonster = Instantiate(SavedMonster, SavedMonster.transform.position, Quaternion.identity);
-        SpawnedMonster.transform.SetParent(Manager.transform, false);
+        if (SavedMonster != null) 
+        {
+            GameObject SpawnedMonster = Instantiate(SavedMonster, SavedMonster.transform.position, Quaternion.identity);
+            SpawnedMonster.transform.SetParent(Manager.transform, false);
+        }
     }
 
     private void Update()
     {
         //updates the bebugging text in the preload scene
         pathText.text = "Path: " + Saver.GetMonsterPrefab() + "\nLastGameVersion: " + Saver.LoadgameVersion() + "\nCurrentGameVersion: " + manager.GameVersion;
+
+
     }
 }

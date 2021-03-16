@@ -20,6 +20,9 @@ public class ExitPreload : MonoBehaviour
     {
         if (!manager.DevBuild)
             UnityEngine.SceneManagement.SceneManager.LoadScene(1);
+
+        if (Input.GetKeyDown(KeyCode.Return))
+            TaskOnClick();
     }
 
     void TaskOnClick() 
