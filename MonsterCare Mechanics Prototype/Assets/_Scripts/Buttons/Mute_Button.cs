@@ -19,5 +19,7 @@ public class Mute_Button : MonoBehaviour
         manager.SoundMuted = !manager.SoundMuted;
         if (Camera.main.GetComponent<AudioListener>() != null)
             Camera.main.GetComponent<AudioListener>().enabled = !manager.SoundMuted;
+        //if(manager.SoundMuted)
+            //gameObject.GetComponent<Button>().co
     }
 }

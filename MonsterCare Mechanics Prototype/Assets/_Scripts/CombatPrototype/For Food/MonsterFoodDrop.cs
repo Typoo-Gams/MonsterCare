@@ -120,7 +120,7 @@ public class MonsterFoodDrop : MonoBehaviour
                         GameObject spawn = Instantiate(FullInventory);
                         spawn.transform.SetParent(GameObject.FindGameObjectWithTag("CanvasFighting").transform, false);
                         Destroy(manager.Enemy.gameObject);
-                        Destroy(manager.ActiveMonster.GetHealthbar().gameObject);
+                        Destroy(manager.ActiveMonster.GetHealthbar());
                         manager.EnemyMonster = null;
                         Debug.Log("Enemey destroyed");
                         break;
