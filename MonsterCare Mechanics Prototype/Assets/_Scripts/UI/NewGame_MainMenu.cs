@@ -17,7 +17,7 @@ public class NewGame_MainMenu : MonoBehaviour
 
         if (manager.NewSave) 
         {
-            Play.text = "New Game";
+            Play.text = "TAP TO START A NEW GAME";
             NewGameButton.SetActive(false);
         }
     }

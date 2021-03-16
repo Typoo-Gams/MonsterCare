@@ -489,9 +489,21 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 578058205}
+    - target: {fileID: 8129942001750182338, guid: 40193650ec9cf7e4189cc7b3202955b8, type: 3}
+      propertyPath: m_ScreenMatchMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8129942001750182338, guid: 40193650ec9cf7e4189cc7b3202955b8, type: 3}
+      propertyPath: m_MatchWidthOrHeight
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8129942001750182348, guid: 40193650ec9cf7e4189cc7b3202955b8, type: 3}
       propertyPath: m_Name
       value: Canvas_Home
+      objectReference: {fileID: 0}
+    - target: {fileID: 8129942002374443524, guid: 40193650ec9cf7e4189cc7b3202955b8, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 40193650ec9cf7e4189cc7b3202955b8, type: 3}
