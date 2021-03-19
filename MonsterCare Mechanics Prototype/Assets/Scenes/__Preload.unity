@@ -1463,6 +1463,42 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2051559917}
     m_Modifications:
+    - target: {fileID: 5268706205060699684, guid: 09aecba300f3e334cb0dd45b32d85186, type: 3}
+      propertyPath: Sounds.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5268706205060699684, guid: 09aecba300f3e334cb0dd45b32d85186, type: 3}
+      propertyPath: Sounds.Array.data[4].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: cad79184f3835c840a9fa772acb0537a, type: 3}
+    - target: {fileID: 5268706205060699684, guid: 09aecba300f3e334cb0dd45b32d85186, type: 3}
+      propertyPath: Sounds.Array.data[4].name
+      value: BoxTapp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5268706205060699684, guid: 09aecba300f3e334cb0dd45b32d85186, type: 3}
+      propertyPath: Sounds.Array.data[5].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 59f9af6d6e4abbb4a975b86d93736506, type: 3}
+    - target: {fileID: 5268706205060699684, guid: 09aecba300f3e334cb0dd45b32d85186, type: 3}
+      propertyPath: Sounds.Array.data[5].name
+      value: BackgroundMusic
+      objectReference: {fileID: 0}
+    - target: {fileID: 5268706205060699684, guid: 09aecba300f3e334cb0dd45b32d85186, type: 3}
+      propertyPath: Sounds.Array.data[4].pitch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5268706205060699684, guid: 09aecba300f3e334cb0dd45b32d85186, type: 3}
+      propertyPath: Sounds.Array.data[5].pitch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5268706205060699684, guid: 09aecba300f3e334cb0dd45b32d85186, type: 3}
+      propertyPath: Sounds.Array.data[4].volume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5268706205060699684, guid: 09aecba300f3e334cb0dd45b32d85186, type: 3}
+      propertyPath: Sounds.Array.data[5].volume
+      value: 0.01
+      objectReference: {fileID: 0}
     - target: {fileID: 5268706205060699685, guid: 09aecba300f3e334cb0dd45b32d85186, type: 3}
       propertyPath: m_RootOrder
       value: 1

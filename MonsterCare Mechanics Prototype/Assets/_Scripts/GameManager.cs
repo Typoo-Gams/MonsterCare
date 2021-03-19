@@ -9,6 +9,9 @@ public class GameManager : MonoBehaviour
 {
     public bool DevBuild;
 
+    private float timePlaying; 
+
+    SoundManager managerSound; 
     //Previously loaded scene
     public int PreviousSecene;
     public bool SleepMemory;
@@ -60,6 +63,8 @@ public class GameManager : MonoBehaviour
         //FoodInventory[4] = new Food("Air");
         //Save.SaveFood(FoodInventory);
         //Debug.Log("Manager Start");
+
+        managerSound = GameObject.Find("__app").GetComponentInChildren<SoundManager>();
     }
 
 
@@ -89,9 +94,12 @@ public class GameManager : MonoBehaviour
             ActiveMonster.UpdateHealth(1);
         }
 
-        if(SceneManager.GetActiveScene().name == "MonsterHome")
+        timePlaying += Time.deltaTime;
+        if(SceneManager.GetActiveScene().name == "MonsterHome" && timePlaying >= managerSound.Sounds[5].clip.length )
         {
+
             FindObjectOfType<SoundManager>().play("BackgroundMusic");
+            timePlaying = 0;
         }
     }
 
@@ -139,6 +147,7 @@ public class GameManager : MonoBehaviour
         if (SceneManager.GetActiveScene().name == "MonsterHome") 
         {
             //change to renderer so that stats can change while in other scenes?
+            FindObjectOfType<SoundManager>().play("BackgroundMusic");
             MonsterObject.GetComponent<SpriteRenderer>().enabled = true;
         }
         else
