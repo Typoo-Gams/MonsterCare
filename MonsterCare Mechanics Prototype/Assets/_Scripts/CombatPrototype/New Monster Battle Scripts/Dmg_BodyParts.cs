@@ -5,15 +5,11 @@ using UnityEngine;
 public class Dmg_BodyParts : MonoBehaviour
 {
     GameManager manager;
-    public GameObject canvas;
 
     bool currentlyAttacking;
     public int DmgModifier;
-    float CounterShake;
-    float intervalShake;
-    bool HasMoved = false;
-
-    public GameObject[] dmgText;
+    float Counter;
+    bool tapped;
 
     private void Start()
     {
@@ -21,71 +17,47 @@ public class Dmg_BodyParts : MonoBehaviour
         currentlyAttacking = manager.EnemyMonster.CombatStatus;
         manager.EnemyMonster.SetOriginPos(transform);
     }
-
     private void Update()
     {
-        DmgShake(false);
+        if (tapped)
+        {
+            Counter += Time.deltaTime;
+        }
+
+        if(Counter > 0.35f)
+        {
+            gameObject.GetComponent<SpriteRenderer>().color = Color.white;
+            Counter = 0;
+            tapped = false;
+        }
     }
 
     private void OnMouseDown()
     {
+        tapped = true;
+
         if (currentlyAttacking == true)
         {
             manager.EnemyMonster.DealDmg(1 * DmgModifier);
-            DmgShake(true);
             FindObjectOfType<SoundManager>().play("SwordSwing");
-
-            if(DmgModifier == 1)
-            {
-                GameObject spawn = Instantiate(dmgText[0]);
-                spawn.transform.SetParent(canvas.transform, false);
-                Debug.Log("workinggs");
-            }
-            if(DmgModifier == 2 || DmgModifier == 3)
-            {
-                GameObject spawn = Instantiate(dmgText[0]);
-                spawn.transform.SetParent(canvas.transform, false);
-                Debug.Log("working");
-            }
-
         }
-        else
-        {
-            DmgShake(false);
-        }
-
+        
         if(manager.ActiveMonster.HealthStatus == 0)
         {
             currentlyAttacking = false;
         }
-    }
 
-    private void DmgShake(bool addTime)
-    {
-        //add time if true (sets the timer to 0)
-        if (addTime)
-            CounterShake -= 0.25f;
-
-        //sets the timer to 0 so it doesnt go negative.
-        if (CounterShake < 0)
-            CounterShake = 0;
-
-        //if the counter is bigger than the interval then set it to its max value.
-        //when the counter has reached the interval and it has moved then reset its position to its original position.
-        if (CounterShake >= intervalShake)
+        if(DmgModifier == 1)
         {
-            CounterShake = 0.25f;
-            if (HasMoved)
-            {
-                manager.Enemy.transform.position = manager.EnemyMonster.GetOriginPos();
-                HasMoved = false;
-            }
+            gameObject.GetComponent<SpriteRenderer>().color = new Color(1, 0.92f, 0.016f, 1);
         }
-        else
+        if(DmgModifier == 2)
         {
-            HasMoved = true;
-            CounterShake += Time.deltaTime;
-            manager.Enemy.transform.position = manager.EnemyMonster.Shake();
+            gameObject.GetComponent<SpriteRenderer>().color = new Color(1, 0.5f, 0, 1);
+        }
+        if(DmgModifier == 3)
+        {
+            gameObject.GetComponent<SpriteRenderer>().color = new Color(1, 0, 0, 1);
         }
     }
 }
