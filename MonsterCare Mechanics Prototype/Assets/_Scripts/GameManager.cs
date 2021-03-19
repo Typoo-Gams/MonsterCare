@@ -88,6 +88,11 @@ public class GameManager : MonoBehaviour
         {
             ActiveMonster.UpdateHealth(1);
         }
+
+        if(SceneManager.GetActiveScene().name == "MonsterHome")
+        {
+            FindObjectOfType<SoundManager>().play("BackgroundMusic");
+        }
     }
 
 

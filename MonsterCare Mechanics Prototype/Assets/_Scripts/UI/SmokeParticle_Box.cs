@@ -31,6 +31,7 @@ public class SmokeParticle_Box : MonoBehaviour
 
     private void OnMouseDown()
     {
+        FindObjectOfType<SoundManager>().play("BoxTapp");
         Smoke();
         tapCounter++;
     }
