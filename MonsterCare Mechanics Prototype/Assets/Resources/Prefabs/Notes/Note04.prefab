@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5827904041017366547}
   - component: {fileID: 5827904041017366572}
   - component: {fileID: 5961869397221059060}
-  - component: {fileID: -7320197833662174629}
+  - component: {fileID: 565335401430837338}
   m_Layer: 0
   m_Name: Note04
   m_TagString: Note
@@ -96,7 +96,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c31add4696837e54194fdef4668b5d0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!61 &-7320197833662174629
+--- !u!61 &565335401430837338
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -109,7 +109,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 4}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -120,5 +120,5 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 10.8, y: 5}
+  m_Size: {x: 10.8, y: 15.04}
   m_EdgeRadius: 0

@@ -1,9 +1,19 @@
 using UnityEngine;
-
+using System.Collections;
 public class OnTapDestroy : MonoBehaviour
 {
-    public void OnMouseDown()
+    private IEnumerator Waiting()
     {
-        Destroy(gameObject);
+        yield return new WaitForSeconds(3);
+        if (Input.GetMouseButtonDown(0))
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    private void Update()
+    {
+        StartCoroutine(Waiting());
+        Debug.LogWarning("WORKING!");
     }
 }
