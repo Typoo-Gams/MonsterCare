@@ -19,6 +19,7 @@ TagManager:
   - Legs
   - Head
   - Torso
+  - Food
   layers:
   - Default
   - TransparentFX

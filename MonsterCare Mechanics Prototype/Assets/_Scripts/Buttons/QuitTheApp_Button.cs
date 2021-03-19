@@ -7,7 +7,7 @@ public class QuitTheApp_Button : MonoBehaviour
 {
     public bool PlaySounds;
 
-    public Canvas exitCanvas;
+    public GameObject exitMenu;
     public Button Cancel, Quit;
 
     private void Start()
@@ -20,7 +20,7 @@ public class QuitTheApp_Button : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            exitCanvas.enabled = true;
+            exitMenu.SetActive(true);
         }
     }
 
@@ -32,6 +32,7 @@ public class QuitTheApp_Button : MonoBehaviour
 
     public void CancelQuit()
     {
-        exitCanvas.enabled = false;
+        FindObjectOfType<SoundManager>().play("ButtonClick");
+        exitMenu.SetActive(false);
     }
 }

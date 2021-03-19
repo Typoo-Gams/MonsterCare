@@ -410,6 +410,17 @@ public class GameSaver
     }
 
 
+    public void MonsterObtainedBefore() 
+    {
+        
+    }
+
+    public void SaveObtainedMonster(string Name) 
+    {
+        
+    }
+
+
     //Saves the inventory
     public void SaveFood(Food[] inventory) 
     {

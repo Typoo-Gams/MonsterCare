@@ -28,10 +28,6 @@ public class FoodManager_FoodObject : MonoBehaviour
     Canvas CurrentCanvas;
     GameManager manager;
 
-    SpawnItem_Button SpawningButton;
-
-
-
 
     // Start is called before the first frame update
     void Start()
@@ -40,16 +36,9 @@ public class FoodManager_FoodObject : MonoBehaviour
 
 
         //This can be moved to the spawn object button
-        try
-        {
-            CurrentCanvas = GameObject.FindGameObjectWithTag("Canvas").GetComponent<Canvas>();
-        }
-        catch 
-        {
-            CurrentCanvas = GameObject.FindGameObjectWithTag("CanvasFighting").GetComponent<Canvas>();
-        }
-        gameObject.transform.localScale = new Vector3(100, 100, 100);
-        gameObject.transform.localPosition = new Vector3(0, 1388f, 0);
+        CurrentCanvas = GameObject.FindGameObjectWithTag("Canvas").GetComponent<Canvas>();
+
+
 
         //finds the __app for referencing the gamemanager. finds the button that spawns food.
         manager = GameObject.Find("__app").GetComponentInChildren<GameManager>();

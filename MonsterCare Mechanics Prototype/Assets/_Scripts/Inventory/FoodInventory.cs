@@ -12,6 +12,7 @@ public class FoodInventory : MonoBehaviour
 
     public GameObject FoodPrefab;
     public GameObject parent;
+    public GameObject SpawnLocation;
 
     /// <summary>
     /// Index: 0 - Air, 1 - Earth, 2 - Fire, 3 - Water
@@ -19,7 +20,10 @@ public class FoodInventory : MonoBehaviour
     public Sprite[] Elemental = new Sprite[4];
     public Sprite[] Normal;
 
+    GameObject Spawned;
     FoodManager_FoodObject spawn;
+
+    bool IsActive;
 
     private void Start()
     {
@@ -31,12 +35,14 @@ public class FoodInventory : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (spawn == null) 
+        if (manager.FoodInventory[inventorySlot] != null) 
         {
             //changes the sprite if there is a food item in the inventory
             if (manager.FoodInventory[inventorySlot].FoodType != "None")
             {
-                ThisButton.interactable = true;
+                IsActive = true;
+                if (GameObject.FindGameObjectWithTag("Food") == null)
+                    ThisButton.interactable = IsActive;
                 ThisButton.image.color = new Color(1, 1, 1, 1f);
 
                 if (manager.FoodInventory[inventorySlot].FoodType == "Normal")
@@ -68,22 +74,43 @@ public class FoodInventory : MonoBehaviour
             else
             {
                 ThisButton.image.sprite = null;
-                ThisButton.interactable = false;
+                IsActive = false;
+                ThisButton.interactable = IsActive;
                 ThisButton.image.color = new Color(0, 0, 0, 0.2705882f);
             }
         }
     }
 
 
-    // TaskOnClick is called when this button is pressed.s
+    // TaskOnClick is called when this button is pressed.sz
     void TaskOnClick() 
     {
-        spawn = Instantiate(FoodPrefab, parent.transform).GetComponent<FoodManager_FoodObject>();
-        spawn.SpriteIndex = manager.FoodInventory[inventorySlot].Sprite;
-        spawn.inventorySpace = inventorySlot;
-        spawn.FoodCategory = manager.FoodInventory[inventorySlot].FoodType;
-        spawn.FoodElement = manager.FoodInventory[inventorySlot].Element;
-        spawn.FoodPower = manager.FoodInventory[inventorySlot].Power;
-        ThisButton.interactable = false;
+        GameObject[] FoodButtons = GameObject.FindGameObjectsWithTag("FoodButton");
+
+        if (GameObject.FindGameObjectWithTag("Food") == null)
+        {
+            Spawned = Instantiate(FoodPrefab);
+            Spawned.transform.SetParent(parent.transform, false);
+            Debug.Log(SpawnLocation.transform.position);
+            Spawned.transform.position = SpawnLocation.transform.position;
+            Spawned.transform.localScale = new Vector3(100, 100, 100);
+            spawn = Spawned.GetComponent<FoodManager_FoodObject>();
+            spawn.SpriteIndex = manager.FoodInventory[inventorySlot].Sprite;
+            spawn.inventorySpace = inventorySlot;
+            spawn.FoodCategory = manager.FoodInventory[inventorySlot].FoodType;
+            spawn.FoodElement = manager.FoodInventory[inventorySlot].Element;
+            spawn.FoodPower = manager.FoodInventory[inventorySlot].Power;
+
+            foreach(GameObject button in FoodButtons) 
+            {
+                if (button.name != gameObject.name)
+                {
+                    IsActive = false;
+                    button.GetComponent<Button>().interactable = IsActive;
+                }
+            }
+        }
+        else
+            Destroy(Spawned);
     }
 }
