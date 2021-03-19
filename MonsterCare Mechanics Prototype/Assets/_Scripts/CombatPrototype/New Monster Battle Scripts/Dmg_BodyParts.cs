@@ -26,7 +26,7 @@ public class Dmg_BodyParts : MonoBehaviour
 
         if(Counter > 0.35f)
         {
-            gameObject.GetComponent<SpriteRenderer>().color = Color.white;
+            gameObject.GetComponentInChildren<SpriteRenderer>().color = Color.white;
             Counter = 0;
             tapped = false;
         }
@@ -49,15 +49,15 @@ public class Dmg_BodyParts : MonoBehaviour
 
         if(DmgModifier == 1)
         {
-            gameObject.GetComponent<SpriteRenderer>().color = new Color(1, 0.92f, 0.016f, 1);
+            gameObject.GetComponentInChildren<SpriteRenderer>().color = new Color(1, 0.92f, 0.016f, 1);
         }
         if(DmgModifier == 2)
         {
-            gameObject.GetComponent<SpriteRenderer>().color = new Color(1, 0.5f, 0, 1);
+            gameObject.GetComponentInChildren<SpriteRenderer>().color = new Color(1, 0.5f, 0, 1);
         }
         if(DmgModifier == 3)
         {
-            gameObject.GetComponent<SpriteRenderer>().color = new Color(1, 0, 0, 1);
+            gameObject.GetComponentInChildren<SpriteRenderer>().color = new Color(1, 0, 0, 1);
         }
     }
 }
