@@ -351,6 +351,10 @@ PrefabInstance:
       value: -752
       objectReference: {fileID: 0}
     - target: {fileID: 100616586768362409, guid: 6e8dea5fbfa00e74594cb818876d0621, type: 3}
+      propertyPath: m_Name
+      value: FaintedText
+      objectReference: {fileID: 0}
+    - target: {fileID: 100616586768362409, guid: 6e8dea5fbfa00e74594cb818876d0621, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
@@ -381,6 +385,14 @@ PrefabInstance:
     - target: {fileID: 3137939048074698378, guid: 6e8dea5fbfa00e74594cb818876d0621, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3667589872071832758, guid: 6e8dea5fbfa00e74594cb818876d0621, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3667589872071832759, guid: 6e8dea5fbfa00e74594cb818876d0621, type: 3}
+      propertyPath: m_RootOrder
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 4554980482008394110, guid: 6e8dea5fbfa00e74594cb818876d0621, type: 3}
       propertyPath: m_Sprite
@@ -475,8 +487,24 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7580311023013114472, guid: 6e8dea5fbfa00e74594cb818876d0621, type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7580311023013114472, guid: 6e8dea5fbfa00e74594cb818876d0621, type: 3}
       propertyPath: m_LocalPosition.z
       value: -1568
+      objectReference: {fileID: 0}
+    - target: {fileID: 7904245431816449636, guid: 6e8dea5fbfa00e74594cb818876d0621, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7904245431816449637, guid: 6e8dea5fbfa00e74594cb818876d0621, type: 3}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8300247257192490129, guid: 6e8dea5fbfa00e74594cb818876d0621, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8300247257192490129, guid: 6e8dea5fbfa00e74594cb818876d0621, type: 3}
       propertyPath: m_LocalPosition.z

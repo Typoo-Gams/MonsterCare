@@ -2,9 +2,12 @@ using UnityEngine;
 using System.Collections;
 public class OnTapDestroy : MonoBehaviour
 {
+    public GameObject Taptext;
+
     private IEnumerator Waiting()
     {
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(2);
+        Taptext.SetActive(true);
         if (Input.GetMouseButtonDown(0))
         {
             Destroy(gameObject);
@@ -13,7 +16,13 @@ public class OnTapDestroy : MonoBehaviour
 
     private void Update()
     {
-        StartCoroutine(Waiting());
+        NoteTaps();
+        Taptext.SetActive(false);
         Debug.LogWarning("WORKING!");
+    }
+
+    private void NoteTaps()
+    {
+        StartCoroutine(Waiting());
     }
 }
