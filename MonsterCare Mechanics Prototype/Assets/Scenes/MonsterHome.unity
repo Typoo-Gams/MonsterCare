@@ -322,6 +322,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 961505688}
+    - target: {fileID: 1286337378, guid: 40193650ec9cf7e4189cc7b3202955b8, type: 3}
+      propertyPath: glowing
+      value: 
+      objectReference: {fileID: 3030434579287926008, guid: a2600e10891335740a5ff033b942a44c, type: 3}
     - target: {fileID: 1404930984, guid: 40193650ec9cf7e4189cc7b3202955b8, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.99872905
@@ -541,6 +545,10 @@ PrefabInstance:
     - target: {fileID: 8129942001750182348, guid: 40193650ec9cf7e4189cc7b3202955b8, type: 3}
       propertyPath: m_Name
       value: Canvas_Home
+      objectReference: {fileID: 0}
+    - target: {fileID: 8836377352841428468, guid: 40193650ec9cf7e4189cc7b3202955b8, type: 3}
+      propertyPath: m_Name
+      value: BrewingStand
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 40193650ec9cf7e4189cc7b3202955b8, type: 3}

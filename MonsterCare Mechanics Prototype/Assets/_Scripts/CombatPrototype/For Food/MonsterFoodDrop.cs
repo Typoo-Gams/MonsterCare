@@ -78,7 +78,7 @@ public class MonsterFoodDrop : MonoBehaviour
     private void FoodDrop()
     {
         int random = Random.Range(0, foodPrefab.Length);
-        int dropRate = Random.Range(1, 11);
+        int dropRate = Random.Range(1, 7);
 
         if (isCreated == true)
         {
