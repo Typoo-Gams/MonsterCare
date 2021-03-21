@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using UnityEditor;
+using UnityEngine.Audio;
 
 
 public class GameManager : MonoBehaviour
@@ -11,7 +12,10 @@ public class GameManager : MonoBehaviour
 
     private float timePlaying; 
 
-    SoundManager managerSound; 
+    SoundManager managerSound;
+    bool Music_Play;
+    bool Music_ToggleChange;
+
     //Previously loaded scene
     public int PreviousSecene;
     public bool SleepMemory;
@@ -65,6 +69,9 @@ public class GameManager : MonoBehaviour
         //Debug.Log("Manager Start");
 
         managerSound = GameObject.Find("__app").GetComponentInChildren<SoundManager>();
+        Music_Play = true;
+
+       
     }
 
 
@@ -142,21 +149,20 @@ public class GameManager : MonoBehaviour
 
     //Called when a new scene is loaded.
     private void OnLevelWasLoaded(int level)
-    {
-        Debug.Log("previous scene: "+PreviousSecene);
-        if (SceneManager.GetActiveScene().name == "MonsterHome") 
+    {              //Music stops when re entering the home from combat??
+        Debug.Log("previous scene: " + PreviousSecene);
+        if (SceneManager.GetActiveScene().name == "MonsterHome")
         {
             //change to renderer so that stats can change while in other scenes?
-            FindObjectOfType<SoundManager>().play("BackgroundMusic");
             MonsterObject.GetComponent<SpriteRenderer>().enabled = true;
         }
         else
         {
+
             //change to renderer so that stats can change while in other scenes?
             MonsterObject.GetComponent<SpriteRenderer>().enabled = false;
+
         }
-        if (Camera.main.GetComponent<AudioListener>() != null && SoundMuted)
-            Camera.main.GetComponent<AudioListener>().enabled = false;
 
     }
 
