@@ -96,7 +96,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c31add4696837e54194fdef4668b5d0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Taptext: {fileID: 4634385533027137085, guid: c3694b524c8020048b602988d3926833, type: 3}
+  noteIcon: {fileID: 1148722476350813190, guid: 5c010e4d46f27ff49b6b1b584e671a55, type: 3}
 --- !u!61 &8691220211433268310
 BoxCollider2D:
   m_ObjectHideFlags: 0
