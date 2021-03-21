@@ -337,6 +337,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1740130347430442262, guid: 6e8dea5fbfa00e74594cb818876d0621, type: 3}
+      propertyPath: foodPrefab.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1740130347430442262, guid: 6e8dea5fbfa00e74594cb818876d0621, type: 3}
+      propertyPath: foodPrefab.Array.data[0]
+      value: 
+      objectReference: {fileID: 5522923501659234738, guid: f8b8555a90c345348b05b229186a5662, type: 3}
+    - target: {fileID: 1740130347430442262, guid: 6e8dea5fbfa00e74594cb818876d0621, type: 3}
+      propertyPath: foodPrefab.Array.data[1]
+      value: 
+      objectReference: {fileID: 6554604095619073653, guid: 3dd162fe69431e140806f7d280776d82, type: 3}
+    - target: {fileID: 1740130347430442262, guid: 6e8dea5fbfa00e74594cb818876d0621, type: 3}
+      propertyPath: foodPrefab.Array.data[2]
+      value: 
+      objectReference: {fileID: 5886862851862895517, guid: 3c608b704046bec469514f4bd91c4da0, type: 3}
+    - target: {fileID: 1740130347430442262, guid: 6e8dea5fbfa00e74594cb818876d0621, type: 3}
+      propertyPath: foodPrefab.Array.data[3]
+      value: 
+      objectReference: {fileID: 5668343403939030252, guid: 04861778eeb5ed741b9d0af1735a0c3d, type: 3}
     - target: {fileID: 1740130347430442263, guid: 6e8dea5fbfa00e74594cb818876d0621, type: 3}
       propertyPath: m_Name
       value: Canvas_EnemyMonster

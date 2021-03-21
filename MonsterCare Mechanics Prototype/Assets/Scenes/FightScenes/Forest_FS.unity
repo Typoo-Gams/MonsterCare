@@ -171,6 +171,14 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1740130347430442262, guid: 6e8dea5fbfa00e74594cb818876d0621, type: 3}
+      propertyPath: foodPrefab.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1740130347430442262, guid: 6e8dea5fbfa00e74594cb818876d0621, type: 3}
+      propertyPath: foodPrefab.Array.data[2]
+      value: 
+      objectReference: {fileID: 6206557610249406222, guid: 8f34bc1ec0c63334080ee1d111be9213, type: 3}
+    - target: {fileID: 1740130347430442262, guid: 6e8dea5fbfa00e74594cb818876d0621, type: 3}
       propertyPath: specialSprites.Array.data[4]
       value: 
       objectReference: {fileID: 0}

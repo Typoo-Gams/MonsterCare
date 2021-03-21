@@ -363,6 +363,26 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1740130347430442262, guid: 6e8dea5fbfa00e74594cb818876d0621, type: 3}
+      propertyPath: foodPrefab.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1740130347430442262, guid: 6e8dea5fbfa00e74594cb818876d0621, type: 3}
+      propertyPath: foodPrefab.Array.data[0]
+      value: 
+      objectReference: {fileID: 1833525459474161861, guid: 775191a83832b3541bc4edfd5a393978, type: 3}
+    - target: {fileID: 1740130347430442262, guid: 6e8dea5fbfa00e74594cb818876d0621, type: 3}
+      propertyPath: foodPrefab.Array.data[1]
+      value: 
+      objectReference: {fileID: 3747097593398587226, guid: 8462a113dcfdfc3408eaef3d77377bd5, type: 3}
+    - target: {fileID: 1740130347430442262, guid: 6e8dea5fbfa00e74594cb818876d0621, type: 3}
+      propertyPath: foodPrefab.Array.data[2]
+      value: 
+      objectReference: {fileID: 6278507113911799887, guid: e12f9edcbb9925d4e871e9ee4137658f, type: 3}
+    - target: {fileID: 1740130347430442262, guid: 6e8dea5fbfa00e74594cb818876d0621, type: 3}
+      propertyPath: foodPrefab.Array.data[3]
+      value: 
+      objectReference: {fileID: 7405242025873233008, guid: 475544e1dcfb2984dbc3c5c507c5aa72, type: 3}
+    - target: {fileID: 1740130347430442262, guid: 6e8dea5fbfa00e74594cb818876d0621, type: 3}
       propertyPath: specialPrefab.Array.size
       value: 4
       objectReference: {fileID: 0}
