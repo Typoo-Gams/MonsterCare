@@ -12,7 +12,7 @@ public class Food : InventoryItem
     /// <summary>
     /// Create a normal/empty Food item.
     /// </summary>
-    public Food(bool empty)
+    public Food(bool empty, int sprite = -1)
     {
         if (!empty) 
         {
@@ -21,7 +21,7 @@ public class Food : InventoryItem
             Type = "Food";
             element = "None";
             foodPower = 20;
-            SpriteIndex = -1;
+            SpriteIndex = sprite;
         }
         else 
         {

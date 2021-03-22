@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 3404981906630117847}
   - component: {fileID: 4807834741392806710}
-  - component: {fileID: 1853355647}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -51,22 +50,5 @@ MonoBehaviour:
   Enemy: {fileID: 0}
   HealthBarPrefab: {fileID: 4127832794064725362, guid: bec77db43baf692489e7eb0c2d12d2c5, type: 3}
   GreenSliderPrefab: {fileID: 4697869978205186733, guid: 4589d2aa41b696848b9f7efc419593ed, type: 3}
-  temporaryPrefab: {fileID: 7418330458548354933}
---- !u!114 &1853355647
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7418330458548354933}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dc4e3852b1e276c45bc13a5ec1d4bb2a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Sounds:
-  - name: TakingDMG
-    clip: {fileID: 8300000, guid: 856bf5817d7504b41af1345b17a07deb, type: 3}
-    volume: 1
-    pitch: 1
-    source: {fileID: 0}
+  NewSave: 0
+  SoundMuted: 0

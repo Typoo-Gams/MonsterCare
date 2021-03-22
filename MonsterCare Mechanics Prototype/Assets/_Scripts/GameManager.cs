@@ -46,7 +46,7 @@ public class GameManager : MonoBehaviour
     //Awake is called when the script instance is being loaded
     private void Awake()
     {
-        GameVersion = "10.6";
+        GameVersion = "11";
         Debug.LogWarning("GameVersion is V." + GameVersion);
         FoodInventory = new Food[]{
             new Food(true),
@@ -63,9 +63,12 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         //temporary
-        //FoodInventory[2] = new Food(false);
-        //FoodInventory[4] = new Food("Air");
-        //Save.SaveFood(FoodInventory);
+        FoodInventory[0] = new Food(false, 1);
+        FoodInventory[1] = new Food("Air");
+        FoodInventory[2] = new Food("Fire");
+        FoodInventory[3] = new Food("Earth");
+        FoodInventory[4] = new Food("Water");
+        Save.SaveFood(FoodInventory);
         //Debug.Log("Manager Start");
 
         managerSound = GameObject.Find("__app").GetComponentInChildren<SoundManager>();
