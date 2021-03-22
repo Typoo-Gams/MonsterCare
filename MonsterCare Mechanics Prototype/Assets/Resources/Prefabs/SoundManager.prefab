@@ -51,16 +51,41 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: ButtonClick
     clip: {fileID: 8300000, guid: 17df52ba839dad8409916a6a6eb553f9, type: 3}
-    volume: 1
+    volume: 0.3
     pitch: 1
     source: {fileID: 0}
   - name: SwordSwing
     clip: {fileID: 8300000, guid: 0b62ae46c656cbe41bb506bb2cefc049, type: 3}
-    volume: 1
+    volume: 0.6
     pitch: 1
     source: {fileID: 0}
   - name: MunchSound
     clip: {fileID: 8300000, guid: cedf1c15c73742d42b05cc737fa83261, type: 3}
+    volume: 0.3
+    pitch: 1
+    source: {fileID: 0}
+  - name: BoxTapp
+    clip: {fileID: 8300000, guid: cad79184f3835c840a9fa772acb0537a, type: 3}
     volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: BackgroundMusic
+    clip: {fileID: 8300000, guid: 59f9af6d6e4abbb4a975b86d93736506, type: 3}
+    volume: 0.5
+    pitch: 1
+    source: {fileID: 0}
+  - name: DesertBattleMusic
+    clip: {fileID: 8300000, guid: 3fda7e81714800c41ad9eb1a7e788d83, type: 3}
+    volume: 0.5
+    pitch: 1
+    source: {fileID: 0}
+  - name: ForestBattleMusic
+    clip: {fileID: 8300000, guid: 0adf2763cc98b9c43bee297864390d55, type: 3}
+    volume: 0.5
+    pitch: 1
+    source: {fileID: 0}
+  - name: SavannaBattleMusic
+    clip: {fileID: 8300000, guid: 5e5c2c8af4de8c149ae7a0e415a0d06a, type: 3}
+    volume: 0.5
     pitch: 1
     source: {fileID: 0}
