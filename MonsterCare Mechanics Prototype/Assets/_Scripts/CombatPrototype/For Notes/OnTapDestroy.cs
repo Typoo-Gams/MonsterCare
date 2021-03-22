@@ -4,28 +4,29 @@ public class OnTapDestroy : MonoBehaviour
 {
     public GameObject noteIcon;
     bool spawned;
+    float delay = 2f;
+
+    private void Update()
+    {
+        if (spawned)
+        {
+            Destroy(noteIcon, delay);
+            spawned = false;
+        }
+        NoteTaps();
+    }
 
     private IEnumerator Waiting()
     {
         yield return new WaitForSeconds(2);
         if (Input.GetMouseButtonDown(0))
         {
-            Destroy(gameObject);
             if (!spawned)
             {
                 Instantiate(noteIcon);
                 spawned = true;
             }
-        }
-    }
-
-    private void Update()
-    {
-        NoteTaps();
-        if (spawned)
-        {
-            noteIcon.SetActive(false);
-            spawned = false;
+            Destroy(gameObject);
         }
     }
 

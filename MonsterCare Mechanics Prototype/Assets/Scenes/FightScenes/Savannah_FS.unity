@@ -283,6 +283,8 @@ MonoBehaviour:
   - {fileID: 5740405622423256014, guid: f18500803474a2d48ac60057e5bd88f5, type: 3}
   - {fileID: 5827904041017366573, guid: a77d8c04f01dfbb4886993a21c8dff3f, type: 3}
   addedNote: {fileID: 0}
+  timeAppear: 2
+  timeDisappear: 0
 --- !u!1 &642034158
 GameObject:
   m_ObjectHideFlags: 0
@@ -543,6 +545,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8637991652438758500, guid: 6e8dea5fbfa00e74594cb818876d0621, type: 3}
+      propertyPath: noteIcon
+      value: 
+      objectReference: {fileID: 1148722476350813190, guid: 5c010e4d46f27ff49b6b1b584e671a55, type: 3}
     - target: {fileID: 9104515355766282086, guid: 6e8dea5fbfa00e74594cb818876d0621, type: 3}
       propertyPath: m_Camera
       value: 
