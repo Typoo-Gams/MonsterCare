@@ -9,11 +9,11 @@ public class ToggleSleep_Button : MonoBehaviour
 
     public GameObject NightTime;
     public GameManager manager;
-    public Text zZz;
     Button thisButton;
     float counter;
     bool toggle;
     GameSaver saver = new GameSaver();
+    public GameObject SleepZs;
 
 
 
@@ -28,11 +28,10 @@ public class ToggleSleep_Button : MonoBehaviour
         //sets the current state
         NightTime.SetActive(toggle);
         manager.ActiveMonster.IsSleepingStatus = toggle;
-        zZz.gameObject.SetActive(toggle);
-
+        SleepZs.SetActive(toggle);
         //updates the monsters degration when going to different scenes and back home.
         //does not degrate from opening the game or coming back from combat
-        if(manager.PreviousSecene != 0 || manager.PreviousSecene != 1 || manager.PreviousSecene != 9)
+        if (manager.PreviousSecene != 0 || manager.PreviousSecene != 1 || manager.PreviousSecene != 9)
             manager.ActiveMonster.AtGameWakeUp(saver.FindTimeDifference());
 
         NightTime.transform.SetParent(GameObject.FindGameObjectWithTag("Canvas").transform, false);
@@ -61,11 +60,10 @@ public class ToggleSleep_Button : MonoBehaviour
         //toggles the night shade.
         toggle = !toggle;
         NightTime.SetActive(toggle);
-        
+        SleepZs.SetActive(toggle);
         //updates the monster's sleep status.
         manager.ActiveMonster.IsSleepingStatus = toggle;
         //temporary UI feedback and debug log
-        zZz.gameObject.SetActive(toggle);
         manager.ActiveMonster.DebugMonster();
 
         FindObjectOfType<SoundManager>().play("ButtonClick");

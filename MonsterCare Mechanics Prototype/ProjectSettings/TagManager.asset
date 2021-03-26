@@ -20,6 +20,7 @@ TagManager:
   - Head
   - Torso
   - Food
+  - LockOn
   layers:
   - Default
   - TransparentFX

@@ -36,12 +36,12 @@ public class FoodManager_FoodObject : MonoBehaviour
 
 
         //This can be moved to the spawn object button
-        CurrentCanvas = GameObject.FindGameObjectWithTag("Canvas").GetComponent<Canvas>();
+        //CurrentCanvas = GameObject.FindGameObjectWithTag("Canvas").GetComponent<Canvas>();
 
 
 
         //finds the __app for referencing the gamemanager. finds the button that spawns food.
-        manager = GameObject.Find("__app").GetComponentInChildren<GameManager>();
+        //manager = GameObject.Find("__app").GetComponentInChildren<GameManager>();
 
         //gets the food info
         GetFoodInfo();
@@ -109,8 +109,8 @@ public class FoodManager_FoodObject : MonoBehaviour
 
     void GetFoodInfo() 
     {
-        FoodPower = manager.FoodInventory[inventorySpace].Power;
-        FoodElement = manager.FoodInventory[inventorySpace].Element;
-        FoodCategory = manager.FoodInventory[inventorySpace].FoodType;
+        //FoodPower = manager.FoodInventory[inventorySpace].Power;
+        //FoodElement = manager.FoodInventory[inventorySpace].Element;
+        //FoodCategory = manager.FoodInventory[inventorySpace].FoodType;
     }
 }

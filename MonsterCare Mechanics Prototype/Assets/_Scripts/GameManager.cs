@@ -164,7 +164,6 @@ public class GameManager : MonoBehaviour
             }
         }
 
-
         Debug.Log("previous scene: " + PreviousSecene);
     }
 
