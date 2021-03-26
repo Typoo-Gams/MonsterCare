@@ -57,7 +57,7 @@ AnimatorController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: S_EchidnaBear_Base
+  m_Name: S_FireSleepy_Base
   serializedVersion: 5
   m_AnimatorParameters: []
   m_AnimatorLayers:
