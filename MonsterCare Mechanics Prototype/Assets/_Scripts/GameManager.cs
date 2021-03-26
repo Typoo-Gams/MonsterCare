@@ -102,15 +102,10 @@ public class GameManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.O)) 
         {
             ActiveMonster.UpdateHealth(1);
+            ActiveMonster.UpdateHunger(23);
         }
 
-        timePlaying += Time.deltaTime;
-        if(SceneManager.GetActiveScene().name == "MonsterHome" && timePlaying >= managerSound.Sounds[5].clip.length )
-        {
-
-            FindObjectOfType<SoundManager>().play("BackgroundMusic");
-            timePlaying = 0;
-        }
+        
     }
 
 

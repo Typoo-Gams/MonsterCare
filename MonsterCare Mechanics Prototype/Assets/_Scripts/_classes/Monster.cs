@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Audio;
 
 
 public class Monster
@@ -69,6 +70,10 @@ public class Monster
     //Health Bar
     GameObject HealthBar;
 
+    //Sound Manager
+    SoundManager sManager;
+    private bool Muted;
+
 
     //------------------Monster Class Constructor---------------------
 
@@ -90,6 +95,8 @@ public class Monster
         IsSleepDeprived = false;
         IsMedicated = false;
         UpdateHunger(0);
+        sManager = GameObject.Find("__app").GetComponentInChildren<SoundManager>();
+        Muted = true;
     }
 
 
@@ -112,6 +119,8 @@ public class Monster
         IsSleepDeprived = false;
         IsMedicated = false;
         UpdateHunger(0);
+        sManager = GameObject.Find("__app").GetComponentInChildren<SoundManager>();
+        Muted = true;
     }
 
 
@@ -132,6 +141,8 @@ public class Monster
         IsSleepDeprived = false;
         IsMedicated = false;
         UpdateHunger(0);
+        sManager = GameObject.Find("__app").GetComponentInChildren<SoundManager>();
+        Muted = true;
     }
 
     //------------------------Properties------------------------
@@ -353,6 +364,9 @@ public class Monster
     /// <param name="NewHunger">Set new current hunger</param>
     public void UpdateHunger(float NewHunger)
     {
+         
+        
+
         Hunger = NewHunger;
 
         if (Hunger > MaxHunger)
@@ -804,6 +818,11 @@ public class Monster
         get => MaxHappiness;
     }
 
+    public bool SetMute 
+    {
+        get => Muted;
+        set => Muted = value;
+    }
 
     
 }

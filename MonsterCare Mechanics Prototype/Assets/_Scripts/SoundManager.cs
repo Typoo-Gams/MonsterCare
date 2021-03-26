@@ -11,6 +11,10 @@ public class SoundManager : MonoBehaviour
     public Sounds[] Sounds;
     GameManager manager;
 
+    //Timers
+    private float timePlayingHomeBackground;
+    private float timePlayingHunerGrowl = 60;
+
 
     void Start ()
     {
@@ -27,10 +31,35 @@ public class SoundManager : MonoBehaviour
         }
     }
 
-    public void play (string name)
+    private void Update()
     {
-       Sounds s = Array.Find(Sounds, sound => sound.name == name);
-        s.source.Play();
+        
+
+        timePlayingHomeBackground += Time.deltaTime;
+        if (SceneManager.GetActiveScene().name == "MonsterHome")
+        {
+            if (manager.ActiveMonster.SetMute)
+                manager.ActiveMonster.SetMute = false;
+            if (timePlayingHomeBackground >= Sounds[5].clip.length)
+            {
+                FindObjectOfType<SoundManager>().play("BackgroundMusic");
+                timePlayingHomeBackground = 0;
+            }
+
+
+            if (manager.ActiveMonster.HungerStatus <= 25)
+            {
+                timePlayingHunerGrowl += Time.deltaTime;
+                if (manager.ActiveMonster != null && timePlayingHunerGrowl >= 60)
+                {
+                    play("HungerGrowl");
+                    Debug.LogError("playing growl");
+                    timePlayingHunerGrowl = 0;
+                }
+                
+            }
+        }
+
     }
 
     private void OnLevelWasLoaded(int level)
@@ -46,7 +75,7 @@ public class SoundManager : MonoBehaviour
                 FindSource("DesertBattleMusic").Stop();
                 FindSource("ForestBattleMusic").Stop();
                 FindSource("SavannaBattleMusic").Stop();
-                FindObjectOfType<SoundManager>().play("BackgroundMusic");
+                play("BackgroundMusic");
 
             }
             else
@@ -82,6 +111,12 @@ public class SoundManager : MonoBehaviour
             if (Camera.main.GetComponent<AudioListener>() != null && manager.SoundMuted)
                 Camera.main.GetComponent<AudioListener>().enabled = false;
         }
+    }
+
+    public void play(string name)
+    {
+        Sounds s = Array.Find(Sounds, sound => sound.name == name);
+        s.source.Play();
     }
 
     public AudioSource FindSource(string ClipName) 
