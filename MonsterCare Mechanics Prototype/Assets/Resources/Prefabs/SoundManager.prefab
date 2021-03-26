@@ -71,7 +71,7 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: BackgroundMusic
     clip: {fileID: 8300000, guid: 59f9af6d6e4abbb4a975b86d93736506, type: 3}
-    volume: 0.5
+    volume: 0.02
     pitch: 1
     source: {fileID: 0}
   - name: DesertBattleMusic
@@ -87,5 +87,10 @@ MonoBehaviour:
   - name: SavannaBattleMusic
     clip: {fileID: 8300000, guid: 5e5c2c8af4de8c149ae7a0e415a0d06a, type: 3}
     volume: 0.5
+    pitch: 1
+    source: {fileID: 0}
+  - name: HungerGrowl
+    clip: {fileID: 8300000, guid: d010323bcd212cb4fbf2b649aa53eab3, type: 3}
+    volume: 1
     pitch: 1
     source: {fileID: 0}
