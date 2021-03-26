@@ -19,6 +19,12 @@ public class GameManager : MonoBehaviour
     //Previously loaded scene
     public int PreviousSecene;
     public bool SleepMemory;
+
+    //for checking which scene it is
+    public int sceneNumber;
+    public string sceneName;
+
+
     //GameSaver for saving info.
     GameSaver Save = new GameSaver();
     //Currently Active Monster
