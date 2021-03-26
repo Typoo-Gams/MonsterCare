@@ -351,6 +351,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ace6d51c776a77442b71984fcd2c339e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SceneName: MonsterHome
 --- !u!114 &1293837162
 MonoBehaviour:
   m_ObjectHideFlags: 0
