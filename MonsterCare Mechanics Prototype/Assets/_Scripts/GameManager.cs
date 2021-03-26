@@ -43,10 +43,6 @@ public class GameManager : MonoBehaviour
     public bool NewSave;
     public bool SoundMuted;
 
-    //for checking which scene it is
-    public int sceneNumber;
-    public string sceneName;
-
     //Awake is called when the script instance is being loaded
     private void Awake()
     {

@@ -320,10 +320,6 @@ PrefabInstance:
       propertyPath: m_Interactable
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 8129942001263884480, guid: 40193650ec9cf7e4189cc7b3202955b8, type: 3}
-      propertyPath: SceneName
-      value: Map
-      objectReference: {fileID: 0}
     - target: {fileID: 8129942001263884482, guid: 40193650ec9cf7e4189cc7b3202955b8, type: 3}
       propertyPath: m_Enabled
       value: 1
