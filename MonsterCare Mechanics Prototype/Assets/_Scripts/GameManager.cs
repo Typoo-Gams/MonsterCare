@@ -152,21 +152,25 @@ public class GameManager : MonoBehaviour
 
     //Called when a new scene is loaded.
     private void OnLevelWasLoaded(int level)
-    {              //Music stops when re entering the home from combat??
+    {
+        if (MonsterObject != null) 
+        {
+            if (SceneManager.GetActiveScene().name == "MonsterHome")
+            {
+                //change to renderer so that stats can change while in other scenes?
+                MonsterObject.GetComponent<SpriteRenderer>().enabled = true;
+            }
+            else
+            {
+
+                //change to renderer so that stats can change while in other scenes?
+                MonsterObject.GetComponent<SpriteRenderer>().enabled = false;
+
+            }
+        }
+
+
         Debug.Log("previous scene: " + PreviousSecene);
-        if (SceneManager.GetActiveScene().name == "MonsterHome")
-        {
-            //change to renderer so that stats can change while in other scenes?
-            MonsterObject.GetComponent<SpriteRenderer>().enabled = true;
-        }
-        else
-        {
-
-            //change to renderer so that stats can change while in other scenes?
-            MonsterObject.GetComponent<SpriteRenderer>().enabled = false;
-
-        }
-
     }
 
 

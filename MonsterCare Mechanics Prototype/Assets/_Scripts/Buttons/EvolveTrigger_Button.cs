@@ -12,7 +12,8 @@ public class EvolveTrigger_Button : MonoBehaviour
     public int EvolveEnergyCost;
 
     public GameObject glowing;
-    bool spawned;
+    GameObject GlowSpawn;
+    public Animator ShowEvolveButton;
 
     // Start is called before the first frame update
     void Start()
@@ -26,26 +27,15 @@ public class EvolveTrigger_Button : MonoBehaviour
     {
         if (manager.ActiveMonster.Element != "None" && manager.ActiveMonster.EnergyStatus > EvolveEnergyCost)
         {
-            ThisButton.interactable = true;
-            if (!spawned)
-            {
-                Instantiate(glowing);
-                spawned = true;
-            }
+            ShowEvolveButton.SetBool("Active", true);
         }
         else
         {
-            ThisButton.interactable = false;
-
-            if (spawned)
-            {
-                Destroy(GameObject.Find("Glowing_Particles(Clone)"));
-                spawned = false;
-            }
+            ShowEvolveButton.SetBool("Active", false);
         }
 
         if (manager.ActiveMonster.HealthStatus == 0)
-            ThisButton.interactable = false;
+            ShowEvolveButton.SetBool("Active", false);
     }
 
     void EvolutionTrigger() 

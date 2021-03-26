@@ -81,10 +81,12 @@ public class DefaultStarting_MonsterController : MonoBehaviour
             Devolution();
         }
 
-        if(gameObject.GetComponent<SpriteRenderer>().sprite.name == "S_Child_Base2.0" && monster.IsSleepingStatus) 
-            gameObject.GetComponent<Animator>().enabled = false;
+
+        if (gameObject.GetComponent<SpriteRenderer>().sprite.name == "S_Child_Base" && monster.IsSleepingStatus)
+            gameObject.GetComponent<Animator>().SetBool("Sleeping", monster.IsSleepingStatus);
         else
-            gameObject.GetComponent<Animator>().enabled = true;
+            gameObject.GetComponent<Animator>().SetBool("Sleeping", monster.IsSleepingStatus);
+
 
     }
 
@@ -115,27 +117,19 @@ public class DefaultStarting_MonsterController : MonoBehaviour
     //when the application is closed try to save.
     private void OnApplicationQuit()
     {
-        try
-        {
+        if (monster != null)
             Saver.SaveMonster(monster);
-        }
-        catch
-        {
-            Debug.LogWarning("The monster tried to save before it was created.");
-        }
+        else
+            Debug.LogWarning("Could not save. There was no monster.");
     }
 
     //when the application is paused save the monster.
     private void OnApplicationPause(bool focus)
     {
-        try
-        {
+        if(monster != null)
             Saver.SaveMonster(monster);
-        }
-        catch
-        {
-            Debug.LogWarning("The monster tried to save before it was created.");
-        }
+        else
+            Debug.LogWarning("Could not save. There was no monster.");
     }
 
 
