@@ -34,53 +34,54 @@ public class SoundManager : MonoBehaviour
     }
 
     private void OnLevelWasLoaded(int level)
-    {              //Music stops when re entering the home from combat??
-        Debug.Log("previous scene: " + manager.PreviousSecene);
-        if (SceneManager.GetActiveScene().name == "MonsterHome")
+    {
+        if (manager != null)
         {
+            Debug.Log("previous scene: " + manager.PreviousSecene);
 
-            //change to renderer so that stats can change while in other scenes?
-            FindSource("DesertBattleMusic").Stop();
-            FindSource("ForestBattleMusic").Stop();
-            FindSource("SavannaBattleMusic").Stop();
-            FindObjectOfType<SoundManager>().play("BackgroundMusic");
+            if (SceneManager.GetActiveScene().name == "MonsterHome")
+            {
 
+                //change to renderer so that stats can change while in other scenes?
+                FindSource("DesertBattleMusic").Stop();
+                FindSource("ForestBattleMusic").Stop();
+                FindSource("SavannaBattleMusic").Stop();
+                FindObjectOfType<SoundManager>().play("BackgroundMusic");
+
+            }
+            else
+            {
+
+            }
+
+            if (Camera.main.GetComponent<AudioListener>() != null && manager.SoundMuted)
+                Camera.main.GetComponent<AudioListener>().enabled = false;
+
+            //Music for the different zones        //Desert
+            if (SceneManager.GetActiveScene().name == "Desert_FS")
+            {
+                FindSource("BackgroundMusic").Stop();
+                FindObjectOfType<SoundManager>().play("DesertBattleMusic");
+            }
+            if (Camera.main.GetComponent<AudioListener>() != null && manager.SoundMuted)
+                Camera.main.GetComponent<AudioListener>().enabled = false;
+            //Forest
+            if (SceneManager.GetActiveScene().name == "Forest_FS")
+            {
+                FindSource("BackgroundMusic").Stop();
+                FindObjectOfType<SoundManager>().play("ForestBattleMusic");
+            }
+            if (Camera.main.GetComponent<AudioListener>() != null && manager.SoundMuted)
+                Camera.main.GetComponent<AudioListener>().enabled = false;
+            //Savanna
+            if (SceneManager.GetActiveScene().name == "Savannah_FS")
+            {
+                FindSource("BackgroundMusic").Stop();
+                FindObjectOfType<SoundManager>().play("SavannaBattleMusic");
+            }
+            if (Camera.main.GetComponent<AudioListener>() != null && manager.SoundMuted)
+                Camera.main.GetComponent<AudioListener>().enabled = false;
         }
-        else
-        {
-
-        }
-        if (Camera.main.GetComponent<AudioListener>() != null && manager.SoundMuted)
-            Camera.main.GetComponent<AudioListener>().enabled = false;
-
-        //Music for the different zones        //Desert
-        if (SceneManager.GetActiveScene().name == "Desert_FS")
-        {
-            FindSource("BackgroundMusic").Stop();
-            FindObjectOfType<SoundManager>().play("DesertBattleMusic");
-        }
-        if (Camera.main.GetComponent<AudioListener>() != null && manager.SoundMuted)
-            Camera.main.GetComponent<AudioListener>().enabled = false;
-                  //Forest
-        if (SceneManager.GetActiveScene().name == "Forest_FS")
-        {
-            FindSource("BackgroundMusic").Stop();
-            FindObjectOfType<SoundManager>().play("ForestBattleMusic");
-        }
-        if (Camera.main.GetComponent<AudioListener>() != null && manager.SoundMuted)
-            Camera.main.GetComponent<AudioListener>().enabled = false;
-                 //Savanna
-        if (SceneManager.GetActiveScene().name == "Savannah_FS")
-        {
-            FindSource("BackgroundMusic").Stop();
-            FindObjectOfType<SoundManager>().play("SavannaBattleMusic");
-        }
-        if (Camera.main.GetComponent<AudioListener>() != null && manager.SoundMuted)
-            Camera.main.GetComponent<AudioListener>().enabled = false;
-
-
-
-
     }
 
     public AudioSource FindSource(string ClipName) 
