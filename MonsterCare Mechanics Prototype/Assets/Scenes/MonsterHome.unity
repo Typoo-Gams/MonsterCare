@@ -190,6 +190,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e8c4f5f02f969cb4f976de83f8da2611, type: 3}
+--- !u!198 &788428949 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 7920620767439399038, guid: a2600e10891335740a5ff033b942a44c, type: 3}
+  m_PrefabInstance: {fileID: 888702782}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &888702782
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -291,6 +296,10 @@ PrefabInstance:
       propertyPath: m_Interactable
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1286337378, guid: 40193650ec9cf7e4189cc7b3202955b8, type: 3}
+      propertyPath: glowing
+      value: 
+      objectReference: {fileID: 788428949}
     - target: {fileID: 1286337378, guid: 40193650ec9cf7e4189cc7b3202955b8, type: 3}
       propertyPath: ShowEvolveButton
       value: 

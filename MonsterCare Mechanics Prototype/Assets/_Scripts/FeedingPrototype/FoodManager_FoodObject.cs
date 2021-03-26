@@ -27,7 +27,7 @@ public class FoodManager_FoodObject : MonoBehaviour
 
     Canvas CurrentCanvas;
     GameManager manager;
-
+    public ParticleSystem Glow;
 
     // Start is called before the first frame update
     void Start()
@@ -54,20 +54,25 @@ public class FoodManager_FoodObject : MonoBehaviour
         else
         {
             ThisFood = new Food(FoodElement, FoodPower);
-
+            Glow.gameObject.SetActive(true);
+            ParticleSystem.MainModule settings = Glow.main;
             switch (FoodElement)
             {
                 case "Air":
                     ThisSprite = SpecialFoodSprites[0];
+                    settings.startColor = new ParticleSystem.MinMaxGradient(Color.white);
                     break;
                 case "Earth":
                     ThisSprite = SpecialFoodSprites[1];
+                    settings.startColor = new ParticleSystem.MinMaxGradient(new Color(0.5372549f, 0.8941177f, 0.4392157f));
                     break;
                 case "Fire":
                     ThisSprite = SpecialFoodSprites[2];
+                    settings.startColor = new ParticleSystem.MinMaxGradient(new Color(0.9647059f, 0.4901961f, 0.345098f));
                     break;
                 case "Water":
                     ThisSprite = SpecialFoodSprites[3];
+                    settings.startColor = new ParticleSystem.MinMaxGradient(new Color(0.6078432f, 0.6705883f, 0.882353f));
                     break;
             }
         }

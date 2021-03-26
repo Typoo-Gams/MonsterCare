@@ -91,7 +91,6 @@ public class FoodInventory : MonoBehaviour
         {
             Spawned = Instantiate(FoodPrefab);
             Spawned.transform.SetParent(parent.transform, false);
-            Debug.Log(SpawnLocation.transform.position);
             Spawned.transform.position = SpawnLocation.transform.position;
             Spawned.transform.localScale = new Vector3(100, 100, 100);
             spawn = Spawned.GetComponent<FoodManager_FoodObject>();
