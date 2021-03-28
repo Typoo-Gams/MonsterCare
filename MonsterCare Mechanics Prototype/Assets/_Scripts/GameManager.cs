@@ -2,19 +2,10 @@ using System;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-using UnityEditor;
-using UnityEngine.Audio;
-
 
 public class GameManager : MonoBehaviour
 {
     public bool DevBuild;
-
-    private float timePlaying; 
-
-    SoundManager managerSound;
-    bool Music_Play;
-    bool Music_ToggleChange;
 
     //Previously loaded scene
     public int PreviousSecene;
@@ -24,15 +15,17 @@ public class GameManager : MonoBehaviour
     public int sceneNumber;
     public string sceneName;
 
-
     //GameSaver for saving info.
     GameSaver Save = new GameSaver();
+
     //Currently Active Monster
     public Monster ActiveMonster;
     public GameObject MonsterObject;
+
     //Currently Active Enemy Monster
     public GameObject Enemy;
     public Monster EnemyMonster;
+
     //slider for stuff
     public GameObject HealthBarPrefab;
     public Slider GreenSliderPrefab;
@@ -43,11 +36,12 @@ public class GameManager : MonoBehaviour
 
     //Player Inventory
     public Food[] FoodInventory = new Food[5];
+
     //latest reward
     public Food FoodReward;
 
+    //Remember if this is a new game.
     public bool NewSave;
-    public bool SoundMuted;
 
     //Awake is called when the script instance is being loaded
     private void Awake()
@@ -76,16 +70,12 @@ public class GameManager : MonoBehaviour
         FoodInventory[4] = new Food("Water");
         Save.SaveFood(FoodInventory);
         //Debug.Log("Manager Start");
-
-        managerSound = GameObject.Find("__app").GetComponentInChildren<SoundManager>();
-        Music_Play = true;
-
-       
     }
 
 
     private void Update() 
     {
+        //Dev cheats
         if (Input.GetKeyDown(KeyCode.I)) 
         {
             ActiveMonster.UpdateHealth(100);
@@ -110,8 +100,6 @@ public class GameManager : MonoBehaviour
             ActiveMonster.UpdateHealth(1);
             ActiveMonster.UpdateHunger(23);
         }
-
-        
     }
 
 
@@ -253,6 +241,7 @@ public class GameSaver
             PlayerPrefs.SetFloat(MonsterSaveIndex + StatIndex[i], 0);
         }
 
+        //Sets empty inventory slots
         Food[] cleanInv = 
             { new Food(true),
               new Food(true),
@@ -260,7 +249,6 @@ public class GameSaver
               new Food(true),
               new Food(true),
             };
-
         SaveFood(cleanInv);
 
         Debug.LogWarning("Save was wiped");
@@ -330,7 +318,6 @@ public class GameSaver
         //string TimeSaved = TimeTable[0] + ":" + TimeTable[1] + ":" + TimeTable[2] + "   " + TimeTable[3] + "/" + TimeTable[4] + "/" + TimeTable[5];
         //Debug.Log(TimeSaved);
 
-        //return
         return TimeTable;
     }
 

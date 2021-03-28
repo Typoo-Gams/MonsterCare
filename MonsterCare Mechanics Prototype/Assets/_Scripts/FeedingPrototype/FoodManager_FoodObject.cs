@@ -25,32 +25,26 @@ public class FoodManager_FoodObject : MonoBehaviour
 
     public Text UI;
 
-    Canvas CurrentCanvas;
+    GameObject parent;
     GameManager manager;
     public ParticleSystem Glow;
+
+    bool isHeld;
 
     // Start is called before the first frame update
     void Start()
     {
+        manager = GameObject.Find("__app").GetComponentInChildren<GameManager>();
 
+        parent = GameObject.Find("Canvas_Home");
 
-
-        //This can be moved to the spawn object button
-        //CurrentCanvas = GameObject.FindGameObjectWithTag("Canvas").GetComponent<Canvas>();
-
-
-
-        //finds the __app for referencing the gamemanager. finds the button that spawns food.
-        //manager = GameObject.Find("__app").GetComponentInChildren<GameManager>();
-
-        //gets the food info
-        GetFoodInfo();
         //checks what type of food it was and sets its sprite.
         if (FoodCategory == "Normal") 
         {
             ThisFood = new Food(false);
             ThisSprite = NormalFoodSprites[SpriteIndex];
         }
+        //Special Food types get particles colored to their element, sets the sprite.
         else
         {
             ThisFood = new Food(FoodElement, FoodPower);
@@ -79,9 +73,10 @@ public class FoodManager_FoodObject : MonoBehaviour
         gameObject.GetComponent<SpriteRenderer>().sprite = ThisSprite;
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+
+    private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.gameObject.tag.Equals("Monster")) 
+        if (collision.gameObject.tag.Equals("Monster") && !isHeld)
         {
             //updates the monsters hunger when it eats the food
             manager.ActiveMonster.UpdateHunger(manager.ActiveMonster.HungerStatus + ThisFood.Power);
@@ -90,9 +85,9 @@ public class FoodManager_FoodObject : MonoBehaviour
             //spawns temporary feedback UI
             Text spawn = Instantiate(UI);
             spawn.text = "+" + ThisFood.Power;
-            spawn.transform.SetParent(CurrentCanvas.transform, false);
+            spawn.transform.SetParent(parent.transform, false);
             spawn.transform.localPosition = new Vector3(347f, 276f, 60f);
-            
+
             //destroys the food
             Destroy(gameObject);
             manager.FoodInventory[inventorySpace] = new Food(true);
@@ -106,11 +101,13 @@ public class FoodManager_FoodObject : MonoBehaviour
         }
     }
 
-
-    void GetFoodInfo() 
+    private void OnMouseDown()
     {
-        //FoodPower = manager.FoodInventory[inventorySpace].Power;
-        //FoodElement = manager.FoodInventory[inventorySpace].Element;
-        //FoodCategory = manager.FoodInventory[inventorySpace].FoodType;
+        isHeld = true;
+    }
+
+    private void OnMouseUp()
+    {
+        isHeld = false;
     }
 }

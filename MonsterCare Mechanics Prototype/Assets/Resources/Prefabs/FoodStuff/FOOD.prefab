@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 3127997498886388680}
   - component: {fileID: 3127997498886388686}
   - component: {fileID: 9173372044335441523}
+  - component: {fileID: 5710311406658450634}
   m_Layer: 0
   m_Name: FOOD
   m_TagString: Food
@@ -30,7 +31,7 @@ RectTransform:
   m_GameObject: {fileID: 3127997498886388660}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 215.99998, y: 215.99998, z: 215.99998}
+  m_LocalScale: {x: 0.3177775, y: 0.3177775, z: 0.31777412}
   m_Children:
   - {fileID: 7299187406503428254}
   m_Father: {fileID: 0}
@@ -38,7 +39,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -889}
+  m_AnchoredPosition: {x: 0, y: -0.5}
   m_SizeDelta: {x: 1, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!212 &3127997498886388687
@@ -80,7 +81,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 7482667652216324306, guid: 5b421f4d39bd3dc48955133b310a10d9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -192,6 +193,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   direction: {x: 0, y: 0, z: 0}
   screenPos: {x: 0, y: 0, z: 0}
+--- !u!114 &5710311406658450634
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3127997498886388660}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17c8a50d83791754b98bf5b992b6cff9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Targets: []
+  Locked: 0
+  UnlockedParent: {fileID: 0}
 --- !u!1001 &8417777483867752271
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -205,15 +221,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1268352924147009489, guid: a2600e10891335740a5ff033b942a44c, type: 3}
       propertyPath: m_LocalScale.x
-      value: -0.6588719
+      value: -0.50907737
       objectReference: {fileID: 0}
     - target: {fileID: 1268352924147009489, guid: a2600e10891335740a5ff033b942a44c, type: 3}
       propertyPath: m_LocalScale.y
-      value: -0.6588719
+      value: -0.50907737
       objectReference: {fileID: 0}
     - target: {fileID: 1268352924147009489, guid: a2600e10891335740a5ff033b942a44c, type: 3}
       propertyPath: m_LocalScale.z
-      value: -0.6588719
+      value: -0.50907737
       objectReference: {fileID: 0}
     - target: {fileID: 1268352924147009489, guid: a2600e10891335740a5ff033b942a44c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -225,7 +241,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1268352924147009489, guid: a2600e10891335740a5ff033b942a44c, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 99.41
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1268352924147009489, guid: a2600e10891335740a5ff033b942a44c, type: 3}
       propertyPath: m_LocalRotation.w
