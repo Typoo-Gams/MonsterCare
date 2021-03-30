@@ -9,8 +9,14 @@ public class SmokeParticle_Box : MonoBehaviour
     public GameObject smokeParticles;
     public int SceneNumber = 0;
     public string SceneName = "";
+    GameManager manager;
 
     int tapCounter;
+
+    private void Start()
+    {
+        manager = GameObject.Find("__app").GetComponentInChildren<GameManager>();
+    }
 
     private void Update()
     {
@@ -24,7 +30,8 @@ public class SmokeParticle_Box : MonoBehaviour
             else
             {
 
-                SceneManager.LoadScene(SceneName);
+                SceneManager.LoadScene("LoadScene");
+                manager.sceneName = "MonsterHome";
             }
         }
     }

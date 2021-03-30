@@ -36,7 +36,8 @@ public class Fainting_OurMonster : MonoBehaviour
                 if (Input.GetMouseButtonDown(0))
                 {
                     text.gameObject.SetActive(false);
-                    SceneManager.LoadScene("MonsterHome");
+                    SceneManager.LoadScene("LoadScene");
+                    manager.sceneName = "MonsterHome";
                 }
             }
         }

@@ -421,6 +421,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SceneNumber: 0
   SceneName: Forest_FS
+  LoadScene: 1
 --- !u!114 &206267948
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -657,6 +658,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SceneNumber: 0
   SceneName: Mountain_FS
+  LoadScene: 1
 --- !u!114 &430118686
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -893,6 +895,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SceneNumber: 0
   SceneName: Savannah_FS
+  LoadScene: 1
 --- !u!114 &998466936
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1486,6 +1489,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SceneNumber: 0
   SceneName: Desert_FS
+  LoadScene: 1
 --- !u!114 &1314494827
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1980,6 +1984,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SceneNumber: 0
   SceneName: Forest_FS
+  LoadScene: 1
 --- !u!114 &1793951558
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2134,6 +2139,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SceneNumber: 0
   SceneName: Ice_FS
+  LoadScene: 1
 --- !u!114 &1822405003
 MonoBehaviour:
   m_ObjectHideFlags: 0

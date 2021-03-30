@@ -23,10 +23,11 @@ public class LoadingScene : MonoBehaviour
         count += Time.deltaTime;
         if (isLoaded == true)
         {
-            text.gameObject.SetActive(true);
+            
 
             if (count > 2)
             {
+                text.gameObject.SetActive(true);
                 if (Input.GetMouseButtonDown(0))
                 {
                     //If there is no spesificed scene name to load then load the scene with index scene name.
@@ -43,6 +44,10 @@ public class LoadingScene : MonoBehaviour
                     }
                 }
             }
+        }
+        else 
+        {
+        
         }
 
     }

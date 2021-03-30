@@ -26,6 +26,7 @@ public class FoodTap_SceenLoader : MonoBehaviour
         {
             Destroy(gameObject);
             SceneManager.LoadScene("LoadScene");
+            manager.sceneName = "MonsterHome";
         }
         Debug.Log("Food Pickup");
     }
