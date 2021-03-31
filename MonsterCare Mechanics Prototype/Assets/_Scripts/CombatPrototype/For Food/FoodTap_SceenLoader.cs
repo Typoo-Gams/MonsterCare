@@ -7,10 +7,14 @@ public class FoodTap_SceenLoader : MonoBehaviour
 {
     GameManager manager;
     public int spriteIndex;
+    float cnt;
+    bool clicked;
+    Animator Fade;
 
     void Start() 
     {
         manager = GameObject.Find("__app").GetComponentInChildren<GameManager>();
+        Fade = GameObject.Find("BlackFade").GetComponent<Animator>();
         foreach(Food missingSprite in manager.FoodInventory) 
         {
             if (missingSprite.Sprite == -1) 
@@ -20,13 +24,27 @@ public class FoodTap_SceenLoader : MonoBehaviour
         }
     }
 
+    private void Update()
+    {
+        if (clicked)
+        {
+            cnt += Time.deltaTime;
+
+            if (cnt > Fade.GetCurrentAnimatorStateInfo(0).length)
+            {
+                SceneManager.LoadScene("LoadScene");
+                manager.sceneName = "MonsterHome";
+            }
+        }
+    }
+
     public void OnMouseDown()
     {
         if (GameObject.FindGameObjectWithTag("Note") == null) 
         {
-            Destroy(gameObject);
-            SceneManager.LoadScene("LoadScene");
-            manager.sceneName = "MonsterHome";
+            Fade.Play("FadeOut");
+            clicked = true;
+            gameObject.GetComponent<SpriteRenderer>().enabled = false;
         }
         Debug.Log("Food Pickup");
     }

@@ -99,6 +99,7 @@ public class GameManager : MonoBehaviour
         {
             ActiveMonster.UpdateHealth(1);
             ActiveMonster.UpdateHunger(23);
+            ActiveMonster.EnergyStatus = 0;
         }
     }
 

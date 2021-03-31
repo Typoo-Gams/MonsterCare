@@ -30,8 +30,10 @@ public class SoundManager : MonoBehaviour
 
             SoundClip.source.volume = SoundClip.volume;
             SoundClip.source.pitch = SoundClip.pitch;
-
         }
+
+        //Sets the current muted value.
+        SetMute(true);
     }
 
     private void Update()
@@ -125,5 +127,27 @@ public class SoundManager : MonoBehaviour
         }
         Debug.LogWarning("AudioSource Not Found");
         return null;
+    }
+
+    //Updates every audiosource to mute/unmuted
+    public void SetMute(bool Mute) 
+    {
+        SoundMuted = Mute;
+        if (SoundMuted)
+        {
+            //mutes all audiosources
+            foreach (AudioSource sounds in GetComponents<AudioSource>())
+            {
+                sounds.mute = true;
+            }
+        }
+        else
+        {
+            //unmutes all audiosources
+            foreach (AudioSource sounds in GetComponents<AudioSource>())
+            {
+                sounds.mute = false;
+            }
+        }
     }
 }

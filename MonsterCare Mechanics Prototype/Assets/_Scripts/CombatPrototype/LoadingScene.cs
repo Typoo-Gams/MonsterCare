@@ -12,10 +12,13 @@ public class LoadingScene : MonoBehaviour
     public Text text;
     float count;
     public bool isLoaded;
+    Animator Fade;
 
     private void Start()
     {
         manager = GameObject.Find("__app").GetComponentInChildren<GameManager>();
+        Fade = GameObject.FindGameObjectWithTag("Fade").GetComponent<Animator>();
+        Fade.Play("FadeIn");
     }
 
     private void Update()
@@ -23,8 +26,6 @@ public class LoadingScene : MonoBehaviour
         count += Time.deltaTime;
         if (isLoaded == true)
         {
-            
-
             if (count > 2)
             {
                 text.gameObject.SetActive(true);
@@ -35,21 +36,17 @@ public class LoadingScene : MonoBehaviour
                     {
                         SceneManager.LoadScene(manager.sceneNumber);
                         manager.sceneNumber = 0;
+                        Fade.Play("FadeIn");
                     }
                     else
                     {
 
                         SceneManager.LoadScene(manager.sceneName);
                         manager.sceneName = "";
+                        Fade.Play("FadeIn");
                     }
                 }
             }
         }
-        else 
-        {
-        
-        }
-
     }
-
 }

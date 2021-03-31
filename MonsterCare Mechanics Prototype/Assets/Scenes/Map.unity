@@ -434,11 +434,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: def75aa5ad44cc84cada3d1936eb5266, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlaySounds: 0
   cost: 1
   elements:
   - {fileID: 26613001}
-  PlaySoundWhenClicked: 0
+  paying: 1
 --- !u!1 &417919842
 GameObject:
   m_ObjectHideFlags: 0
@@ -671,11 +670,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: def75aa5ad44cc84cada3d1936eb5266, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlaySounds: 0
   cost: 1
   elements:
   - {fileID: 1176222778}
-  PlaySoundWhenClicked: 0
+  paying: 1
 --- !u!1 &574611766
 GameObject:
   m_ObjectHideFlags: 0
@@ -908,11 +906,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: def75aa5ad44cc84cada3d1936eb5266, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlaySounds: 0
   cost: 1
   elements:
   - {fileID: 1074869177}
-  PlaySoundWhenClicked: 0
+  paying: 1
 --- !u!1 &1009533912
 GameObject:
   m_ObjectHideFlags: 0
@@ -1502,11 +1499,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: def75aa5ad44cc84cada3d1936eb5266, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlaySounds: 0
   cost: 1
   elements:
   - {fileID: 417919842}
-  PlaySoundWhenClicked: 0
+  paying: 1
 --- !u!1 &1527629368
 GameObject:
   m_ObjectHideFlags: 0
@@ -1707,7 +1703,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1735251160
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1997,11 +1993,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: def75aa5ad44cc84cada3d1936eb5266, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlaySounds: 0
   cost: 1
   elements:
   - {fileID: 574611766}
-  PlaySoundWhenClicked: 0
+  paying: 1
 --- !u!1 &1822404997
 GameObject:
   m_ObjectHideFlags: 0
@@ -2152,11 +2147,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: def75aa5ad44cc84cada3d1936eb5266, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlaySounds: 0
   cost: 1
   elements:
   - {fileID: 1009533912}
-  PlaySoundWhenClicked: 0
+  paying: 1
 --- !u!1 &1851984556
 GameObject:
   m_ObjectHideFlags: 0

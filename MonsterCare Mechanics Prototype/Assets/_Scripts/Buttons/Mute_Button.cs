@@ -12,31 +12,30 @@ public class Mute_Button : MonoBehaviour
     {
         manager = GameObject.Find("__app").GetComponentInChildren<SoundManager>();
         gameObject.GetComponent<Button>().onClick.AddListener(TaskOnClick);
-    }
-
-    void TaskOnClick() 
-    {
-        manager.SoundMuted = !manager.SoundMuted;
 
         if (manager.SoundMuted)
         {
             gameObject.GetComponentInChildren<Text>().text = "Muted";
 
-            //mutes all audiosources
-            foreach (AudioSource sounds in manager.gameObject.GetComponents<AudioSource>())
-            {
-                sounds.mute = true;
-            }
         }
         else
         {
             gameObject.GetComponentInChildren<Text>().text = "Mute";
+        }
+    }
 
-            //unmutes all audiosources
-            foreach (AudioSource sounds in manager.gameObject.GetComponents<AudioSource>())
-            {
-                sounds.mute = false;
-            }
+    void TaskOnClick() 
+    {
+        manager.SetMute(!manager.SoundMuted);
+
+        if (manager.SoundMuted)
+        {
+            gameObject.GetComponentInChildren<Text>().text = "Muted";
+
+        }
+        else
+        {
+            gameObject.GetComponentInChildren<Text>().text = "Mute";
         }
     }
 }

@@ -5,32 +5,28 @@ using UnityEngine.UI;
 
 public class EnergyCost_Button : MonoBehaviour
 {
-    public bool PlaySounds;
-
     GameManager manager;
     Button ThisButton;
     public int cost;
     public GameObject[] elements;
-
-
-    public bool PlaySoundWhenClicked;
+    public bool paying;
 
     // Start is called before the first frame update
     void Start()
     {
         manager = GameObject.Find("__app").GetComponentInChildren<GameManager>();
         ThisButton = gameObject.GetComponent<Button>();
-        ThisButton.onClick.AddListener(PayCost);
+        if(paying)
+            ThisButton.onClick.AddListener(PayCost);
 
     }
 
     // Update is called once per frame
-    void Update()
+    void LateUpdate()
     {
         if (manager.ActiveMonster.EnergyStatus > cost)
         {
             ThisButton.interactable = true;
-            
             foreach(GameObject Icons in elements)
             {
                 Icons.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);

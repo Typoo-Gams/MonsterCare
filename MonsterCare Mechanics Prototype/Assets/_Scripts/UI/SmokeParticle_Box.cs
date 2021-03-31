@@ -10,29 +10,37 @@ public class SmokeParticle_Box : MonoBehaviour
     public int SceneNumber = 0;
     public string SceneName = "";
     GameManager manager;
+    float cnt;
+    Animator Fade;
 
     int tapCounter;
 
     private void Start()
     {
         manager = GameObject.Find("__app").GetComponentInChildren<GameManager>();
+        Fade = GameObject.FindGameObjectWithTag("Fade").GetComponent<Animator>();
     }
 
     private void Update()
     {
         if (tapCounter > 2)
-        { 
-           
-            if (SceneName == "")
+        {
+            cnt += Time.deltaTime;
+            Fade.Play("FadeOut");
+            if (cnt > Fade.GetCurrentAnimatorStateInfo(0).length) 
             {
-                SceneManager.LoadScene(SceneNumber);
-            }
-            else
-            {
+                if (SceneName == "")
+                {
+                    SceneManager.LoadScene(SceneNumber);
+                }
+                else
+                {
 
-                SceneManager.LoadScene("LoadScene");
-                manager.sceneName = "MonsterHome";
+                    SceneManager.LoadScene("LoadScene");
+                    manager.sceneName = "MonsterHome";
+                }
             }
+            
         }
     }
 

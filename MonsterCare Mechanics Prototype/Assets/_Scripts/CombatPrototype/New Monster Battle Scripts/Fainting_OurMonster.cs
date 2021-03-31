@@ -15,10 +15,14 @@ public class Fainting_OurMonster : MonoBehaviour
 
     float count;
     public float whaitTime;
+    bool clickeed;
+    public float fadeCnt;
+    Animator Fade;
 
     private void Start()
     {
         manager = GameObject.Find("__app").GetComponentInChildren<GameManager>();
+        Fade = GameObject.Find("BlackFade").GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -36,8 +40,17 @@ public class Fainting_OurMonster : MonoBehaviour
                 if (Input.GetMouseButtonDown(0))
                 {
                     text.gameObject.SetActive(false);
-                    SceneManager.LoadScene("LoadScene");
-                    manager.sceneName = "MonsterHome";
+                    clickeed = true;
+                    Fade.Play("FadeOut");
+                }
+                if (clickeed) 
+                {
+                    fadeCnt += Time.deltaTime;
+                    if (fadeCnt > Fade.GetCurrentAnimatorStateInfo(0).length) 
+                    {
+                        SceneManager.LoadScene("LoadScene");
+                        manager.sceneName = "MonsterHome";
+                    }
                 }
             }
         }

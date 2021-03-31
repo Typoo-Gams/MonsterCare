@@ -21,6 +21,8 @@ TagManager:
   - Torso
   - Food
   - LockOn
+  - Fade
+  - LowerPanel
   layers:
   - Default
   - TransparentFX
