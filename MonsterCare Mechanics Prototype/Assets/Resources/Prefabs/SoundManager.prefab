@@ -71,7 +71,7 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: BackgroundMusic
     clip: {fileID: 8300000, guid: 59f9af6d6e4abbb4a975b86d93736506, type: 3}
-    volume: 0.02
+    volume: 0.013
     pitch: 1
     source: {fileID: 0}
   - name: DesertBattleMusic
@@ -89,8 +89,29 @@ MonoBehaviour:
     volume: 0.5
     pitch: 1
     source: {fileID: 0}
+  - name: MountainBattleMusic
+    clip: {fileID: 8300000, guid: 64343032024cd95428a4949a71c6ecbc, type: 3}
+    volume: 0.449
+    pitch: 1
+    source: {fileID: 0}
+  - name: IceBattleMusic
+    clip: {fileID: 8300000, guid: 4d35b61f4d070b34d8da9d7e7525f1a7, type: 3}
+    volume: 0.449
+    pitch: 1
+    source: {fileID: 0}
   - name: HungerGrowl
     clip: {fileID: 8300000, guid: d010323bcd212cb4fbf2b649aa53eab3, type: 3}
     volume: 1
     pitch: 1
     source: {fileID: 0}
+  - name: Snoring
+    clip: {fileID: 8300000, guid: 3d0e2cfc702da254496a68618ca838f2, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: ObtainReport
+    clip: {fileID: 8300000, guid: 0676c471455c5fb4387ebbbb6a415e4d, type: 3}
+    volume: 0.449
+    pitch: 1
+    source: {fileID: 0}
+  SoundMuted: 1

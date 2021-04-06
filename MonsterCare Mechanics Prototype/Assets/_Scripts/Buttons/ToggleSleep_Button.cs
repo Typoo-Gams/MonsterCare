@@ -67,5 +67,6 @@ public class ToggleSleep_Button : MonoBehaviour
         manager.ActiveMonster.DebugMonster();
 
         FindObjectOfType<SoundManager>().play("ButtonClick");
+       
     }
 }
