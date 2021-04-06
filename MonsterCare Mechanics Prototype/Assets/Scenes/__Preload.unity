@@ -219,6 +219,18 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 305715963040968649, guid: 3c23799abb9709f4c8e9c481bdf7fe8f, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 305715963040968649, guid: 3c23799abb9709f4c8e9c481bdf7fe8f, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 305715963040968649, guid: 3c23799abb9709f4c8e9c481bdf7fe8f, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 305715963040968649, guid: 3c23799abb9709f4c8e9c481bdf7fe8f, type: 3}
       propertyPath: m_SortingOrder
       value: 20
       objectReference: {fileID: 0}
@@ -1741,7 +1753,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5268706205060699684, guid: 09aecba300f3e334cb0dd45b32d85186, type: 3}
       propertyPath: SoundMuted
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5268706205060699685, guid: 09aecba300f3e334cb0dd45b32d85186, type: 3}
       propertyPath: m_RootOrder
