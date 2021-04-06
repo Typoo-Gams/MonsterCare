@@ -322,6 +322,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: LowerPanel
       objectReference: {fileID: 0}
+    - target: {fileID: 8836377352841428468, guid: 40193650ec9cf7e4189cc7b3202955b8, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 40193650ec9cf7e4189cc7b3202955b8, type: 3}
 --- !u!114 &1354948474 stripped

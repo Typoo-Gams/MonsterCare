@@ -47,9 +47,13 @@ public class InfoPanel_Button : MonoBehaviour
     {
         //formats the display string
         //Truncate removes the decimal numbers so the display shows only whole numbers. this is because webGl doesnt like converting float to int with using (int)float.
-        string text = string.Format("HomePrototype\nHealth: {0}\nEnergy: {1}\n Hunger: {2}\n Sleep: {3}\nLast save at: \n{4}\nTime in seconds since last played: {5}\nHappiness: {6}\nLast element eaten: {7}",
-                    Math.Truncate(manager.ActiveMonster.HealthStatus), Math.Truncate(manager.ActiveMonster.EnergyStatus) ,  Math.Truncate(manager.ActiveMonster.HungerStatus), Math.Truncate(manager.ActiveMonster.SleepStatus), lastPlay, Math.Truncate(lastPlayInSec), Math.Truncate(manager.ActiveMonster.HappinessStatus), manager.ActiveMonster.Element);
-        Stats.text = text;
+        if (manager.DevBuild) 
+        {
+            string text = string.Format("HomePrototype\nHealth: {0}\nEnergy: {1}\n Hunger: {2}\n Sleep: {3}\nLast save at: \n{4}\nTime in seconds since last played: {5}\nHappiness: {6}\nLast element eaten: {7}",
+                        Math.Truncate(manager.ActiveMonster.HealthStatus), Math.Truncate(manager.ActiveMonster.EnergyStatus), Math.Truncate(manager.ActiveMonster.HungerStatus), Math.Truncate(manager.ActiveMonster.SleepStatus), lastPlay, Math.Truncate(lastPlayInSec), Math.Truncate(manager.ActiveMonster.HappinessStatus), manager.ActiveMonster.Element);
+            Stats.text = text;
+        }
+        
     }
 
     //toggle the active state of the statboard.

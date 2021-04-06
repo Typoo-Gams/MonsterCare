@@ -11,12 +11,14 @@ public class AirSleepyGen1_MonsterController : MonoBehaviour
     public Monster monster;
     GameSaver Saver = new GameSaver();
     float cnt = 0;
+    Animator thisAnimator;
+    float cntAnimation;
 
 
     // Start is called before the first frame update
     void Start()
     {
-
+        thisAnimator = GetComponent<Animator>();
 
         //Creates a new monster object.
         monster = new Monster("AirSleepyGen1", "Prefabs/MonsterStuff/Monsters/Gen 1/AirSleepy_Gen1");
@@ -65,6 +67,22 @@ public class AirSleepyGen1_MonsterController : MonoBehaviour
         if (monster.PrefabLocation != Saver.GetMonsterPrefab() && SceneManager.GetActiveScene().name == "MonsterHome")
             ReportRefference = Instantiate(monster.GetReport());
         */
+
+
+        if (monster.IsSleepingStatus)
+            gameObject.GetComponent<Animator>().SetBool("Sleeping", monster.IsSleepingStatus);
+        else
+            gameObject.GetComponent<Animator>().SetBool("Sleeping", monster.IsSleepingStatus);
+
+        if (thisAnimator.GetBool("Eating"))
+        {
+            cntAnimation += Time.deltaTime;
+            if (thisAnimator.GetCurrentAnimatorStateInfo(0).length <= cntAnimation)
+            {
+                thisAnimator.SetBool("Eating", false);
+                cntAnimation = 0;
+            }
+        }
     }
 
 
