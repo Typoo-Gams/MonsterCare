@@ -96,8 +96,8 @@ public class FoodManager_FoodObject : MonoBehaviour
                 manager.ActiveMonster.Element = ThisFood.Element;
             //plays the monsters eating animation.
             //temporary
-            if (manager.MonsterObject.GetComponent<DefaultStarting_MonsterController>() != null)
-                manager.MonsterObject.GetComponent<Animator>().Play("Child_Eating");  //needs generic reference
+            if (manager.MonsterObject.GetComponent<Animator>() != null)
+                manager.MonsterObject.GetComponent<Animator>().SetBool("Eating", true);  //needs generic reference
         }
     }
 

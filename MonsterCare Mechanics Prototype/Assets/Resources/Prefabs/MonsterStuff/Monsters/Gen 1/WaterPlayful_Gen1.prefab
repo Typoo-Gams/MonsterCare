@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4172169165122185097}
   - component: {fileID: 7394479157412451713}
   - component: {fileID: 8276249412440985776}
+  - component: {fileID: 3143831003484593061}
   m_Layer: 0
   m_Name: WaterPlayful_Gen1
   m_TagString: Monster
@@ -326,3 +327,22 @@ PolygonCollider2D:
       - {x: -1.345, y: -4.225}
       - {x: -0.825, y: -4.075}
       - {x: -0.60499996, y: -4.015}
+--- !u!95 &3143831003484593061
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7969396542658477384}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 714369de146315545b53bf9b2a2b5efb, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

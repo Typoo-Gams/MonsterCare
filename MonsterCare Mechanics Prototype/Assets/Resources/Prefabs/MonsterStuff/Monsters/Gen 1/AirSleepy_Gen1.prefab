@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3836208657919210217}
   - component: {fileID: 3588111690072695632}
   - component: {fileID: -3090616801651056219}
+  - component: {fileID: 2810012643503004631}
   m_Layer: 0
   m_Name: AirSleepy_Gen1
   m_TagString: Monster
@@ -418,3 +419,22 @@ PolygonCollider2D:
       - {x: -2.81, y: -6.275}
       - {x: -2.57, y: -6.1549997}
       - {x: -2.35, y: -6.025}
+--- !u!95 &2810012643503004631
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5682688059733375149}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 402e4aa0b5772ba4c9beecafd3b3749c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

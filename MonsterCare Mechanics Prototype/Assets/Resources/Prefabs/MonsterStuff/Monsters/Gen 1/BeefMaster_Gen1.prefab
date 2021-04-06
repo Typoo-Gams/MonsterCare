@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3809725858527432393}
   - component: {fileID: 2630202691418640550}
   - component: {fileID: -2490846809133733904}
+  - component: {fileID: -7293097535196069658}
   m_Layer: 0
   m_Name: BeefMaster_Gen1
   m_TagString: Monster
@@ -469,3 +470,22 @@ PolygonCollider2D:
       - {x: 0.42499998, y: -2.56}
       - {x: 0.445, y: -2.57}
       - {x: 0.445, y: -2.55}
+--- !u!95 &-7293097535196069658
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2110969657167954746}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e301c3673fbe3954798d656cff613d0a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

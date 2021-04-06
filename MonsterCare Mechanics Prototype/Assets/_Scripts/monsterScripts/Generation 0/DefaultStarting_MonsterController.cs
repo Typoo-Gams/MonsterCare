@@ -20,12 +20,13 @@ public class DefaultStarting_MonsterController : MonoBehaviour
     public Monster monster;
     GameSaver Saver = new GameSaver();
     float cnt = 0;
-
+    Animator thisAnimator;
+    float cntAnimation;
 
     // Start is called before the first frame update
     void Start()
     {
-
+        thisAnimator = GetComponent<Animator>();
         //Creates a new monster object.
         monster = new Monster("StartingMonster", prefabLocation);
         //loads the monster stats.
@@ -87,6 +88,15 @@ public class DefaultStarting_MonsterController : MonoBehaviour
         else
             gameObject.GetComponent<Animator>().SetBool("Sleeping", monster.IsSleepingStatus);
 
+        if (thisAnimator.GetBool("Eating"))
+        {
+            cntAnimation += Time.deltaTime;
+            if (thisAnimator.GetCurrentAnimatorStateInfo(0).length <= cntAnimation)
+            {
+                thisAnimator.SetBool("Eating", false);
+                cntAnimation = 0;
+            }
+        }
 
     }
 

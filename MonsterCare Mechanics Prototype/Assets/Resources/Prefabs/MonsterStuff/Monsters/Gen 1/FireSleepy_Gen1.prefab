@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1244984002225440145}
   - component: {fileID: 1244984002225440144}
   - component: {fileID: -4108199054294796844}
+  - component: {fileID: -8004788469322888676}
   m_Layer: 0
   m_Name: FireSleepy_Gen1
   m_TagString: Monster
@@ -366,3 +367,22 @@ PolygonCollider2D:
       - {x: 2.985, y: -2.82}
       - {x: 2.965, y: -2.84}
       - {x: 2.935, y: -2.86}
+--- !u!95 &-8004788469322888676
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1244984002225440159}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 8980f3cb62628a64d8ad4e48642823f9, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

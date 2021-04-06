@@ -15,6 +15,7 @@ public class SoundManager : MonoBehaviour
     //Timers
     private float timePlayingHomeBackground;
     private float timePlayingHunerGrowl = 60;
+    private float timePlayingSnoring = 60;
 
 
     void Start ()
@@ -61,7 +62,24 @@ public class SoundManager : MonoBehaviour
                     timePlayingHunerGrowl = 0;
                 }
             }
+                       //Snoring
+            if (manager.ActiveMonster.IsSleepingStatus == true)
+            {
+                timePlayingSnoring += Time.deltaTime;
+                if (manager.ActiveMonster != null && timePlayingSnoring >= 60)
+                {
+                    play("Snoring");
+                    timePlayingSnoring = 0;
+                }
+            }
         }
+
+        //Obtained Report
+        /*if (isCreated == true)
+        {
+            play("ObtainReport");
+        }       */
+
     }
 
     private void OnLevelWasLoaded(int level)
@@ -73,6 +91,8 @@ public class SoundManager : MonoBehaviour
                 FindSource("DesertBattleMusic").Stop();
                 FindSource("ForestBattleMusic").Stop();
                 FindSource("SavannaBattleMusic").Stop();
+                FindSource("MountainBattleMusic").Stop();
+                FindSource("IceBattleMusic").Stop();
                 play("BackgroundMusic");
 
             }
@@ -94,6 +114,19 @@ public class SoundManager : MonoBehaviour
             {
                 FindSource("BackgroundMusic").Stop();
                 FindObjectOfType<SoundManager>().play("SavannaBattleMusic");
+            }
+            //Ice
+            if (SceneManager.GetActiveScene().name == "Ice_FS")
+            {
+                FindSource("BackgroundMusic").Stop();
+                FindObjectOfType<SoundManager>().play("IceBattleMusic");
+            }
+
+            //Mountain
+            if (SceneManager.GetActiveScene().name == "Mountain_FS")
+            {
+               FindSource("BackgroundMusic").Stop();
+               FindObjectOfType<SoundManager>().play("MountainBattleMusic");
             }
         }
     }
