@@ -46,6 +46,7 @@ public class NotesDrop_RandomChance : MonoBehaviour
             {
                 int prefabIndex = UnityEngine.Random.Range(0, 4);
                 Instantiate(prefabList[prefabIndex]);
+                FindObjectOfType<SoundManager>().play("ObtainReport");
             }
 
         }
