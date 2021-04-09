@@ -70,6 +70,9 @@ public class ToggleSleep_Button : MonoBehaviour
 
         FindObjectOfType<SoundManager>().play("ButtonClick");
 
-        foodInv.SetBool("Open", !foodInv.GetBool("Open"));
+        if(toggle == true)
+        {
+            foodInv.SetBool("Open", false);
+        }
     }
 }
