@@ -430,14 +430,17 @@ public class Monster
             if (Hunger < 25)
             {
                 Energy += gainedSleep * 0.5f;
+                Debug.Log(gainedSleep * 0.5f);
             }
             if (Hunger > 75)
             {
                 Energy += gainedSleep * 1.5f;
+                Debug.Log(gainedSleep * 1.5f);
             }
             if (Hunger > 25 && Hunger < 75)
             {
                 Energy += gainedSleep * 1;
+                Debug.Log(gainedSleep * 1f);
             }
             if (Energy > MaxEnergy)
                 Energy = MaxEnergy;
