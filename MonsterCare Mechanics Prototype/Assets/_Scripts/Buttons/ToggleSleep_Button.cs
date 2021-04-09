@@ -15,6 +15,8 @@ public class ToggleSleep_Button : MonoBehaviour
     GameSaver saver = new GameSaver();
     public GameObject SleepZs;
 
+    public Animator foodInv;
+
 
 
     // Start is called before the first frame update
@@ -67,6 +69,7 @@ public class ToggleSleep_Button : MonoBehaviour
         manager.ActiveMonster.DebugMonster();
 
         FindObjectOfType<SoundManager>().play("ButtonClick");
-       
+
+        foodInv.SetBool("Open", !foodInv.GetBool("Open"));
     }
 }

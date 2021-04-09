@@ -128,6 +128,28 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1404930985, guid: 40193650ec9cf7e4189cc7b3202955b8, type: 3}
   m_PrefabInstance: {fileID: 1354948473}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &494172576 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1468580476, guid: 40193650ec9cf7e4189cc7b3202955b8, type: 3}
+  m_PrefabInstance: {fileID: 1354948473}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b16a793b7f0f3e74e940129c1cbf6e35, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &494172577 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7734421273155563570, guid: 40193650ec9cf7e4189cc7b3202955b8, type: 3}
+  m_PrefabInstance: {fileID: 1354948473}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!20 &578058205 stripped
 Camera:
   m_CorrespondingSourceObject: {fileID: 1561521340318166405, guid: e8c4f5f02f969cb4f976de83f8da2611, type: 3}
@@ -190,6 +212,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e8c4f5f02f969cb4f976de83f8da2611, type: 3}
+--- !u!95 &717949836 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 1749199635, guid: 40193650ec9cf7e4189cc7b3202955b8, type: 3}
+  m_PrefabInstance: {fileID: 1354948473}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &961505687 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1561521340318166407, guid: e8c4f5f02f969cb4f976de83f8da2611, type: 3}
@@ -228,7 +255,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1286337373, guid: 40193650ec9cf7e4189cc7b3202955b8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.949951
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1286337373, guid: 40193650ec9cf7e4189cc7b3202955b8, type: 3}
       propertyPath: m_LocalPosition.z
@@ -238,6 +265,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 296
       objectReference: {fileID: 0}
+    - target: {fileID: 1468580476, guid: 40193650ec9cf7e4189cc7b3202955b8, type: 3}
+      propertyPath: button
+      value: 
+      objectReference: {fileID: 494172577}
     - target: {fileID: 2315517925310211231, guid: 40193650ec9cf7e4189cc7b3202955b8, type: 3}
       propertyPath: m_SizeDelta.y
       value: -3844.1
@@ -248,11 +279,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5053278803360582356, guid: 40193650ec9cf7e4189cc7b3202955b8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 764
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5053278803360582356, guid: 40193650ec9cf7e4189cc7b3202955b8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.949951
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5053278803360582356, guid: 40193650ec9cf7e4189cc7b3202955b8, type: 3}
       propertyPath: m_LocalPosition.z
@@ -261,6 +292,34 @@ PrefabInstance:
     - target: {fileID: 5053278803360582356, guid: 40193650ec9cf7e4189cc7b3202955b8, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: -316
+      objectReference: {fileID: 0}
+    - target: {fileID: 7734421273155563570, guid: 40193650ec9cf7e4189cc7b3202955b8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7734421273155563570, guid: 40193650ec9cf7e4189cc7b3202955b8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7734421273155563570, guid: 40193650ec9cf7e4189cc7b3202955b8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 494172576}
+    - target: {fileID: 7734421273155563570, guid: 40193650ec9cf7e4189cc7b3202955b8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7734421273155563570, guid: 40193650ec9cf7e4189cc7b3202955b8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: TaskOnClick
+      objectReference: {fileID: 0}
+    - target: {fileID: 7734421273155563570, guid: 40193650ec9cf7e4189cc7b3202955b8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: FoodInvToggle_Button, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7734421273155563570, guid: 40193650ec9cf7e4189cc7b3202955b8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 8129942001263884480, guid: 40193650ec9cf7e4189cc7b3202955b8, type: 3}
       propertyPath: LoadScene
@@ -280,11 +339,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8129942001263884492, guid: 40193650ec9cf7e4189cc7b3202955b8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -788
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8129942001263884492, guid: 40193650ec9cf7e4189cc7b3202955b8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -5.949951
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8129942001263884492, guid: 40193650ec9cf7e4189cc7b3202955b8, type: 3}
       propertyPath: m_LocalPosition.z
@@ -386,6 +445,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas_Home
       objectReference: {fileID: 0}
+    - target: {fileID: 8129942002098861184, guid: 40193650ec9cf7e4189cc7b3202955b8, type: 3}
+      propertyPath: foodInv
+      value: 
+      objectReference: {fileID: 717949836}
     - target: {fileID: 8620279392512535745, guid: 40193650ec9cf7e4189cc7b3202955b8, type: 3}
       propertyPath: m_TagString
       value: LowerPanel

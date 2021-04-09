@@ -76,7 +76,7 @@ public class FoodManager_FoodObject : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.gameObject.tag.Equals("Monster") && !isHeld)
+        if (collision.gameObject.tag.Equals("Monster") && !isHeld && !manager.ActiveMonster.IsSleepingStatus)
         {
             //updates the monsters hunger when it eats the food
             manager.ActiveMonster.UpdateHunger(manager.ActiveMonster.HungerStatus + ThisFood.Power);
