@@ -70,6 +70,7 @@ public class GameManager : MonoBehaviour
         FoodInventory[4] = new Food("Water");
         Save.SaveFood(FoodInventory);
         //Debug.Log("Manager Start");
+        Save.PrintObtainedMonsters();
     }
 
 
@@ -100,6 +101,7 @@ public class GameManager : MonoBehaviour
             ActiveMonster.UpdateHealth(1);
             ActiveMonster.UpdateHunger(23);
             ActiveMonster.EnergyStatus = 0;
+            Save.PrintObtainedMonsters();
         }
     }
 
@@ -387,8 +389,8 @@ public class GameSaver
                 }
             }
         }
-        
     }
+
 
     //Loads the monster stats from the savefile
     /// <summary>
@@ -420,14 +422,93 @@ public class GameSaver
     }
 
 
-    public void MonsterObtainedBefore() 
+    /// <summary>
+    /// Prints The list of obtainable monsters and if they have been obtained.
+    /// </summary>
+    public void PrintObtainedMonsters() 
     {
-        
+        string PrintLog = "Monsters obtained: \n";
+        string[] MonsterIndex =
+        {"Gen0_Child", "Gen1_Air", "Gen1_Earth", "Gen1_Fire", "Gen1_Water" };
+        string ObtainedSaveIndex = "ObatainedMonster_";
+        foreach (string Name in MonsterIndex)
+        {
+            string fullIndex = ObtainedSaveIndex + Name;
+            PrintLog += fullIndex + ": " + PlayerPrefs.GetInt(fullIndex) + "\n";
+        }
+        Debug.Log(PrintLog);
     }
 
-    public void SaveObtainedMonster(string Name) 
+
+    /// <summary>
+    /// Gets the bool if a monster has been obtained before.
+    /// </summary>
+    /// <param name="GetObtainedMonster"></param>
+    /// <returns></returns>
+    public bool MonsterObtainedBefore(string GetObtainedMonster) 
     {
-        
+        bool indexFound = false;
+        bool IsObtained = false;
+        string[] MonsterIndex =
+            {"Gen0_Child", "Gen1_Air", "Gen1_Earth", "Gen1_Fire", "Gen1_Water" };
+        string ObtainedSaveIndex = "ObatainedMonster_";
+        foreach (string Name in MonsterIndex)
+        {
+            if (GetObtainedMonster == Name)
+            {
+                indexFound = true;
+                break;
+            }
+        }
+        if(indexFound)
+        {
+            string fullIndex = ObtainedSaveIndex + GetObtainedMonster;
+            if (PlayerPrefs.GetInt(fullIndex) == 1)
+                IsObtained = true;
+            return IsObtained;
+        }
+        else
+            Debug.LogError("Can't find the index: " + GetObtainedMonster + ", try checking the index list.");
+        return IsObtained;
+    }
+
+    /// <summary>
+    /// Saves which monster has been obtained with an index.
+    /// </summary>
+    /// <param name="MonsterGenName">The Gen name and monster element</param>
+    /// <param name="IsObtained">Sets Obtained true/false</param>
+    /// <param name="Wipe">Wipes the obtained monsters if true.</param>
+    public void SaveObtainedMonster(string MonsterGenName, bool IsObtained, bool Wipe = false) 
+    {
+        bool indexFound = false;
+        int IsObtainedInt;
+        if (IsObtained)
+            IsObtainedInt = 1;
+        else
+            IsObtainedInt = 0;
+        string[] MonsterIndex =
+            {"Gen0_Child", "Gen1_Air", "Gen1_Earth", "Gen1_Fire", "Gen1_Water" };
+        string ObtainedSaveIndex = "ObatainedMonster_";
+        foreach(string Name in MonsterIndex)
+        {
+            if (MonsterGenName == Name && !Wipe)
+            {
+                indexFound = true;
+                break;
+            }
+            if (Wipe) 
+            {
+                string fullIndex = ObtainedSaveIndex + Name;
+                PlayerPrefs.SetInt(fullIndex, 0);
+            }
+        }
+        if (indexFound)
+        {
+            string fullIndex = ObtainedSaveIndex + MonsterGenName;
+            PlayerPrefs.SetInt(fullIndex, IsObtainedInt);
+        }
+        else if (!Wipe)
+            Debug.LogError("Can't find the index: " + MonsterGenName + ", try checking the index list.");
     }
 
 
@@ -457,7 +538,7 @@ public class GameSaver
                 PlayerPrefs.SetInt(SaveIndex + "_SpritePath", -1);
             }
         }
-    Debug.Log(inv);
+        Debug.Log(inv);
     }
 
 

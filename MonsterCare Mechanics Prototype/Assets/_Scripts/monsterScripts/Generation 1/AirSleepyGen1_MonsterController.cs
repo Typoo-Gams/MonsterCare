@@ -13,6 +13,7 @@ public class AirSleepyGen1_MonsterController : MonoBehaviour
     float cnt = 0;
     Animator thisAnimator;
     float cntAnimation;
+    public GameObject Smoke;
 
 
     // Start is called before the first frame update
@@ -23,7 +24,7 @@ public class AirSleepyGen1_MonsterController : MonoBehaviour
         //Creates a new monster object.
         monster = new Monster("AirSleepyGen1", "Prefabs/MonsterStuff/Monsters/Gen 1/AirSleepy_Gen1");
         //Checks if this monster is a new evolution or not then loads the monster info or overwrites the old monster's saved stats with the new one.
-        if (monster.PrefabLocation == Saver.GetMonsterPrefab())
+        if (Saver.MonsterObtainedBefore("Gen1_Air"))
         {
             //loads the monster stats.
             Saver.LoadMonster(monster);
@@ -32,6 +33,7 @@ public class AirSleepyGen1_MonsterController : MonoBehaviour
         {
             //Overwrites the previous monsters saved stats
             Saver.SaveMonster(monster);
+            //Saver.SaveObtainedMonster("Gen1_Air", true);
         }
         //updates the monster stats from how much time passed since the last save to simulate things happening while the player isnt playing the game.
         monster.AtGameWakeUp(Saver.FindTimeDifference());
@@ -121,33 +123,49 @@ public class AirSleepyGen1_MonsterController : MonoBehaviour
         //Destroy the current monster object. spawn in the new monster. needs to load the new evolved monster when the game is reopened after being closed.
         if (monster.CanEvolveStatus)
         {
-            GameObject Parent = GameObject.Find("__app").GetComponentInChildren<GameManager>().gameObject;
-
-            Debug.Log(monster.Name + " Is evolving!!");
-
-            //Destroy the old monster
-
-            //Destroy(gameObject);
-
-            //create the new monster
-            GameObject NextEvolution;
-            switch (monster.Element)
+            if (!thisAnimator.GetBool("Evolve"))
             {
-                /*case "Fire":
-                    break;
+                thisAnimator.SetBool("Evolve", true);
+                cntAnimation = 0;
+                Debug.Log(monster.Name + " Is evolving!!");
+            }
 
-                case "Water":
-                    break;
+            if (!thisAnimator.GetBool("Eating") && !thisAnimator.GetBool("Sleeping"))
+            {
+                cntAnimation += Time.deltaTime;
+                if (thisAnimator.GetCurrentAnimatorStateInfo(0).length < cntAnimation)
+                {
+                    for (int i = 0; i < 5; i++)
+                    {
+                        GameObject spawn = Instantiate(Smoke);
+                        spawn.transform.SetParent(transform.parent, false);
+                        spawn.transform.position = transform.position;
+                    }
+                    //Destroy the old monster
 
-                case "Earth":
-                    break;
+                    //Destroy(gameObject);
 
-                case "Air":
-                    break;*/
-                default:
-                    Debug.LogError("This monster doesnt have any evolutions yet");
-                    monster.CanEvolveStatus = false;
-                    break;
+                    //create the new monster
+                    GameObject NextEvolution;
+                    switch (monster.Element)
+                    {
+                        /*case "Fire":
+                            break;
+
+                        case "Water":
+                            break;
+
+                        case "Earth":
+                            break;
+
+                        case "Air":
+                            break;*/
+                        default:
+                            Debug.LogError("This monster doesnt have any evolutions yet");
+                            monster.CanEvolveStatus = false;
+                            break;
+                    }
+                }
             }
         }
     }
