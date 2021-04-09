@@ -18,6 +18,9 @@ public class MonsterFoodDrop : MonoBehaviour
     int element;
     string spawnElement;
 
+    char[] seperator = { '_' };
+    int specialFoodChance;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -50,6 +53,17 @@ public class MonsterFoodDrop : MonoBehaviour
             case "Forest_FS":
                 element = 3;
                 spawnElement = "Air";
+                break;
+        }
+
+        switch (manager.MonsterObject.name.Split(seperator)[1])
+        {
+            case "Gen0":
+                specialFoodChance = 2;
+                break;
+
+            case "Gen1":
+                specialFoodChance = 1;
                 break;
         }
     }
@@ -88,7 +102,7 @@ public class MonsterFoodDrop : MonoBehaviour
                 Debug.LogWarning("searching inv");
                 if(manager.FoodInventory[i].FoodType == "None")
                 {
-                    if(dropRate == 1)
+                    if(dropRate == specialFoodChance)
                     {
                         GameObject spawn = Instantiate(specialPrefab[element]);
                         spawn.transform.SetParent(GameObject.FindGameObjectWithTag("CanvasFighting").transform, false);
