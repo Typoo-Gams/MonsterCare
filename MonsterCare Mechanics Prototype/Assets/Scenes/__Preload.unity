@@ -214,33 +214,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 305715963040968649, guid: 3c23799abb9709f4c8e9c481bdf7fe8f, type: 3}
-      propertyPath: m_Color.a
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 305715963040968649, guid: 3c23799abb9709f4c8e9c481bdf7fe8f, type: 3}
-      propertyPath: m_Color.b
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 305715963040968649, guid: 3c23799abb9709f4c8e9c481bdf7fe8f, type: 3}
-      propertyPath: m_Color.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 305715963040968649, guid: 3c23799abb9709f4c8e9c481bdf7fe8f, type: 3}
-      propertyPath: m_Color.r
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 305715963040968649, guid: 3c23799abb9709f4c8e9c481bdf7fe8f, type: 3}
-      propertyPath: m_SortingOrder
-      value: 20
-      objectReference: {fileID: 0}
     - target: {fileID: 305715963040968651, guid: 3c23799abb9709f4c8e9c481bdf7fe8f, type: 3}
       propertyPath: m_Name
       value: BlackFade
-      objectReference: {fileID: 0}
-    - target: {fileID: 305715963040968651, guid: 3c23799abb9709f4c8e9c481bdf7fe8f, type: 3}
-      propertyPath: m_TagString
-      value: Fade
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3c23799abb9709f4c8e9c481bdf7fe8f, type: 3}
@@ -1612,6 +1588,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scene: 0
   input: {fileID: 702895237}
+--- !u!95 &1944376750 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 305715963040968655, guid: 3c23799abb9709f4c8e9c481bdf7fe8f, type: 3}
+  m_PrefabInstance: {fileID: 66679591}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2042994973 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1561521340318166407, guid: e8c4f5f02f969cb4f976de83f8da2611, type: 3}
@@ -1730,8 +1711,12 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4807834741392806710, guid: c150a5d01097ad944abd05efd3f51de9, type: 3}
+      propertyPath: Fade
+      value: 
+      objectReference: {fileID: 1944376750}
+    - target: {fileID: 4807834741392806710, guid: c150a5d01097ad944abd05efd3f51de9, type: 3}
       propertyPath: DevBuild
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7418330458548354933, guid: c150a5d01097ad944abd05efd3f51de9, type: 3}
       propertyPath: m_Name

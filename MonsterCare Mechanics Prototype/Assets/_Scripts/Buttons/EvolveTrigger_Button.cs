@@ -6,15 +6,18 @@ using UnityEngine.UI;
 public class EvolveTrigger_Button : MonoBehaviour
 {
     public bool PlaySounds;
-
     GameManager manager;
     Button ThisButton;
     public int EvolveEnergyCost;
 
     public ParticleSystem glowing;
     public Animator ShowEvolveButton;
+    public Animator ShowFoodInv;
     bool IsSet;
     string currentColor;
+    public Animator Fade;
+    bool EvolutoinDone;
+    float CntEolutionReport;
 
     // Start is called before the first frame update
     void Start()
@@ -22,6 +25,7 @@ public class EvolveTrigger_Button : MonoBehaviour
         manager = GameObject.Find("__app").GetComponentInChildren<GameManager>();
         ThisButton = gameObject.GetComponent<Button>();
         ThisButton.onClick.AddListener(EvolutionTrigger);
+        Fade = GameObject.FindGameObjectWithTag("Fade").GetComponent<Animator>();
     }
 
     private void Update()
@@ -29,6 +33,7 @@ public class EvolveTrigger_Button : MonoBehaviour
         if (manager.ActiveMonster.Element != "None" && manager.ActiveMonster.EnergyStatus > EvolveEnergyCost)
         {
             ShowEvolveButton.SetBool("Active", true);
+
             ParticleSystem.MainModule settings = glowing.main;
             if (!IsSet || manager.ActiveMonster.Element != currentColor) 
             {
@@ -65,11 +70,27 @@ public class EvolveTrigger_Button : MonoBehaviour
             ShowEvolveButton.SetBool("Active", false);
             IsSet = false;
         }
+
+        if (!manager.ActiveMonster.CanEvolveStatus && Fade.GetCurrentAnimatorStateInfo(0).IsName("EvolutionFadeOut"))
+        {
+            Fade.Play("EvolutionFadeIn");
+            EvolutoinDone = true;
+        }
+
+        if (EvolutoinDone) 
+        {
+            CntEolutionReport += Time.deltaTime;
+            if (CntEolutionReport > 2) 
+            {
+                Instantiate(manager.ActiveMonster.GetReport());
+            }
+        }
     }
 
     void EvolutionTrigger() 
     {
         manager.ActiveMonster.CanEvolveStatus = true;
+        ShowFoodInv.SetBool("Open", false);
         manager.ActiveMonster.EnergyStatus -= EvolveEnergyCost;
         FindObjectOfType<SoundManager>().play("ButtonClick");
     }

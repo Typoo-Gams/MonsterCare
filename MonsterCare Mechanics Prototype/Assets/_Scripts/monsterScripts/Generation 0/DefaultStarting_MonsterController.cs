@@ -16,9 +16,10 @@ public class DefaultStarting_MonsterController : MonoBehaviour
     public GameObject Report;
     private GameObject ReportRefference;
 
-    private string prefabLocation = "Prefabs/MonsterStuff/Monsters/Gen 0/DefaultStartingMonster";
+    private string prefabLocation = "Prefabs/MonsterStuff/Monsters/Gen 0/Child_Gen0";
     public Monster monster;
     GameSaver Saver = new GameSaver();
+    GameManager manager;
     float cnt = 0;
     Animator thisAnimator;
     float cntAnimation;
@@ -27,7 +28,7 @@ public class DefaultStarting_MonsterController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        manager = GameObject.Find("__app").GetComponentInChildren<GameManager>();
         thisAnimator = GetComponent<Animator>();
         //Creates a new monster object.
         monster = new Monster("StartingMonster", prefabLocation);
@@ -161,6 +162,7 @@ public class DefaultStarting_MonsterController : MonoBehaviour
                 thisAnimator.SetBool("Evolve", true);
                 cntAnimation = 0;
                 Debug.Log(monster.Name + " Is evolving!!");
+                manager.Fade.Play("EvolutionFadeOut");
             }
 
             if (!thisAnimator.GetBool("Eating") && !thisAnimator.GetBool("Sleeping")) 

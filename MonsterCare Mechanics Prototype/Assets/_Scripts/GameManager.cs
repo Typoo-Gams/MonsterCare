@@ -15,6 +15,9 @@ public class GameManager : MonoBehaviour
     public int sceneNumber;
     public string sceneName;
 
+    //Animator for fade scene transitions
+    public Animator Fade;
+
     //GameSaver for saving info.
     GameSaver Save = new GameSaver();
 

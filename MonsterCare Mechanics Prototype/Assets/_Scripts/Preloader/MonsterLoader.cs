@@ -34,7 +34,7 @@ public class MonsterLoader : MonoBehaviour
         //if the save doesnt have any previously saved monster then load the starting monster (this happens with new saves/first time boot)
         if (path == "None" || path == "" ||manager.NewSave)
         {
-            SavedMonster = Resources.Load<GameObject>("Prefabs/MonsterStuff/Monsters/Gen 0/DefaultStartingMonster");
+            SavedMonster = Resources.Load<GameObject>("Prefabs/MonsterStuff/Monsters/Gen 0/Child_Gen0");
             Debug.Log("Loading Start monster");
         }
         //if there is a saved monster then load it.

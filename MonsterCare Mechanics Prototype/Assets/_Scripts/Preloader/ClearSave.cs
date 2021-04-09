@@ -69,7 +69,7 @@ public class ClearSave : MonoBehaviour
                 IsWiped = true;
                 if (ClearSaveScene)
                 {
-                    GameObject SavedMonster = Resources.Load<GameObject>("Prefabs/MonsterStuff/Monsters/Gen 0/DefaultStartingMonster");
+                    GameObject SavedMonster = Resources.Load<GameObject>("Prefabs/MonsterStuff/Monsters/Gen 0/Child_Gen0");
                     GameObject SpawnedMonster = Instantiate(SavedMonster, SavedMonster.transform.position, Quaternion.identity);
                     SpawnedMonster.transform.SetParent(manager.gameObject.transform, false);
 

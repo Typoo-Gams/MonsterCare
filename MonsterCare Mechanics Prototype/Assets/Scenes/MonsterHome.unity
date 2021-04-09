@@ -265,6 +265,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 296
       objectReference: {fileID: 0}
+    - target: {fileID: 1286337378, guid: 40193650ec9cf7e4189cc7b3202955b8, type: 3}
+      propertyPath: ShowFoodInv
+      value: 
+      objectReference: {fileID: 717949836}
     - target: {fileID: 1468580476, guid: 40193650ec9cf7e4189cc7b3202955b8, type: 3}
       propertyPath: button
       value: 
