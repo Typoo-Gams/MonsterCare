@@ -10,7 +10,7 @@ public class NotesDrop_RandomChance : MonoBehaviour
     private bool isCreated;
 
     //This chooses the dropchance for the different generations
-    const float dropChance = 1f / 5f;
+    const float dropChance0 = 1f / 5f;
     const float dropChance1 = 1f / 8f;
     //const float dropChance2 = 0f / 0f;
 
@@ -56,7 +56,7 @@ public class NotesDrop_RandomChance : MonoBehaviour
             switch (manager.MonsterObject.name.Split(seperator)[1])
             {
                 case "Gen0":
-                    if (Random.Range(0f, 1f) <= dropChance)
+                    if (Random.Range(0f, 1f) <= dropChance0)
                     {
                         int prefabIndex = UnityEngine.Random.Range(0, 4);
                         Instantiate(prefabList[prefabIndex]);
@@ -65,7 +65,7 @@ public class NotesDrop_RandomChance : MonoBehaviour
                     break;
 
                 case "Gen1":
-                    if (Random.Range(0f, 1f) <= dropChance)
+                    if (Random.Range(0f, 1f) <= dropChance1)
                     {
                         int prefabIndex = UnityEngine.Random.Range(0, 4);
                         Instantiate(prefabList[prefabIndex]);
