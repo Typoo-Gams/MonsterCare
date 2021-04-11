@@ -7,8 +7,11 @@ public class EvolveTrigger_Button : MonoBehaviour
 {
     public bool PlaySounds;
     GameManager manager;
+    GameSaver Saver = new GameSaver();
     Button ThisButton;
     public int EvolveEnergyCost;
+
+    private Transform canvas;
 
     public ParticleSystem glowing;
     public Animator ShowEvolveButton;
@@ -22,6 +25,7 @@ public class EvolveTrigger_Button : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        canvas = GameObject.FindGameObjectWithTag("Canvas").transform;
         manager = GameObject.Find("__app").GetComponentInChildren<GameManager>();
         ThisButton = gameObject.GetComponent<Button>();
         ThisButton.onClick.AddListener(EvolutionTrigger);
@@ -80,9 +84,12 @@ public class EvolveTrigger_Button : MonoBehaviour
         if (EvolutoinDone) 
         {
             CntEolutionReport += Time.deltaTime;
-            if (CntEolutionReport > 2) 
+            if (CntEolutionReport > 2 && !Saver.MonsterObtainedBefore(manager.ActiveMonster.Name)) 
             {
-                Instantiate(manager.ActiveMonster.GetReport());
+                GameObject spawn = Instantiate(manager.ActiveMonster.GetReport());
+                spawn.transform.SetParent(canvas, false);
+                EvolutoinDone = false;
+                CntEolutionReport = 0;
             }
         }
     }

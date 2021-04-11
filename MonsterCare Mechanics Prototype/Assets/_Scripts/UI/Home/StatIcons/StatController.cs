@@ -38,27 +38,27 @@ public class StatController : MonoBehaviour
         switch (manager.ActiveMonster.Element)
         {
             case "Air":
-                ElementStat.GetComponent<SpriteRenderer>().sprite = ElementSprites[0];
+                ElementStat.GetComponent<Image>().sprite = ElementSprites[0];
                 ElementStat.transform.localScale = new Vector3(27.5039425f, 27.5039425f, 27.5039425f);
                 break;
 
             case "Earth":
-                ElementStat.GetComponent<SpriteRenderer>().sprite = ElementSprites[1];
+                ElementStat.GetComponent<Image>().sprite = ElementSprites[1];
                 ElementStat.transform.localScale = new Vector3(27.5039425f, 27.5039425f, 27.5039425f);
                 break;
 
             case "Fire":
-                ElementStat.GetComponent<SpriteRenderer>().sprite = ElementSprites[2];
+                ElementStat.GetComponent<Image>().sprite = ElementSprites[2];
                 ElementStat.transform.localScale = new Vector3(27.5039425f, 27.5039425f, 27.5039425f);
                 break;
 
             case "Water":
-                ElementStat.GetComponent<SpriteRenderer>().sprite = ElementSprites[3];
+                ElementStat.GetComponent<Image>().sprite = ElementSprites[3];
                 ElementStat.transform.localScale = new Vector3(27.5039425f, 27.5039425f, 27.5039425f);
                 break;
 
             case "None":
-                ElementStat.GetComponent<SpriteRenderer>().sprite = ElementSprites[4];
+                ElementStat.GetComponent<Image>().sprite = ElementSprites[4];
                 ElementStat.transform.localScale = new Vector3(21.6754208f, 21.6754208f, 21.6754208f);
                 break;
         }

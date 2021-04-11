@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class WaterPlayfullGen1_MonsterController : MonoBehaviour
+
+public class FireSleepyGen1_MonsterController : MonoBehaviour
 {
     public GameObject Report;
     private GameObject ReportRefference;
 
     public Monster monster;
+    GameManager manager;
     GameSaver Saver = new GameSaver();
     float cnt = 0;
     Animator thisAnimator;
@@ -18,12 +20,13 @@ public class WaterPlayfullGen1_MonsterController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        thisAnimator = GetComponent<Animator>();
+        manager = GameObject.Find("__app").GetComponentInChildren<GameManager>();
 
+        thisAnimator = GetComponent<Animator>();
         //Creates a new monster object.
-        monster = new Monster("Evolution", "Prefabs/MonsterStuff/Monsters/Gen 1/WaterPlayful_Gen1");
+        monster = new Monster("FireSleepy_Gen1", "Prefabs/MonsterStuff/Monsters/Gen 1/FireSleepy_Gen1");
         //Checks if this monster is a new evolution or not then loads the monster info or overwrites the old monster's saved stats with the new one.
-        if (Saver.MonsterObtainedBefore("Gen1_Water"))
+        if (Saver.MonsterObtainedBefore(monster.Name))
         {
             //loads the monster stats.
             Saver.LoadMonster(monster);
@@ -32,7 +35,7 @@ public class WaterPlayfullGen1_MonsterController : MonoBehaviour
         {
             //Overwrites the previous monsters saved stats
             Saver.SaveMonster(monster);
-            //Saver.SaveObtainedMonster("Gen1_Water", true);
+            //Saver.SaveObtainedMonster("Gen1_Fire", true);
         }
         //updates the monster stats from how much time passed since the last save to simulate things happening while the player isnt playing the game.
         monster.AtGameWakeUp(Saver.FindTimeDifference());
@@ -41,8 +44,7 @@ public class WaterPlayfullGen1_MonsterController : MonoBehaviour
         SendMonster();
         Debug.Log("Current monster: " + this);
 
-        //monster.SetReport(Report);
-
+        monster.SetReport(Report);
     }
 
 
@@ -123,8 +125,10 @@ public class WaterPlayfullGen1_MonsterController : MonoBehaviour
 
             if (!thisAnimator.GetBool("Evolve"))
             {
-                thisAnimator.SetBool("Evolve", true);
+                //thisAnimator.SetBool("Evolve", true);
                 cntAnimation = 0;
+                Saver.SaveMonster(monster);
+                manager.Fade.Play("EvolutionFadeOut");
                 Debug.Log(monster.Name + " Is evolving!!");
             }
 

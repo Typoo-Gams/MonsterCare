@@ -9,8 +9,8 @@ public class NotesReports_Button : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        gameObject.GetComponent<Button>().onClick.AddListener(OpenNotes);
-        gameObject.GetComponent<Button>().onClick.AddListener(OpenReports);
+        //gameObject.GetComponent<Button>().onClick.AddListener(OpenNotes);
+        //gameObject.GetComponent<Button>().onClick.AddListener(OpenReports);
     }
 
     public void OpenNotes()

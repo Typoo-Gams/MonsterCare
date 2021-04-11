@@ -3,28 +3,30 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-
-public class FireSleepyGen1_MonsterController : MonoBehaviour
+public class AirSleepyGen1_MonsterController : MonoBehaviour
 {
     public GameObject Report;
     private GameObject ReportRefference;
-
+    
     public Monster monster;
+    GameManager manager;
     GameSaver Saver = new GameSaver();
     float cnt = 0;
     Animator thisAnimator;
     float cntAnimation;
     public GameObject Smoke;
 
+
     // Start is called before the first frame update
     void Start()
     {
-
+        manager = GameObject.Find("__app").GetComponentInChildren<GameManager>();
         thisAnimator = GetComponent<Animator>();
+
         //Creates a new monster object.
-        monster = new Monster("FireSleepyGen1", "Prefabs/MonsterStuff/Monsters/Gen 1/FireSleepy_Gen1");
+        monster = new Monster("AirSleepy_Gen1", "Prefabs/MonsterStuff/Monsters/Gen 1/AirSleepy_Gen1");
         //Checks if this monster is a new evolution or not then loads the monster info or overwrites the old monster's saved stats with the new one.
-        if (Saver.MonsterObtainedBefore("Gen1_Fire"))
+        if (Saver.MonsterObtainedBefore(monster.Name))
         {
             //loads the monster stats.
             Saver.LoadMonster(monster);
@@ -33,7 +35,6 @@ public class FireSleepyGen1_MonsterController : MonoBehaviour
         {
             //Overwrites the previous monsters saved stats
             Saver.SaveMonster(monster);
-            //Saver.SaveObtainedMonster("Gen1_Fire", true);
         }
         //updates the monster stats from how much time passed since the last save to simulate things happening while the player isnt playing the game.
         monster.AtGameWakeUp(Saver.FindTimeDifference());
@@ -42,7 +43,8 @@ public class FireSleepyGen1_MonsterController : MonoBehaviour
         SendMonster();
         Debug.Log("Current monster: " + this);
 
-        //monster.SetReport(Report);
+        monster.SetReport(Report);
+        
     }
 
 
@@ -58,7 +60,7 @@ public class FireSleepyGen1_MonsterController : MonoBehaviour
             cnt = 0;
         }
         Evolution();
-        if (SceneManager.GetActiveScene().name == "MonsterHome")
+        if (SceneManager.GetActiveScene().name == "MonsterHome") 
         {
             Devolution();
         }
@@ -68,6 +70,8 @@ public class FireSleepyGen1_MonsterController : MonoBehaviour
         if (monster.PrefabLocation != Saver.GetMonsterPrefab() && SceneManager.GetActiveScene().name == "MonsterHome")
             ReportRefference = Instantiate(monster.GetReport());
         */
+
+
         if (monster.IsSleepingStatus)
             gameObject.GetComponent<Animator>().SetBool("Sleeping", monster.IsSleepingStatus);
         else
@@ -120,11 +124,12 @@ public class FireSleepyGen1_MonsterController : MonoBehaviour
         //Destroy the current monster object. spawn in the new monster. needs to load the new evolved monster when the game is reopened after being closed.
         if (monster.CanEvolveStatus)
         {
-
             if (!thisAnimator.GetBool("Evolve"))
             {
-                thisAnimator.SetBool("Evolve", true);
+                //thisAnimator.SetBool("Evolve", true);
                 cntAnimation = 0;
+                Saver.SaveMonster(monster);
+                manager.Fade.Play("EvolutionFadeOut");
                 Debug.Log(monster.Name + " Is evolving!!");
             }
 
@@ -139,7 +144,6 @@ public class FireSleepyGen1_MonsterController : MonoBehaviour
                         spawn.transform.SetParent(transform.parent, false);
                         spawn.transform.position = transform.position;
                     }
-
                     //Destroy the old monster
 
                     //Destroy(gameObject);

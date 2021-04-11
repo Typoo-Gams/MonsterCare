@@ -774,6 +774,8 @@ MonoBehaviour:
   EvolveEnergyCost: 5
   glowing: {fileID: 7920620765898403897}
   ShowEvolveButton: {fileID: 1354948477}
+  ShowFoodInv: {fileID: 0}
+  Fade: {fileID: 0}
 --- !u!1 &1386435020
 GameObject:
   m_ObjectHideFlags: 0
@@ -1269,6 +1271,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlaySounds: 0
   anim: {fileID: 1749199635}
+  button: {fileID: 0}
 --- !u!1 &8129942001750182348
 GameObject:
   m_ObjectHideFlags: 0

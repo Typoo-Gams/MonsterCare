@@ -79,32 +79,37 @@ public class GameManager : MonoBehaviour
 
     private void Update() 
     {
-        //Dev cheats
-        if (Input.GetKeyDown(KeyCode.I)) 
+        if (SceneManager.GetActiveScene().name == "MonsterHome")
         {
-            ActiveMonster.UpdateHealth(100);
-            ActiveMonster.HappinessStatus = 100;
-            ActiveMonster.UpdateHappiness();
-            ActiveMonster.UpdateHunger(100);
-            ActiveMonster.SleepStatus = 100;
-            ActiveMonster.UpdateSleeping(false);
-            ActiveMonster.EnergyStatus = 10;
+            //Dev cheats
+            if (Input.GetKeyDown(KeyCode.I))
+            {
+                ActiveMonster.UpdateHealth(100);
+                ActiveMonster.HappinessStatus = 100;
+                ActiveMonster.UpdateHappiness();
+                ActiveMonster.UpdateHunger(100);
+                ActiveMonster.SleepStatus = 100;
+                ActiveMonster.UpdateSleeping(false);
+                ActiveMonster.EnergyStatus = 10;
 
-            FoodInventory[0] = new Food(false);
-            FoodInventory[0].Sprite = 12;
-            FoodInventory[1] = new Food("Air");
-            FoodInventory[2] = new Food("Earth");
-            FoodInventory[3] = new Food("Fire");
-            FoodInventory[4] = new Food("Water");
-            Save.SaveFood(FoodInventory);
-        }
+                FoodInventory[0] = new Food(false);
+                FoodInventory[0].Sprite = 12;
+                FoodInventory[1] = new Food("Air");
+                FoodInventory[2] = new Food("Earth");
+                FoodInventory[3] = new Food("Fire");
+                FoodInventory[4] = new Food("Water");
+                Save.SaveFood(FoodInventory);
+                Debug.Log("Cheat I activated");
+            }
 
-        if (Input.GetKeyDown(KeyCode.O)) 
-        {
-            ActiveMonster.UpdateHealth(1);
-            ActiveMonster.UpdateHunger(23);
-            ActiveMonster.EnergyStatus = 0;
-            Save.PrintObtainedMonsters();
+            if (Input.GetKeyDown(KeyCode.O))
+            {
+                ActiveMonster.UpdateHealth(1);
+                ActiveMonster.UpdateHunger(23);
+                ActiveMonster.EnergyStatus = 0;
+                Save.PrintObtainedMonsters();
+                Debug.Log("Cheat O activated");
+            }
         }
     }
 
@@ -256,6 +261,9 @@ public class GameSaver
               new Food(true),
             };
         SaveFood(cleanInv);
+
+        //Resets the obtained monster list 
+        SaveObtainedMonster("None", false, true);
 
         Debug.LogWarning("Save was wiped");
     }
@@ -432,7 +440,7 @@ public class GameSaver
     {
         string PrintLog = "Monsters obtained: \n";
         string[] MonsterIndex =
-        {"Gen0_Child", "Gen1_Air", "Gen1_Earth", "Gen1_Fire", "Gen1_Water" };
+        {"Child_Gen0", "AirSleepy_Gen1", "BeefMaster_Gen1", "FireSleepy_Gen1", "WaterPlayful_Gen1" };
         string ObtainedSaveIndex = "ObatainedMonster_";
         foreach (string Name in MonsterIndex)
         {
@@ -453,7 +461,7 @@ public class GameSaver
         bool indexFound = false;
         bool IsObtained = false;
         string[] MonsterIndex =
-            {"Gen0_Child", "Gen1_Air", "Gen1_Earth", "Gen1_Fire", "Gen1_Water" };
+            {"Child_Gen0", "AirSleepy_Gen1", "BeefMaster_Gen1", "FireSleepy_Gen1", "WaterPlayful_Gen1" };
         string ObtainedSaveIndex = "ObatainedMonster_";
         foreach (string Name in MonsterIndex)
         {
@@ -490,7 +498,7 @@ public class GameSaver
         else
             IsObtainedInt = 0;
         string[] MonsterIndex =
-            {"Gen0_Child", "Gen1_Air", "Gen1_Earth", "Gen1_Fire", "Gen1_Water" };
+            {"Child_Gen0", "AirSleepy_Gen1", "BeefMaster_Gen1", "FireSleepy_Gen1", "WaterPlayful_Gen1" };
         string ObtainedSaveIndex = "ObatainedMonster_";
         foreach(string Name in MonsterIndex)
         {

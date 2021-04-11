@@ -11,10 +11,11 @@ using UnityEngine.SceneManagement;
  */
 
 
-public class DefaultStarting_MonsterController : MonoBehaviour
+public class ChildGen0_MonsterController : MonoBehaviour
 {
     public GameObject Report;
     private GameObject ReportRefference;
+    private bool SpawnReport;
 
     private string prefabLocation = "Prefabs/MonsterStuff/Monsters/Gen 0/Child_Gen0";
     public Monster monster;
@@ -31,18 +32,18 @@ public class DefaultStarting_MonsterController : MonoBehaviour
         manager = GameObject.Find("__app").GetComponentInChildren<GameManager>();
         thisAnimator = GetComponent<Animator>();
         //Creates a new monster object.
-        monster = new Monster("StartingMonster", prefabLocation);
+        monster = new Monster("Child_Gen0", prefabLocation);
         //loads the monster stats.
-        if (Saver.MonsterObtainedBefore("Gen0_Child"))
+        if (Saver.MonsterObtainedBefore(monster.Name))
         {
             //loads the monster stats.
             Saver.LoadMonster(monster);
         }
         else
         {
+            SpawnReport = true;
             //Overwrites the previous monsters saved stats
             Saver.SaveMonster(monster);
-            Saver.SaveObtainedMonster("Gen0_Child", true);
             monster.EnergyStatus = 10;
             monster.HungerStatus = 0;
             monster.SleepStatus = 0;
@@ -74,26 +75,32 @@ public class DefaultStarting_MonsterController : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.Mouse0)) Destroy(ReportRefference);
 
-
-        //Don't work because of preload
-        /*
-        if (monster.PrefabLocation != Saver.GetMonsterPrefab() && SceneManager.GetActiveScene().name == "MonsterHome")
-            ReportRefference = Instantiate(monster.GetReport());
-        */
-
-
-        Evolution();
+        
         if (SceneManager.GetActiveScene().name == "MonsterHome")
         {
+            //checks for devolution
             Devolution();
+
+            //Checks for evolution
+            Evolution();
+
+            //checks if a report should be spawned
+            if (SpawnReport && manager.Fade.GetCurrentAnimatorStateInfo(0).IsName("New State"))
+            {
+                GameObject spawn = Instantiate(monster.GetReport());
+                spawn.transform.SetParent(GameObject.FindGameObjectWithTag("Canvas").transform, false);
+                SpawnReport = false;
+            }
         }
 
-
-        if (gameObject.GetComponent<SpriteRenderer>().sprite.name == "S_Child_Base" && monster.IsSleepingStatus)
+        
+        //changes the sleeping anim state.
+        if (monster.IsSleepingStatus)
             gameObject.GetComponent<Animator>().SetBool("Sleeping", monster.IsSleepingStatus);
         else
             gameObject.GetComponent<Animator>().SetBool("Sleeping", monster.IsSleepingStatus);
 
+        //plays the eating anim propperly. maybe this could be done with anim triggers???
         if (thisAnimator.GetBool("Eating"))
         {
             cntAnimation += Time.deltaTime;
@@ -162,6 +169,7 @@ public class DefaultStarting_MonsterController : MonoBehaviour
                 thisAnimator.SetBool("Evolve", true);
                 cntAnimation = 0;
                 Debug.Log(monster.Name + " Is evolving!!");
+                Saver.SaveMonster(monster);
                 manager.Fade.Play("EvolutionFadeOut");
             }
 
@@ -213,12 +221,12 @@ public class DefaultStarting_MonsterController : MonoBehaviour
             //Destroy the current monster object. spawn in the new monster. needs to load the new evolved monster when the game is reopened after being closed. clears the save file with an empty monster
             Monster empty = new Monster("empty", "None");
             Saver.SaveMonster(empty);
-            GameObject NextEvolution = Resources.Load<GameObject>("Prefabs/MonsterStuff/Monsters/Gen 0/DefaultStartingMonster");
+            GameObject NextEvolution = Resources.Load<GameObject>("Prefabs/MonsterStuff/Monsters/Gen 0/Child_Gen0");
             GameObject Parent = GameObject.Find("__app").GetComponentInChildren<GameManager>().gameObject;
             Destroy(gameObject);
             GameObject SpawnedMonster = Instantiate(NextEvolution);
             SpawnedMonster.transform.SetParent(Parent.transform, false);
-            Saver.SaveMonster(SpawnedMonster.GetComponent<DefaultStarting_MonsterController>().monster);
+            Saver.SaveMonster(SpawnedMonster.GetComponent<ChildGen0_MonsterController>().monster);
         }
     }
 

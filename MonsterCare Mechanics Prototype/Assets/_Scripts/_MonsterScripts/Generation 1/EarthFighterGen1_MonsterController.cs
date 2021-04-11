@@ -10,6 +10,7 @@ public class EarthFighterGen1_MonsterController : MonoBehaviour
     private GameObject ReportRefference;
 
     public Monster monster;
+    GameManager manager;
     GameSaver Saver = new GameSaver();
     float cnt = 0;
     Animator thisAnimator;
@@ -19,12 +20,13 @@ public class EarthFighterGen1_MonsterController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        manager = GameObject.Find("__app").GetComponentInChildren<GameManager>();
 
         thisAnimator = GetComponent<Animator>();
         //Creates a new monster object.
-        monster = new Monster("BeefMaster", "Prefabs/MonsterStuff/Monsters/Gen 1/BeefMaster_Gen1");
+        monster = new Monster("BeefMaster_Gen1", "Prefabs/MonsterStuff/Monsters/Gen 1/BeefMaster_Gen1");
         //Checks if this monster is a new evolution or not then loads the monster info or overwrites the old monster's saved stats with the new one.
-        if (Saver.MonsterObtainedBefore("Gen1_Earth"))
+        if (Saver.MonsterObtainedBefore(monster.Name))
         {
             //loads the monster stats.
             Saver.LoadMonster(monster);
@@ -42,7 +44,7 @@ public class EarthFighterGen1_MonsterController : MonoBehaviour
         SendMonster();
         Debug.Log("Current monster: " + this);
 
-        //monster.SetReport(Report);
+        monster.SetReport(Report);
 
     }
 
@@ -124,8 +126,10 @@ public class EarthFighterGen1_MonsterController : MonoBehaviour
 
             if (!thisAnimator.GetBool("Evolve"))
             {
-                thisAnimator.SetBool("Evolve", true);
+                //thisAnimator.SetBool("Evolve", true);
                 cntAnimation = 0;
+                Saver.SaveMonster(monster);
+                manager.Fade.Play("EvolutionFadeOut");
                 Debug.Log(monster.Name + " Is evolving!!");
             }
 

@@ -48,7 +48,6 @@ public class ClearSave : MonoBehaviour
         {
             manager.FoodInventory = Saver.LoadFood();
             manager.NewSave = true;
-            Saver.SaveObtainedMonster("None", false, true);
         }
     }
 
