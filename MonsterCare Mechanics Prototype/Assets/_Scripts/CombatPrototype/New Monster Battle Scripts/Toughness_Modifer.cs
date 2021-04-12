@@ -9,7 +9,8 @@ using UnityEngine.Audio;
 public class Toughness_Modifer : MonoBehaviour
 {
     GameManager manager;
-    Canvas canvas;
+    GameObject canvas;
+    public GameObject MonsterHiarchySpawn;
 
     string[] enemyMonsterPaths = { "Prefabs/MonsterStuff/Enemy Monsters/FireEnemyPrefab",   //0
                                    "Prefabs/MonsterStuff/Enemy Monsters/FireEnemy2Prefab",  //1
@@ -39,14 +40,14 @@ public class Toughness_Modifer : MonoBehaviour
     float intervalShake = 0.25f;
     bool HasMoved;
     Vector3 originPos;
-    SpriteRenderer rend_Sprikes, rend_Gradient;
+    Image rend_Sprikes, rend_Gradient;
 
     private void Start()
     {
         originPos = sprikes.transform.position;
-        rend_Sprikes = sprikes.GetComponent<SpriteRenderer>();
-        rend_Gradient = gadient.GetComponent<SpriteRenderer>();
-        canvas = GameObject.FindGameObjectWithTag("CanvasFighting").GetComponent<Canvas>();
+        rend_Sprikes = sprikes.GetComponent<Image>();
+        rend_Gradient = gadient.GetComponent<Image>();
+        canvas = GameObject.FindGameObjectWithTag("CanvasFighting");
         pathLengths = Random.Range(0, enemyMonsterPaths.Length);
 
         manager = GameObject.Find("__app").GetComponentInChildren<GameManager>();
@@ -123,6 +124,11 @@ public class Toughness_Modifer : MonoBehaviour
         if (isActive == true)
         {
             manager.Enemy = Instantiate(Resources.Load<GameObject>(monsterPrefab));
+            if (MonsterHiarchySpawn != null) 
+            {
+                manager.Enemy.transform.SetParent(canvas.transform, false);
+                manager.Enemy.transform.SetSiblingIndex(MonsterHiarchySpawn.transform.GetSiblingIndex() + 1);
+            }
         }
     }
 

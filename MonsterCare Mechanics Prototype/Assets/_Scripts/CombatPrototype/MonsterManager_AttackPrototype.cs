@@ -13,6 +13,7 @@ public class MonsterManager_AttackPrototype : MonoBehaviour
     public Monster StartMonster;
     public GameObject ThisHealthBar;
     GameObject healthbarr;
+    public Vector3 HealthbarPos;
     private Canvas CurrentCanvas;
     public string ThisPrefabPath;
     string sceneElement;
@@ -38,6 +39,7 @@ public class MonsterManager_AttackPrototype : MonoBehaviour
         healthbarr = Instantiate(ThisHealthBar);
         healthbarr.transform.SetParent(CurrentCanvas.transform, false);
         healthbarr.GetComponent<HealthBarController>().ThisMonster = StartMonster;
+        healthbarr.transform.localPosition = HealthbarPos;
 
         //creating the monster
         StartMonster = new Monster("Enemy_Placeholder");

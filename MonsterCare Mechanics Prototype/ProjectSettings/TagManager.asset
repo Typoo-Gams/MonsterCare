@@ -23,6 +23,7 @@ TagManager:
   - LockOn
   - Fade
   - LowerPanel
+  - BodyPartOverlay
   layers:
   - Default
   - TransparentFX

@@ -45,8 +45,8 @@ public class ChildGen0_MonsterController : MonoBehaviour
             //Overwrites the previous monsters saved stats
             Saver.SaveMonster(monster);
             monster.EnergyStatus = 10;
-            monster.HungerStatus = 0;
-            monster.SleepStatus = 0;
+            monster.HungerStatus = 100;
+            monster.SleepStatus = 100;
         }
         //updates the monster stats from how much time passed since the last save to simulate things happening while the player isnt playing the game.
         monster.AtGameWakeUp(Saver.FindTimeDifference());

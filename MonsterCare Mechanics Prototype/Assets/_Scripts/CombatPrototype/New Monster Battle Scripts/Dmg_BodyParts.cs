@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Dmg_BodyParts : MonoBehaviour
 {
     GameManager manager;
+    GameObject Overlay;
 
     bool currentlyAttacking;
     public int DmgModifier;
@@ -16,7 +18,13 @@ public class Dmg_BodyParts : MonoBehaviour
         manager = GameObject.Find("__app").GetComponentInChildren<GameManager>();
         currentlyAttacking = manager.EnemyMonster.CombatStatus;
         manager.EnemyMonster.SetOriginPos(transform);
+
+        Overlay = gameObject.transform.GetChild(gameObject.transform.childCount - 1).gameObject;
+
+        Debug.Log(Overlay);
     }
+        
+
     private void Update()
     {
         if (tapped)
@@ -26,7 +34,7 @@ public class Dmg_BodyParts : MonoBehaviour
 
         if(Counter > 0.35f)
         {
-            gameObject.GetComponentInChildren<SpriteRenderer>().color = Color.white;
+            Overlay.GetComponent<Image>().color = new Color(1, 1, 1, 0);
             Counter = 0;
             tapped = false;
         }
@@ -49,15 +57,15 @@ public class Dmg_BodyParts : MonoBehaviour
 
         if(DmgModifier == 1)
         {
-            gameObject.GetComponentInChildren<SpriteRenderer>().color = new Color(1, 0.92f, 0.016f, 1);
+            Overlay.GetComponent<Image>().color = new Color(1, 0.92f, 0.016f, 0.5f);
         }
         if(DmgModifier == 2)
         {
-            gameObject.GetComponentInChildren<SpriteRenderer>().color = new Color(1, 0.5f, 0, 1);
+            Overlay.GetComponent<Image>().color = new Color(1, 0.5f, 0, 0.5f);
         }
         if(DmgModifier == 3)
         {
-            gameObject.GetComponentInChildren<SpriteRenderer>().color = new Color(1, 0, 0, 1);
+            Overlay.GetComponent<Image>().color = new Color(1, 0, 0, 0.5f);
         }
     }
 }
