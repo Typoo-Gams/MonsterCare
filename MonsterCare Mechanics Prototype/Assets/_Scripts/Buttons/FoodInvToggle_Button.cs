@@ -12,6 +12,8 @@ public class FoodInvToggle_Button : MonoBehaviour
     GameManager manager;
 
     public Button button;
+    bool StateChanged;
+    bool IsOpen;
 
     // Start is called before the first frame update
     void Start()
@@ -20,13 +22,29 @@ public class FoodInvToggle_Button : MonoBehaviour
         manager = GameObject.Find("__app").GetComponentInChildren<GameManager>();
     }
 
+    private void Update()
+    {
+        if (manager.HideUI && !StateChanged)
+        {
+            StateChanged = true;
+            anim.SetBool("Open", false);
+        }
+        else if (!manager.HideUI && StateChanged && IsOpen)
+        {
+            StateChanged = false;
+            anim.SetBool("Open", true);
+        }
+        else
+            StateChanged = false;
+    }
+
     public void TaskOnClick()
     {
         if(manager.ActiveMonster.IsSleepingStatus == false)
         {
             button.enabled = true;
             anim.enabled = true;
-            bool IsOpen = anim.GetBool("Open");
+            IsOpen = anim.GetBool("Open");
 
             anim.SetBool("Open", !IsOpen);
             FindObjectOfType<SoundManager>().play("ButtonClick");

@@ -7,7 +7,8 @@ public class AirSleepyGen1_MonsterController : MonoBehaviour
 {
     public GameObject Report;
     private GameObject ReportRefference;
-    
+    private bool SpawnReport;
+
     public Monster monster;
     GameManager manager;
     GameSaver Saver = new GameSaver();
@@ -33,6 +34,7 @@ public class AirSleepyGen1_MonsterController : MonoBehaviour
         }
         else
         {
+            SpawnReport = true;
             //Overwrites the previous monsters saved stats
             Saver.SaveMonster(monster);
         }
@@ -59,17 +61,14 @@ public class AirSleepyGen1_MonsterController : MonoBehaviour
             monster.UpdateSleeping(monster.IsSleepingStatus, 1);
             cnt = 0;
         }
-        Evolution();
-        if (SceneManager.GetActiveScene().name == "MonsterHome") 
+        if (SceneManager.GetActiveScene().name == "MonsterHome")
         {
+            //checks for devolution
             Devolution();
-        }
 
-        //Don't work because of Preload
-        /*
-        if (monster.PrefabLocation != Saver.GetMonsterPrefab() && SceneManager.GetActiveScene().name == "MonsterHome")
-            ReportRefference = Instantiate(monster.GetReport());
-        */
+            //Checks for evolution
+            Evolution();
+        }
 
 
         if (monster.IsSleepingStatus)

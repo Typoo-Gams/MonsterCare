@@ -8,11 +8,28 @@ public class StatIconToggle_Button : MonoBehaviour
     public bool PlaySounds;
 
     public Animator anim;
+    GameManager manager;
+    bool StateChanged;
 
     // Start is called before the first frame update
     void Start()
     {
+        manager = GameObject.Find("__app").GetComponentInChildren<GameManager>();
         gameObject.GetComponent<Button>().onClick.AddListener(TaskOnClick);
+    }
+
+    private void Update()
+    {
+        if (manager.HideUI && !StateChanged)
+        {
+            StateChanged = true;
+            anim.SetBool("Open", true);
+        }
+        if (!manager.HideUI && StateChanged)
+        {
+            StateChanged = false;
+            anim.SetBool("Open", false);
+        }
     }
 
     void TaskOnClick()

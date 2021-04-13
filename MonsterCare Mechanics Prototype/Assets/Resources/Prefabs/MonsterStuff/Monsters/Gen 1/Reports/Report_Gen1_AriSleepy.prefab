@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: -8307150672236746726}
   m_Layer: 0
   m_Name: Report_Gen1_AriSleepy
-  m_TagString: Untagged
+  m_TagString: Report
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

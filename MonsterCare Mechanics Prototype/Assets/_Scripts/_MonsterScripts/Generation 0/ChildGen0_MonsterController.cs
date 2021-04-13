@@ -90,6 +90,7 @@ public class ChildGen0_MonsterController : MonoBehaviour
                 GameObject spawn = Instantiate(monster.GetReport());
                 spawn.transform.SetParent(GameObject.FindGameObjectWithTag("Canvas").transform, false);
                 SpawnReport = false;
+                manager.HideUI = true;
             }
         }
 
