@@ -8,9 +8,15 @@ public class StatController : MonoBehaviour
 
     //
     public Image[] IconBars = new Image[5];
+    public Image[] Glow = new Image [5];
     public Sprite[] ElementSprites = new Sprite[5];
     public GameObject ElementStat;
     GameManager manager;
+
+    //Color Lerp
+    
+    float LerpSpeed;
+
 
     // Start is called before the first frame update
     void Start()
@@ -24,16 +30,28 @@ public class StatController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
         UpdateIcons();
+        
+        
+        
+        
     }
 
     void UpdateIcons() 
     {
+
         IconBars[0].fillAmount = (manager.ActiveMonster.HealthStatus / manager.ActiveMonster.GetMaxHealth);
         IconBars[1].fillAmount = (manager.ActiveMonster.EnergyStatus / manager.ActiveMonster.GetMaxEnergy);
         IconBars[2].fillAmount = (manager.ActiveMonster.HungerStatus / manager.ActiveMonster.GetMaxHunger);
         IconBars[3].fillAmount = (manager.ActiveMonster.SleepStatus / manager.ActiveMonster.GetMaxSleep);
         IconBars[4].fillAmount = manager.ActiveMonster.HappinessStatus / manager.ActiveMonster.GetMaxHappiness;
+
+        Glow[0].color = Color32.Lerp(Color.red, Color.green, IconBars[0].fillAmount);
+        Glow[1].color = Color32.Lerp(Color.red, Color.green, IconBars[1].fillAmount);
+        Glow[2].color = Color32.Lerp(Color.red, Color.green, IconBars[2].fillAmount);
+        Glow[3].color = Color32.Lerp(Color.red, Color.green, IconBars[3].fillAmount);
+        Glow[4].color = Color32.Lerp(Color.red, Color.green, IconBars[4].fillAmount);
 
         switch (manager.ActiveMonster.Element)
         {
