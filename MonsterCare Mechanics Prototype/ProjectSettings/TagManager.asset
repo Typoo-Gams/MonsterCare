@@ -25,6 +25,7 @@ TagManager:
   - LowerPanel
   - BodyPartOverlay
   - Report
+  - Tip
   layers:
   - Default
   - TransparentFX

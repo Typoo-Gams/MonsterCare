@@ -9,6 +9,7 @@ public class FireSleepyGen1_MonsterController : MonoBehaviour
     public GameObject Report;
     private GameObject ReportRefference;
 
+    private string prefabLocation = "Prefabs/MonsterStuff/Monsters/Gen 1/FireSleepy_Gen1";
     public Monster monster;
     GameManager manager;
     GameSaver Saver = new GameSaver();
@@ -24,7 +25,7 @@ public class FireSleepyGen1_MonsterController : MonoBehaviour
 
         thisAnimator = GetComponent<Animator>();
         //Creates a new monster object.
-        monster = new Monster("FireSleepy_Gen1", "Prefabs/MonsterStuff/Monsters/Gen 1/FireSleepy_Gen1");
+        monster = new Monster("FireSleepy_Gen1", prefabLocation);
         //Checks if this monster is a new evolution or not then loads the monster info or overwrites the old monster's saved stats with the new one.
         if (Saver.MonsterObtainedBefore(monster.Name))
         {
@@ -168,6 +169,11 @@ public class FireSleepyGen1_MonsterController : MonoBehaviour
                             monster.CanEvolveStatus = false;
                             break;
                     }
+                    /*
+                    GameObject Spawned = Instantiate(NextEvolution);
+                    Spawned.transform.SetParent(transform.parent, false);
+                    manager.ActiveMonster.PreviousEvolution = prefabLocation;
+                    */
                 }
             }
         }
@@ -187,6 +193,7 @@ public class FireSleepyGen1_MonsterController : MonoBehaviour
             Destroy(gameObject);
             GameObject SpawnedMonster = Instantiate(NextEvolution);
             SpawnedMonster.transform.SetParent(Parent.transform, false);
+            manager.ActiveMonster.PreviousEvolution = prefabLocation;
         }
     }
 

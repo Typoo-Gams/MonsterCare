@@ -6,10 +6,11 @@ using UnityEngine.Audio;
 
 
 public class Monster
-{                     
+{
 
     //Monster variables
     private string MonsterName;
+    private string EvolvedFrom;
     private float Health;
     private float Hunger;
     private float Sleep;
@@ -87,11 +88,12 @@ public class Monster
         MonsterName = "Default";
         elementEaten = "None";
         Health = MaxHealth;
-        Hunger = 0;
-        Sleep = 0;
-        Happiness = 0;
+        Energy = 10;
+        Hunger = 100;
+        Sleep = 100;
+        Happiness = 100;
         Playfull = 0;
-        Toughness = 0;
+        Toughness = 1;
         IsSleepDeprived = false;
         IsMedicated = false;
         UpdateHunger(0);
@@ -111,11 +113,12 @@ public class Monster
         MonsterName = name;
         elementEaten = "None";
         Health = MaxHealth;
-        Hunger = 0;
-        Sleep = 0;
-        Happiness = 0;
+        Energy = 10;
+        Hunger = 100;
+        Sleep = 100;
+        Happiness = 100;
         Playfull = 0;
-        Toughness = 0;
+        Toughness = 1;
         IsSleepDeprived = false;
         IsMedicated = false;
         UpdateHunger(0);
@@ -133,11 +136,12 @@ public class Monster
         MonsterName = name;
         elementEaten = "None";
         Health = MaxHealth;
-        Hunger = 0;
-        Sleep = 0;
-        Happiness = 0;
+        Energy = 10;
+        Hunger = 100;
+        Sleep = 100;
+        Happiness = 100;
         Playfull = 0;
-        Toughness = 0;
+        Toughness = 1;
         IsSleepDeprived = false;
         IsMedicated = false;
         UpdateHunger(0);
@@ -152,7 +156,7 @@ public class Monster
     /// Sets the monster report that shows when the player evolves a new monster
     /// </summary>
     /// <param name="report">report prefab</param>
-    public void SetReport(GameObject report) 
+    public void SetReport(GameObject report)
     {
         MonsterReport = report;
     }
@@ -163,7 +167,7 @@ public class Monster
     /// Gets the monster report that shows when the player evolves a new monster
     /// </summary>
     /// <returns>report prefab</returns>
-    public GameObject GetReport() 
+    public GameObject GetReport()
     {
         return MonsterReport;
     }
@@ -180,7 +184,7 @@ public class Monster
 
 
     //------------Combat------------
-
+    
 
     //Check Combat Status
     /// <summary>
@@ -341,19 +345,26 @@ public class Monster
     ///<param name="WasSleeping">If the monster was sleeping when game wakes up</param>
     public void AtGameWakeUp(float TimeInSec)
     {
-        float[] statuses = { Hunger, Sleep };
-        float[] degrade = { HungerDegration, SleepDegration };
-
-        for (int i = 0; i < statuses.Length; i++)
+        if (TimeInSec > 0)
         {
-            statuses[i] -= degrade[i] * TimeInSec;
-            if (statuses[i] < 0)
-                statuses[i] = 0;
+            float[] statuses = { Hunger, Sleep };
+            float[] degrade = { HungerDegration, SleepDegration };
+
+            for (int i = 0; i < statuses.Length; i++)
+            {
+                statuses[i] -= degrade[i] * TimeInSec;
+                if (statuses[i] < 0)
+                    statuses[i] = 0;
+            }
+            UpdateHunger(statuses[0]);
+            Sleep = statuses[1];
+            UpdateSleeping(IsSleeping);
+            Debug.Log("Monster wakeup. degraded monster stats: " + TimeInSec);
         }
-        UpdateHunger(statuses[0]);
-        Sleep = statuses[1];
-        UpdateSleeping(IsSleeping);
-        Debug.Log("Monster wakeup. degraded monster stats: " + TimeInSec);
+        else
+        {
+            Debug.LogError("AtGameWakeUp: input was outside of bounds.");
+        }
     }
 
 
@@ -364,8 +375,8 @@ public class Monster
     /// <param name="NewHunger">Set new current hunger</param>
     public void UpdateHunger(float NewHunger)
     {
-         
-        
+
+
 
         Hunger = NewHunger;
 
@@ -417,6 +428,10 @@ public class Monster
     /// <param name="modifier">Changes how much sleep is added</param>
     public void UpdateSleeping(bool sleeping, float modifier = 2)
     {
+        float SleepHungry = 0.95f;
+        float SleepMedium = 1;
+        float SleepFull = 1.05f;
+
         if (sleeping)
             IsSleeping = true;
         else
@@ -429,18 +444,18 @@ public class Monster
             Sleep += gainedSleep;
             if (Hunger < 25)
             {
-                Energy += gainedSleep * 0.5f;
-                Debug.Log(gainedSleep * 0.5f);
+                Energy += gainedSleep * SleepHungry;
+                Debug.Log(gainedSleep * SleepHungry);
             }
-            if (Hunger > 75)
+            else if (Hunger > 75)
             {
-                Energy += gainedSleep * 1.5f;
-                Debug.Log(gainedSleep * 1.5f);
+                Energy += gainedSleep * SleepFull;
+                Debug.Log(gainedSleep * SleepFull);
             }
-            if (Hunger > 25 && Hunger < 75)
+            else if (Hunger > 25 && Hunger < 75)
             {
-                Energy += gainedSleep * 1;
-                Debug.Log(gainedSleep * 1f);
+                Energy += gainedSleep * SleepMedium;
+                Debug.Log(gainedSleep * SleepMedium);
             }
             if (Energy > MaxEnergy)
                 Energy = MaxEnergy;
@@ -488,12 +503,12 @@ public class Monster
     {
         float happinessDifference = 0;
 
-        if(IsStarving && Happiness != 0)
+        if (IsStarving && Happiness != 0)
         {
             //Happiness = Happiness - 3;
             happinessDifference -= 3;
         }
-        if(IsFull && Happiness <= MaxHappiness - 5)
+        if (IsFull && Happiness <= MaxHappiness - 5)
         {
             //Happiness = Happiness + 2;
             happinessDifference += 2;
@@ -504,7 +519,7 @@ public class Monster
             Happiness = 0;
         }
 
-        if(Health <= 49)
+        if (Health <= 49)
         {
             //Happiness = Happiness - 3;
             happinessDifference -= 3;
@@ -537,12 +552,12 @@ public class Monster
             Happiness = MaxHappiness;
         }
 
-        if (Happiness > 75) 
+        if (Happiness > 75)
         {
             HungerDegration = 0.083f * 0.1f;
             SleepDegration = 0.083f * 0.1f;
         }
-        if (Happiness < 75 && Happiness > 25) 
+        if (Happiness < 75 && Happiness > 25)
         {
             HungerDegration = 0.083f;
             SleepDegration = 0.083f;
@@ -564,6 +579,15 @@ public class Monster
     public string PrefabLocation
     {
         get => loadLocation;
+    }
+
+    /// <summary>
+    /// Set get the previous evolution
+    /// </summary>
+    public string PreviousEvolution
+    {
+        get => EvolvedFrom;
+        set => EvolvedFrom = value;
     }
 
 

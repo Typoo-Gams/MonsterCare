@@ -17,6 +17,7 @@ public class ToggleSleep_Button : MonoBehaviour
 
     public Animator foodInv;
 
+    public Button[] Disabled;
 
 
     // Start is called before the first frame update
@@ -24,17 +25,14 @@ public class ToggleSleep_Button : MonoBehaviour
     {
         //finds the __app in order to reference the gamemanager.
         manager = GameObject.Find("__app").GetComponentInChildren<GameManager>();
+        if(manager.PreviousSecene == 11)
+            toggle = manager.SleepMemory;
         //creates the shade and sets it to inactive, parents it under the canvas and transforms its position under the new parent.
-        toggle = manager.SleepMemory;
         NightTime = Instantiate(NightTime);
         //sets the current state
         NightTime.SetActive(toggle);
         manager.ActiveMonster.IsSleepingStatus = toggle;
         SleepZs.SetActive(toggle);
-        //updates the monsters degration when going to different scenes and back home.
-        //does not degrate from opening the game or coming back from combat
-        if (manager.PreviousSecene != 0 || manager.PreviousSecene != 1 || manager.PreviousSecene != 9)
-            manager.ActiveMonster.AtGameWakeUp(saver.FindTimeDifference());
 
         NightTime.transform.SetParent(GameObject.FindGameObjectWithTag("Canvas").transform, false);
         NightTime.transform.localPosition = new Vector3(-14, 4, -74);
@@ -46,13 +44,9 @@ public class ToggleSleep_Button : MonoBehaviour
 
 
     private void OnDestroy()
-    {/*
-        try 
-        {
+    {
+        if (manager != null)
             manager.SleepMemory = toggle;
-        }
-        catch { }
-        saver.SaveTime()*/
     }
 
 
@@ -73,6 +67,11 @@ public class ToggleSleep_Button : MonoBehaviour
         if(toggle == true)
         {
             foodInv.SetBool("Open", false);
+        }
+
+        foreach (Button disable in Disabled)
+        {
+            disable.interactable = !toggle;
         }
     }
 }

@@ -34,7 +34,7 @@ public class EvolveTrigger_Button : MonoBehaviour
 
     private void Update()
     {
-        if (manager.ActiveMonster.Element != "None" && manager.ActiveMonster.EnergyStatus > EvolveEnergyCost)
+        if (manager.ActiveMonster.Element != "None" && manager.ActiveMonster.EnergyStatus > EvolveEnergyCost && !manager.ActiveMonster.IsSleepingStatus)
         {
             ShowEvolveButton.SetBool("Active", true);
 
@@ -88,8 +88,12 @@ public class EvolveTrigger_Button : MonoBehaviour
             {
                 GameObject spawn = null;
                 if (manager.ActiveMonster.GetReport() != null)
+                {
                     spawn = Instantiate(manager.ActiveMonster.GetReport());
-                manager.HideUI = true;
+                    manager.HideUI = true;
+                }
+                else
+                    manager.HideUI = false;
                 if (spawn != null)
                     spawn.transform.SetParent(canvas, false);
                 EvolutoinDone = false;

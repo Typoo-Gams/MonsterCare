@@ -112,6 +112,12 @@ public class GameManager : MonoBehaviour
                 Save.PrintObtainedMonsters();
                 Debug.Log("Cheat O activated");
             }
+
+            if(Input.GetKeyDown(KeyCode.P))
+            {
+                ActiveMonster.EnergyStatus = 5;
+                ActiveMonster.HungerStatus = 50;
+            }
         }
     }
 
@@ -374,9 +380,9 @@ public class GameSaver
         try 
         {
             string[] StatIndex =
-            {"Health", "Hunger", "Sleep", "Happiness", "Playfull", "Toughness", "Energy", "Happiness"};
+            {"Health", "Hunger", "Sleep", "Happiness", "Playfull", "Toughness", "Energy"};
             float[] Stats =
-                {yourMonster.HealthStatus, yourMonster.HungerStatus, yourMonster.SleepStatus, yourMonster.HappinessStatus, yourMonster.PlayfullStatus, yourMonster.ToughnessStatus, yourMonster.EnergyStatus, yourMonster.HappinessStatus};
+                {yourMonster.HealthStatus, yourMonster.HungerStatus, yourMonster.SleepStatus, yourMonster.HappinessStatus, yourMonster.PlayfullStatus, yourMonster.ToughnessStatus, yourMonster.EnergyStatus};
 
             string MonsterSaveIndex = "SavedMonster_";
 
@@ -413,7 +419,7 @@ public class GameSaver
     public void LoadMonster(Monster yourMonster)
     {
         string[] StatIndex =
-            {"Health", "Hunger", "Sleep", "Happiness", "Playfull", "Toughness", "Energy", "Happiness"};
+            {"Health", "Hunger", "Sleep", "Happiness", "Playfull", "Toughness", "Energy"};
 
         string MonsterSaveIndex = "SavedMonster_";
 
@@ -430,7 +436,6 @@ public class GameSaver
         yourMonster.PlayfullStatus = PlayerPrefs.GetFloat(MonsterSaveIndex + StatIndex[4]);
         yourMonster.ToughnessStatus = PlayerPrefs.GetFloat(MonsterSaveIndex + StatIndex[5]);
         yourMonster.EnergyStatus = PlayerPrefs.GetFloat(MonsterSaveIndex + StatIndex[6]);
-        yourMonster.HappinessStatus = PlayerPrefs.GetFloat(MonsterSaveIndex + StatIndex[7]);
 
     }
 

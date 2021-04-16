@@ -9,6 +9,7 @@ public class AirSleepyGen1_MonsterController : MonoBehaviour
     private GameObject ReportRefference;
     private bool SpawnReport;
 
+    private string prefabLocation = "Prefabs/MonsterStuff/Monsters/Gen 1/AirSleepy_Gen1";
     public Monster monster;
     GameManager manager;
     GameSaver Saver = new GameSaver();
@@ -25,7 +26,7 @@ public class AirSleepyGen1_MonsterController : MonoBehaviour
         thisAnimator = GetComponent<Animator>();
 
         //Creates a new monster object.
-        monster = new Monster("AirSleepy_Gen1", "Prefabs/MonsterStuff/Monsters/Gen 1/AirSleepy_Gen1");
+        monster = new Monster("AirSleepy_Gen1", prefabLocation);
         //Checks if this monster is a new evolution or not then loads the monster info or overwrites the old monster's saved stats with the new one.
         if (Saver.MonsterObtainedBefore(monster.Name))
         {
@@ -36,7 +37,8 @@ public class AirSleepyGen1_MonsterController : MonoBehaviour
         {
             SpawnReport = true;
             //Overwrites the previous monsters saved stats
-            Saver.SaveMonster(monster);
+            Saver.LoadMonster(monster);
+            monster.HealthStatus = monster.GetMaxHealth;
         }
         //updates the monster stats from how much time passed since the last save to simulate things happening while the player isnt playing the game.
         monster.AtGameWakeUp(Saver.FindTimeDifference());
@@ -148,7 +150,7 @@ public class AirSleepyGen1_MonsterController : MonoBehaviour
                     //Destroy(gameObject);
 
                     //create the new monster
-                    GameObject NextEvolution;
+                    GameObject NextEvolution = null;
                     switch (monster.Element)
                     {
                         /*case "Fire":
@@ -167,6 +169,11 @@ public class AirSleepyGen1_MonsterController : MonoBehaviour
                             monster.CanEvolveStatus = false;
                             break;
                     }
+                    /*
+                    GameObject Spawned = Instantiate(NextEvolution);
+                    Spawned.transform.SetParent(transform.parent, false);
+                    manager.ActiveMonster.PreviousEvolution = prefabLocation;
+                    */
                 }
             }
         }
