@@ -341,19 +341,22 @@ public class Monster
     ///<param name="WasSleeping">If the monster was sleeping when game wakes up</param>
     public void AtGameWakeUp(float TimeInSec)
     {
-        float[] statuses = { Hunger, Sleep };
-        float[] degrade = { HungerDegration, SleepDegration };
-
-        for (int i = 0; i < statuses.Length; i++)
+        if (TimeInSec > 0) 
         {
-            statuses[i] -= degrade[i] * TimeInSec;
-            if (statuses[i] < 0)
-                statuses[i] = 0;
+            float[] statuses = { Hunger, Sleep };
+            float[] degrade = { HungerDegration, SleepDegration };
+
+            for (int i = 0; i < statuses.Length; i++)
+            {
+                statuses[i] -= degrade[i] * TimeInSec;
+                if (statuses[i] < 0)
+                    statuses[i] = 0;
+            }
+            UpdateHunger(statuses[0]);
+            Sleep = statuses[1];
+            UpdateSleeping(IsSleeping);
+            Debug.Log("Monster wakeup. degraded monster stats: " + TimeInSec);
         }
-        UpdateHunger(statuses[0]);
-        Sleep = statuses[1];
-        UpdateSleeping(IsSleeping);
-        Debug.Log("Monster wakeup. degraded monster stats: " + TimeInSec);
     }
 
 
