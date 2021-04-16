@@ -49,13 +49,16 @@ public class ChildGen0_MonsterController : MonoBehaviour
             monster.SleepStatus = 100;
         }
         //updates the monster stats from how much time passed since the last save to simulate things happening while the player isnt playing the game.
-        monster.AtGameWakeUp(Saver.FindTimeDifference());
+        //monster.AtGameWakeUp(Saver.FindTimeDifference());
         //Sends the monster object to the gamemanager so that other scripts can easily reference it.
         SendMonster();
         Debug.Log("Current monster: " + this);
 
 
         monster.SetReport(Report);
+
+        if (!manager.NewSave && Saver.FindTimeDifference() > 0)
+            manager.ActiveMonster.AtGameWakeUp(Saver.FindTimeDifference());
 
     }
 
@@ -71,6 +74,7 @@ public class ChildGen0_MonsterController : MonoBehaviour
             monster.DegradeHunger();
             monster.UpdateHappiness();
             monster.UpdateSleeping(monster.IsSleepingStatus, 1);
+            monster.UpdateHappiness();
             cnt = 0;
         }
         if (Input.GetKeyDown(KeyCode.Mouse0)) Destroy(ReportRefference);

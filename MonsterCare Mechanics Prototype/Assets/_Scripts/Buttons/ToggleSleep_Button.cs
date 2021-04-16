@@ -31,10 +31,6 @@ public class ToggleSleep_Button : MonoBehaviour
         NightTime.SetActive(toggle);
         manager.ActiveMonster.IsSleepingStatus = toggle;
         SleepZs.SetActive(toggle);
-        //updates the monsters degration when going to different scenes and back home.
-        //does not degrate from opening the game or coming back from combat
-        if (manager.PreviousSecene != 0 || manager.PreviousSecene != 1 || manager.PreviousSecene != 9)
-            manager.ActiveMonster.AtGameWakeUp(saver.FindTimeDifference());
 
         NightTime.transform.SetParent(GameObject.FindGameObjectWithTag("Canvas").transform, false);
         NightTime.transform.localPosition = new Vector3(-14, 4, -74);

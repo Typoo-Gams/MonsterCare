@@ -175,7 +175,7 @@ public class Monster
     /// </summary>
     public void DebugMonster()
     {
-        Debug.Log(MonsterName + " Status: \nHealth: " + Health + "\nEnergy: " + Energy + "\nHunger: " + Hunger + "\nHappiness: " + HappinessStatus + "\nStarving: " + IsStarving + "\nFull: " + IsFull + "\nSleepyness: " + Sleep + "\nSleep Deprived: " + IsSleepDeprived + "\nRested: " + IsRested + "\nOver Rested: " + IsOverRested + "\nIsDead: " + IsDead + "\nCanEvolve: " + CanEvolveStatus);
+        Debug.Log(MonsterName + " Status: \nElement: " + elementEaten + "\nHealth: " + Health + "\nEnergy: " + Energy + "\nHunger: " + Hunger + "\nHappiness: " + HappinessStatus + "\nStarving: " + IsStarving + "\nFull: " + IsFull + "\nSleepyness: " + Sleep + "\nSleep Deprived: " + IsSleepDeprived + "\nRested: " + IsRested + "\nOver Rested: " + IsOverRested + "\nIsDead: " + IsDead + "\nCanEvolve: " + CanEvolveStatus);
     }
 
 
@@ -356,6 +356,10 @@ public class Monster
             Sleep = statuses[1];
             UpdateSleeping(IsSleeping);
             Debug.Log("Monster wakeup. degraded monster stats: " + TimeInSec);
+        }
+        else 
+        {
+            Debug.LogError("AtGameWakeUp:");
         }
     }
 

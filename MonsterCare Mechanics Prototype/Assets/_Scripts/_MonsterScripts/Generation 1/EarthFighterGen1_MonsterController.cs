@@ -38,13 +38,16 @@ public class EarthFighterGen1_MonsterController : MonoBehaviour
             //Saver.SaveObtainedMonster("Gen1_Earth", true);
         }
         //updates the monster stats from how much time passed since the last save to simulate things happening while the player isnt playing the game.
-        monster.AtGameWakeUp(Saver.FindTimeDifference());
+        //monster.AtGameWakeUp(Saver.FindTimeDifference());
         //Sends the monster object to the gamemanager so that other scripts can easily reference it.
 
         SendMonster();
         Debug.Log("Current monster: " + this);
 
         monster.SetReport(Report);
+
+        if (!manager.NewSave && Saver.FindTimeDifference() > 0)
+            manager.ActiveMonster.AtGameWakeUp(Saver.FindTimeDifference());
 
     }
 
