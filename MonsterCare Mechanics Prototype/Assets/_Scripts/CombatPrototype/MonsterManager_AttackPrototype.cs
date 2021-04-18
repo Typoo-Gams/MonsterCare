@@ -18,11 +18,6 @@ public class MonsterManager_AttackPrototype : MonoBehaviour
     public string ThisPrefabPath;
     string sceneElement;
 
-    //shake stuff
-    private float intervalShake = 0.25f;
-    private float CounterShake = 0.25f;
-    private bool HasMoved = false;
-
     //touch stuff
     Touch touch;
 
@@ -77,8 +72,6 @@ public class MonsterManager_AttackPrototype : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //update shake
-        DmgShake(false);
         //updating its visuals for being dead/alive
         if (StartMonster.DeathStatus)
         {
@@ -104,16 +97,11 @@ public class MonsterManager_AttackPrototype : MonoBehaviour
                     case TouchPhase.Began:
                         Debug.Log("Attacked");
                         StartMonster.DealDmg(10);
-                        DmgShake(true);
                         break;
                     default:
                         Debug.LogError(this.name + " did something weird.");
                         break;
                 } 
-            }
-            else //update shake
-            {
-                DmgShake(false);
             }
         }
     }
@@ -122,40 +110,6 @@ public class MonsterManager_AttackPrototype : MonoBehaviour
     private void OnDestroy()
     {
         Destroy(healthbarr);
-    }
-
-    //Adds shake Time to monster
-    /// <summary>
-    /// Shakes the monster's transform from left to right
-    /// </summary>
-    /// <param name="addTime">True if time should be added, false to update the shake position if it has time.</param>
-    private void DmgShake(bool addTime) 
-    {
-        //add time if true (sets the timer to 0)
-        if (addTime) 
-            CounterShake -= 0.25f; 
-        
-        //sets the timer to 0 so it doesnt go negative.
-        if (CounterShake < 0)
-            CounterShake = 0;
-        
-        //if the counter is bigger than the interval then set it to its max value.
-        //when the counter has reached the interval and it has moved then reset its position to its original position.
-        if (CounterShake >= intervalShake)
-        {
-            CounterShake = 0.25f;
-            if (HasMoved) 
-            {
-                transform.position = StartMonster.GetOriginPos();
-                HasMoved = false;
-            }
-        }
-        else
-        {
-            HasMoved = true;
-            CounterShake += Time.deltaTime;
-            transform.position = StartMonster.Shake();
-        }
     }
 
     //turns off the combat for the enemy monster.

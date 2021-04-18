@@ -9,10 +9,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 852424272444159392}
-  - component: {fileID: 852424272444159393}
+  - component: {fileID: 8608001778456644589}
+  - component: {fileID: 4859928731570856093}
+  - component: {fileID: 74815850}
   m_Layer: 0
   m_Name: GoblinEnemyPrefab
-  m_TagString: Monster
+  m_TagString: EnemyMonster
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -26,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 852424272444159395}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 90}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 216, y: 216, z: 216}
   m_Children:
   - {fileID: 6040466305440342709}
   - {fileID: 4181858332958371562}
@@ -34,7 +36,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &852424272444159393
+--- !u!114 &8608001778456644589
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -43,11 +45,67 @@ MonoBehaviour:
   m_GameObject: {fileID: 852424272444159395}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5cf4242ac0e7cd0438e38fb7e5deb153, type: 3}
+  m_Script: {fileID: 11500000, guid: e7eb6e11fe9fdfc4c95bb75762d3e320, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ThisHealthBar: {fileID: 4127832794064725362, guid: bec77db43baf692489e7eb0c2d12d2c5, type: 3}
-  ThisPrefabPath: 
+  FoodPrefab: {fileID: 0}
+  Stunned: 0
+  Vulnerable: 0
+  Defeated: 0
+  HeadHealth: 3
+  Health: 100
+  goblinAnim: {fileID: 0}
+--- !u!95 &4859928731570856093
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 852424272444159395}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!60 &74815850
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 852424272444159395}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.029880226, y: -0.28484893}
+      - {x: -1.3394992, y: -0.8563111}
+      - {x: -1.3945506, y: -3.348834}
+      - {x: 0.94634783, y: -3.318954}
+      - {x: 2.0495958, y: -2.9582617}
+      - {x: 2.4897203, y: -2.0759964}
+      - {x: 1.9669837, y: -0.82643086}
 --- !u!1 &852424272644344155
 GameObject:
   m_ObjectHideFlags: 0
@@ -60,6 +118,7 @@ GameObject:
   - component: {fileID: 852424272644344150}
   - component: {fileID: 6245604780302601637}
   - component: {fileID: 8263117221568401663}
+  - component: {fileID: 1621441335}
   m_Layer: 0
   m_Name: S_Goblin_Bag2
   m_TagString: Untagged
@@ -228,6 +287,19 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &1621441335
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 852424272644344155}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38a48e460e7f67b49b580d359164f1a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsBag: 1
 --- !u!1 &852424273042996943
 GameObject:
   m_ObjectHideFlags: 0
@@ -238,9 +310,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4181858332958371562}
   - component: {fileID: 852424273042996939}
-  - component: {fileID: 852424273042996938}
   - component: {fileID: 7644203312704545759}
   - component: {fileID: 8783424151820404370}
+  - component: {fileID: 1390844982}
   m_Layer: 0
   m_Name: S_Goblin_Body
   m_TagString: Untagged
@@ -264,7 +336,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -2.16}
+  m_AnchoredPosition: {x: -0.01, y: -2.09}
   m_SizeDelta: {x: 5.73, y: 5.17}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!60 &852424273042996939
@@ -392,19 +464,6 @@ PolygonCollider2D:
       - {x: 1.515, y: -2.585}
       - {x: 1.745, y: -2.5549998}
       - {x: 1.8449999, y: -2.5349998}
---- !u!114 &852424273042996938
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 852424273042996943}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 605ca19b1227cb84f9676f9f6f811016, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  DmgModifier: 2
 --- !u!222 &7644203312704545759
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -443,6 +502,19 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &1390844982
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 852424273042996943}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38a48e460e7f67b49b580d359164f1a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsBag: 0
 --- !u!1 &852424274001879821
 GameObject:
   m_ObjectHideFlags: 0
@@ -453,9 +525,9 @@ GameObject:
   m_Component:
   - component: {fileID: 7250551909895199229}
   - component: {fileID: 852424274001879817}
-  - component: {fileID: 852424274001879816}
   - component: {fileID: 5440110842159965931}
   - component: {fileID: 8080850346136717275}
+  - component: {fileID: 100739555}
   m_Layer: 0
   m_Name: S_Goblin_Head
   m_TagString: Untagged
@@ -579,19 +651,6 @@ PolygonCollider2D:
       - {x: 0.32999998, y: -1.1}
       - {x: 0.55, y: -1.02}
       - {x: 0.68, y: -0.94}
---- !u!114 &852424274001879816
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 852424274001879821}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 605ca19b1227cb84f9676f9f6f811016, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  DmgModifier: 2
 --- !u!222 &5440110842159965931
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -630,3 +689,15 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &100739555
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 852424274001879821}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ae31851378a2244e8003205d6c65aea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

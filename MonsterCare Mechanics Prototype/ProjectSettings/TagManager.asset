@@ -26,6 +26,7 @@ TagManager:
   - BodyPartOverlay
   - Report
   - Tip
+  - EnemyMonster
   layers:
   - Default
   - TransparentFX

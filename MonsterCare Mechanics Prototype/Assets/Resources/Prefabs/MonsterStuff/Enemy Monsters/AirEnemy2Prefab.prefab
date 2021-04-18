@@ -1024,7 +1024,7 @@ GameObject:
   - component: {fileID: 2159190480498427326}
   m_Layer: 0
   m_Name: AirEnemy2Prefab
-  m_TagString: Monster
+  m_TagString: EnemyMonster
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

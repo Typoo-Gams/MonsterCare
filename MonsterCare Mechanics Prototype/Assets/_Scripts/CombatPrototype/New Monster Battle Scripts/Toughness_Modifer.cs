@@ -36,15 +36,12 @@ public class Toughness_Modifer : MonoBehaviour
 
     //health indicator//dmg indicator for the player
     public GameObject sprikes, gadient, HealthBar;
-    float CounterShake = 0.25f;
-    float intervalShake = 0.25f;
-    bool HasMoved;
-    Vector3 originPos;
     Image rend_Sprikes, rend_Gradient;
+
+    public GameObject GoblinPrefab;
 
     private void Start()
     {
-        originPos = sprikes.transform.position;
         rend_Sprikes = sprikes.GetComponent<Image>();
         rend_Gradient = gadient.GetComponent<Image>();
         canvas = GameObject.FindGameObjectWithTag("CanvasFighting");
@@ -55,14 +52,7 @@ public class Toughness_Modifer : MonoBehaviour
 
         string scene = SceneManager.GetActiveScene().name;
 
-        /*This spawns the health for our monster and makes sure
-            * that the health will go down*/
-        //GameObject Spawned = Instantiate(manager.GreenSliderPrefab);
         manager.ActiveMonster.CombatActive(true);
-        //Spawned.transform.SetParent(canvas.transform, false);
-        //Spawned.transform.localScale = new Vector3(3, 3, 3);
-        //manager.ActiveMonster.AssignHealthBar(Spawned);
-        manager.ActiveMonster.DebugMonster();
 
         //this checks which scene you are using and then spawns the correct enemy
         switch (scene)
@@ -84,9 +74,23 @@ public class Toughness_Modifer : MonoBehaviour
                 break;
         }
 
+        //Spawning an enemy monster
         isActive = true;
         SpawnEnemy();
 
+        //Generating random chance for goblin (1% chance?) bigger chance when he has an inventory
+        if (true) 
+        {
+            if(manager.Enemy == null)
+            {
+                GameObject GoblinSpawn = Instantiate(GoblinPrefab);
+                GoblinSpawn.transform.SetParent(canvas.transform, false);
+                Debug.LogWarning("GoblinSpawn");
+            }    
+        }
+
+
+        //Sets the DMG effects to their preset.
         float alpha = 1 - (manager.ActiveMonster.HealthStatus / manager.ActiveMonster.GetMaxHealth);
         rend_Gradient.color = new Color(1, 1, 1, alpha);
         rend_Sprikes.color = new Color(1, 1, 1, alpha);
@@ -106,7 +110,6 @@ public class Toughness_Modifer : MonoBehaviour
                 {
                     counter = 0;
                     manager.ActiveMonster.DealDmg(Random.Range(minDmg, maxDmg) + (int)manager.EnemyMonster.ToughnessModifier);
-                    DmgShake(true);
                     float alpha = 1 - (manager.ActiveMonster.HealthStatus / manager.ActiveMonster.GetMaxHealth);
                     rend_Gradient.color = new Color(1, 1, 1, alpha);
                     rend_Sprikes.color = new Color(1, 1, 1, alpha);
@@ -116,7 +119,6 @@ public class Toughness_Modifer : MonoBehaviour
                 }
             }
        }
-        DmgShake(false);
     }
 
     public void SpawnEnemy()
@@ -129,55 +131,6 @@ public class Toughness_Modifer : MonoBehaviour
                 manager.Enemy.transform.SetParent(canvas.transform, false);
                 manager.Enemy.transform.SetSiblingIndex(MonsterHiarchySpawn.transform.GetSiblingIndex() + 1);
             }
-        }
-    }
-
-
-
-    /// <param name="sped">how fast it shakes</param>
-    /// <param name="amm">how much it shakes</param>
-    /// <returns></returns>
-    public Vector3 Shake(float speed = 40.0f, float amount = 0.25f)
-    {
-
-        float x = Mathf.Sin(Time.time * speed) * amount;
-        float y = Mathf.Sin(Time.time * speed + 0.2f) * amount;
-
-        return new Vector3(x, y, 0);
-    }
-
-    //Adds shake Time to monster
-    /// <summary>
-    /// Shakes the monster's transform from left to right
-    /// </summary>
-    /// <param name="addTime">True if time should be added, false to update the shake position if it has time.</param>
-    private void DmgShake(bool addTime)
-    {
-        //add time if true (sets the timer to 0)
-        if (addTime)
-            CounterShake -= 0.25f;
-
-        //sets the timer to 0 so it doesnt go negative.
-        if (CounterShake < 0)
-            CounterShake = 0;
-
-        //if the counter is bigger than the interval then set it to its max value.
-        //when the counter has reached the interval and it has moved then reset its position to its original position.
-        if (CounterShake >= intervalShake)
-        {
-            CounterShake = 0.25f;
-            if (HasMoved)
-            {
-                sprikes.transform.position = originPos;
-                HasMoved = false;
-            }
-        }
-        else
-        {
-            HasMoved = true;
-            CounterShake += Time.deltaTime;
-            Vector3 shakePos = Shake();
-            sprikes.transform.position = shakePos;
         }
     }
 }

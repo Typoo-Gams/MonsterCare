@@ -1,0 +1,107 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Goblin : MonoBehaviour
+{
+    //References
+    GameManager manager;
+    GameSaver Saver = new GameSaver();
+    GameObject canvas;
+
+    public GameObject FoodPrefab;
+
+    //Goblin States
+    bool isTapped;
+    public bool Stunned;
+    public bool Vulnerable;
+    public bool Defeated;
+
+    //Goblin Stats
+    public int HeadHealth = 3;
+    int BodyHealth = 5;
+    public float Health = 100;
+
+    //Animator
+    public Animator goblinAnim;
+
+    //Mechanics
+    float cnt;
+    float EscapeTimer;
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        manager = GameObject.Find("__app").GetComponentInChildren<GameManager>();
+        canvas = GameObject.FindGameObjectWithTag("CanvasFighting");
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        Debug.Log(isTapped);
+        if (isTapped) 
+        {
+            if (Stunned && !Vulnerable)
+            {
+                //goblinAnim.Play();
+                Vulnerable = true;
+                HeadHealth = 3;
+            }
+            if (Vulnerable)
+            {
+                cnt += Time.deltaTime;
+                if (cnt > 3)
+                {
+                    cnt = 0;
+                    Vulnerable = false;
+                }
+            }
+            if (EscapeTimer > 15)
+                GoblinEscape();
+
+            if (Health > 0)
+                EscapeTimer += Time.deltaTime;
+
+            if (Health <= 0)
+                GoblinDefeated();
+        }
+        else 
+        {
+            //Check when steal anim is done then escape
+        }
+    }
+
+    private void StealingFood()
+    {
+        Saver.AddGoblinInv(manager.FoodReward);
+    }
+
+    public void GoblinDefeated()
+    {
+        foreach (Food Item in Saver.GetGoblinInv()) 
+        {
+            //GameObject Spawn = Instantiate();
+            //Spawn.transform.SetParent(canvas.transform, false);
+        }
+        Saver.ClearGoblinInv();
+        Defeated = true;
+
+        //temporary
+        Destroy(gameObject);
+    }
+
+    private void GoblinEscape()
+    {
+        //goblinAnim;
+    }
+
+    private void OnMouseDown()
+    {
+        if (!isTapped)
+        {
+            isTapped = true;
+            Destroy(GetComponent<PolygonCollider2D>()); 
+        }
+    }
+}

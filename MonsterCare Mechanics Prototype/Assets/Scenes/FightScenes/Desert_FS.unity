@@ -222,6 +222,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7327075317982823997, guid: 6e8dea5fbfa00e74594cb818876d0621, type: 3}
+      propertyPath: GoblinPrefab
+      value: 
+      objectReference: {fileID: 852424272444159395, guid: a37d4ecbc632f2c4db6fd75ca2f9a679, type: 3}
     - target: {fileID: 9104515355766282086, guid: 6e8dea5fbfa00e74594cb818876d0621, type: 3}
       propertyPath: m_Camera
       value: 

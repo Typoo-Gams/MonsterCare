@@ -534,7 +534,7 @@ GameObject:
   - component: {fileID: 3692521516231120898}
   m_Layer: 0
   m_Name: FireEnemy2Prefab
-  m_TagString: Monster
+  m_TagString: EnemyMonster
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -576,6 +576,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ThisHealthBar: {fileID: 4127832794064725362, guid: bec77db43baf692489e7eb0c2d12d2c5, type: 3}
+  HealthbarPos: {x: 0, y: 0, z: 0}
   ThisPrefabPath: 
 --- !u!1 &3692521516287526955
 GameObject:

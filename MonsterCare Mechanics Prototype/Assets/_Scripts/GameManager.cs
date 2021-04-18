@@ -529,6 +529,100 @@ public class GameSaver
             Debug.LogError("Can't find the index: " + MonsterGenName + ", try checking the index list.");
     }
 
+    //Saves one new food into the goblin inventory
+    public void AddGoblinInv(Food ObtainedFood)
+    {
+        string inv = "Goblin Inventory Load: ";
+        Food[] GoblinInv = new Food[2];
+        for(int i = 0; i > GoblinInv.Length; i++)
+        {
+            if (GoblinInv[i] == null) 
+            {
+                GoblinInv[i] = ObtainedFood;
+            }
+            else 
+            {
+                Debug.LogError("GoblinInv is full");
+            }
+        }
+
+        string GoblinInvIndex = "GoblinInv_Slot";
+        for (int i = 0; i < GoblinInvIndex.Length; i++)
+        {
+            string SaveIndex = GoblinInvIndex + i + "_";
+            if (GoblinInv[i].FoodType != "None")
+            {
+
+                PlayerPrefs.SetInt(SaveIndex + "_Power", GoblinInv[i].Power);
+                PlayerPrefs.SetString(SaveIndex + "_Type", GoblinInv[i].FoodType);
+                PlayerPrefs.SetString(SaveIndex + "_Element", GoblinInv[i].Element);
+                PlayerPrefs.SetInt(SaveIndex + "_SpriteIndex", GoblinInv[i].Sprite);
+                inv += "\nInventory Slot " + i + ": Type: " + GoblinInv[i].FoodType + ", Element: " + GoblinInv[i].Element + ", Power: " + GoblinInv[i].Power + ", Sprite: " + GoblinInv[i].Sprite;
+            }
+            else
+            {
+                PlayerPrefs.SetInt(SaveIndex + "_Power", 0);
+                PlayerPrefs.SetString(SaveIndex + "_Type", "None");
+                PlayerPrefs.SetString(SaveIndex + "_Element", "None");
+                PlayerPrefs.SetInt(SaveIndex + "_SpritePath", -1);
+            }
+        }
+        Debug.Log(inv);
+    }
+
+
+    //Get Goblin inventory
+    public Food[] GetGoblinInv() 
+    {
+        string GoblinInvIndex = "GoblinInv_Slot";
+        Food[] load = new Food[2];
+        string inv = "Goblin Inventory Load: ";
+        for (int i = 0; i < load.Length; i++)
+        {
+            string SaveIndex = GoblinInvIndex + i;
+            int power = PlayerPrefs.GetInt(SaveIndex + "_Power");
+            string type = PlayerPrefs.GetString(SaveIndex + "_Type");
+            string element = PlayerPrefs.GetString(SaveIndex + "_Element");
+            int SpriteIndex = PlayerPrefs.GetInt(SaveIndex + "_SpriteIndex");
+            if (type == "")
+                type = "None";
+            load[i] = new Food(type, element, power);
+            load[i].Sprite = SpriteIndex;
+            inv += "\nInventory Slot " + i + ": Type: " + load[i].FoodType + ", Element: " + load[i].Element + ", Power: " + load[i].Power + ", Sprite: " + load[i].Sprite;
+        }
+        Debug.Log(inv);
+        return load;
+    }
+
+
+    //Clear Goblin inventory
+    public void ClearGoblinInv()
+    {
+        string inv = "Goblin Inventory Load: ";
+        Food[] empty = new Food[2];
+        string GoblinInvIndex = "GoblinInv_Slot";
+        for (int i = 0; i < empty.Length; i++)
+        {
+            string SaveIndex = GoblinInvIndex + i + "_";
+            if (empty[i].FoodType != "None")
+            {
+
+                PlayerPrefs.SetInt(SaveIndex + "_Power", empty[i].Power);
+                PlayerPrefs.SetString(SaveIndex + "_Type", empty[i].FoodType);
+                PlayerPrefs.SetString(SaveIndex + "_Element", empty[i].Element);
+                PlayerPrefs.SetInt(SaveIndex + "_SpriteIndex", empty[i].Sprite);
+                inv += "\nInventory Slot " + i + ": Type: " + empty[i].FoodType + ", Element: " + empty[i].Element + ", Power: " + empty[i].Power + ", Sprite: " + empty[i].Sprite;
+            }
+            else
+            {
+                PlayerPrefs.SetInt(SaveIndex + "_Power", 0);
+                PlayerPrefs.SetString(SaveIndex + "_Type", "None");
+                PlayerPrefs.SetString(SaveIndex + "_Element", "None");
+                PlayerPrefs.SetInt(SaveIndex + "_SpritePath", -1);
+            }
+        }
+        Debug.Log(inv);
+    }
 
     //Saves the inventory
     public void SaveFood(Food[] inventory) 

@@ -87,7 +87,7 @@ GameObject:
   - component: {fileID: 1199239733493635081}
   m_Layer: 0
   m_Name: FireEnemyPrefab
-  m_TagString: Monster
+  m_TagString: EnemyMonster
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
