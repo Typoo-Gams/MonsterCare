@@ -70,6 +70,15 @@ public class AirSleepyGen1_MonsterController : MonoBehaviour
 
             //Checks for evolution
             Evolution();
+
+            //checks if a report should be spawned
+            if (SpawnReport && manager.Fade.GetCurrentAnimatorStateInfo(0).IsName("New State") && monster.GetReport() != null)
+            {
+                GameObject spawn = Instantiate(monster.GetReport());
+                spawn.transform.SetParent(GameObject.FindGameObjectWithTag("Canvas").transform, false);
+                SpawnReport = false;
+                manager.HideUI = true;
+            }
         }
 
 

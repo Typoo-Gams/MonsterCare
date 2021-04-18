@@ -16,6 +16,7 @@ public class WaterPlayfullGen1_MonsterController : MonoBehaviour
     Animator thisAnimator;
     float cntAnimation;
     public GameObject Smoke;
+    bool SpawnReport;
 
     // Start is called before the first frame update
     void Start()
@@ -34,6 +35,7 @@ public class WaterPlayfullGen1_MonsterController : MonoBehaviour
         }
         else
         {
+            SpawnReport = true;
             //Overwrites the previous monsters saved stats
             Saver.SaveMonster(monster);
             //Saver.SaveObtainedMonster("Gen1_Water", true);
@@ -61,10 +63,22 @@ public class WaterPlayfullGen1_MonsterController : MonoBehaviour
             monster.UpdateSleeping(monster.IsSleepingStatus, 1);
             cnt = 0;
         }
-        Evolution();
         if (SceneManager.GetActiveScene().name == "MonsterHome")
         {
+            //checks for devolution
             Devolution();
+
+            //Checks for evolution
+            Evolution();
+
+            //checks if a report should be spawned
+            if (SpawnReport && manager.Fade.GetCurrentAnimatorStateInfo(0).IsName("New State") && monster.GetReport() != null)
+            {
+                GameObject spawn = Instantiate(monster.GetReport());
+                spawn.transform.SetParent(GameObject.FindGameObjectWithTag("Canvas").transform, false);
+                SpawnReport = false;
+                manager.HideUI = true;
+            }
         }
 
         //Don't work because of Preload

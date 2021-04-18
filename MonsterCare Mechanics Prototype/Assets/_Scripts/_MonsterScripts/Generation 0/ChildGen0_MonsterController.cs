@@ -87,7 +87,7 @@ public class ChildGen0_MonsterController : MonoBehaviour
             Evolution();
 
             //checks if a report should be spawned
-            if (SpawnReport && manager.Fade.GetCurrentAnimatorStateInfo(0).IsName("New State"))
+            if (SpawnReport && manager.Fade.GetCurrentAnimatorStateInfo(0).IsName("New State") && monster.GetReport() != null)
             {
                 GameObject spawn = Instantiate(monster.GetReport());
                 spawn.transform.SetParent(GameObject.FindGameObjectWithTag("Canvas").transform, false);

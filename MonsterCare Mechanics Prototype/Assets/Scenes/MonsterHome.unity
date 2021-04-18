@@ -217,43 +217,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e8c4f5f02f969cb4f976de83f8da2611, type: 3}
---- !u!1 &629782669 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1286337372, guid: 40193650ec9cf7e4189cc7b3202955b8, type: 3}
-  m_PrefabInstance: {fileID: 1354948473}
-  m_PrefabAsset: {fileID: 0}
---- !u!223 &629782671
-Canvas:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 629782669}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_RenderMode: 2
-  m_Camera: {fileID: 0}
-  m_PlaneDistance: 100
-  m_PixelPerfect: 0
-  m_ReceivesEvents: 1
-  m_OverrideSorting: 1
-  m_OverridePixelPerfect: 0
-  m_SortingBucketNormalizedSize: 0
-  m_AdditionalShaderChannelsFlag: 0
-  m_SortingLayerID: 988241969
-  m_SortingOrder: 0
-  m_TargetDisplay: 0
---- !u!114 &629782673 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1286337374, guid: 40193650ec9cf7e4189cc7b3202955b8, type: 3}
-  m_PrefabInstance: {fileID: 1354948473}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 629782669}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &638375545 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3275209722979855915, guid: 40193650ec9cf7e4189cc7b3202955b8, type: 3}
@@ -330,6 +293,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!95 &911141532 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 1354948477, guid: 40193650ec9cf7e4189cc7b3202955b8, type: 3}
+  m_PrefabInstance: {fileID: 1354948473}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &961505687 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1561521340318166407, guid: e8c4f5f02f969cb4f976de83f8da2611, type: 3}
@@ -490,6 +458,14 @@ PrefabInstance:
       propertyPath: m_SortingOrder
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 2059173741450535441, guid: 40193650ec9cf7e4189cc7b3202955b8, type: 3}
+      propertyPath: ShowFoodInv
+      value: 
+      objectReference: {fileID: 188397239}
+    - target: {fileID: 2059173741450535441, guid: 40193650ec9cf7e4189cc7b3202955b8, type: 3}
+      propertyPath: ShowEvolveButton
+      value: 
+      objectReference: {fileID: 911141532}
     - target: {fileID: 2268469435900996519, guid: 40193650ec9cf7e4189cc7b3202955b8, type: 3}
       propertyPath: ElementalGlow
       value: 
@@ -789,7 +765,7 @@ PrefabInstance:
     - target: {fileID: 8129942002098861184, guid: 40193650ec9cf7e4189cc7b3202955b8, type: 3}
       propertyPath: Disabled.Array.data[2]
       value: 
-      objectReference: {fileID: 629782673}
+      objectReference: {fileID: 0}
     - target: {fileID: 8129942002098861184, guid: 40193650ec9cf7e4189cc7b3202955b8, type: 3}
       propertyPath: Disabled.Array.data[3]
       value: 
