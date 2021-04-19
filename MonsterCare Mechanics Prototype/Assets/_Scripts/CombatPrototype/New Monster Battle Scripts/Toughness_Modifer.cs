@@ -79,7 +79,7 @@ public class Toughness_Modifer : MonoBehaviour
         SpawnEnemy();
 
         //Generating random chance for goblin (1% chance?) bigger chance when he has an inventory
-        if (true) 
+        if (false) 
         {
             if(manager.Enemy == null)
             {
