@@ -67,7 +67,7 @@ public class Toughness_Modifer : MonoBehaviour
                 monsterPrefab = enemyMonsterPaths[2];
                 break;
             case "Forest_FS":
-                monsterPrefab = enemyMonsterPaths[Random.Range(3, 4)];
+                monsterPrefab = enemyMonsterPaths[Random.Range(3, 5)];
                 break;
             case "Ice_FS":
                 monsterPrefab = enemyMonsterPaths[5];
