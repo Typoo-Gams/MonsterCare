@@ -20,9 +20,4 @@ public class Sounds
 
     [HideInInspector]
     public AudioSource source;
-
-
-
-
-
 }

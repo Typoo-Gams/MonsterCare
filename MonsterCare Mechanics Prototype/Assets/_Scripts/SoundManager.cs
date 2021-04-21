@@ -34,7 +34,7 @@ public class SoundManager : MonoBehaviour
         }
 
         //Sets the current muted value.
-        SetMute(true);
+        SetMute(SoundMuted);
     }
 
     private void Update()
@@ -101,32 +101,32 @@ public class SoundManager : MonoBehaviour
             if (SceneManager.GetActiveScene().name == "Desert_FS")
             {
                 FindSource("BackgroundMusic").Stop();
-                FindObjectOfType<SoundManager>().play("DesertBattleMusic");
+                play("DesertBattleMusic");
             }
             //Forest
             if (SceneManager.GetActiveScene().name == "Forest_FS")
             {
                 FindSource("BackgroundMusic").Stop();
-                FindObjectOfType<SoundManager>().play("ForestBattleMusic");
+                play("ForestBattleMusic");
             }
             //Savanna
             if (SceneManager.GetActiveScene().name == "Savannah_FS")
             {
                 FindSource("BackgroundMusic").Stop();
-                FindObjectOfType<SoundManager>().play("SavannaBattleMusic");
+                play("SavannaBattleMusic");
             }
             //Ice
             if (SceneManager.GetActiveScene().name == "Ice_FS")
             {
                 FindSource("BackgroundMusic").Stop();
-                FindObjectOfType<SoundManager>().play("IceBattleMusic");
+                play("IceBattleMusic");
             }
 
             //Mountain
             if (SceneManager.GetActiveScene().name == "Mountain_FS")
             {
                FindSource("BackgroundMusic").Stop();
-               FindObjectOfType<SoundManager>().play("MountainBattleMusic");
+               play("MountainBattleMusic");
             }
         }
     }
