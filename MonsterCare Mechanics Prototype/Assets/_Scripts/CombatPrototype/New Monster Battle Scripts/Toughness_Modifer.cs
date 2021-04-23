@@ -40,6 +40,7 @@ public class Toughness_Modifer : MonoBehaviour
 
     public GameObject GoblinPrefab;
 
+
     private void Start()
     {
         rend_Sprikes = sprikes.GetComponent<Image>();

@@ -93,7 +93,7 @@ GameObject:
   - component: {fileID: 7209496824478658570}
   - component: {fileID: 7209496824478658569}
   m_Layer: 5
-  m_Name: Add Sleep Hours
+  m_Name: ToggleSleep
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -108,7 +108,7 @@ RectTransform:
   m_GameObject: {fileID: 7209496824478658583}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.4544, y: 1.4544, z: 1.4544}
+  m_LocalScale: {x: 2.7921402, y: 2.7921402, z: 2.7921402}
   m_Children:
   - {fileID: 7209496824410863498}
   m_Father: {fileID: 0}
@@ -213,5 +213,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b96d687edc9efa4409ded9b6485b394e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PlaySounds: 0
+  NightTime: {fileID: 4390621257697956419, guid: 8c95f348b43221447adcc8775c485026, type: 3}
   manager: {fileID: 0}
-  zZz: {fileID: 0}
+  SleepZs: {fileID: 0}
+  foodInv: {fileID: 0}
+  Disabled:
+  - {fileID: 0}
+  - {fileID: 0}
