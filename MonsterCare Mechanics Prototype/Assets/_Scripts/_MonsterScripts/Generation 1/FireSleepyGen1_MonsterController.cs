@@ -50,7 +50,10 @@ public class FireSleepyGen1_MonsterController : MonoBehaviour
         monster.SetReport(Report);
     }
 
-
+    private void FixedUpdate()
+    {
+        monster.CanEvolveStatus = false;
+    }
     // Update is called once per frame
     void Update()
     {

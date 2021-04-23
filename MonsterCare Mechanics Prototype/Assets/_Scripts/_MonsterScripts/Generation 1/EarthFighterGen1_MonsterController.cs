@@ -51,7 +51,10 @@ public class EarthFighterGen1_MonsterController : MonoBehaviour
 
     }
 
-
+    private void FixedUpdate()
+    {
+        monster.CanEvolveStatus = false;
+    }
     // Update is called once per frame
     void Update()
     {

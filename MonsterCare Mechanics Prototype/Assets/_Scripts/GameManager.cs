@@ -51,7 +51,7 @@ public class GameManager : MonoBehaviour
     //Awake is called when the script instance is being loaded
     private void Awake()
     {
-        GameVersion = "15.1";
+        GameVersion = "15.2";
         Debug.LogWarning("GameVersion is V." + GameVersion);
         FoodInventory = new Food[]{
             new Food(true),
@@ -309,7 +309,6 @@ public class GameSaver
     /// </summary>
     public void SaveTime()
     {
-
         string[] TimeIndex =
             {"Hour", "Minutes", "Seconds", "Day", "Month", "Year"};
         float[] TimeTable =
@@ -317,6 +316,7 @@ public class GameSaver
         for (int i = 0; i < TimeIndex.Length; i++)
         {
             string FullIndex = "SavedTime_" + TimeIndex[i];
+            Debug.LogWarning(FullIndex + " : " + TimeTable[i]);
             PlayerPrefs.SetFloat(FullIndex, TimeTable[i]);
         }
     }

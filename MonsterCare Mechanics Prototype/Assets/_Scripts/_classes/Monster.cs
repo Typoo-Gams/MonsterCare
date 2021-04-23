@@ -345,6 +345,7 @@ public class Monster
     ///<param name="WasSleeping">If the monster was sleeping when game wakes up</param>
     public void AtGameWakeUp(float TimeInSec)
     {
+        Debug.LogWarning("AtGameWakeUP: " + TimeInSec);
         if (TimeInSec > 0)
         {
             float[] statuses = { Hunger, Sleep };
@@ -363,7 +364,7 @@ public class Monster
         }
         else
         {
-            Debug.LogError("AtGameWakeUp: input was outside of bounds.");
+            Debug.LogError("AtGameWakeUp: input was outside of bounds: " + TimeInSec);
         }
     }
 

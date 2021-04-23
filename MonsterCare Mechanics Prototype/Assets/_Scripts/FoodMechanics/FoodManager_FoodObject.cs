@@ -27,6 +27,7 @@ public class FoodManager_FoodObject : MonoBehaviour
 
     GameObject parent;
     GameManager manager;
+    Animator MonsterAnim;
     public ParticleSystem Glow;
 
     bool isHeld;
@@ -35,7 +36,7 @@ public class FoodManager_FoodObject : MonoBehaviour
     void Start()
     {
         manager = GameObject.Find("__app").GetComponentInChildren<GameManager>();
-
+        MonsterAnim = manager.MonsterObject.GetComponent<Animator>();
         parent = GameObject.Find("Canvas_Home");
 
         //checks what type of food it was and sets its sprite.
@@ -74,9 +75,15 @@ public class FoodManager_FoodObject : MonoBehaviour
     }
 
 
+    private void Update()
+    {
+        if(manager.MonsterObject.GetComponent<Animator>() != MonsterAnim)
+            MonsterAnim = manager.MonsterObject.GetComponent<Animator>();
+    }
+
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.gameObject.tag.Equals("Monster") && !isHeld && !manager.ActiveMonster.IsSleepingStatus)
+        if (collision.gameObject.tag.Equals("Monster") && !isHeld && !manager.ActiveMonster.IsSleepingStatus && !MonsterAnim.GetBool("Eating"))
         {
             //updates the monsters hunger when it eats the food
             manager.ActiveMonster.UpdateHunger(manager.ActiveMonster.HungerStatus + ThisFood.Power);
@@ -98,9 +105,8 @@ public class FoodManager_FoodObject : MonoBehaviour
             if (ThisFood.FoodType == "Special")
                 manager.ActiveMonster.Element = ThisFood.Element;
             //plays the monsters eating animation.
-            //temporary
-            if (manager.MonsterObject.GetComponent<Animator>() != null)
-                manager.MonsterObject.GetComponent<Animator>().SetBool("Eating", true);  //needs generic reference
+            if (MonsterAnim != null)
+                MonsterAnim.SetBool("Eating", true);
         }
     }
 
