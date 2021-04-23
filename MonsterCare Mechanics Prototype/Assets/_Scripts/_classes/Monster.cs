@@ -851,5 +851,4 @@ public class Monster
         set => Muted = value;
     }
 
-    
 }

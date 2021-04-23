@@ -17,12 +17,14 @@ public class StatController : MonoBehaviour
 
     public Image[] Icons = new Image[5];
     public Image[] IconBars = new Image[5];
+    public Animator[] Anims = new Animator[6];
     public Image[] Glow = new Image [5];
     public Image ElementalGlow;
     public Sprite[] ElementSprites = new Sprite[5];
     public GameObject ElementStat;
     GameManager manager;
 
+    private string currentElement;
 
     // Start is called before the first frame update
     void Start()
@@ -57,50 +59,67 @@ public class StatController : MonoBehaviour
         for (int i = 0; i < Icons.Length; i++) 
         {
             if (IconBars[i].fillAmount < 0.3f)
+            {
                 Icons[i].sprite = IconSprites[i][2];
+                Anims[i].SetBool("IsLow", true);
+            }
             if (IconBars[i].fillAmount < 0.6f && IconBars[i].fillAmount > 0.3f)
+            {
                 Icons[i].sprite = IconSprites[i][1];
+                Anims[i].SetBool("IsLow", false);
+            }
             if (IconBars[i].fillAmount > 0.6f)
+            {
                 Icons[i].sprite = IconSprites[i][0];
+                Anims[i].SetBool("IsLow", false);
+            }
         }
 
-
-        switch (manager.ActiveMonster.Element)
+        if (manager.ActiveMonster.Element != currentElement)
         {
-            case "Air":
-                ElementStat.GetComponent<Image>().sprite = ElementSprites[0];
-                ElementStat.transform.localScale = new Vector3(27.5039425f, 27.5039425f, 27.5039425f);
-                ElementalGlow.GetComponent<Image>().color = Color.white;
-                ElementStat.GetComponent<Image>().color = new Color(1, 1, 1, 1);
-                break;
+            switch (manager.ActiveMonster.Element)
+            {
+                case "Air":
+                    ElementStat.GetComponent<Image>().sprite = ElementSprites[0];
+                    ElementStat.transform.localScale = new Vector3(21.6754208f, 21.6754208f, 21.6754208f);
+                    ElementalGlow.GetComponent<Image>().color = Color.white;
+                    ElementStat.GetComponent<Image>().color = new Color(1, 1, 1, 1);
+                    currentElement = "Air";
+                    break;
 
-            case "Earth":
-                ElementStat.GetComponent<Image>().sprite = ElementSprites[1];
-                ElementStat.transform.localScale = new Vector3(27.5039425f, 27.5039425f, 27.5039425f);
-                ElementalGlow.GetComponent<Image>().color = new Color(0.5372549f, 0.8941177f, 0.4392157f, 1f);
-                ElementStat.GetComponent<Image>().color = new Color(1, 1, 1, 1);
-                break;
+                case "Earth":
+                    ElementStat.GetComponent<Image>().sprite = ElementSprites[1];
+                    ElementStat.transform.localScale = new Vector3(21.6754208f, 21.6754208f, 21.6754208f);
+                    ElementalGlow.GetComponent<Image>().color = new Color(0.5372549f, 0.8941177f, 0.4392157f, 1f);
+                    ElementStat.GetComponent<Image>().color = new Color(1, 1, 1, 1);
+                    currentElement = "Earth";
+                    break;
 
-            case "Fire":
-                ElementStat.GetComponent<Image>().sprite = ElementSprites[2];
-                ElementStat.transform.localScale = new Vector3(27.5039425f, 27.5039425f, 27.5039425f);
-                ElementalGlow.GetComponent<Image>().color = new Color(0.9647059f, 0.4901961f, 0.345098f, 1f);
-                ElementStat.GetComponent<Image>().color = new Color(1, 1, 1, 1);
-                break;
+                case "Fire":
+                    ElementStat.GetComponent<Image>().sprite = ElementSprites[2];
+                    ElementStat.transform.localScale = new Vector3(21.6754208f, 21.6754208f, 21.6754208f);
+                    ElementalGlow.GetComponent<Image>().color = new Color(0.9647059f, 0.4901961f, 0.345098f, 1f);
+                    ElementStat.GetComponent<Image>().color = new Color(1, 1, 1, 1);
+                    currentElement = "Fire";
+                    break;
 
-            case "Water":
-                ElementStat.GetComponent<Image>().sprite = ElementSprites[3];
-                ElementStat.transform.localScale = new Vector3(27.5039425f, 27.5039425f, 27.5039425f);
-                ElementalGlow.GetComponent<Image>().color = new Color(0.6078432f, 0.6705883f, 0.882353f, 1f);
-                ElementStat.GetComponent<Image>().color = new Color(1, 1, 1, 1);
-                break;
+                case "Water":
+                    ElementStat.GetComponent<Image>().sprite = ElementSprites[3];
+                    ElementStat.transform.localScale = new Vector3(21.6754208f, 21.6754208f, 21.6754208f);
+                    ElementalGlow.GetComponent<Image>().color = new Color(0.6078432f, 0.6705883f, 0.882353f, 1f);
+                    ElementStat.GetComponent<Image>().color = new Color(1, 1, 1, 1);
+                    currentElement = "Water";
+                    break;
 
-            case "None":
-                ElementStat.GetComponent<Image>().sprite = null;
-                ElementStat.transform.localScale = new Vector3(21.6754208f, 21.6754208f, 21.6754208f);
-                ElementalGlow.GetComponent<Image>().color = new Color(0.9647059f, 0.4901961f, 0.345098f, 0f);
-                ElementStat.GetComponent<Image>().color = new Color(0, 0, 0, 0);
-                break;
+                case "None":
+                    ElementStat.GetComponent<Image>().sprite = null;
+                    ElementStat.transform.localScale = new Vector3(21.6754208f, 21.6754208f, 21.6754208f);
+                    ElementalGlow.GetComponent<Image>().color = new Color(0.9647059f, 0.4901961f, 0.345098f, 0f);
+                    ElementStat.GetComponent<Image>().color = new Color(0, 0, 0, 0);
+                    currentElement = "None";
+                    break;
+            }
+            Anims[5].Play("NewElementAnim");
         }
     }
 }
