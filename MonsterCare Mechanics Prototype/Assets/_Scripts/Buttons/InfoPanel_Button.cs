@@ -6,8 +6,6 @@ using System;
 
 public class InfoPanel_Button : MonoBehaviour
 {
-    public bool PlaySounds;
-
     //Statboard is active
     bool isActive;
     public GameObject StatBoard;

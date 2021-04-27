@@ -5,8 +5,6 @@ using UnityEngine.UI;
 
 public class StatIconToggle_Button : MonoBehaviour
 {
-    public bool PlaySounds;
-
     public Animator anim;
     GameManager manager;
     bool StateChanged;
