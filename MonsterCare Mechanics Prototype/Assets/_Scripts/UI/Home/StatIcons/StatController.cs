@@ -24,6 +24,8 @@ public class StatController : MonoBehaviour
     public GameObject ElementStat;
     GameManager manager;
 
+    public OnHoverGetInfo Elementinfo;
+
     private string currentElement;
 
     // Start is called before the first frame update
@@ -85,6 +87,7 @@ public class StatController : MonoBehaviour
                     ElementalGlow.GetComponent<Image>().color = Color.white;
                     ElementStat.GetComponent<Image>().color = new Color(1, 1, 1, 1);
                     currentElement = "Air";
+                    Elementinfo.ShowInfo = true;
                     break;
 
                 case "Earth":
@@ -93,6 +96,7 @@ public class StatController : MonoBehaviour
                     ElementalGlow.GetComponent<Image>().color = new Color(0.5372549f, 0.8941177f, 0.4392157f, 1f);
                     ElementStat.GetComponent<Image>().color = new Color(1, 1, 1, 1);
                     currentElement = "Earth";
+                    Elementinfo.ShowInfo = true;
                     break;
 
                 case "Fire":
@@ -101,6 +105,7 @@ public class StatController : MonoBehaviour
                     ElementalGlow.GetComponent<Image>().color = new Color(0.9647059f, 0.4901961f, 0.345098f, 1f);
                     ElementStat.GetComponent<Image>().color = new Color(1, 1, 1, 1);
                     currentElement = "Fire";
+                    Elementinfo.ShowInfo = true;
                     break;
 
                 case "Water":
@@ -109,6 +114,7 @@ public class StatController : MonoBehaviour
                     ElementalGlow.GetComponent<Image>().color = new Color(0.6078432f, 0.6705883f, 0.882353f, 1f);
                     ElementStat.GetComponent<Image>().color = new Color(1, 1, 1, 1);
                     currentElement = "Water";
+                    Elementinfo.ShowInfo = true;
                     break;
 
                 case "None":
@@ -117,6 +123,7 @@ public class StatController : MonoBehaviour
                     ElementalGlow.GetComponent<Image>().color = new Color(0.9647059f, 0.4901961f, 0.345098f, 0f);
                     ElementStat.GetComponent<Image>().color = new Color(0, 0, 0, 0);
                     currentElement = "None";
+                    Elementinfo.ShowInfo = false;
                     break;
             }
             Anims[5].Play("NewElementAnim");

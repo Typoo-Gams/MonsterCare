@@ -45,19 +45,19 @@ public class EvolveTrigger_Button : MonoBehaviour
                 {
                     case "Air":
                         currentColor = "Air";
-                        //settings.startColor = new ParticleSystem.MinMaxGradient(Color.white);
+                        settings.startColor = new ParticleSystem.MinMaxGradient(Color.white);
                         break;
                     case "Earth":
                         currentColor = "Earth";
-                        //settings.startColor = new ParticleSystem.MinMaxGradient(new Color(0.5372549f, 0.8941177f, 0.4392157f));
+                        settings.startColor = new ParticleSystem.MinMaxGradient(new Color(0.5372549f, 0.8941177f, 0.4392157f));
                         break;
                     case "Fire":
                         currentColor = "Fire";
-                        //settings.startColor = new ParticleSystem.MinMaxGradient(new Color(0.9647059f, 0.4901961f, 0.345098f));
+                        settings.startColor = new ParticleSystem.MinMaxGradient(new Color(0.9647059f, 0.4901961f, 0.345098f));
                         break;
                     case "Water":
                         currentColor = "Water";
-                        //settings.startColor = new ParticleSystem.MinMaxGradient(new Color(0.6078432f, 0.6705883f, 0.882353f));
+                        settings.startColor = new ParticleSystem.MinMaxGradient(new Color(0.6078432f, 0.6705883f, 0.882353f));
                         break;
                 }
             }

@@ -38,6 +38,8 @@ public class InfoPanel_Button : MonoBehaviour
         }
         //setting the time difference.
         lastPlayInSec = saver.FindTimeDifference();
+
+        
     }
 
     // Update is called once per frame
