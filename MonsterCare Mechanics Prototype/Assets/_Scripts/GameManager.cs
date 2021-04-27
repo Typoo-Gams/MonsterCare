@@ -51,7 +51,7 @@ public class GameManager : MonoBehaviour
     //Awake is called when the script instance is being loaded
     private void Awake()
     {
-        GameVersion = "15.2";
+        GameVersion = "16";
         Debug.LogWarning("GameVersion is V." + GameVersion);
         FoodInventory = new Food[]{
             new Food(true),

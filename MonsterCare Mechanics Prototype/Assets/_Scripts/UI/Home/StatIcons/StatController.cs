@@ -88,6 +88,7 @@ public class StatController : MonoBehaviour
                     ElementStat.GetComponent<Image>().color = new Color(1, 1, 1, 1);
                     currentElement = "Air";
                     Elementinfo.ShowInfo = true;
+                    Anims[5].Play("NewElementAnim");
                     break;
 
                 case "Earth":
@@ -97,6 +98,7 @@ public class StatController : MonoBehaviour
                     ElementStat.GetComponent<Image>().color = new Color(1, 1, 1, 1);
                     currentElement = "Earth";
                     Elementinfo.ShowInfo = true;
+                    Anims[5].Play("NewElementAnim");
                     break;
 
                 case "Fire":
@@ -106,6 +108,7 @@ public class StatController : MonoBehaviour
                     ElementStat.GetComponent<Image>().color = new Color(1, 1, 1, 1);
                     currentElement = "Fire";
                     Elementinfo.ShowInfo = true;
+                    Anims[5].Play("NewElementAnim");
                     break;
 
                 case "Water":
@@ -115,6 +118,7 @@ public class StatController : MonoBehaviour
                     ElementStat.GetComponent<Image>().color = new Color(1, 1, 1, 1);
                     currentElement = "Water";
                     Elementinfo.ShowInfo = true;
+                    Anims[5].Play("NewElementAnim");
                     break;
 
                 case "None":
@@ -126,7 +130,6 @@ public class StatController : MonoBehaviour
                     Elementinfo.ShowInfo = false;
                     break;
             }
-            Anims[5].Play("NewElementAnim");
         }
     }
 }

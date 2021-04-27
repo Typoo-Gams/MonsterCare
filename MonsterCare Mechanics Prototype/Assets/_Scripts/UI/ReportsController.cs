@@ -20,4 +20,10 @@ public class ReportsController : MonoBehaviour
         Destroy(gameObject);
         manager.HideUI = false;        
     }
+
+    private void OnDestroy()
+    {
+        saver.SaveObtainedMonster(Monster.name, true);
+        manager.HideUI = false;
+    }
 }

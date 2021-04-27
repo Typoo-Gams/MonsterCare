@@ -178,6 +178,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Panel: {fileID: 8221709324734258511, guid: 241c4e275fc25b14f82f6e87498d2cee, type: 3}
   TextToDisplay: Health
+  ShowInfo: 1
 --- !u!61 &179438527
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -423,6 +424,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Panel: {fileID: 8221709324734258511, guid: 241c4e275fc25b14f82f6e87498d2cee, type: 3}
   TextToDisplay: Energy
+  ShowInfo: 1
 --- !u!61 &1033224139
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -473,6 +475,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Panel: {fileID: 8221709324734258511, guid: 241c4e275fc25b14f82f6e87498d2cee, type: 3}
   TextToDisplay: Happiness
+  ShowInfo: 1
 --- !u!61 &1332412357
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -510,6 +513,14 @@ PrefabInstance:
       propertyPath: Elementinfo
       value: 
       objectReference: {fileID: 1828280872}
+    - target: {fileID: 2268469435900996519, guid: 40193650ec9cf7e4189cc7b3202955b8, type: 3}
+      propertyPath: HealthIcons.Array.data[1]
+      value: 
+      objectReference: {fileID: 21300000, guid: a25333ca36969864f8febe006876807c, type: 3}
+    - target: {fileID: 2268469435900996519, guid: 40193650ec9cf7e4189cc7b3202955b8, type: 3}
+      propertyPath: HealthIcons.Array.data[2]
+      value: 
+      objectReference: {fileID: 21300000, guid: 33f804983f648734e8412190a5b6869b, type: 3}
     - target: {fileID: 2315517925310211231, guid: 40193650ec9cf7e4189cc7b3202955b8, type: 3}
       propertyPath: m_LocalScale.x
       value: 1
@@ -522,6 +533,14 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2588005619372613342, guid: 40193650ec9cf7e4189cc7b3202955b8, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 33f804983f648734e8412190a5b6869b, type: 3}
+    - target: {fileID: 2588005620279699837, guid: 40193650ec9cf7e4189cc7b3202955b8, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 33f804983f648734e8412190a5b6869b, type: 3}
     - target: {fileID: 4532976286980128852, guid: 40193650ec9cf7e4189cc7b3202955b8, type: 3}
       propertyPath: m_Type
       value: 0
@@ -696,6 +715,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Panel: {fileID: 8221709324734258511, guid: 241c4e275fc25b14f82f6e87498d2cee, type: 3}
   TextToDisplay: Hunger
+  ShowInfo: 1
 --- !u!61 &1638677740
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -741,6 +761,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Panel: {fileID: 8221709324734258511, guid: 241c4e275fc25b14f82f6e87498d2cee, type: 3}
   TextToDisplay: Sleep
+  ShowInfo: 1
 --- !u!61 &1681046363
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -786,6 +807,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Panel: {fileID: 8221709324734258511, guid: 241c4e275fc25b14f82f6e87498d2cee, type: 3}
   TextToDisplay: Element
+  ShowInfo: 1
 --- !u!61 &1828280873
 BoxCollider2D:
   m_ObjectHideFlags: 0

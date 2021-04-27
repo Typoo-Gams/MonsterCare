@@ -11,6 +11,7 @@ public class Toughness_Modifer : MonoBehaviour
     GameManager manager;
     GameObject canvas;
     public GameObject MonsterHiarchySpawn;
+    public Animator TakingDmg;
 
     string[] enemyMonsterPaths = { "Prefabs/MonsterStuff/Enemy Monsters/FireEnemyPrefab",   //0
                                    "Prefabs/MonsterStuff/Enemy Monsters/FireEnemy2Prefab",  //1
@@ -116,7 +117,7 @@ public class Toughness_Modifer : MonoBehaviour
                     rend_Sprikes.color = new Color(1, 1, 1, alpha);
 
                     FindObjectOfType<SoundManager>().play("TakingDMG");
-
+                    TakingDmg.Play("GetDmg");
                 }
             }
        }
