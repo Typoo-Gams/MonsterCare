@@ -97,8 +97,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a930db767505a34479087d5b288506b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Report: {fileID: 0}
-  Smoke: {fileID: 0}
+  Report: {fileID: 165497227856121423, guid: 81b904eb3a1477b41bc3b27b6ff39c78, type: 3}
+  Smoke: {fileID: 4618042962419636357, guid: 366d77313b49ea744930f1d9c5a96c69, type: 3}
 --- !u!60 &-2490846809133733904
 PolygonCollider2D:
   m_ObjectHideFlags: 0
