@@ -32,16 +32,17 @@ public class FireSleepyGen1_MonsterController : MonoBehaviour
         {
             //loads the monster stats.
             Saver.LoadMonster(monster);
+            //updates the monster stats from how much time passed since the last save to simulate things happening while the player isnt playing the game.
+            monster.AtGameWakeUp(Saver.FindTimeDifference());
         }
         else
         {
             SpawnReport = true;
             //Overwrites the previous monsters saved stats
-            Saver.SaveMonster(monster);
-            //Saver.SaveObtainedMonster("Gen1_Fire", true);
+            Saver.LoadMonster(monster);
+            monster.HealthStatus = monster.GetMaxHealth;
         }
-        //updates the monster stats from how much time passed since the last save to simulate things happening while the player isnt playing the game.
-        monster.AtGameWakeUp(Saver.FindTimeDifference());
+        
         //Sends the monster object to the gamemanager so that other scripts can easily reference it.
 
         SendMonster();
@@ -186,11 +187,6 @@ public class FireSleepyGen1_MonsterController : MonoBehaviour
                             monster.CanEvolveStatus = false;
                             break;
                     }
-                    /*
-                    GameObject Spawned = Instantiate(NextEvolution);
-                    Spawned.transform.SetParent(transform.parent, false);
-                    manager.ActiveMonster.PreviousEvolution = prefabLocation;
-                    */
                 }
             }
         }

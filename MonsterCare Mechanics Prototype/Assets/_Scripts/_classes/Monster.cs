@@ -39,6 +39,7 @@ public class Monster
     private bool IsHappy;
     private bool IsSad;
     private bool IsOverRested;
+    private bool Evolved;
     private string elementEaten;
 
     //potentials
@@ -109,6 +110,26 @@ public class Monster
     /// <param name="prefabLocation">The resource location to load this monster's prefab</param>
     public Monster(string name, string prefabLocation)
     {
+        loadLocation = prefabLocation;
+        MonsterName = name;
+        elementEaten = "None";
+        Health = MaxHealth;
+        Energy = 10;
+        Hunger = 100;
+        Sleep = 100;
+        Happiness = 100;
+        Playfull = 0;
+        Toughness = 1;
+        IsSleepDeprived = false;
+        IsMedicated = false;
+        UpdateHunger(0);
+        sManager = GameObject.Find("__app").GetComponentInChildren<SoundManager>();
+        Muted = true;
+    }
+
+    public Monster(string name, string prefabLocation, bool IsEvolution)
+    {
+        Evolved = IsEvolution;
         loadLocation = prefabLocation;
         MonsterName = name;
         elementEaten = "None";
