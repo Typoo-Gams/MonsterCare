@@ -15,7 +15,8 @@ public class SceneChanger_Button : MonoBehaviour
     GameManager manager;
     Animator Fade;
     float cnt;
-    bool clicked;
+    [HideInInspector]
+    public bool clicked;
 
     // Start is called before the first frame update
     void Start()
@@ -31,6 +32,7 @@ public class SceneChanger_Button : MonoBehaviour
     {
         if (clicked) 
         {
+            
             if (!LoadScene)
             {
                 //If there is no spesificed scene name to load then load the scene with index scene name.

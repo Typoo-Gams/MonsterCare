@@ -52,6 +52,7 @@ public class NotesDrop_RandomChance : MonoBehaviour
     {
         if (isCreated == true)
         {
+
             //checks if it has evolved and then changes the dropchance accordingly
             switch (manager.MonsterObject.name.Split(seperator)[1])
             {
@@ -66,7 +67,7 @@ public class NotesDrop_RandomChance : MonoBehaviour
                     break;
 
                 case "Gen1":
-                    if (Random.Range(0f, 1f) <= dropChance1)
+                    if (Random.Range(0f, 1f) <= dropChance0)
                     {
                         int prefabIndex = Random.Range(0, 4);
                         Instantiate(prefabList[prefabIndex]);

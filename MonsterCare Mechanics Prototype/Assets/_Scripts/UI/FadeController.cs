@@ -24,7 +24,6 @@ public class FadeController : MonoBehaviour
             foreach (Button found in FindObjectsOfType<Button>())
             {
                 found.interactable = false;
-                Debug.Log( found.gameObject.name);
             }
         }
         if(anim.GetCurrentAnimatorStateInfo(0).IsName("EvolutionFadeOut") && !StateChanged)

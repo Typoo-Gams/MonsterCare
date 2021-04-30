@@ -296,8 +296,8 @@ GameObject:
   - component: {fileID: 206267946}
   - component: {fileID: 206267945}
   - component: {fileID: 206267944}
-  - component: {fileID: 206267947}
   - component: {fileID: 206267948}
+  - component: {fileID: 206267947}
   m_Layer: 5
   m_Name: Grass2
   m_TagString: Untagged
@@ -422,6 +422,7 @@ MonoBehaviour:
   SceneNumber: 0
   SceneName: Forest_FS
   LoadScene: 1
+  clicked: 0
 --- !u!114 &206267948
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -438,6 +439,13 @@ MonoBehaviour:
   elements:
   - {fileID: 26613001}
   paying: 1
+  clicked: 0
+  otherButtons:
+  - {fileID: 1822404999}
+  - {fileID: 998466932}
+  - {fileID: 1314494823}
+  - {fileID: 206267944}
+  - {fileID: 430118682}
 --- !u!1 &417919842
 GameObject:
   m_ObjectHideFlags: 0
@@ -532,8 +540,8 @@ GameObject:
   - component: {fileID: 430118684}
   - component: {fileID: 430118683}
   - component: {fileID: 430118682}
-  - component: {fileID: 430118685}
   - component: {fileID: 430118686}
+  - component: {fileID: 430118685}
   m_Layer: 5
   m_Name: Mountain
   m_TagString: Untagged
@@ -658,6 +666,7 @@ MonoBehaviour:
   SceneNumber: 0
   SceneName: Mountain_FS
   LoadScene: 1
+  clicked: 0
 --- !u!114 &430118686
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -674,6 +683,13 @@ MonoBehaviour:
   elements:
   - {fileID: 1176222778}
   paying: 1
+  clicked: 0
+  otherButtons:
+  - {fileID: 206267944}
+  - {fileID: 1793951554}
+  - {fileID: 1314494823}
+  - {fileID: 998466932}
+  - {fileID: 1822404999}
 --- !u!1 &574611766
 GameObject:
   m_ObjectHideFlags: 0
@@ -768,8 +784,8 @@ GameObject:
   - component: {fileID: 998466934}
   - component: {fileID: 998466933}
   - component: {fileID: 998466932}
-  - component: {fileID: 998466935}
   - component: {fileID: 998466936}
+  - component: {fileID: 998466935}
   m_Layer: 5
   m_Name: Desert2
   m_TagString: Untagged
@@ -894,6 +910,7 @@ MonoBehaviour:
   SceneNumber: 0
   SceneName: Savannah_FS
   LoadScene: 1
+  clicked: 0
 --- !u!114 &998466936
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -910,6 +927,13 @@ MonoBehaviour:
   elements:
   - {fileID: 1074869177}
   paying: 1
+  clicked: 0
+  otherButtons:
+  - {fileID: 1822404999}
+  - {fileID: 1314494823}
+  - {fileID: 1793951554}
+  - {fileID: 206267944}
+  - {fileID: 430118682}
 --- !u!1 &1009533912
 GameObject:
   m_ObjectHideFlags: 0
@@ -1361,8 +1385,8 @@ GameObject:
   - component: {fileID: 1314494825}
   - component: {fileID: 1314494824}
   - component: {fileID: 1314494823}
-  - component: {fileID: 1314494826}
   - component: {fileID: 1314494827}
+  - component: {fileID: 1314494826}
   m_Layer: 5
   m_Name: Desert1
   m_TagString: Untagged
@@ -1487,6 +1511,7 @@ MonoBehaviour:
   SceneNumber: 0
   SceneName: Desert_FS
   LoadScene: 1
+  clicked: 0
 --- !u!114 &1314494827
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1503,6 +1528,13 @@ MonoBehaviour:
   elements:
   - {fileID: 417919842}
   paying: 1
+  clicked: 0
+  otherButtons:
+  - {fileID: 1822404999}
+  - {fileID: 998466932}
+  - {fileID: 1793951554}
+  - {fileID: 206267944}
+  - {fileID: 430118682}
 --- !u!1 &1527629368
 GameObject:
   m_ObjectHideFlags: 0
@@ -1855,8 +1887,8 @@ GameObject:
   - component: {fileID: 1793951556}
   - component: {fileID: 1793951555}
   - component: {fileID: 1793951554}
-  - component: {fileID: 1793951557}
   - component: {fileID: 1793951558}
+  - component: {fileID: 1793951557}
   m_Layer: 5
   m_Name: Grass1
   m_TagString: Untagged
@@ -1981,6 +2013,7 @@ MonoBehaviour:
   SceneNumber: 0
   SceneName: Forest_FS
   LoadScene: 1
+  clicked: 0
 --- !u!114 &1793951558
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1997,6 +2030,13 @@ MonoBehaviour:
   elements:
   - {fileID: 574611766}
   paying: 1
+  clicked: 0
+  otherButtons:
+  - {fileID: 1822404999}
+  - {fileID: 998466932}
+  - {fileID: 1314494823}
+  - {fileID: 206267944}
+  - {fileID: 430118682}
 --- !u!1 &1822404997
 GameObject:
   m_ObjectHideFlags: 0
@@ -2009,8 +2049,8 @@ GameObject:
   - component: {fileID: 1822405001}
   - component: {fileID: 1822405000}
   - component: {fileID: 1822404999}
-  - component: {fileID: 1822405002}
   - component: {fileID: 1822405003}
+  - component: {fileID: 1822405002}
   m_Layer: 5
   m_Name: Ice
   m_TagString: Untagged
@@ -2135,6 +2175,7 @@ MonoBehaviour:
   SceneNumber: 0
   SceneName: Ice_FS
   LoadScene: 1
+  clicked: 0
 --- !u!114 &1822405003
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2151,6 +2192,13 @@ MonoBehaviour:
   elements:
   - {fileID: 1009533912}
   paying: 1
+  clicked: 0
+  otherButtons:
+  - {fileID: 1314494823}
+  - {fileID: 1314494823}
+  - {fileID: 1793951554}
+  - {fileID: 206267944}
+  - {fileID: 430118682}
 --- !u!1 &1851984556
 GameObject:
   m_ObjectHideFlags: 0
@@ -2167,8 +2215,8 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1851984557
-Transform:
+--- !u!224 &1851984557
+RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -2187,6 +2235,11 @@ Transform:
   m_Father: {fileID: 1684483163}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1852459015
 GameObject:
   m_ObjectHideFlags: 0

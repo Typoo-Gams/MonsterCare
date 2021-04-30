@@ -315,7 +315,7 @@ public class Monster
     /// Deals damage to the monster's health equal to int.
     /// </summary>
     /// <param name="dmg">ammount of damage being dealt</param>
-    public void DealDmg(int dmg)
+    public void DealDmg(float dmg)
     {
         if (IsInCombat)
         {
@@ -632,8 +632,8 @@ public class Monster
 
         if (Happiness > 75)
         {
-            HungerDegration = 0.083f * 0.1f;
-            SleepDegration = 0.083f * 0.1f;
+            HungerDegration = 0.083f * 0.9f;
+            SleepDegration = 0.083f * 0.9f;
         }
         if (Happiness < 75 && Happiness > 25)
         {

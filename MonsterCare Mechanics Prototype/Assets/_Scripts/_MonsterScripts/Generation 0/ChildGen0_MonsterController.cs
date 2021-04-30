@@ -202,11 +202,11 @@ public class ChildGen0_MonsterController : MonoBehaviour
                             break;
 
                         case MonsterElement.Earth:
-                            NextEvolution = Resources.Load<GameObject>("_Prefabs/MonsterStuff/Monsters/Gen 1/BeefMaster_Gen1");
+                            NextEvolution = Resources.Load<GameObject>("Prefabs/MonsterStuff/Monsters/Gen 1/BeefMaster_Gen1");
                             break;
 
                         case MonsterElement.Air:
-                            NextEvolution = Resources.Load<GameObject>("_Prefabs/MonsterStuff/Monsters/Gen 1/AirSleepy_Gen1");
+                            NextEvolution = Resources.Load<GameObject>("Prefabs/MonsterStuff/Monsters/Gen 1/AirSleepy_Gen1");
                             break;
                     }
                     GameObject Spawned = Instantiate(NextEvolution);
@@ -224,7 +224,7 @@ public class ChildGen0_MonsterController : MonoBehaviour
             //Destroy the current monster object. spawn in the new monster. needs to load the new evolved monster when the game is reopened after being closed. clears the save file with an empty monster
             Monster empty = new Monster("empty", "None");
             Saver.SaveMonster(empty);
-            GameObject NextEvolution = Resources.Load<GameObject>("_Prefabs/MonsterStuff/Monsters/Gen 0/Child_Gen0");
+            GameObject NextEvolution = Resources.Load<GameObject>("Prefabs/MonsterStuff/Monsters/Gen 0/Child_Gen0");
             GameObject Parent = GameObject.Find("__app").GetComponentInChildren<GameManager>().gameObject;
             Destroy(gameObject);
             GameObject SpawnedMonster = Instantiate(NextEvolution);

@@ -9,7 +9,7 @@ public class Dmg_BodyParts : MonoBehaviour
     GameObject Overlay;
 
     bool currentlyAttacking;
-    public int DmgModifier;
+    public float DmgModifier;
     float Counter;
     bool tapped;
 

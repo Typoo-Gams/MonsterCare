@@ -9,7 +9,9 @@ public class EnergyCost_Button : MonoBehaviour
     Button ThisButton;
     public int cost;
     public GameObject[] elements;
-    public bool paying;
+    public bool paying, clicked;
+    SceneChanger_Button Changer;
+    public Button[] otherButtons;
 
     // Start is called before the first frame update
     void Start()
@@ -18,38 +20,53 @@ public class EnergyCost_Button : MonoBehaviour
         ThisButton = gameObject.GetComponent<Button>();
         if(paying)
             ThisButton.onClick.AddListener(PayCost);
-
     }
 
     // Update is called once per frame
     void LateUpdate()
     {
-        if (manager.ActiveMonster.EnergyStatus > cost)
+        if (!clicked)
         {
-            ThisButton.interactable = true;
-            foreach(GameObject Icons in elements)
+            if (manager.ActiveMonster.EnergyStatus > cost)
             {
-                Icons.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
+                ThisButton.interactable = true;
+                foreach (GameObject Icons in elements)
+                {
+                    Icons.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
+                }
+            }
+            else
+            {
+                ThisButton.interactable = false;
+                foreach (GameObject Icons in elements)
+                {
+                    Icons.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0.5f);
+                }
+            }
+
+            if (manager.ActiveMonster.HealthStatus == 0)
+            {
+                ThisButton.interactable = false;
+
             }
         }
         else
         {
             ThisButton.interactable = false;
+            foreach (Button found in otherButtons)
+            {
+                found.interactable = false;
+            }
             foreach (GameObject Icons in elements)
             {
                 Icons.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0.5f);
             }
         }
-
-        if(manager.ActiveMonster.HealthStatus == 0)
-        {
-            ThisButton.interactable = false;
-
-        }
     }   
 
     void PayCost() 
     {
+        clicked = true;
         manager.ActiveMonster.EnergyStatus -= cost;
         FindObjectOfType<SoundManager>().play("ButtonClick");
     }
