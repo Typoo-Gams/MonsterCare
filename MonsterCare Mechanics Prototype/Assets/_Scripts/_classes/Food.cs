@@ -6,7 +6,7 @@ public class Food : InventoryItem
 {
     string foodType;
     int foodPower;
-    string element;
+    MonsterElement element;
     int SpriteIndex;
 
     /// <summary>
@@ -19,7 +19,7 @@ public class Food : InventoryItem
             path = "Prefabs/FeedingPrototype/FOOD";
             foodType = "Normal";
             Type = "Food";
-            element = "None";
+            element = MonsterElement.None;
             foodPower = 20;
             SpriteIndex = sprite;
         }
@@ -28,7 +28,7 @@ public class Food : InventoryItem
             path = "None";
             foodType = "None";
             Type = "Food";
-            element = "None";
+            element = MonsterElement.None;
             foodPower = 0;
             SpriteIndex = -1;
         }
@@ -44,7 +44,7 @@ public class Food : InventoryItem
         path = "Prefabs/FeedingPrototype/FOOD";
         foodType = "Special";
         Type = "Food";
-        element = elementType;
+        element = MonsterElement.None;
         foodPower = 30;
     }
 
@@ -54,7 +54,7 @@ public class Food : InventoryItem
     /// </summary>
     /// <param name="elementType">Set the element type: Earth, Ice, Fire, or Wind</param>
     /// <param name="power">Set the food power</param>
-    public Food(string elementType, int power)
+    public Food(MonsterElement elementType, int power)
     {
         path = "Prefabs/FeedingPrototype/FOOD";
         foodType = "Special";
@@ -70,7 +70,7 @@ public class Food : InventoryItem
     /// <param name="elementType">Set the element type: Earth, Ice, Fire, or Wind</param>
     /// <param name="power">Set the food power</param>
     /// <param name="FoodType">Set the type of food. Normal or Special</param>
-    public Food(string FoodType, string elementType, int power)
+    public Food(string FoodType, MonsterElement elementType, int power)
     {
         path = "Prefabs/FeedingPrototype/FOOD";
         foodType = FoodType;
@@ -90,7 +90,7 @@ public class Food : InventoryItem
         set => foodPower = value;
     }
 
-    public string Element 
+    public MonsterElement Element 
     {
         get => element;
         set => element = value;

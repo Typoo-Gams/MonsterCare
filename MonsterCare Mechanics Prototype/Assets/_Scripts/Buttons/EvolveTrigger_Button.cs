@@ -17,7 +17,7 @@ public class EvolveTrigger_Button : MonoBehaviour
     public Animator ShowEvolveButton;
     public Animator ShowFoodInv;
     bool IsSet;
-    string currentColor;
+    MonsterElement currentColor;
     public Animator Fade;
     bool EvolutoinDone;
     float CntEolutionReport;
@@ -34,7 +34,7 @@ public class EvolveTrigger_Button : MonoBehaviour
 
     private void Update()
     {
-        if (manager.ActiveMonster.Element != "None" && manager.ActiveMonster.EnergyStatus > EvolveEnergyCost && !manager.ActiveMonster.IsSleepingStatus)
+        if (manager.ActiveMonster.Element != MonsterElement.None && manager.ActiveMonster.EnergyStatus > EvolveEnergyCost && !manager.ActiveMonster.IsSleepingStatus)
         {
             ShowEvolveButton.SetBool("Active", true);
 
@@ -43,20 +43,20 @@ public class EvolveTrigger_Button : MonoBehaviour
             {
                 switch (manager.ActiveMonster.Element)
                 {
-                    case "Air":
-                        currentColor = "Air";
+                    case MonsterElement.Air:
+                        currentColor = MonsterElement.Air;
                         settings.startColor = new ParticleSystem.MinMaxGradient(Color.white);
                         break;
-                    case "Earth":
-                        currentColor = "Earth";
+                    case MonsterElement.Earth:
+                        currentColor = MonsterElement.Earth;
                         settings.startColor = new ParticleSystem.MinMaxGradient(new Color(0.5372549f, 0.8941177f, 0.4392157f));
                         break;
-                    case "Fire":
-                        currentColor = "Fire";
+                    case MonsterElement.Fire:
+                        currentColor = MonsterElement.Fire;
                         settings.startColor = new ParticleSystem.MinMaxGradient(new Color(0.9647059f, 0.4901961f, 0.345098f));
                         break;
-                    case "Water":
-                        currentColor = "Water";
+                    case MonsterElement.Water:
+                        currentColor = MonsterElement.Water;
                         settings.startColor = new ParticleSystem.MinMaxGradient(new Color(0.6078432f, 0.6705883f, 0.882353f));
                         break;
                 }

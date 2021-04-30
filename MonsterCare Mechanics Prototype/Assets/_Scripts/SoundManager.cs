@@ -43,9 +43,6 @@ public class SoundManager : MonoBehaviour
         timePlayingHomeBackground += Time.deltaTime;
         if (SceneManager.GetActiveScene().name == "MonsterHome")
         {
-            //unmutes the monster while its in the MonsterHome scene
-            if (manager.ActiveMonster.SetMute)
-                manager.ActiveMonster.SetMute = false;
             //when the background music is finished playing, replay it.
             if (timePlayingHomeBackground >= Sounds[5].clip.length)
             {

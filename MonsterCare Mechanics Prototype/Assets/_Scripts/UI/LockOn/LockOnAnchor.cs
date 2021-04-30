@@ -36,7 +36,9 @@ public class LockOnAnchor : MonoBehaviour
                 {
                     LockedObject.transform.localPosition = lockedPosition;
                     LockedObject.transform.localRotation = Quaternion.identity;
-                    LockedObject.GetComponent<FoodManager_FoodObject>().IsInInventory = true;
+                    //Locking Checking for food item
+                    if (LockedObject.GetComponent<FoodManager_FoodObject>() != null)
+                        LockedObject.GetComponent<FoodManager_FoodObject>().IsInInventory = true;
                 }
             }
         }

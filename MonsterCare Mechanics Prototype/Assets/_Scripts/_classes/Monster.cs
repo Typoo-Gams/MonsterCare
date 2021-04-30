@@ -4,6 +4,26 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Audio;
 
+/// <summary>
+/// Type Of Monster. Decides what bonuses it has
+/// </summary>
+public enum MonsterType
+{
+    Playfull,
+    Fighter,
+    Sleepy,
+    Hungry,
+    Basic
+}
+
+public enum MonsterElement
+{
+    None,
+    Air,
+    Fire,
+    Earth,
+    Water
+}
 
 public class Monster
 {
@@ -19,6 +39,8 @@ public class Monster
     private float Toughness;
     private float Energy;
     private bool CanEvolve;
+    private MonsterType _PersonalityType;
+    private MonsterElement elementEaten;
 
     //Other
     private GameObject MonsterReport;
@@ -40,7 +62,7 @@ public class Monster
     private bool IsSad;
     private bool IsOverRested;
     private bool Evolved;
-    private string elementEaten;
+
 
     //potentials
     /*
@@ -50,19 +72,42 @@ public class Monster
      * */
 
 
-    //Max & Min Values (Read Only for now)
-    readonly float MaxHealth = 100;
-    readonly float MaxHunger = 100;
-    readonly float MaxSleep = 100;
-    readonly float MaxHappiness = 100;
-    readonly float MaxEnergy = 10;
+    //Max & Min Values
+    private float MaxHealth = 100;
+    private float MaxHunger = 100;
+    private float MaxSleep = 100;
+    private float MaxHappiness = 100;
+    private float MaxEnergy = 10;
+    private float EvolveCost = 10;
 
 
-    //Degration modifiers
+    //Monster Degradation Modifiers
     private float HungerDegration = 0.083f; //1% every _ min
     private float SleepDegration = 0.083f; //1% every _ min
-    //readonly float PlayfullDegration = 0f; //1% every _ min
-    //readonly float ToughnessDegration = 0f; //1% every _ min
+    private float HappinessDegration = 0.083f;
+
+//-----------------Personality Degradation Values----------------
+/**/
+
+    //Fighter
+    readonly float Fighter_MaxHealth = 200;
+    readonly float Fighter_HungerDegration = 0.073f;
+
+    //Hungry
+    readonly float Hungry_MaxHunger = 200;
+    readonly float Hungry_HungerDegration = 0.093f;
+    //more passive health regen?
+
+    //Sleepy
+    readonly float Sleepy_MaxSleep = 200;
+    readonly float Sleepy_MaxEnergy = 20;
+
+    //Playfull
+    readonly float Playfull_MaxHappiness = 200;
+    readonly float Playfull_HappinessDegration = 0.073f;
+
+/**/
+
 
 
     //needed for shake (temporary?)
@@ -72,22 +117,18 @@ public class Monster
     //Health Bar
     GameObject HealthBar;
 
-    //Sound Manager
-    SoundManager sManager;
-    private bool Muted;
-
 
     //------------------Monster Class Constructor---------------------
 
 
     //Constructor for no arguments
     /// <summary>
-    /// Create a new monster Object with default values.
+    /// Create a new monster Object with default values. (testing purposes)
     /// </summary>
     public Monster()
     {
         MonsterName = "Default";
-        elementEaten = "None";
+        elementEaten = MonsterElement.None;
         Health = MaxHealth;
         Energy = 10;
         Hunger = 100;
@@ -98,41 +139,50 @@ public class Monster
         IsSleepDeprived = false;
         IsMedicated = false;
         UpdateHunger(0);
-        sManager = GameObject.Find("__app").GetComponentInChildren<SoundManager>();
-        Muted = true;
     }
-
 
     /// <summary>
-    /// Create a Monster Object instantiated with Name And ID
+    /// Constructor for friendly monsters
     /// </summary>
-    /// <param name="name">The name of the new monster</param>
-    /// <param name="prefabLocation">The resource location to load this monster's prefab</param>
-    public Monster(string name, string prefabLocation)
+    /// <param name="name">Monsters name (currently not visable to player).</param>
+    /// <param name="prefabLocation">Where the monster is being loaded from.</param>
+    /// <param name="type">Type of monster. changes its behavior.</param>
+    /// <param name="IsEvolution">If this monster just evolved.</param>
+    public Monster(string name, string prefabLocation, MonsterType type = MonsterType.Basic, bool IsEvolution = false)
     {
-        loadLocation = prefabLocation;
-        MonsterName = name;
-        elementEaten = "None";
-        Health = MaxHealth;
-        Energy = 10;
-        Hunger = 100;
-        Sleep = 100;
-        Happiness = 100;
-        Playfull = 0;
-        Toughness = 1;
-        IsSleepDeprived = false;
-        IsMedicated = false;
-        UpdateHunger(0);
-        sManager = GameObject.Find("__app").GetComponentInChildren<SoundManager>();
-        Muted = true;
-    }
+        _PersonalityType = type;
 
-    public Monster(string name, string prefabLocation, bool IsEvolution)
-    {
+        switch (_PersonalityType)
+        {
+            case MonsterType.Basic:
+                //no changes
+                break;
+
+            case MonsterType.Fighter:
+                MaxHealth = Fighter_MaxHealth;
+                HungerDegration = Fighter_HungerDegration;
+                break;
+
+            case MonsterType.Hungry:
+                MaxHunger = Hungry_MaxHunger;
+                HungerDegration = Hungry_HungerDegration;
+                break;
+
+            case MonsterType.Playfull:
+                MaxHappiness = Playfull_MaxHappiness;
+                HappinessDegration = Playfull_HappinessDegration;
+                break;
+
+            case MonsterType.Sleepy:
+                MaxSleep = Sleepy_MaxSleep;
+                MaxEnergy = Sleepy_MaxEnergy;
+                break;
+        }
+
         Evolved = IsEvolution;
         loadLocation = prefabLocation;
         MonsterName = name;
-        elementEaten = "None";
+        elementEaten = MonsterElement.None;
         Health = MaxHealth;
         Energy = 10;
         Hunger = 100;
@@ -143,19 +193,17 @@ public class Monster
         IsSleepDeprived = false;
         IsMedicated = false;
         UpdateHunger(0);
-        sManager = GameObject.Find("__app").GetComponentInChildren<SoundManager>();
-        Muted = true;
     }
 
 
     /// <summary>
-    /// Create a Monster Object instantiated with Name And ID
+    /// Create a Monster Object instantiated with Name
     /// </summary>
     /// <param name="name">The name of the new monster</param>
     public Monster(string name)
     {
         MonsterName = name;
-        elementEaten = "None";
+        elementEaten = MonsterElement.None;
         Health = MaxHealth;
         Energy = 10;
         Hunger = 100;
@@ -166,8 +214,6 @@ public class Monster
         IsSleepDeprived = false;
         IsMedicated = false;
         UpdateHunger(0);
-        sManager = GameObject.Find("__app").GetComponentInChildren<SoundManager>();
-        Muted = true;
     }
 
     //------------------------Properties------------------------
@@ -374,6 +420,9 @@ public class Monster
 
             for (int i = 0; i < statuses.Length; i++)
             {
+                //multiplaying degration with seconds is problematic since its not accurate to how fast the monster originally degrades.
+                //doesnt make the mosnter starve.
+                //use Update methods as to how many times it should be activated instead.
                 statuses[i] -= degrade[i] * TimeInSec;
                 if (statuses[i] < 0)
                     statuses[i] = 0;
@@ -388,7 +437,13 @@ public class Monster
             Debug.LogError("AtGameWakeUp: input was outside of bounds: " + TimeInSec);
         }
     }
-
+    /*
+            /\
+             |
+             |
+             |
+          Rework in progress
+    */
 
     //Update Hunger
     /// <summary>
@@ -834,14 +889,17 @@ public class Monster
         set => CanEvolve = value;
     }
 
-    //This is for the enemy toughness
+    //Used for enemy toughness
     public float ToughnessModifier
     {
         get => Toughness;
         set => Toughness = value;
     }
 
-    public string Element 
+    /// <summary>
+    /// Set/Get monster's current element
+    /// </summary>
+    public MonsterElement Element 
     {
         get => elementEaten;
         set => elementEaten = value;
@@ -867,10 +925,9 @@ public class Monster
         get => MaxHappiness;
     }
 
-    public bool SetMute 
+    public float GetEvolveCost
     {
-        get => Muted;
-        set => Muted = value;
+        get => EvolveCost;
     }
 
 }

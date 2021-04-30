@@ -9,7 +9,7 @@ public class FoodManager_FoodObject : MonoBehaviour
     Food ThisFood;
 
     public int FoodPower = 10;
-    public string FoodElement;
+    public MonsterElement FoodElement;
     public string FoodCategory;
     public int SpriteIndex;
 
@@ -54,19 +54,19 @@ public class FoodManager_FoodObject : MonoBehaviour
             ParticleSystem.MainModule settings = Glow.main;
             switch (FoodElement)
             {
-                case "Air":
+                case MonsterElement.Air:
                     ThisSprite = SpecialFoodSprites[0];
                     settings.startColor = new ParticleSystem.MinMaxGradient(Color.white);
                     break;
-                case "Earth":
+                case MonsterElement.Earth:
                     ThisSprite = SpecialFoodSprites[1];
                     settings.startColor = new ParticleSystem.MinMaxGradient(new Color(0.5372549f, 0.8941177f, 0.4392157f));
                     break;
-                case "Fire":
+                case MonsterElement.Fire:
                     ThisSprite = SpecialFoodSprites[2];
                     settings.startColor = new ParticleSystem.MinMaxGradient(new Color(0.9647059f, 0.4901961f, 0.345098f));
                     break;
-                case "Water":
+                case MonsterElement.Water:
                     ThisSprite = SpecialFoodSprites[3];
                     settings.startColor = new ParticleSystem.MinMaxGradient(new Color(0.6078432f, 0.6705883f, 0.882353f));
                     break;
