@@ -62,9 +62,6 @@ public class GameManager : MonoBehaviour
             new Food(true)
         };
         FoodInventory = Save.LoadFood();
-
-        NavMeshAgent hfjdsf;
-        hfjdsf.stoppingDistance;
         
     }
 

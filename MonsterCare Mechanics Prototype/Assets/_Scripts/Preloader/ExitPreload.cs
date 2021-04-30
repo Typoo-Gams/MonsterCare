@@ -12,7 +12,8 @@ public class ExitPreload : MonoBehaviour
 
     void Start()
     {
-        gameObject.GetComponent<Button>().onClick.AddListener(TaskOnClick);
+        if(GetComponent<Button>() != null)
+            GetComponent<Button>().onClick.AddListener(TaskOnClick);
         manager = GameObject.Find("__app").GetComponentInChildren<GameManager>();
     }
 

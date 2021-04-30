@@ -9,6 +9,8 @@ public class OnHoverGetInfo : MonoBehaviour
     GameObject spawn;
     public string TextToDisplay;
     public bool ShowInfo = true;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -17,13 +19,7 @@ public class OnHoverGetInfo : MonoBehaviour
 
     private void OnMouseEnter()
     {
-        if (ShowInfo)
-        {
-            spawn = Instantiate(Panel);
-            spawn.transform.SetParent(gameObject.transform, false);
-            spawn.GetComponentInChildren<Text>().text = TextToDisplay;
-            spawn.transform.localPosition = new Vector3(-4f, 0, 0);
-        }
+        
     }
 
     private void OnMouseExit()
@@ -36,6 +32,13 @@ public class OnHoverGetInfo : MonoBehaviour
 
     private void OnMouseOver()
     {
-        
+        if (ShowInfo)
+        {
+
+            spawn = Instantiate(Panel);
+            spawn.transform.SetParent(gameObject.transform, false);
+            spawn.GetComponentInChildren<Text>().text = TextToDisplay;
+            spawn.transform.localPosition = new Vector3(-4f, 0, 0);
+        }
     }
 }

@@ -17,7 +17,7 @@ public class MonsterLoader : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        manager = Manager.GetComponent<GameManager>();
+        manager = GameObject.Find("__app").GetComponentInChildren<GameManager>();
         //Finds the prefab path.
         string path = Saver.GetMonsterPrefab();
         Debug.Log("Loaded Path: " + path);
@@ -55,7 +55,5 @@ public class MonsterLoader : MonoBehaviour
     {
         //updates the bebugging text in the preload scene
         pathText.text = "Path: " + Saver.GetMonsterPrefab() + "\nLastGameVersion: " + Saver.LoadgameVersion() + "\nCurrentGameVersion: " + manager.GameVersion;
-
-
     }
 }
