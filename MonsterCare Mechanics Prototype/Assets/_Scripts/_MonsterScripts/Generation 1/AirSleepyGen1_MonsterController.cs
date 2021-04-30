@@ -9,7 +9,7 @@ public class AirSleepyGen1_MonsterController : MonoBehaviour
     private GameObject ReportRefference;
     private bool SpawnReport;
 
-    private string prefabLocation = "Prefabs/MonsterStuff/Monsters/Gen 1/AirSleepy_Gen1";
+    private string prefabLocation = "_Prefabs/MonsterStuff/Monsters/Gen 1/AirSleepy_Gen1";
     public Monster monster;
     GameManager manager;
     GameSaver Saver = new GameSaver();
@@ -197,7 +197,7 @@ public class AirSleepyGen1_MonsterController : MonoBehaviour
             //Destroy the current monster object. spawn in the new monster. needs to load the new evolved monster when the game is reopened after being closed. clears the save file with an empty monster
             Monster empty = new Monster("empty", "None");
             Saver.SaveMonster(empty);
-            GameObject NextEvolution = Resources.Load<GameObject>("Prefabs/MonsterStuff/Monsters/Gen 0/Child_Gen0");
+            GameObject NextEvolution = Resources.Load<GameObject>("_Prefabs/MonsterStuff/Monsters/Gen 0/Child_Gen0");
             GameObject Parent = GameObject.Find("__app").GetComponentInChildren<GameManager>().gameObject;
             Destroy(gameObject);
             GameObject SpawnedMonster = Instantiate(NextEvolution);

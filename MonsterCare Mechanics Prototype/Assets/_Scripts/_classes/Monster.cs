@@ -91,16 +91,17 @@ public class Monster
 
     //Fighter
     readonly float Fighter_MaxHealth = 200;
-    readonly float Fighter_HungerDegration = 0.073f;
+    readonly float Fighter_HungerDegration = 0.093f;
 
     //Hungry
     readonly float Hungry_MaxHunger = 200;
-    readonly float Hungry_HungerDegration = 0.093f;
+    readonly float Hungry_HungerDegration = 0.073f;
     //more passive health regen?
 
     //Sleepy
     readonly float Sleepy_MaxSleep = 200;
     readonly float Sleepy_MaxEnergy = 20;
+    //needs more energy to evolve
 
     //Playfull
     readonly float Playfull_MaxHappiness = 200;

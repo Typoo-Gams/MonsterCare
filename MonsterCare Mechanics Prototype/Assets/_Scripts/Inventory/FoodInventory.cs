@@ -6,12 +6,10 @@ using UnityEngine.UI;
 public class FoodInventory : MonoBehaviour
 {
     GameManager manager;
-    GameSaver saver = new GameSaver();
+    //GameSaver saver = new GameSaver();
     public int inventorySlot;
 
     public GameObject FoodPrefab;
-
-
 
     GameObject Spawned;
     FoodManager_FoodObject spawn;

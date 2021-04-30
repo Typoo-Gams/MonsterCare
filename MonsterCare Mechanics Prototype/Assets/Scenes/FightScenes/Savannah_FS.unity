@@ -341,6 +341,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas_EnemyMonster
       objectReference: {fileID: 0}
+    - target: {fileID: 3137939048074698378, guid: 6e8dea5fbfa00e74594cb818876d0621, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4935630195371949354, guid: 6e8dea5fbfa00e74594cb818876d0621, type: 3}
+      propertyPath: m_RootOrder
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 6903691913758895769, guid: 6e8dea5fbfa00e74594cb818876d0621, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -424,6 +432,10 @@ PrefabInstance:
     - target: {fileID: 6903691913758895769, guid: 6e8dea5fbfa00e74594cb818876d0621, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7589479593469161523, guid: 6e8dea5fbfa00e74594cb818876d0621, type: 3}
+      propertyPath: m_RootOrder
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 9104515355766282086, guid: 6e8dea5fbfa00e74594cb818876d0621, type: 3}
       propertyPath: m_Camera

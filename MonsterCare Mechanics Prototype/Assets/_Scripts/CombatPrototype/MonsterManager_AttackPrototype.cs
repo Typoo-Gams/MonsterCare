@@ -22,9 +22,16 @@ public class MonsterManager_AttackPrototype : MonoBehaviour
     Touch touch;
 
 
+    //TTK Timer
+    float TTKcnt;
+    Text TTKTimer;
+
+
     // Start is called before the first frame update
     void Start()
     {
+        TTKTimer = GameObject.FindGameObjectWithTag("TTKTimer").GetComponent<Text>();
+
         manager = GameObject.Find("__app").GetComponentInChildren<GameManager>();
         sceneElement = SceneManager.GetActiveScene().name;
 
@@ -72,14 +79,15 @@ public class MonsterManager_AttackPrototype : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //updating its visuals for being dead/alive
+        //Deactivates the monster if health is 0
         if (StartMonster.DeathStatus)
         {
-           Death();
+            Death();
         }
-        if (StartMonster.DeathStatus != true)
+        else
         {
-           Revive();
+            TTKcnt += Time.deltaTime;
+            TTKTimer.text = TTKcnt.ToString();
         }
     }
  
@@ -118,14 +126,6 @@ public class MonsterManager_AttackPrototype : MonoBehaviour
     {
         //transform.rotation = new Quaternion(0f, 0f, 0.707106709f, 0.707106948f);
         StartMonster.CombatActive(false);
-    }
-
-    //turns on the combat for the enemy monster
-    //visually shows the monster is alive by rotating it so its standing.
-    private void Revive()
-    {
-        transform.rotation = new Quaternion(0f, 0f, 0.0f, 0.0f);
-        StartMonster.CombatActive(true);
     }
 
     //On mouse down attack

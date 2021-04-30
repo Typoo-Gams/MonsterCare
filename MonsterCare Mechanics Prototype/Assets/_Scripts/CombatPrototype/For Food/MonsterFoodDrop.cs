@@ -16,7 +16,7 @@ public class MonsterFoodDrop : MonoBehaviour
     public bool isCreated;
     bool slideBar = true;
     int element;
-    string spawnElement;
+    MonsterElement spawnElement;
 
     char[] seperator = { '_' };
     int specialFoodChance;
@@ -32,27 +32,27 @@ public class MonsterFoodDrop : MonoBehaviour
         {
             case "Savannah_FS":
                 element = 0;
-                spawnElement = "Fire";
+                spawnElement = MonsterElement.Fire;
                 break;
 
             case "Desert_FS":
                 element = 0;
-                spawnElement = "Fire";
+                spawnElement = MonsterElement.Fire;
                 break;
 
             case "Ice_FS":
                 element = 1;
-                spawnElement = "Water";
+                spawnElement = MonsterElement.Water;
                 break;
 
             case "Mountain_FS":
                 element = 2;
-                spawnElement = "Earth";
+                spawnElement = MonsterElement.Earth;
                 break;
 
             case "Forest_FS":
                 element = 3;
-                spawnElement = "Air";
+                spawnElement = MonsterElement.Air;
                 break;
         }
 

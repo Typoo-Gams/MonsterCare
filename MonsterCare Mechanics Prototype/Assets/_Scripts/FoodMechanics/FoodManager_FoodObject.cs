@@ -70,6 +70,9 @@ public class FoodManager_FoodObject : MonoBehaviour
                     ThisSprite = SpecialFoodSprites[3];
                     settings.startColor = new ParticleSystem.MinMaxGradient(new Color(0.6078432f, 0.6705883f, 0.882353f));
                     break;
+                default:
+                    Debug.LogError("Element not found");
+                    break;
             }
         }
         gameObject.GetComponent<SpriteRenderer>().sprite = ThisSprite;

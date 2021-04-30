@@ -10,6 +10,8 @@ public class FoodTap_SceenLoader : MonoBehaviour
     float cnt;
     bool clicked;
     Animator Fade;
+    float ClickDelayCnt;
+    bool CanBeClicked;
 
     void Start() 
     {
@@ -36,11 +38,15 @@ public class FoodTap_SceenLoader : MonoBehaviour
                 manager.sceneName = "MonsterHome";
             }
         }
+
+        ClickDelayCnt += Time.deltaTime;
+        if (ClickDelayCnt > 1)
+            CanBeClicked = true;
     }
 
     public void OnMouseDown()
     {
-        if (GameObject.FindGameObjectWithTag("Note") == null) 
+        if (GameObject.FindGameObjectWithTag("Note") == null && CanBeClicked) 
         {
             Fade.Play("FadeOut");
             clicked = true;

@@ -39,12 +39,12 @@ public class Food : InventoryItem
     /// Create a special food item with an element type.
     /// </summary>
     /// <param name="elementType">Set the element type: Earth, Ice, Fire, or Wind</param>
-    public Food(string elementType) 
+    public Food(MonsterElement elementType) 
     {
         path = "Prefabs/FeedingPrototype/FOOD";
         foodType = "Special";
         Type = "Food";
-        element = MonsterElement.None;
+        element = elementType;
         foodPower = 30;
     }
 

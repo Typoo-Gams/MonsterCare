@@ -52,7 +52,7 @@ public class GameManager : MonoBehaviour
     //Awake is called when the script instance is being loaded
     private void Awake()
     {
-        GameVersion = "16.2";
+        GameVersion = "17";
         Debug.LogWarning("GameVersion is V." + GameVersion);
         FoodInventory = new Food[]{
             new Food(true),
@@ -62,7 +62,6 @@ public class GameManager : MonoBehaviour
             new Food(true)
         };
         FoodInventory = Save.LoadFood();
-        
     }
 
 
@@ -71,10 +70,10 @@ public class GameManager : MonoBehaviour
     {
         //temporary
         FoodInventory[0] = new Food(false, 1);
-        FoodInventory[1] = new Food("Air");
-        FoodInventory[2] = new Food("Fire");
-        FoodInventory[3] = new Food("Earth");
-        FoodInventory[4] = new Food("Water");
+        FoodInventory[1] = new Food(MonsterElement.Air);
+        FoodInventory[2] = new Food(MonsterElement.Fire);
+        FoodInventory[3] = new Food(MonsterElement.Earth);
+        FoodInventory[4] = new Food(MonsterElement.Water);
         Save.SaveFood(FoodInventory);
         //Debug.Log("Manager Start");
         Save.PrintObtainedMonsters();
@@ -98,10 +97,10 @@ public class GameManager : MonoBehaviour
 
                 FoodInventory[0] = new Food(false);
                 FoodInventory[0].Sprite = 12;
-                FoodInventory[1] = new Food("Air");
-                FoodInventory[2] = new Food("Earth");
-                FoodInventory[3] = new Food("Fire");
-                FoodInventory[4] = new Food("Water");
+                FoodInventory[1] = new Food(MonsterElement.Air);
+                FoodInventory[2] = new Food(MonsterElement.Fire);
+                FoodInventory[3] = new Food(MonsterElement.Earth);
+                FoodInventory[4] = new Food(MonsterElement.Water);
                 Save.SaveFood(FoodInventory);
                 Debug.Log("Cheat I activated");
             }
