@@ -26,7 +26,7 @@ public class WaterPlayfullGen1_MonsterController : MonoBehaviour
         thisAnimator = GetComponent<Animator>();
 
         //Creates a new monster object.
-        monster = new Monster("WaterPlayful_Gen1", prefabLocation);
+        monster = new Monster("WaterPlayful_Gen1", prefabLocation, MonsterType.Playfull);
         //Checks if this monster is a new evolution or not then loads the monster info or overwrites the old monster's saved stats with the new one.
         if (Saver.MonsterObtainedBefore(monster.Name))
         {

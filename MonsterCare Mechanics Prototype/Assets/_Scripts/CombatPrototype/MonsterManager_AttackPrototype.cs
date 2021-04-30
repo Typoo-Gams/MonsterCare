@@ -45,23 +45,23 @@ public class MonsterManager_AttackPrototype : MonoBehaviour
         switch (sceneElement)
         {
             case "Savannah_FS":
-                StartMonster.Element = "Fire";
+                StartMonster.Element = MonsterElement.Fire;
                 break;
 
             case "Desert_FS":
-                StartMonster.Element = "Fire";
+                StartMonster.Element = MonsterElement.Fire;
                 break;
 
             case "Forest_FS":
-                StartMonster.Element = "Air";
+                StartMonster.Element = MonsterElement.Air;
                 break;
 
             case "Mountain_FS":
-                StartMonster.Element = "Earth";
+                StartMonster.Element = MonsterElement.Earth;
                 break;
 
             case "Ice_FS":
-                StartMonster.Element = "Water";
+                StartMonster.Element = MonsterElement.Water;
                 break;
         }
 

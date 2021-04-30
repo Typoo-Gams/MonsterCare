@@ -193,19 +193,19 @@ public class ChildGen0_MonsterController : MonoBehaviour
                     GameObject NextEvolution = null;
                     switch (monster.Element)
                     {
-                        case "Fire":
+                        case MonsterElement.Fire:
                             NextEvolution = Resources.Load<GameObject>("Prefabs/MonsterStuff/Monsters/Gen 1/FireSleepy_Gen1");
                             break;
 
-                        case "Water":
+                        case MonsterElement.Water:
                             NextEvolution = Resources.Load<GameObject>("Prefabs/MonsterStuff/Monsters/Gen 1/WaterPlayful_Gen1");
                             break;
 
-                        case "Earth":
+                        case MonsterElement.Earth:
                             NextEvolution = Resources.Load<GameObject>("Prefabs/MonsterStuff/Monsters/Gen 1/BeefMaster_Gen1");
                             break;
 
-                        case "Air":
+                        case MonsterElement.Air:
                             NextEvolution = Resources.Load<GameObject>("Prefabs/MonsterStuff/Monsters/Gen 1/AirSleepy_Gen1");
                             break;
                     }

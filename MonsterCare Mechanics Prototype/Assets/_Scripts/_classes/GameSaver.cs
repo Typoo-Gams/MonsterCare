@@ -113,9 +113,12 @@ public class GameSaver
         for (int i = 0; i < TimeIndex.Length; i++)
         {
             string FullIndex = "SavedTime_" + TimeIndex[i];
-            //Debug.LogWarning("Saving: " + FullIndex + " : " + TimeTable[i]);
             PlayerPrefs.SetFloat(FullIndex, TimeTable[i]);
         }
+
+        //debug
+        //string TimeSaved = TimeTable[0] + ":" + TimeTable[1] + ":" + TimeTable[2] + "   " + TimeTable[3] + "/" + TimeTable[4] + "/" + TimeTable[5];
+        //Debug.Log(TimeSaved);
     }
 
 
@@ -131,7 +134,6 @@ public class GameSaver
         {
             string fullIndex = "SavedTime_" + TimeIndex[i];
             TimeTable[i] = PlayerPrefs.GetFloat(fullIndex);
-            //Debug.LogWarning("Loading: " + fullIndex + " : " + TimeTable[i]);
         }
 
         //debug
@@ -186,7 +188,7 @@ public class GameSaver
 
             PlayerPrefs.SetString(MonsterSaveIndex + "MonsterName", yourMonster.Name);
             PlayerPrefs.SetString(MonsterSaveIndex + "PrefabLocation", yourMonster.PrefabLocation);
-            PlayerPrefs.SetString(MonsterSaveIndex + "LastEatenElement", yourMonster.Element);
+            PlayerPrefs.SetString(MonsterSaveIndex + "LastEatenElement", yourMonster.Element.ToString());
 
 
             for (int i = 0; i < StatIndex.Length; i++)
@@ -222,11 +224,12 @@ public class GameSaver
         string MonsterSaveIndex = "SavedMonster_";
 
         yourMonster.Name = PlayerPrefs.GetString(MonsterSaveIndex + "MonsterName");
-        yourMonster.Element = PlayerPrefs.GetString(MonsterSaveIndex + "LastEatenElement");
-        if (yourMonster.Element == "")
-        {
-            yourMonster.Element = "None";
-        }
+
+        if (!PlayerPrefs.GetString(MonsterSaveIndex + "LastEatenElement").Equals(""))
+            yourMonster.Element = (MonsterElement)Enum.Parse(typeof(MonsterElement), PlayerPrefs.GetString(MonsterSaveIndex + "LastEatenElement"));
+        else
+            yourMonster.Element = MonsterElement.None;
+        
         yourMonster.HealthStatus = PlayerPrefs.GetFloat(MonsterSaveIndex + StatIndex[0]);
         yourMonster.HungerStatus = PlayerPrefs.GetFloat(MonsterSaveIndex + StatIndex[1]);
         yourMonster.SleepStatus = PlayerPrefs.GetFloat(MonsterSaveIndex + StatIndex[2]);
@@ -328,6 +331,7 @@ public class GameSaver
     }
 
     //Saves one new food into the goblin inventory
+    //(Unused)
     public void AddGoblinInv(Food ObtainedFood)
     {
         string inv = "Goblin Inventory Load: ";
@@ -353,7 +357,7 @@ public class GameSaver
 
                 PlayerPrefs.SetInt(SaveIndex + "_Power", GoblinInv[i].Power);
                 PlayerPrefs.SetString(SaveIndex + "_Type", GoblinInv[i].FoodType);
-                PlayerPrefs.SetString(SaveIndex + "_Element", GoblinInv[i].Element);
+                //PlayerPrefs.SetString(SaveIndex + "_Element", GoblinInv[i].Element);
                 PlayerPrefs.SetInt(SaveIndex + "_SpriteIndex", GoblinInv[i].Sprite);
                 inv += "\nInventory Slot " + i + ": Type: " + GoblinInv[i].FoodType + ", Element: " + GoblinInv[i].Element + ", Power: " + GoblinInv[i].Power + ", Sprite: " + GoblinInv[i].Sprite;
             }
@@ -370,6 +374,7 @@ public class GameSaver
 
 
     //Get Goblin inventory
+    //(Unused)
     public Food[] GetGoblinInv()
     {
         string GoblinInvIndex = "GoblinInv_Slot";
@@ -380,7 +385,8 @@ public class GameSaver
             string SaveIndex = GoblinInvIndex + i;
             int power = PlayerPrefs.GetInt(SaveIndex + "_Power");
             string type = PlayerPrefs.GetString(SaveIndex + "_Type");
-            string element = PlayerPrefs.GetString(SaveIndex + "_Element");
+            MonsterElement element = (MonsterElement)Enum.Parse(typeof(MonsterElement), PlayerPrefs.GetString(SaveIndex + "_Element"));
+
             int SpriteIndex = PlayerPrefs.GetInt(SaveIndex + "_SpriteIndex");
             if (type == "")
                 type = "None";
@@ -394,6 +400,7 @@ public class GameSaver
 
 
     //Clear Goblin inventory
+    //(Unused)
     public void ClearGoblinInv()
     {
         string inv = "Goblin Inventory Load: ";
@@ -407,7 +414,7 @@ public class GameSaver
 
                 PlayerPrefs.SetInt(SaveIndex + "_Power", empty[i].Power);
                 PlayerPrefs.SetString(SaveIndex + "_Type", empty[i].FoodType);
-                PlayerPrefs.SetString(SaveIndex + "_Element", empty[i].Element);
+                //PlayerPrefs.SetString(SaveIndex + "_Element", empty[i].Element);
                 PlayerPrefs.SetInt(SaveIndex + "_SpriteIndex", empty[i].Sprite);
                 inv += "\nInventory Slot " + i + ": Type: " + empty[i].FoodType + ", Element: " + empty[i].Element + ", Power: " + empty[i].Power + ", Sprite: " + empty[i].Sprite;
             }
@@ -423,6 +430,10 @@ public class GameSaver
     }
 
     //Saves the inventory
+    /// <summary>
+    /// Saves the input food array.
+    /// </summary>
+    /// <param name="inventory"></param>
     public void SaveFood(Food[] inventory)
     {
         string inv = "Inventory Save: ";
@@ -436,7 +447,7 @@ public class GameSaver
 
                 PlayerPrefs.SetInt(SaveIndex + "_Power", inventory[i].Power);
                 PlayerPrefs.SetString(SaveIndex + "_Type", inventory[i].FoodType);
-                PlayerPrefs.SetString(SaveIndex + "_Element", inventory[i].Element);
+                PlayerPrefs.SetString(SaveIndex + "_Element", inventory[i].Element.ToString());
                 PlayerPrefs.SetInt(SaveIndex + "_SpriteIndex", inventory[i].Sprite);
                 inv += "\nInventory Slot " + i + ": Type: " + inventory[i].FoodType + ", Element: " + inventory[i].Element + ", Power: " + inventory[i].Power + ", Sprite: " + inventory[i].Sprite;
             }
@@ -453,6 +464,10 @@ public class GameSaver
 
 
     //Loads the Food Inventory
+    /// <summary>
+    /// loads an array of the saved food
+    /// </summary>
+    /// <returns></returns>
     public Food[] LoadFood()
     {
         string InventorySlot = "InventorySlot_";
@@ -463,8 +478,9 @@ public class GameSaver
             string SaveIndex = InventorySlot + i;
             int power = PlayerPrefs.GetInt(SaveIndex + "_Power");
             string type = PlayerPrefs.GetString(SaveIndex + "_Type");
-            string element = PlayerPrefs.GetString(SaveIndex + "_Element");
+            MonsterElement element = (MonsterElement)Enum.Parse(typeof(MonsterElement), PlayerPrefs.GetString(SaveIndex + "_Element"));
             int SpriteIndex = PlayerPrefs.GetInt(SaveIndex + "_SpriteIndex");
+
             if (type == "")
                 type = "None";
             load[i] = new Food(type, element, power);
@@ -475,6 +491,13 @@ public class GameSaver
         return load;
     }
 
+    /*
+    //(unused)
+    /// <summary>
+    /// get food at index
+    /// </summary>
+    /// <param name="Index"></param>
+    /// <returns></returns>
     public Food LoadFood(int Index)
     {
         string InventorySlot = "InventorySlot_";
@@ -484,7 +507,13 @@ public class GameSaver
         string element = PlayerPrefs.GetString(SaveIndex + "_Element");
         return new Food(type, element, power);
     }
+    */
 
+    //(unused)
+    /// <summary>
+    /// delete food at index 
+    /// </summary>
+    /// <param name="index"></param>
     public void DeleteFood(int index)
     {
         PlayerPrefs.SetInt("InventorySlot_" + index + "_Power", 0);

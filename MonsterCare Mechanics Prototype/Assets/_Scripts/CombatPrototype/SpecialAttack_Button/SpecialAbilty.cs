@@ -15,7 +15,7 @@ public class SpecialAbilty : MonoBehaviour
 
     public int Damage;
     int elementDmg = 2;
-    string element;
+    MonsterElement element;
 
     // Start is called before the first frame update
     void Start()
@@ -63,27 +63,27 @@ public class SpecialAbilty : MonoBehaviour
 
     public void SpecialAttack()
     {
-        if (manager.ActiveMonster.Element == "Water" && manager.EnemyMonster.Element == "Fire")
+        if (manager.ActiveMonster.Element == MonsterElement.Water  && manager.EnemyMonster.Element == MonsterElement.Fire)
         {
             manager.EnemyMonster.DealDmg(Damage * elementDmg);
         }
 
-        if (manager.ActiveMonster.Element == "Earth" && manager.EnemyMonster.Element == "Water")
+        if (manager.ActiveMonster.Element == MonsterElement.Earth && manager.EnemyMonster.Element == MonsterElement.Water)
         {
             manager.EnemyMonster.DealDmg(Damage * elementDmg);
         }
 
-        if (manager.ActiveMonster.Element == "Air" && manager.EnemyMonster.Element == "Earth")
+        if (manager.ActiveMonster.Element == MonsterElement.Air && manager.EnemyMonster.Element == MonsterElement.Earth)
         {
             manager.EnemyMonster.DealDmg(Damage * elementDmg);
         }
 
-        if (manager.ActiveMonster.Element == "Fire" && manager.EnemyMonster.Element == "Air")
+        if (manager.ActiveMonster.Element == MonsterElement.Fire && manager.EnemyMonster.Element == MonsterElement.Air)
         {
             manager.EnemyMonster.DealDmg(Damage * elementDmg);
         }
 
-        if(manager.ActiveMonster.Element == "None")
+        if(manager.ActiveMonster.Element == MonsterElement.None)
         {
             manager.EnemyMonster.DealDmg(Damage);
         }
