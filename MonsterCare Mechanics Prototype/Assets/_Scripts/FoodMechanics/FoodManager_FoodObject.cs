@@ -31,6 +31,7 @@ public class FoodManager_FoodObject : MonoBehaviour
     public ParticleSystem Glow;
 
     bool isHeld;
+    public bool IsInInventory;
 
     // Start is called before the first frame update
     void Start()
@@ -83,7 +84,7 @@ public class FoodManager_FoodObject : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.gameObject.tag.Equals("Monster") && !isHeld && !manager.ActiveMonster.IsSleepingStatus && !MonsterAnim.GetBool("Eating"))
+        if (collision.gameObject.tag.Equals("Monster") && !isHeld && !manager.ActiveMonster.IsSleepingStatus && !MonsterAnim.GetBool("Eating") && !IsInInventory)
         {
             //updates the monsters hunger when it eats the food
             manager.ActiveMonster.UpdateHunger(manager.ActiveMonster.HungerStatus + ThisFood.Power);
@@ -113,6 +114,7 @@ public class FoodManager_FoodObject : MonoBehaviour
     private void OnMouseDown()
     {
         isHeld = true;
+        IsInInventory = false;
     }
 
     private void OnMouseUp()

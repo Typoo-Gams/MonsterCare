@@ -113,7 +113,7 @@ public class GameSaver
         for (int i = 0; i < TimeIndex.Length; i++)
         {
             string FullIndex = "SavedTime_" + TimeIndex[i];
-            Debug.LogWarning("Saving: " + FullIndex + " : " + TimeTable[i]);
+            //Debug.LogWarning("Saving: " + FullIndex + " : " + TimeTable[i]);
             PlayerPrefs.SetFloat(FullIndex, TimeTable[i]);
         }
     }
@@ -131,7 +131,7 @@ public class GameSaver
         {
             string fullIndex = "SavedTime_" + TimeIndex[i];
             TimeTable[i] = PlayerPrefs.GetFloat(fullIndex);
-            Debug.LogWarning("Loading: " + fullIndex + " : " + TimeTable[i]);
+            //Debug.LogWarning("Loading: " + fullIndex + " : " + TimeTable[i]);
         }
 
         //debug

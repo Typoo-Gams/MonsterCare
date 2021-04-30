@@ -58,19 +58,21 @@ public class NotesDrop_RandomChance : MonoBehaviour
                 case "Gen0":
                     if (Random.Range(0f, 1f) <= dropChance0)
                     {
-                        int prefabIndex = UnityEngine.Random.Range(0, 4);
+                        int prefabIndex = Random.Range(0, 4);
                         Instantiate(prefabList[prefabIndex]);
                         FindObjectOfType<SoundManager>().play("ObtainReport");
                     }
+                    Debug.Log("Gen0 Note");
                     break;
 
                 case "Gen1":
                     if (Random.Range(0f, 1f) <= dropChance1)
                     {
-                        int prefabIndex = UnityEngine.Random.Range(0, 4);
+                        int prefabIndex = Random.Range(0, 4);
                         Instantiate(prefabList[prefabIndex]);
                         FindObjectOfType<SoundManager>().play("ObtainReport");
                     }
+                    Debug.Log("Gen1 Note");
                     break;
             }
         }

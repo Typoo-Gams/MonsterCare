@@ -24,7 +24,9 @@ public class LockOnAnchor : MonoBehaviour
     {
         //Reset this anchor if there is no children.
         if (transform.childCount == 0)
+        {
             LockedObject = null;
+        }
         //When a locked object is set and its a child of the anchor then snap it into position.
         if (LockedObject != null) 
         {
@@ -34,6 +36,7 @@ public class LockOnAnchor : MonoBehaviour
                 {
                     LockedObject.transform.localPosition = lockedPosition;
                     LockedObject.transform.localRotation = Quaternion.identity;
+                    LockedObject.GetComponent<FoodManager_FoodObject>().IsInInventory = true;
                 }
             }
         }

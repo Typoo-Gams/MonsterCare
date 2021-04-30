@@ -34,7 +34,6 @@ public class OnHoverGetInfo : MonoBehaviour
     {
         if (ShowInfo)
         {
-
             spawn = Instantiate(Panel);
             spawn.transform.SetParent(gameObject.transform, false);
             spawn.GetComponentInChildren<Text>().text = TextToDisplay;
