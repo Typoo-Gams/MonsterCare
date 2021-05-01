@@ -32,15 +32,11 @@ public class MonsterManager_Prototype : MonoBehaviour
     StartMonster.DebugMonster();
     //StartMonster.AssignHealthBar(GameObject.FindGameObjectWithTag("UnusedSlider").GetComponent<Slider>());
     StartMonster.CombatActive(true);
-    StartMonster.SetOriginPos(transform);
     }
 
     // Update is called once per frame
     void Update()
     {
-       //update shake
-       DmgShake(false);
-
         if (StartMonster.HealthStatus <= 0)
         {
            Death();
@@ -65,43 +61,10 @@ public class MonsterManager_Prototype : MonoBehaviour
                    case TouchPhase.Began:
  
                        StartMonster.DealDmg(1);
-                       DmgShake(true);
-                       break;
-                   default:
                        break;
                }
            }
-           else //update shake
-           {
-               DmgShake(false);
-           }
        }
-    }
-
-    //Adds shake Time to monster
-    private void DmgShake(bool addTime) 
-    {
-        if (addTime) 
-            CounterShake -= 0.25f; 
-        
-        if (CounterShake < 0)
-            CounterShake = 0;
-        
-        if (CounterShake >= intervalShake)
-        {
-            CounterShake = 0.25f;
-            if (HasMoved) 
-            {
-                transform.position = StartMonster.GetOriginPos();
-                HasMoved = false;
-            }
-        }
-        else
-        {
-            HasMoved = true;
-            CounterShake += Time.deltaTime;
-            transform.position = StartMonster.Shake();
-        }
     }
 
     private void Death()

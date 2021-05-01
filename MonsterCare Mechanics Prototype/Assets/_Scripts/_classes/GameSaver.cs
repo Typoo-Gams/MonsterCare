@@ -100,6 +100,13 @@ public class GameSaver
         return DifferenceInSeconds;
     }
 
+    /*  /\
+     *  |
+     *  |
+     *  |
+     *  |
+     * Rework  */
+
 
     /// <summary>
     /// Saves current computer time to a save file.
@@ -478,7 +485,11 @@ public class GameSaver
             string SaveIndex = InventorySlot + i;
             int power = PlayerPrefs.GetInt(SaveIndex + "_Power");
             string type = PlayerPrefs.GetString(SaveIndex + "_Type");
-            MonsterElement element = (MonsterElement)Enum.Parse(typeof(MonsterElement), PlayerPrefs.GetString(SaveIndex + "_Element"));
+            MonsterElement element;
+            if (PlayerPrefs.GetString(SaveIndex + "_Element").Equals(""))
+                element = MonsterElement.None;
+            else
+                element = (MonsterElement)Enum.Parse(typeof(MonsterElement), PlayerPrefs.GetString(SaveIndex + "_Element"));
             int SpriteIndex = PlayerPrefs.GetInt(SaveIndex + "_SpriteIndex");
 
             if (type == "")

@@ -52,7 +52,7 @@ public class GameManager : MonoBehaviour
     //Awake is called when the script instance is being loaded
     private void Awake()
     {
-        GameVersion = "17.1";
+        GameVersion = "17.2";
         Debug.LogWarning("GameVersion is V." + GameVersion);
         FoodInventory = new Food[]{
             new Food(true),
@@ -108,7 +108,7 @@ public class GameManager : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.O))
             {
                 ActiveMonster.UpdateHealth(1);
-                ActiveMonster.UpdateHunger(23);
+                ActiveMonster.UpdateHunger(0);
                 ActiveMonster.EnergyStatus = 0;
                 Save.PrintObtainedMonsters();
                 Debug.Log("Cheat O activated");

@@ -8,7 +8,7 @@ public class OnHoverGetInfo : MonoBehaviour
     public GameObject Panel;
     GameObject spawn;
     public string TextToDisplay;
-    public bool ShowInfo = true;
+    public bool ShowInfo = true, OverWrite;
 
 
     // Start is called before the first frame update
@@ -27,17 +27,19 @@ public class OnHoverGetInfo : MonoBehaviour
         if (spawn != null)
         {
             Destroy(spawn);
+            ShowInfo = true;
         }
     }
 
     private void OnMouseOver()
     {
-        if (ShowInfo)
+        if (ShowInfo && !OverWrite)
         {
             spawn = Instantiate(Panel);
             spawn.transform.SetParent(gameObject.transform, false);
             spawn.GetComponentInChildren<Text>().text = TextToDisplay;
             spawn.transform.localPosition = new Vector3(-4f, 0, 0);
+            ShowInfo = false;
         }
     }
 }

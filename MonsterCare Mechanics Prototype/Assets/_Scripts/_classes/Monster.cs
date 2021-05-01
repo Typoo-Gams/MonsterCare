@@ -28,10 +28,14 @@ public enum MonsterElement
 public class Monster
 {
 
+    //UpdateSpeed
+    readonly float UpdateSpeed = 0.1f;
+
     //Monster variables
     private string MonsterName;
     private string EvolvedFrom;
     private float Health;
+    private float HealthRegen;
     private float Hunger;
     private float Sleep;
     private float Happiness;
@@ -62,7 +66,6 @@ public class Monster
     private bool IsSad;
     private bool IsOverRested;
     private bool Evolved;
-
 
     //potentials
     /*
@@ -109,12 +112,6 @@ public class Monster
 
 /**/
 
-
-
-    //needed for shake (temporary?)
-    float originX, originY, originZ;
-
-
     //Health Bar
     GameObject HealthBar;
 
@@ -131,6 +128,7 @@ public class Monster
         MonsterName = "Default";
         elementEaten = MonsterElement.None;
         Health = MaxHealth;
+        HealthRegen = 0.01f;
         Energy = 10;
         Hunger = 100;
         Sleep = 100;
@@ -185,6 +183,7 @@ public class Monster
         MonsterName = name;
         elementEaten = MonsterElement.None;
         Health = MaxHealth;
+        HealthRegen = 0.01f;
         Energy = 10;
         Hunger = 100;
         Sleep = 100;
@@ -193,7 +192,7 @@ public class Monster
         Toughness = 1;
         IsSleepDeprived = false;
         IsMedicated = false;
-        UpdateHunger(0);
+        UpdateHunger(Hunger);
     }
 
 
@@ -206,6 +205,7 @@ public class Monster
         MonsterName = name;
         elementEaten = MonsterElement.None;
         Health = MaxHealth;
+        HealthRegen = 0.01f;
         Energy = 10;
         Hunger = 100;
         Sleep = 100;
@@ -357,52 +357,6 @@ public class Monster
         }
     }
 
-
-    //------------Shake------------ (Temporary?)
-
-
-    //Shakes the monster
-    /// <summary>
-    /// returns a new vector3 with a shake applied
-    /// </summary>
-    /// <returns></returns>
-    public Vector3 Shake()
-    {
-
-        float speed = 75.0f; //how fast it shakes
-        float amount = 0.25f; //how much it shakes
-
-        float x = Mathf.Sin(Time.time * speed) * amount;
-
-
-        return new Vector3(x, originY, originZ);
-    }
-
-
-    //Sets origin position. required to reset position after shake -> would be ideal to use an animation instead
-    /// <summary>
-    /// Saves the current position as original position.
-    /// </summary>
-    /// <param name="originalPos">The origin of the monster</param>
-    public void SetOriginPos(Transform originalPos)
-    {
-        originX = originalPos.position.x;
-        originY = originalPos.position.y;
-        originZ = originalPos.position.z;
-    }
-
-
-    //get original position
-    /// <summary>
-    /// returns the position set by "SetOriginPos"
-    /// </summary>
-    /// <returns>position set by "SetOriginPos". if null then returns Vector3(0, 0, 0) </returns>
-    public Vector3 GetOriginPos()
-    {
-        return new Vector3(originX, originY, originZ);
-    }
-
-
     //----------- Updates------------
 
     //Updates all the stat changes when the game opens after being closed.
@@ -419,6 +373,15 @@ public class Monster
             float[] statuses = { Hunger, Sleep };
             float[] degrade = { HungerDegration, SleepDegration };
 
+
+            for (int j = 0; j < TimeInSec / UpdateSpeed; j++)
+            {
+                UpdateHunger(Hunger - HungerDegration);
+                UpdateSleeping(IsSleeping);
+                //UpdateHappiness();
+            }
+
+            /*
             for (int i = 0; i < statuses.Length; i++)
             {
                 //multiplaying degration with seconds is problematic since its not accurate to how fast the monster originally degrades.
@@ -431,7 +394,8 @@ public class Monster
             UpdateHunger(statuses[0]);
             Sleep = statuses[1];
             UpdateSleeping(IsSleeping);
-            Debug.Log("Monster wakeup. degraded monster stats: " + TimeInSec);
+            */
+            Debug.Log("Monster wakeup. degraded monster stats: " + TimeInSec + ". Updates ran " + (TimeInSec / UpdateSpeed) + " Times.");
         }
         else
         {
@@ -477,13 +441,13 @@ public class Monster
             IsFull = false;
         }
 
-        if (Hunger == 0)
+        if (IsStarving)
         {
-            UpdateHealth(HealthStatus - 0.01f);
+            UpdateHealth(HealthStatus - HealthRegen);
         }
 
         if (Hunger > 50)
-            UpdateHealth(HealthStatus + 0.01f);
+            UpdateHealth(HealthStatus + HealthRegen);
     }
 
 
@@ -504,7 +468,7 @@ public class Monster
     /// </summary>
     /// <param name="sleeping">New sleep state, Updates IsSleeping</param>
     /// <param name="modifier">Changes how much sleep is added</param>
-    public void UpdateSleeping(bool sleeping, float modifier = 2)
+    public void UpdateSleeping(bool sleeping, float modifier = 1)
     {
         float SleepHungry = 0.95f;
         float SleepMedium = 1;
@@ -579,57 +543,6 @@ public class Monster
     /// </summary>
     public void UpdateHappiness()
     {
-        float happinessDifference = 0;
-
-        if (IsStarving && Happiness != 0)
-        {
-            //Happiness = Happiness - 3;
-            happinessDifference -= 3;
-        }
-        if (IsFull && Happiness <= MaxHappiness - 5)
-        {
-            //Happiness = Happiness + 2;
-            happinessDifference += 2;
-        }
-
-        if (IsDead)
-        {
-            Happiness = 0;
-        }
-
-        if (Health <= 49)
-        {
-            //Happiness = Happiness - 3;
-            happinessDifference -= 3;
-        }
-
-        if (Health >= 50)
-        {
-            //Happiness = Happiness + 1;
-            happinessDifference += 1;
-        }
-
-        if (IsRested)
-        {
-            //Happiness = Happiness + 2;
-            happinessDifference += 2;
-
-        }
-
-        //if(IsMedicated) Potencially adding this later
-        Happiness = Happiness + happinessDifference;
-
-        if (Happiness <= 0)
-        {
-            IsHappy = false;
-            Happiness = 0;
-        }
-        if (Happiness >= MaxHappiness)
-        {
-            IsHappy = true;
-            Happiness = MaxHappiness;
-        }
-
         if (Happiness > 75)
         {
             HungerDegration = 0.083f * 0.9f;
@@ -645,8 +558,6 @@ public class Monster
             HungerDegration = 0.083f * 1.1f;
             SleepDegration = 0.083f * 1.1f;
         }
-
-
     }
 
 

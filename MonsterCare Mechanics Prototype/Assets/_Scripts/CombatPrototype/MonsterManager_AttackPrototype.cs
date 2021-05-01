@@ -47,7 +47,6 @@ public class MonsterManager_AttackPrototype : MonoBehaviour
         StartMonster = new Monster("Enemy_Placeholder");
         StartMonster.AssignHealthBar(healthbarr);
         StartMonster.CombatActive(true);
-        StartMonster.SetOriginPos(transform);
 
         switch (sceneElement)
         {

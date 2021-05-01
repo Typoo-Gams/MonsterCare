@@ -17,7 +17,6 @@ public class Dmg_BodyParts : MonoBehaviour
     {
         manager = GameObject.Find("__app").GetComponentInChildren<GameManager>();
         currentlyAttacking = manager.EnemyMonster.CombatStatus;
-        manager.EnemyMonster.SetOriginPos(transform);
 
         Overlay = gameObject.transform.GetChild(gameObject.transform.childCount - 1).gameObject;
 

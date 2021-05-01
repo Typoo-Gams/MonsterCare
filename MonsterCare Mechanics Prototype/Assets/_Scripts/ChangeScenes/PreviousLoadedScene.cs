@@ -18,7 +18,7 @@ public class PreviousLoadedScene : MonoBehaviour
         }
         catch 
         {
-            Debug.LogWarning("__app was not found");
+            //Debug.LogWarning("__app was not found");
         }
     }
 }
