@@ -35,7 +35,8 @@ public class FolderViewer_Button : MonoBehaviour
     Button myButton;
     private Sprite NotObtained;
 
-    static public GameObject CurrentView = null;
+    public static GameObject CurrentView = null;
+    public bool isFilled;
 
     public Sprite[] background = new Sprite[5];
 
@@ -50,43 +51,56 @@ public class FolderViewer_Button : MonoBehaviour
 
     private void Update()
     {
-        if(Saver.MonsterObtainedBefore(Selection.ToString()) && NotObtained == myButton.image.sprite)
+        if (!Selection.Equals(Monsters.Empty))
         {
-            switch (_Color)
+            if (Saver.MonsterObtainedBefore(Selection.ToString()) && NotObtained == myButton.image.sprite)
             {
-                case Background.Air:
-                    myButton.image.sprite = background[0];
-                    break;
+                switch (_Color)
+                {
+                    case Background.Air:
+                        myButton.image.sprite = background[0];
+                        break;
 
-                case Background.Fire:
-                    myButton.image.sprite = background[1];
-                    break;
+                    case Background.Fire:
+                        myButton.image.sprite = background[1];
+                        break;
 
-                case Background.Earth:
-                    myButton.image.sprite = background[2];
-                    break;
+                    case Background.Earth:
+                        myButton.image.sprite = background[2];
+                        break;
 
-                case Background.Water:
-                    myButton.image.sprite = background[3];
-                    break;
+                    case Background.Water:
+                        myButton.image.sprite = background[3];
+                        break;
 
-                case Background.Basic:
-                    myButton.image.sprite = background[4];
-                    break;
+                    case Background.Basic:
+                        myButton.image.sprite = background[4];
+                        break;
+                }
+                transform.GetChild(0).gameObject.SetActive(true);
             }
-            transform.GetChild(0).gameObject.SetActive(true);
         }
+
+        if (CurrentView is object && !isFilled)
+        {
+            CurrentView = null;
+            myButton.interactable = true;
+        }      
         
+        if(CurrentView is object)
+            myButton.interactable = false;
     }
 
 
     private void TaskOnClick()
     {
-        if (CurrentView is null)
+        if (CurrentView is null && Saver.MonsterObtainedBefore(Selection.ToString()))
         {
+            isFilled = true;
             GameObject spawn = Instantiate(viewItem);
             CurrentView = spawn;
             spawn.transform.SetParent(currentPage, false);
+            spawn.GetComponent<Delete>().viewer = this;
         }
     }
 }
