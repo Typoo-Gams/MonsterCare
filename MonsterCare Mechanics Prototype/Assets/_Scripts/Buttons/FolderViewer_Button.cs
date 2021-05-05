@@ -11,7 +11,8 @@ public class FolderViewer_Button : MonoBehaviour
         AirSleepy_Gen1,
         BeefMaster_Gen1,
         FireSleepy_Gen1,
-        WaterPlayful_Gen1
+        WaterPlayful_Gen1,
+        Empty
     }
 
     public enum Background
