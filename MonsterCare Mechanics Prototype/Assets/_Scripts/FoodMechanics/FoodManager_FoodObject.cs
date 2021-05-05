@@ -111,6 +111,11 @@ public class FoodManager_FoodObject : MonoBehaviour
             //plays the monsters eating animation.
             if (MonsterAnim != null)
                 MonsterAnim.SetBool("Eating", true);
+
+            if (manager.ActiveMonster.Personality.Equals(MonsterType.Hungry))
+                manager.ActiveMonster.AddHappiness(20);
+            else
+                manager.ActiveMonster.AddHappiness(10);
         }
     }
 

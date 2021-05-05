@@ -13,7 +13,7 @@ public class InfoPanel_Button : MonoBehaviour
     public Text Stats;
     GameSaver saver = new GameSaver();
     string lastPlay;
-    float lastPlayInSec;
+    double lastPlayInSec;
 
 
     // Start is called before the first frame update
@@ -25,21 +25,11 @@ public class InfoPanel_Button : MonoBehaviour
         //set the statboard's isActive to false.
         isActive = false;
         StatBoard.SetActive(isActive);
-        
+
         //Makes a string that contains last date and time the game was saved.
-        for (int i = 0; i < saver.LoadTime().Length; i++) 
-        {
-            if (i == 3)
-                lastPlay += "   ";
-            if (i < 3)
-                lastPlay += saver.LoadTime(i) + ":";
-            else
-                lastPlay += saver.LoadTime(i) + "/";
-        }
+        lastPlay = saver.LoadTime().ToString();
         //setting the time difference.
         lastPlayInSec = saver.FindTimeDifference();
-
-        
     }
 
     // Update is called once per frame

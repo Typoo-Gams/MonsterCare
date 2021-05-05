@@ -61,7 +61,6 @@ public class ChildGen0_MonsterController : MonoBehaviour
         }
     }
 
-
     // Update is called once per frame
     void Update()
     {

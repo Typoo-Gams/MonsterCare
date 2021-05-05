@@ -91,6 +91,9 @@ public class MonsterFoodDrop : MonoBehaviour
 
     private void FoodDrop()
     {
+        if (manager.ActiveMonster.Personality.Equals(MonsterType.Fighter))
+            manager.ActiveMonster.AddHappiness(20);
+
         int random = Random.Range(0, foodPrefab.Length);
         int dropRate = Random.Range(1, 7);
 

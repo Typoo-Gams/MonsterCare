@@ -78,35 +78,15 @@ public class GameSaver
     /// calculates the difference between now and last time "SaveTime" where used.
     /// </summary>
     /// <returns>Total seconds that have passed.</returns>c
-    public float FindTimeDifference()
+    public double FindTimeDifference()
     {
         DateTime ThisFrame = DateTime.Now;
-        float[] LastTime = LoadTime();
-        float[] currentTime = { ThisFrame.Hour, ThisFrame.Minute, ThisFrame.Second, ThisFrame.Day, ThisFrame.Month, ThisFrame.Year };
-        float[] TimeDifference = new float[currentTime.Length];
-        float[] conversions = { 3600, 60, 1, 86400, 2629800, 31557600 };
-        float DifferenceInSeconds = 0;
+        DateTime LastTime = LoadTime();
 
-        //Calculating the difference from saved time to now in seconds
-        for (int i = 0; i < currentTime.Length; i++)
-        {
-            TimeDifference[i] = LastTime[i] - currentTime[i];
-            //Turns the difference positive if negative. if there is anything wrong this is where it is. time calculated wrongly.
-            if (TimeDifference[i] < 0)
-                TimeDifference[i] = TimeDifference[i] * -1;
-            if (TimeDifference[i] > 0)
-                DifferenceInSeconds += TimeDifference[i] * conversions[i]; //converts to secs.
-        }
-        return DifferenceInSeconds;
+        TimeSpan Subtraction = ThisFrame.Subtract(LastTime);
+
+        return Subtraction.TotalSeconds;
     }
-
-    /*  /\
-     *  |
-     *  |
-     *  |
-     *  |
-     * Rework  */
-
 
     /// <summary>
     /// Saves current computer time to a save file.
@@ -132,22 +112,18 @@ public class GameSaver
     /// <summary>
     /// Loads the saved floats from the saved time as an array.
     /// </summary>
-    public float[] LoadTime()
+    public DateTime LoadTime()
     {
-        string[] TimeIndex =
-            {"Hour", "Minutes", "Seconds", "Day", "Month", "Year"};
-        float[] TimeTable = new float[TimeIndex.Length];
-        for (int i = 0; i < TimeIndex.Length; i++)
-        {
-            string fullIndex = "SavedTime_" + TimeIndex[i];
-            TimeTable[i] = PlayerPrefs.GetFloat(fullIndex);
-        }
+        DateTime loadedTime = new DateTime(
+            (int)PlayerPrefs.GetFloat("SavedTime_Year"),
+            (int)PlayerPrefs.GetFloat("SavedTime_Month"),
+            (int)PlayerPrefs.GetFloat("SavedTime_Day"),
+            (int)PlayerPrefs.GetFloat("SavedTime_Hour"),
+            (int)PlayerPrefs.GetFloat("SavedTime_Minutes"),
+            (int)PlayerPrefs.GetFloat("SavedTime_Seconds")
+            );
 
-        //debug
-        //string TimeSaved = TimeTable[0] + ":" + TimeTable[1] + ":" + TimeTable[2] + "   " + TimeTable[3] + "/" + TimeTable[4] + "/" + TimeTable[5];
-        //Debug.Log(TimeSaved);
-
-        return TimeTable;
+        return loadedTime;
     }
 
 

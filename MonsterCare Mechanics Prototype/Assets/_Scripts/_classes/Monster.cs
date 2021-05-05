@@ -1,8 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
-using UnityEngine.Audio;
+using System;
 
 /// <summary>
 /// Type Of Monster. Decides what bonuses it has
@@ -137,7 +134,8 @@ public class Monster
         Toughness = 1;
         IsSleepDeprived = false;
         IsMedicated = false;
-        UpdateHunger(0);
+        UpdateHunger(Hunger);
+        PreviousEvolution = "";
     }
 
     /// <summary>
@@ -193,6 +191,7 @@ public class Monster
         IsSleepDeprived = false;
         IsMedicated = false;
         UpdateHunger(Hunger);
+        PreviousEvolution = "";
     }
 
 
@@ -214,7 +213,8 @@ public class Monster
         Toughness = 1;
         IsSleepDeprived = false;
         IsMedicated = false;
-        UpdateHunger(0);
+        UpdateHunger(Hunger);
+        PreviousEvolution = "";
     }
 
     //------------------------Properties------------------------
@@ -365,50 +365,22 @@ public class Monster
     /// </summary>
     /// <param name="TimeInSec">Time in seconds</param>
     ///<param name="WasSleeping">If the monster was sleeping when game wakes up</param>
-    public void AtGameWakeUp(float TimeInSec)
+    public void AtGameWakeUp(double TimeInSec)
     {
-        Debug.LogWarning("AtGameWakeUP: " + TimeInSec);
         if (TimeInSec > 0)
         {
-            float[] statuses = { Hunger, Sleep };
-            float[] degrade = { HungerDegration, SleepDegration };
-
-
-            for (int j = 0; j < TimeInSec / UpdateSpeed; j++)
+            for (int j = 0; j < TimeInSec; j++)
             {
                 UpdateHunger(Hunger - HungerDegration);
                 UpdateSleeping(IsSleeping);
-                //UpdateHappiness();
+                UpdateHappiness();
             }
-
-            /*
-            for (int i = 0; i < statuses.Length; i++)
-            {
-                //multiplaying degration with seconds is problematic since its not accurate to how fast the monster originally degrades.
-                //doesnt make the mosnter starve.
-                //use Update methods as to how many times it should be activated instead.
-                statuses[i] -= degrade[i] * TimeInSec;
-                if (statuses[i] < 0)
-                    statuses[i] = 0;
-            }
-            UpdateHunger(statuses[0]);
-            Sleep = statuses[1];
-            UpdateSleeping(IsSleeping);
-            */
-            Debug.Log("Monster wakeup. degraded monster stats: " + TimeInSec + ". Updates ran " + (TimeInSec / UpdateSpeed) + " Times.");
         }
         else
         {
             Debug.LogError("AtGameWakeUp: input was outside of bounds: " + TimeInSec);
         }
     }
-    /*
-            /\
-             |
-             |
-             |
-          Rework in progress
-    */
 
     //Update Hunger
     /// <summary>
@@ -502,6 +474,11 @@ public class Monster
             if (Energy > MaxEnergy)
                 Energy = MaxEnergy;
 
+            if (_PersonalityType.Equals(MonsterType.Sleepy))
+            {
+                Happiness += HappinessDegration;
+            }
+
         }
         else
         {
@@ -543,6 +520,14 @@ public class Monster
     /// </summary>
     public void UpdateHappiness()
     {
+
+        if (!(IsSleeping && _PersonalityType.Equals(MonsterType.Sleepy))) 
+        {
+            Happiness -= HappinessDegration;
+            Debug.LogWarning("Happiness degredationdasjdskaj");
+        }
+
+
         if (Happiness > 75)
         {
             HungerDegration = 0.083f * 0.9f;
@@ -558,6 +543,16 @@ public class Monster
             HungerDegration = 0.083f * 1.1f;
             SleepDegration = 0.083f * 1.1f;
         }
+    }
+
+
+    /// <summary>
+    /// Monster gains an ammount of happiness
+    /// </summary>
+    /// <param name="Ammount"></param>
+    public void AddHappiness(float Ammount)
+    {
+        Happiness += Ammount;
     }
 
 
@@ -840,6 +835,11 @@ public class Monster
     public float GetEvolveCost
     {
         get => EvolveCost;
+    }
+
+    public MonsterType Personality
+    {
+        get => _PersonalityType;
     }
 
 }

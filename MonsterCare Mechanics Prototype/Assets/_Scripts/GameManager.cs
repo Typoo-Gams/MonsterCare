@@ -53,7 +53,7 @@ public class GameManager : MonoBehaviour
     //Awake is called when the script instance is being loaded
     private void Awake()
     {
-        GameVersion = "17.2";
+        GameVersion = "18";
         Debug.LogWarning("GameVersion is V." + GameVersion);
         FoodInventory = new Food[]{
             new Food(true),
@@ -119,6 +119,7 @@ public class GameManager : MonoBehaviour
             {
                 ActiveMonster.EnergyStatus = 5;
                 ActiveMonster.HungerStatus = 50;
+                Debug.Log("Cheat P activated");
             }
         }
     }
