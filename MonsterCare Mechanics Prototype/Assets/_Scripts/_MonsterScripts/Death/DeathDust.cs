@@ -5,6 +5,7 @@ using UnityEngine;
 public class DeathDust : MonoBehaviour
 {
     public GameObject smokeParticles;
+    public GameObject Monster;
     //public ParticleSystem Smoke;
     // Start is called before the first frame update
     void Start()
@@ -24,7 +25,7 @@ public class DeathDust : MonoBehaviour
         //GameObject smokeParticlesPrefab = 
         for(int i = 0; i < 2; i++ )
         {
-            Instantiate(smokeParticles, new Vector3(0f, -3f, 0f), Quaternion.identity);
+            Instantiate(smokeParticles, new Vector3(0f,-3f,0f), Quaternion.identity);
         }
             
       //  smokeParticlesPrefab.transform.position = new Vector3(0f, -143f, 0f);
