@@ -226,6 +226,10 @@ PrefabInstance:
       propertyPath: GoblinPrefab
       value: 
       objectReference: {fileID: 852424272444159395, guid: a37d4ecbc632f2c4db6fd75ca2f9a679, type: 3}
+    - target: {fileID: 7329719411135607488, guid: 6e8dea5fbfa00e74594cb818876d0621, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 0222ac78c61a66b449edecdf7f762a5b, type: 3}
     - target: {fileID: 9104515355766282086, guid: 6e8dea5fbfa00e74594cb818876d0621, type: 3}
       propertyPath: m_Camera
       value: 
