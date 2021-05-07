@@ -31,7 +31,7 @@ public class Toughness_Modifer : MonoBehaviour
     public int maxDmg = 15;
 
     //so that the enemy does dmg every 5 seconds
-    public float dmgDelay = 3f;
+    private float dmgDelay = 3f;
     float counter;
     //private float dmgTimer = 0f;
 
@@ -44,6 +44,7 @@ public class Toughness_Modifer : MonoBehaviour
 
     private void Start()
     {
+        dmgDelay = Random.Range(3,5);
         rend_Sprikes = sprikes.GetComponent<Image>();
         rend_Gradient = gadient.GetComponent<Image>();
         canvas = GameObject.FindGameObjectWithTag("CanvasFighting");
@@ -111,6 +112,7 @@ public class Toughness_Modifer : MonoBehaviour
                 if (counter > dmgDelay)
                 {
                     counter = 0;
+                    dmgDelay = Random.Range(3, 5);
                     manager.ActiveMonster.DealDmg(Random.Range(minDmg, maxDmg) + (int)manager.EnemyMonster.ToughnessModifier);
                     float alpha = 1 - (manager.ActiveMonster.HealthStatus / manager.ActiveMonster.GetMaxHealth);
                     rend_Gradient.color = new Color(1, 1, 1, alpha);

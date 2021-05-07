@@ -9,7 +9,7 @@ public class EnergyCost_Button : MonoBehaviour
     Button ThisButton;
     public int cost;
     public GameObject[] elements;
-    public bool paying, clicked;
+    public bool paying, clicked, loading;
     SceneChanger_Button Changer;
     public Button[] otherButtons;
 
@@ -23,9 +23,9 @@ public class EnergyCost_Button : MonoBehaviour
     }
 
     // Update is called once per frame
-    void LateUpdate()
+    void update()
     {
-        if (!clicked)
+        if (!clicked && !loading)
         {
             if (manager.ActiveMonster.EnergyStatus > cost)
             {
@@ -47,11 +47,11 @@ public class EnergyCost_Button : MonoBehaviour
             if (manager.ActiveMonster.HealthStatus == 0)
             {
                 ThisButton.interactable = false;
-
             }
         }
         else
         {
+            loading = true;
             ThisButton.interactable = false;
             foreach (Button found in otherButtons)
             {
@@ -63,6 +63,8 @@ public class EnergyCost_Button : MonoBehaviour
             }
         }
     }   
+
+
 
     void PayCost() 
     {
