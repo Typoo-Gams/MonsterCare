@@ -240,6 +240,7 @@ GameObject:
   - component: {fileID: 199789151}
   - component: {fileID: 199789152}
   - component: {fileID: 199789153}
+  - component: {fileID: 199789154}
   m_Layer: 0
   m_Name: S_Box_BaseCropped
   m_TagString: Untagged
@@ -263,7 +264,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -6, y: -263}
+  m_AnchoredPosition: {x: -6, y: -189}
   m_SizeDelta: {x: -345.46506, y: -815.26996}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!212 &199789151
@@ -306,7 +307,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: -1
-  m_Sprite: {fileID: 21300000, guid: 2d96e31a07c553a40882826d6af5921c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: eec59f5208b66a647b5389a0dd412cab, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -330,9 +331,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   smokeParticles: {fileID: 4618042962419636357, guid: 366d77313b49ea744930f1d9c5a96c69, type: 3}
+  myButton:
+  - {fileID: 233085106}
+  - {fileID: 336641567}
+  myText:
+  - {fileID: 587463887}
+  - {fileID: 1397777971}
   SceneNumber: 0
   SceneName: MonsterHome
-  Fade: {fileID: 0}
 --- !u!61 &199789153
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -346,19 +352,38 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 1.2206931}
+  m_Offset: {x: 0, y: 0.5}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 4.67, y: 3.86}
+    oldSize: {x: 5, y: 5.89}
     newSize: {x: 4.67, y: 3.86}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 4.67, y: 6.301386}
+  m_Size: {x: 5, y: 7}
   m_EdgeRadius: 0
+--- !u!95 &199789154
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 199789149}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 637415663d8e4704ab6822a3dc68c638, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &233085104
 GameObject:
   m_ObjectHideFlags: 0
@@ -496,7 +521,7 @@ MonoBehaviour:
   SceneNumber: 0
   SceneName: RestartingGame
   LoadScene: 0
-  BlackoutFade: {fileID: 305715963040968651, guid: 3c23799abb9709f4c8e9c481bdf7fe8f, type: 3}
+  clicked: 0
 --- !u!1 &336641564
 GameObject:
   m_ObjectHideFlags: 0
