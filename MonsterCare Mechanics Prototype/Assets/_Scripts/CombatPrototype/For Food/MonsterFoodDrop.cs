@@ -18,7 +18,7 @@ public class MonsterFoodDrop : MonoBehaviour
     int element;
     MonsterElement spawnElement;
 
-    char[] seperator = { '_' };
+    char[] seperator = { '_', '(' };
     int specialFoodChance;
 
     // Start is called before the first frame update
@@ -65,7 +65,12 @@ public class MonsterFoodDrop : MonoBehaviour
             case "Gen1":
                 specialFoodChance = 1;
                 break;
+
+            default:
+                Debug.Log(manager.MonsterObject.name.Split(seperator)[1]);
+                break;
         }
+        Debug.Log(manager.MonsterObject.name.Split(seperator)[1]);
     }
 
     private void Update()
@@ -95,11 +100,11 @@ public class MonsterFoodDrop : MonoBehaviour
             manager.ActiveMonster.AddHappiness(20);
 
         int random = Random.Range(0, foodPrefab.Length);
-        int dropRate = Random.Range(1, 7);
+        int dropRate = Random.Range(1, 5);
+        Debug.Log(dropRate + "_" + specialFoodChance);
 
         if (isCreated == true)
         {
-            Debug.LogWarning(manager.FoodInventory.Length);
             for(int i = 0; i < manager.FoodInventory.Length; i++)
             {
                 Debug.LogWarning("searching inv");
