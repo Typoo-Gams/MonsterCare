@@ -81,22 +81,25 @@ public class FolderViewer_Button : MonoBehaviour
             }
         }
 
-        if (CurrentView is object && !isFilled)
+        if (CurrentView == null)
         {
             CurrentView = null;
             myButton.interactable = true;
+            Debug.LogWarning("Interact = tru");
         }      
         
-        if(CurrentView is object)
+        if(CurrentView != null)
+        {
             myButton.interactable = false;
+            Debug.LogWarning("Interact = false");
+        }
     }
 
 
     private void TaskOnClick()
     {
-        if (CurrentView is null && Saver.MonsterObtainedBefore(Selection.ToString()))
+        if (CurrentView == null && Saver.MonsterObtainedBefore(Selection.ToString()))
         {
-            isFilled = true;
             GameObject spawn = Instantiate(viewItem);
             CurrentView = spawn;
             spawn.transform.SetParent(currentPage, false);
