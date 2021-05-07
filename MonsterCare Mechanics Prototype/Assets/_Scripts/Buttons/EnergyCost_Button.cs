@@ -23,19 +23,11 @@ public class EnergyCost_Button : MonoBehaviour
     }
 
     // Update is called once per frame
-    void update()
+    private void Update()
     {
-        if (!clicked && !loading)
+        if (!clicked)
         {
-            if (manager.ActiveMonster.EnergyStatus > cost)
-            {
-                ThisButton.interactable = true;
-                foreach (GameObject Icons in elements)
-                {
-                    Icons.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
-                }
-            }
-            else
+            if (manager.ActiveMonster.EnergyStatus < cost)
             {
                 ThisButton.interactable = false;
                 foreach (GameObject Icons in elements)
@@ -51,7 +43,6 @@ public class EnergyCost_Button : MonoBehaviour
         }
         else
         {
-            loading = true;
             ThisButton.interactable = false;
             foreach (Button found in otherButtons)
             {

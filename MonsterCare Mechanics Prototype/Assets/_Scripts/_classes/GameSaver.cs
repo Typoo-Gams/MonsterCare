@@ -8,6 +8,7 @@ public class GameSaver
 
     public DateTime Time = DateTime.Now;
 
+    private int NumberOfNotes = 4;
 
     //Sets the savefile version number.
     /// <summary>
@@ -70,6 +71,11 @@ public class GameSaver
         //Resets the obtained monster list 
         SaveObtainedMonster("None", false, true);
 
+        for (int i = 0; i <= NumberOfNotes; i++)
+        {
+            SaveNote(i, 0);
+        }
+
         Debug.LogWarning("Save was wiped");
     }
 
@@ -114,7 +120,10 @@ public class GameSaver
     /// </summary>
     public DateTime LoadTime()
     {
-        DateTime loadedTime = new DateTime(
+        DateTime loadedTime;
+        if ((int)PlayerPrefs.GetFloat("SavedTime_Year") != 0)
+        {
+            loadedTime = new DateTime(
             (int)PlayerPrefs.GetFloat("SavedTime_Year"),
             (int)PlayerPrefs.GetFloat("SavedTime_Month"),
             (int)PlayerPrefs.GetFloat("SavedTime_Day"),
@@ -122,7 +131,11 @@ public class GameSaver
             (int)PlayerPrefs.GetFloat("SavedTime_Minutes"),
             (int)PlayerPrefs.GetFloat("SavedTime_Seconds")
             );
-
+        }
+        else
+        {
+            loadedTime = new DateTime(0, 0, 0, 0, 0, 0);
+        }
         return loadedTime;
     }
 
@@ -311,6 +324,46 @@ public class GameSaver
         }
         else if (!Wipe)
             Debug.LogError("Can't find the index: " + MonsterGenName + ", try checking the index list.");
+    }
+
+
+    /// <summary>
+    /// Saves an obtained note so it can be viewed in the notes scene. 
+    /// </summary>
+    /// <param name="NoteNumber">Number of the note saved</param>
+    /// <param name="IsObtained">1: obtained, 0: not obtained</param>
+    public void SaveNote(int NoteNumber, int IsObtained)
+    {
+        string NoteIndex = "ObtainedNote_" + NoteNumber;
+        switch (IsObtained)
+        {
+            case 1:
+                PlayerPrefs.SetInt(NoteIndex, 1);
+                break;
+
+            case 0:
+                PlayerPrefs.SetInt(NoteIndex, 0);
+                break;
+
+            default:
+                Debug.LogError("Is Obtained needs to be between 0-1. (false/true)");
+                break;
+        }
+    }
+
+    /// <summary>
+    /// Reads the memory of index NoteNumber. returns 2 if note is out of index range.
+    /// </summary>
+    /// <param name="NoteNumber">load index note</param>
+    public int LoadNote(int NoteNumber)
+    {
+        if(NoteNumber <= NumberOfNotes)
+        {
+            string NoteIndex = "ObtainedNote_" + NoteNumber;
+            return PlayerPrefs.GetInt(NoteIndex);
+        }
+        Debug.LogError("Couldnt load note number: " + NoteNumber + ", because it was out of index range.");
+        return 2;
     }
 
     //Saves one new food into the goblin inventory

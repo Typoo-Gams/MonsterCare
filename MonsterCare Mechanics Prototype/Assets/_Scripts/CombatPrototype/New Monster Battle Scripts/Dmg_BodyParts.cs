@@ -17,10 +17,10 @@ public class Dmg_BodyParts : MonoBehaviour
     {
         manager = GameObject.Find("__app").GetComponentInChildren<GameManager>();
         currentlyAttacking = manager.EnemyMonster.CombatStatus;
-
+        //idk why its done like this.
         Overlay = gameObject.transform.GetChild(gameObject.transform.childCount - 1).gameObject;
 
-        Debug.Log(Overlay);
+        Debug.Log(Overlay.GetComponent<Image>().color);
     }
         
 

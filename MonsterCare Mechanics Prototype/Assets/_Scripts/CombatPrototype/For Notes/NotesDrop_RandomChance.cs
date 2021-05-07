@@ -10,8 +10,8 @@ public class NotesDrop_RandomChance : MonoBehaviour
     private bool isCreated;
 
     //This chooses the dropchance for the different generations
-    const float dropChance0 = 1f / 5f;
-    const float dropChance1 = 1f / 8f;
+    const float dropChance0 = 1f / 3f;
+    const float dropChance1 = 1f / 5f;
     //const float dropChance2 = 0f / 0f;
 
     char[] seperator = { '_', '(' };
@@ -52,28 +52,29 @@ public class NotesDrop_RandomChance : MonoBehaviour
     {
         if (isCreated == true)
         {
+            float random = Random.Range(0f, 1f);
 
             //checks if it has evolved and then changes the dropchance accordingly
             switch (manager.MonsterObject.name.Split(seperator)[1])
             {
                 case "Gen0":
-                    if (Random.Range(0f, 1f) <= dropChance0)
+                    if (random <= dropChance0)
                     {
                         int prefabIndex = Random.Range(0, 4);
                         Instantiate(prefabList[prefabIndex]);
                         FindObjectOfType<SoundManager>().play("ObtainReport");
+                        Debug.Log("Gen0 Note");
                     }
-                    Debug.Log("Gen0 Note");
                     break;
 
                 case "Gen1":
-                    if (Random.Range(0f, 1f) <= dropChance1)
+                    if (random <= dropChance1)
                     {
                         int prefabIndex = Random.Range(0, 4);
                         Instantiate(prefabList[prefabIndex]);
                         FindObjectOfType<SoundManager>().play("ObtainReport");
+                        Debug.Log("Gen1 Note");
                     }
-                    Debug.Log("Gen1 Note");
                     break;
             }
         }

@@ -120,6 +120,14 @@ public class GameManager : MonoBehaviour
                 ActiveMonster.HungerStatus = 50;
                 Debug.Log("Cheat P activated");
             }
+
+            if (Input.GetKeyDown(KeyCode.T))
+            {
+                Save.SaveNote(1, 1);
+                Save.SaveNote(2, 1);
+                Save.SaveNote(3, 1);
+                Save.SaveNote(4, 1);
+            }
         }
     }
 

@@ -523,8 +523,7 @@ public class Monster
 
         if (!(IsSleeping && _PersonalityType.Equals(MonsterType.Sleepy))) 
         {
-            Happiness -= HappinessDegration;
-            //Debug.LogWarning("Happiness degredationdasjdskaj");
+            Happiness = Mathf.Clamp(Happiness -= HappinessDegration, 0, MaxHappiness);
         }
 
 

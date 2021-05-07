@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5827904041017366572}
   - component: {fileID: 5961869397221059060}
   - component: {fileID: 565335401430837338}
+  - component: {fileID: 4464626852617020254}
   m_Layer: 0
   m_Name: Note04
   m_TagString: Note
@@ -123,3 +124,16 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 10.8, y: 15.04}
   m_EdgeRadius: 0
+--- !u!114 &4464626852617020254
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5827904041017366573}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1ff46adccc12844d940b2f6c3aeea63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NoteNumber: 4

@@ -36,7 +36,6 @@ public class FolderViewer_Button : MonoBehaviour
     private Sprite NotObtained;
 
     public static GameObject CurrentView = null;
-    public bool isFilled;
 
     public Sprite[] background = new Sprite[5];
 
@@ -85,13 +84,11 @@ public class FolderViewer_Button : MonoBehaviour
         {
             CurrentView = null;
             myButton.interactable = true;
-            Debug.LogWarning("Interact = tru");
         }      
         
         if(CurrentView != null)
         {
             myButton.interactable = false;
-            Debug.LogWarning("Interact = false");
         }
     }
 
@@ -103,7 +100,6 @@ public class FolderViewer_Button : MonoBehaviour
             GameObject spawn = Instantiate(viewItem);
             CurrentView = spawn;
             spawn.transform.SetParent(currentPage, false);
-            spawn.GetComponent<Delete>().viewer = this;
         }
     }
 }
