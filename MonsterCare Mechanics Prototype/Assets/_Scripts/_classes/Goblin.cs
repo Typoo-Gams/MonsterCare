@@ -9,7 +9,8 @@ public class Goblin : MonoBehaviour
     GameSaver Saver = new GameSaver();
     GameObject canvas;
 
-    public GameObject FoodPrefab;
+    public GameObject[] FoodPrefab;
+    public GameObject fullInv;
 
     //Goblin States
     bool isTapped;
@@ -78,12 +79,27 @@ public class Goblin : MonoBehaviour
     }
 
     public void GoblinDefeated()
-    {
-        foreach (Food Item in Saver.GetGoblinInv()) 
+    {/*
+        bool spawned = false;
+        for (int i = 0; i < manager.FoodInventory.Length; i++)
         {
-            //GameObject Spawn = Instantiate();
-            //Spawn.transform.SetParent(canvas.transform, false);
+            Debug.LogWarning("searching inv");
+            if (manager.FoodInventory[i].FoodType == "None")
+            {
+                GameObject Spawn = Instantiate(FoodPrefab[Random.Range(0, 4)]);
+                manager.FoodInventory[i] = Spawn.GetComponent<FoodManager_FoodObject>().ThisFood;
+                Spawn.transform.SetParent(canvas.transform, false);
+                spawned = true;
+                break;
+            }
         }
+        if (!spawned)
+        {
+            GameObject Spawn = Instantiate(fullInv);
+            Spawn.transform.SetParent(canvas.transform, false);
+        }
+             */   
+        
         Saver.ClearGoblinInv();
         Defeated = true;
 
@@ -94,6 +110,7 @@ public class Goblin : MonoBehaviour
     private void GoblinEscape()
     {
         //goblinAnim;
+        Debug.LogError("goblin escaped but nothing is happening");
     }
 
     private void OnMouseDown()

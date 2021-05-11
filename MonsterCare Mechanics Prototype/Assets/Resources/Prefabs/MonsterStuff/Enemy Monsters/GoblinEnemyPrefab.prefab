@@ -48,7 +48,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7eb6e11fe9fdfc4c95bb75762d3e320, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FoodPrefab: {fileID: 0}
+  FoodPrefab:
+  - {fileID: 4312554771803490216, guid: d001ba28ba2d61f489998ce6c8651e38, type: 3}
+  - {fileID: 591264133665482121, guid: 0cd687833018ef249be9a373334418ef, type: 3}
+  - {fileID: 4444844860384087399, guid: 28c8527c0d913c3439938fb3364ae1e6, type: 3}
+  - {fileID: 9126330596708894098, guid: 28a0973a828ea74459bdb40e39bd4930, type: 3}
+  fullInv: {fileID: 2511648202401420337, guid: d231f21a2a34b1648b607654745241d7, type: 3}
   Stunned: 0
   Vulnerable: 0
   Defeated: 0

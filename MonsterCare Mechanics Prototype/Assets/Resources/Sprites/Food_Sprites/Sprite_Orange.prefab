@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: -4552798582335525387}
   m_Layer: 0
   m_Name: Sprite_Orange
-  m_TagString: Untagged
+  m_TagString: Food
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

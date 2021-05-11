@@ -393,7 +393,7 @@ public class GameSaver
 
                 PlayerPrefs.SetInt(SaveIndex + "_Power", GoblinInv[i].Power);
                 PlayerPrefs.SetString(SaveIndex + "_Type", GoblinInv[i].FoodType);
-                //PlayerPrefs.SetString(SaveIndex + "_Element", GoblinInv[i].Element);
+                PlayerPrefs.SetString(SaveIndex + "_Element", GoblinInv[i].Element.ToString());
                 PlayerPrefs.SetInt(SaveIndex + "_SpriteIndex", GoblinInv[i].Sprite);
                 inv += "\nInventory Slot " + i + ": Type: " + GoblinInv[i].FoodType + ", Element: " + GoblinInv[i].Element + ", Power: " + GoblinInv[i].Power + ", Sprite: " + GoblinInv[i].Sprite;
             }
@@ -421,7 +421,11 @@ public class GameSaver
             string SaveIndex = GoblinInvIndex + i;
             int power = PlayerPrefs.GetInt(SaveIndex + "_Power");
             string type = PlayerPrefs.GetString(SaveIndex + "_Type");
-            MonsterElement element = (MonsterElement)Enum.Parse(typeof(MonsterElement), PlayerPrefs.GetString(SaveIndex + "_Element"));
+            MonsterElement element;
+            if (PlayerPrefs.GetString(SaveIndex + "_Element").Equals(""))
+                element = MonsterElement.None;
+            else
+                element = (MonsterElement)Enum.Parse(typeof(MonsterElement), PlayerPrefs.GetString(SaveIndex + "_Element"));
 
             int SpriteIndex = PlayerPrefs.GetInt(SaveIndex + "_SpriteIndex");
             if (type == "")
@@ -445,22 +449,27 @@ public class GameSaver
         for (int i = 0; i < empty.Length; i++)
         {
             string SaveIndex = GoblinInvIndex + i + "_";
-            if (empty[i].FoodType != "None")
+            if (empty[i] != null)
             {
 
-                PlayerPrefs.SetInt(SaveIndex + "_Power", empty[i].Power);
-                PlayerPrefs.SetString(SaveIndex + "_Type", empty[i].FoodType);
-                //PlayerPrefs.SetString(SaveIndex + "_Element", empty[i].Element);
-                PlayerPrefs.SetInt(SaveIndex + "_SpriteIndex", empty[i].Sprite);
-                inv += "\nInventory Slot " + i + ": Type: " + empty[i].FoodType + ", Element: " + empty[i].Element + ", Power: " + empty[i].Power + ", Sprite: " + empty[i].Sprite;
+                if (empty[i].FoodType != "None")
+                {
+
+                    PlayerPrefs.SetInt(SaveIndex + "_Power", empty[i].Power);
+                    PlayerPrefs.SetString(SaveIndex + "_Type", empty[i].FoodType);
+                    PlayerPrefs.SetString(SaveIndex + "_Element", empty[i].Element.ToString());
+                    PlayerPrefs.SetInt(SaveIndex + "_SpriteIndex", empty[i].Sprite);
+                    inv += "\nInventory Slot " + i + ": Type: " + empty[i].FoodType + ", Element: " + empty[i].Element + ", Power: " + empty[i].Power + ", Sprite: " + empty[i].Sprite;
+                }
+                else
+                {
+                    PlayerPrefs.SetInt(SaveIndex + "_Power", 0);
+                    PlayerPrefs.SetString(SaveIndex + "_Type", "None");
+                    PlayerPrefs.SetString(SaveIndex + "_Element", "None");
+                    PlayerPrefs.SetInt(SaveIndex + "_SpritePath", -1);
+                }
             }
-            else
-            {
-                PlayerPrefs.SetInt(SaveIndex + "_Power", 0);
-                PlayerPrefs.SetString(SaveIndex + "_Type", "None");
-                PlayerPrefs.SetString(SaveIndex + "_Element", "None");
-                PlayerPrefs.SetInt(SaveIndex + "_SpritePath", -1);
-            }
+            
         }
         Debug.Log(inv);
     }

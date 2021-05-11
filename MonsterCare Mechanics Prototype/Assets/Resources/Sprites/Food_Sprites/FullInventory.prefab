@@ -93,7 +93,7 @@ GameObject:
   - component: {fileID: 2511648202401420349}
   m_Layer: 0
   m_Name: FullInventory
-  m_TagString: Untagged
+  m_TagString: Food
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -176,6 +176,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15710a62709914a46b73917ac9fac80d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spriteIndex: 0
 --- !u!61 &2511648202401420349
 BoxCollider2D:
   m_ObjectHideFlags: 0

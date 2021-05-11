@@ -41,6 +41,8 @@ public class Toughness_Modifer : MonoBehaviour
 
     public GameObject GoblinPrefab;
 
+    private int spawner;
+    bool isCreated;
 
     private void Start()
     {
@@ -57,7 +59,9 @@ public class Toughness_Modifer : MonoBehaviour
 
         manager.ActiveMonster.CombatActive(true);
 
-        //this checks which scene you are using and then spawns the correct enemy
+        spawner = Random.Range(1, 2);
+
+            //this checks which scene you are using and then spawns the correct enemy
         switch (scene)
         {
             case "Savannah_FS":
@@ -76,22 +80,12 @@ public class Toughness_Modifer : MonoBehaviour
                 monsterPrefab = enemyMonsterPaths[5];
                 break;
         }
+        
+        
 
         //Spawning an enemy monster
         isActive = true;
         SpawnEnemy();
-
-        //Generating random chance for goblin (1% chance?) bigger chance when he has an inventory
-        if (false) 
-        {
-            if(manager.Enemy == null)
-            {
-                GameObject GoblinSpawn = Instantiate(GoblinPrefab);
-                GoblinSpawn.transform.SetParent(canvas.transform, false);
-                Debug.LogWarning("GoblinSpawn");
-            }    
-        }
-
 
         //Sets the DMG effects to their preset.
         float alpha = 1 - (manager.ActiveMonster.HealthStatus / manager.ActiveMonster.GetMaxHealth);
@@ -123,6 +117,19 @@ public class Toughness_Modifer : MonoBehaviour
                 }
             }
        }
+        //Generating random chance for goblin (1% chance?) bigger chance when he has an inventory
+        if (spawner == 1)
+        {
+            if (manager.Enemy == null && !isCreated)
+            {
+                GameObject GoblinSpawn = Instantiate(GoblinPrefab);
+                GoblinSpawn.transform.SetParent(canvas.transform, false);
+                Debug.LogWarning("GoblinSpawn");
+                isCreated = true;
+                Destroy(GameObject.FindGameObjectWithTag("Food"));
+            }
+        }
+        Debug.LogWarning(spawner);
     }
 
     public void SpawnEnemy()

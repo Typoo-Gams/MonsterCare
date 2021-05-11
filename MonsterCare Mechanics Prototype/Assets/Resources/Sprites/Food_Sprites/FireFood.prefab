@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3322956769192212982}
   m_Layer: 0
   m_Name: FireFood
-  m_TagString: Untagged
+  m_TagString: Food
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -101,7 +101,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2.68, y: 3.06}
+    oldSize: {x: 3.35, y: 3.825}
     newSize: {x: 2.68, y: 3.06}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -122,3 +122,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15710a62709914a46b73917ac9fac80d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spriteIndex: 0

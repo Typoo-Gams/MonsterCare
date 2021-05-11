@@ -30,7 +30,7 @@ public class NotesDrop_RandomChance : MonoBehaviour
         manager = GameObject.Find("__app").GetComponentInChildren<GameManager>();
         isCreated = false;
         Groups.Add(group0);
-        Groups.Add(group1);
+        //Groups.Add(group1);
 
         int noteIndex = 1;
         for (int i = 0; i < Groups.Count; i++)
@@ -86,17 +86,19 @@ public class NotesDrop_RandomChance : MonoBehaviour
             float random = Random.Range(0f, 1f);
 
             //checks if it has evolved and then changes the dropchance accordingly
-            if (random <= Groups[GroupDropIndex].DropChance) //change this in new iterations
+            if (random <= Groups[GroupDropIndex].DropChance)
             {
 
                 int prefabIndex;
 
                 do
-                    prefabIndex = Random.Range(0, group0.Notes.Length); //and this
+                    prefabIndex = Random.Range(0, group0.Notes.Length -1);
                 while (DroppableNotes[prefabIndex] == 0);
 
-                        
-                Instantiate(Groups[GroupDropIndex].Notes[prefabIndex]); //and this
+                if (GroupDropIndex < Groups.Count)
+                    Instantiate(Groups[GroupDropIndex].Notes[prefabIndex]);
+                else
+                    Debug.Log("All Current notes have been obtained");
                 //PlaySound
                 FindObjectOfType<SoundManager>().play("ObtainReport");
                 Debug.Log("Group0 Note");

@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class FoodManager_FoodObject : MonoBehaviour
 {
-    Food ThisFood;
+    public Food ThisFood;
 
     public int FoodPower = 10;
     public MonsterElement FoodElement;

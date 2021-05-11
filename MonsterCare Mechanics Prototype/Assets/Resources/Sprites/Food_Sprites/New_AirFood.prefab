@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3087181301691102872}
   m_Layer: 0
   m_Name: New_AirFood
-  m_TagString: Untagged
+  m_TagString: Food
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -122,3 +122,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15710a62709914a46b73917ac9fac80d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spriteIndex: 0
