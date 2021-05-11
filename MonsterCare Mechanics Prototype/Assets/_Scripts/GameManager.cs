@@ -116,8 +116,8 @@ public class GameManager : MonoBehaviour
 
             if(Input.GetKeyDown(KeyCode.P))
             {
-                ActiveMonster.EnergyStatus = 5;
-                ActiveMonster.HungerStatus = 50;
+                ActiveMonster.EnergyStatus = 500;
+                ActiveMonster.HungerStatus = 5000;
                 Debug.Log("Cheat P activated");
             }
 

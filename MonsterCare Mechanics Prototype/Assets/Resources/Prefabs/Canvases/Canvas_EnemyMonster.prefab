@@ -917,9 +917,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MonsterHiarchySpawn: {fileID: 6336361275533412983}
   TakingDmg: {fileID: 214774329}
-  minDmg: 1
-  maxDmg: 25
-  dmgDelay: 5
+  minDmg: 100
+  maxDmg: 2500
   sprikes: {fileID: 213113367}
   gadient: {fileID: 905119214}
   HealthBar: {fileID: 728705796}
