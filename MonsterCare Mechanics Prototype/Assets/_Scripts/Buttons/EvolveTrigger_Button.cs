@@ -106,7 +106,7 @@ public class EvolveTrigger_Button : MonoBehaviour
     {
         manager.ActiveMonster.CanEvolveStatus = true;
         ShowFoodInv.SetBool("Open", false);
-        manager.ActiveMonster.EnergyStatus -= EvolveEnergyCost;
+        manager.ActiveMonster.EnergyStatus -= manager.ActiveMonster.GetEvolveCost;
         FindObjectOfType<SoundManager>().play("ButtonClick");
     }
 }

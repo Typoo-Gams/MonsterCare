@@ -435,11 +435,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: def75aa5ad44cc84cada3d1936eb5266, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cost: 1
+  cost: 10
   elements:
   - {fileID: 26613001}
   paying: 1
   clicked: 0
+  loading: 0
   otherButtons:
   - {fileID: 1822404999}
   - {fileID: 998466932}
@@ -680,11 +681,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: def75aa5ad44cc84cada3d1936eb5266, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cost: 1
+  cost: 10
   elements:
   - {fileID: 1176222778}
   paying: 1
   clicked: 0
+  loading: 0
   otherButtons:
   - {fileID: 206267944}
   - {fileID: 1793951554}
@@ -925,11 +927,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: def75aa5ad44cc84cada3d1936eb5266, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cost: 1
+  cost: 10
   elements:
   - {fileID: 1074869177}
   paying: 1
   clicked: 0
+  loading: 0
   otherButtons:
   - {fileID: 1822404999}
   - {fileID: 1314494823}
@@ -1527,11 +1530,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: def75aa5ad44cc84cada3d1936eb5266, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cost: 1
+  cost: 10
   elements:
   - {fileID: 417919842}
   paying: 1
   clicked: 0
+  loading: 0
   otherButtons:
   - {fileID: 1822404999}
   - {fileID: 998466932}
@@ -2030,11 +2034,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: def75aa5ad44cc84cada3d1936eb5266, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cost: 1
+  cost: 10
   elements:
   - {fileID: 574611766}
   paying: 1
   clicked: 0
+  loading: 0
   otherButtons:
   - {fileID: 1822404999}
   - {fileID: 998466932}
@@ -2193,11 +2198,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: def75aa5ad44cc84cada3d1936eb5266, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cost: 1
+  cost: 10
   elements:
   - {fileID: 1009533912}
   paying: 1
   clicked: 0
+  loading: 0
   otherButtons:
   - {fileID: 1314494823}
   - {fileID: 1314494823}

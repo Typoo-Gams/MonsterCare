@@ -20,7 +20,7 @@ public class Food : InventoryItem
             foodType = "Normal";
             Type = "Food";
             element = MonsterElement.None;
-            foodPower = 20;
+            foodPower = 2000;
             SpriteIndex = sprite;
         }
         else 
@@ -45,7 +45,7 @@ public class Food : InventoryItem
         foodType = "Special";
         Type = "Food";
         element = elementType;
-        foodPower = 30;
+        foodPower = 3000;
     }
 
 

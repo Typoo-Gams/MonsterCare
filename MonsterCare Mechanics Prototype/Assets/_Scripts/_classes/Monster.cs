@@ -73,39 +73,42 @@ public class Monster
 
 
     //Max & Min Values
-    private float MaxHealth = 100;
-    private float MaxHunger = 100;
-    private float MaxSleep = 100;
-    private float MaxHappiness = 100;
-    private float MaxEnergy = 10;
-    private float EvolveCost = 10;
+    private float MaxHealth = 10000;
+    private float MaxHunger = 10000;
+    private float MaxSleep = 10000;
+    private float MaxHappiness = 10000;
+    private float MaxEnergy = 1000;
+    private float EvolveCost = 800;
 
 
     //Monster Degradation Modifiers
-    private float HungerDegration = 0.083f; //1% every _ min
-    private float SleepDegration = 0.083f; //1% every _ min
-    private float HappinessDegration = 0.083f;
+    private float HungerDegration = 0.017f; //  10000 max / 57600 sec in 16 hours = 0.17 per second
+    private float SleepDegration = 0.017f; // update: 10 times a sec -> 0.017
+    private float HappinessDegration = 0.034f;
+    // 10000 max / 28800 sec in 8 hours = 0.34 per second
+    // update: 10 times a sec -> 0.034
 
-//-----------------Personality Degradation Values----------------
-/**/
+    //-----------------Personality Degradation Values----------------
+    /**/
 
     //Fighter
-    readonly float Fighter_MaxHealth = 200;
-    readonly float Fighter_HungerDegration = 0.093f;
+    readonly float Fighter_MaxHealth = 20000;
+    readonly float Fighter_HungerDegration = 0.0187f; //10% faster 
 
     //Hungry
-    readonly float Hungry_MaxHunger = 200;
-    readonly float Hungry_HungerDegration = 0.073f;
+    readonly float Hungry_MaxHunger = 20000;
+    readonly float Hungry_HungerDegration = 0.0153f; //10% slower
     //more passive health regen?
 
     //Sleepy
-    readonly float Sleepy_MaxSleep = 200;
-    readonly float Sleepy_MaxEnergy = 20;
+    readonly float Sleepy_MaxSleep = 20000;
+    readonly float Sleepy_MaxEnergy = 2000;
+    readonly float Sleepy_EvolveCost = 1300;
     //needs more energy to evolve
 
     //Playfull
-    readonly float Playfull_MaxHappiness = 200;
-    readonly float Playfull_HappinessDegration = 0.073f;
+    readonly float Playfull_MaxHappiness = 20000;
+    readonly float Playfull_HappinessDegration = 0.0306f; //10% slower
 
 /**/
 
@@ -173,6 +176,7 @@ public class Monster
             case MonsterType.Sleepy:
                 MaxSleep = Sleepy_MaxSleep;
                 MaxEnergy = Sleepy_MaxEnergy;
+                EvolveCost = Sleepy_EvolveCost;
                 break;
         }
 
