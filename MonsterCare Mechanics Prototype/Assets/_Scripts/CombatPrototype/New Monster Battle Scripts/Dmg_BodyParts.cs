@@ -10,7 +10,7 @@ public class Dmg_BodyParts : MonoBehaviour
 
     bool currentlyAttacking;
     public WeaknessType DmgModifier;
-    public float[] DMG_values = {1.8f, 1.3f, 0.8f };
+    private float[] DMG_values = {180f, 130f, 80f };
     int dmg_index;
     float Counter;
     bool tapped;
@@ -28,12 +28,10 @@ public class Dmg_BodyParts : MonoBehaviour
         //idk why its done like this.
         Overlay = gameObject.transform.GetChild(gameObject.transform.childCount - 1).gameObject;
 
-        Debug.Log(Overlay.GetComponent<Image>().color);
-
         switch (DmgModifier)
         {
             case WeaknessType.Strong:
-                dmg_index = 0;
+                dmg_index = 2;
                 break;
 
             case WeaknessType.Moderate:
@@ -41,7 +39,7 @@ public class Dmg_BodyParts : MonoBehaviour
                 break;
 
             case WeaknessType.Weak:
-                dmg_index = 2;
+                dmg_index = 0;
                 break;
         }
 
@@ -70,6 +68,7 @@ public class Dmg_BodyParts : MonoBehaviour
         if (currentlyAttacking == true)
         {
             manager.EnemyMonster.DealDmg(1 * DMG_values[dmg_index]);
+            Debug.Log((DMG_values[dmg_index]) + ": " + manager.EnemyMonster.HealthStatus);
             FindObjectOfType<SoundManager>().play("SwordSwing");
         }
         

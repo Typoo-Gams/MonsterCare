@@ -87,13 +87,13 @@ public class GameManager : MonoBehaviour
             //Dev cheats
             if (Input.GetKeyDown(KeyCode.I))
             {
-                ActiveMonster.UpdateHealth(100);
-                ActiveMonster.HappinessStatus = 100;
+                ActiveMonster.UpdateHealth(10000);
+                ActiveMonster.HappinessStatus = 10000;
                 ActiveMonster.UpdateHappiness();
-                ActiveMonster.UpdateHunger(100);
-                ActiveMonster.SleepStatus = 100;
+                ActiveMonster.UpdateHunger(10000);
+                ActiveMonster.SleepStatus = 10000;
                 ActiveMonster.UpdateSleeping(false);
-                ActiveMonster.EnergyStatus = 10;
+                ActiveMonster.EnergyStatus = 1000;
 
                 FoodInventory[0] = new Food(false);
                 FoodInventory[0].Sprite = 12;
