@@ -896,13 +896,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c2cb449dd9a609448625866bef3189c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  group0:
+    Notes:
+    - {fileID: 3837360739718795844, guid: 24a9eb23437c56344ae786bfdc6f8e27, type: 3}
+    - {fileID: 8352625632777933019, guid: 2f13ea70a335b3047844bb511abe1232, type: 3}
+    - {fileID: 5740405622423256014, guid: f18500803474a2d48ac60057e5bd88f5, type: 3}
+    - {fileID: 5827904041017366573, guid: a77d8c04f01dfbb4886993a21c8dff3f, type: 3}
+    NoteIndexStart: 1
+    DropChance: 0.33333334
+  group1:
+    Notes: []
+    NoteIndexStart: 5
+    DropChance: 0
+  GroupDropIndex: 0
   AbilityIcon1: {fileID: 4554980482008394110}
   AbilityIcon2: {fileID: 8613295694917166185}
-  prefabList:
-  - {fileID: 3837360739718795844, guid: 24a9eb23437c56344ae786bfdc6f8e27, type: 3}
-  - {fileID: 8352625632777933019, guid: 2f13ea70a335b3047844bb511abe1232, type: 3}
-  - {fileID: 5740405622423256014, guid: f18500803474a2d48ac60057e5bd88f5, type: 3}
-  - {fileID: 5827904041017366573, guid: a77d8c04f01dfbb4886993a21c8dff3f, type: 3}
 --- !u!114 &7327075317982823997
 MonoBehaviour:
   m_ObjectHideFlags: 0

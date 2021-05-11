@@ -10,7 +10,7 @@ PrefabInstance:
     - target: {fileID: 152955492612926423, guid: b638244b593694a4691b15fc022b0286, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: b372233e20b983e45af94c30f7415ce1, type: 3}
+      objectReference: {fileID: 21300000, guid: fb9e6e3d1acda6649a3078f4c66d7714, type: 3}
     - target: {fileID: 2148963520926488947, guid: b638244b593694a4691b15fc022b0286, type: 3}
       propertyPath: m_Name
       value: Note03_review Variant

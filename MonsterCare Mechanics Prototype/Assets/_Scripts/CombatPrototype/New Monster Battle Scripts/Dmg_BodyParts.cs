@@ -68,7 +68,6 @@ public class Dmg_BodyParts : MonoBehaviour
         if (currentlyAttacking == true)
         {
             manager.EnemyMonster.DealDmg(1 * DMG_values[dmg_index]);
-            Debug.Log((DMG_values[dmg_index]) + ": " + manager.EnemyMonster.HealthStatus);
             FindObjectOfType<SoundManager>().play("SwordSwing");
         }
         

@@ -343,22 +343,12 @@ public class Monster
     public void UpdateHealth(float NewHealth)
     {
         if (NewHealth <= MaxHealth && NewHealth > -1)
-        {
-            Health = NewHealth;
-        }
-        else if (NewHealth > MaxHealth)
-        {
-            Health = MaxHealth;
-        }
-        if (Health <= 0)
-        {
-            IsDead = true;
-            Health = 0;
-        }
-        else if (Health >= 1)
-        {
+            Health = Mathf.Clamp(NewHealth, 0, MaxHealth);
+
+        if (Health >= 1)
             IsDead = false;
-        }
+        else
+            IsDead = true;
     }
 
     //----------- Updates------------
@@ -393,9 +383,6 @@ public class Monster
     /// <param name="NewHunger">Set new current hunger</param>
     public void UpdateHunger(float NewHunger)
     {
-
-
-
         Hunger = NewHunger;
 
         if (Hunger > MaxHunger)

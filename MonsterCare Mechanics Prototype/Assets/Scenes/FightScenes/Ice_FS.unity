@@ -339,6 +339,38 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 03935f9123df6504d844e909c9f99a57, type: 3}
+    - target: {fileID: 8637991652438758500, guid: 6e8dea5fbfa00e74594cb818876d0621, type: 3}
+      propertyPath: group0.NoteIndexStart
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8637991652438758500, guid: 6e8dea5fbfa00e74594cb818876d0621, type: 3}
+      propertyPath: group1.NoteIndexStart
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8637991652438758500, guid: 6e8dea5fbfa00e74594cb818876d0621, type: 3}
+      propertyPath: group0.Notes.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8637991652438758500, guid: 6e8dea5fbfa00e74594cb818876d0621, type: 3}
+      propertyPath: group1.Notes.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8637991652438758500, guid: 6e8dea5fbfa00e74594cb818876d0621, type: 3}
+      propertyPath: group0.Notes.Array.data[0]
+      value: 
+      objectReference: {fileID: 3837360739718795844, guid: 24a9eb23437c56344ae786bfdc6f8e27, type: 3}
+    - target: {fileID: 8637991652438758500, guid: 6e8dea5fbfa00e74594cb818876d0621, type: 3}
+      propertyPath: group0.Notes.Array.data[1]
+      value: 
+      objectReference: {fileID: 8352625632777933019, guid: 2f13ea70a335b3047844bb511abe1232, type: 3}
+    - target: {fileID: 8637991652438758500, guid: 6e8dea5fbfa00e74594cb818876d0621, type: 3}
+      propertyPath: group0.Notes.Array.data[2]
+      value: 
+      objectReference: {fileID: 5740405622423256014, guid: f18500803474a2d48ac60057e5bd88f5, type: 3}
+    - target: {fileID: 8637991652438758500, guid: 6e8dea5fbfa00e74594cb818876d0621, type: 3}
+      propertyPath: group0.Notes.Array.data[3]
+      value: 
+      objectReference: {fileID: 5827904041017366573, guid: a77d8c04f01dfbb4886993a21c8dff3f, type: 3}
     - target: {fileID: 9104515355766282086, guid: 6e8dea5fbfa00e74594cb818876d0621, type: 3}
       propertyPath: m_Camera
       value: 

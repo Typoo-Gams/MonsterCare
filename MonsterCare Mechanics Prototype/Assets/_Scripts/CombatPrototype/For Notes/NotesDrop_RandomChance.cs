@@ -6,27 +6,59 @@ using UnityEngine.UI;
 public class NotesDrop_RandomChance : MonoBehaviour
 {
     GameManager manager;
+    GameSaver Saver = new GameSaver();
 
     private bool isCreated;
 
     //This chooses the dropchance for the different generations
-    const float dropChance0 = 1f / 3f;
-    const float dropChance1 = 1f / 5f;
-    //const float dropChance2 = 0f / 0f;
+    //const float dropChance0 = 1f / 3f;
+    //const float dropChance1 = 1f / 5f;
 
-    char[] seperator = { '_', '(' };
+    //Note Goups
+    List<NoteGroup> Groups = new List<NoteGroup>();
+    [SerializeField] public NoteGroup group0; // Notes 1-4
+    [SerializeField] public NoteGroup group1; // Notes 5-8
+    public int GroupDropIndex = 0;
+    List<int> DroppableNotes = new List<int>();
 
     public Image AbilityIcon1;
     public Image AbilityIcon2;
-
-    //List of the notes, can add more in the inspector
-    public List<GameObject> prefabList = new List<GameObject>();
 
     // Start is called before the first frame update
     void Start()
     {
         manager = GameObject.Find("__app").GetComponentInChildren<GameManager>();
         isCreated = false;
+        Groups.Add(group0);
+        Groups.Add(group1);
+
+        int noteIndex = 1;
+        for (int i = 0; i < Groups.Count; i++)
+        {
+            int count = 0;
+            for (int j = noteIndex; j < Groups[i].Notes.Length+1; j++)
+            {
+                if (Saver.LoadNote(j) == 1)
+                {
+                    count++;
+                    Debug.LogError("Note" + j);
+                }
+                if (count == Groups[i].Notes.Length)
+                {
+                    GroupDropIndex++;
+                    Debug.LogError("Note group " + i + " has been collected");
+                }
+            }
+            noteIndex += Groups[i].Notes.Length;
+        }
+
+        for (int i = Groups[GroupDropIndex].NoteIndexStart; i < Groups[GroupDropIndex].Notes.Length; i++)
+        {
+            if (Saver.LoadNote(i) == 1)
+                DroppableNotes.Add(i);
+            else
+                DroppableNotes.Add(0);
+        }
     }
 
     // Update is called once per frame
@@ -44,10 +76,9 @@ public class NotesDrop_RandomChance : MonoBehaviour
                 EnemyHasDied();
             }
         }
-        
     }
 
-    //Spawns the notes
+    //Makes a random and drops the note if succeeded
     public void EnemyHasDied()
     {
         if (isCreated == true)
@@ -55,27 +86,20 @@ public class NotesDrop_RandomChance : MonoBehaviour
             float random = Random.Range(0f, 1f);
 
             //checks if it has evolved and then changes the dropchance accordingly
-            switch (manager.MonsterObject.name.Split(seperator)[1])
+            if (random <= Groups[GroupDropIndex].DropChance) //change this in new iterations
             {
-                case "Gen0":
-                    if (random <= dropChance0)
-                    {
-                        int prefabIndex = Random.Range(0, 4);
-                        Instantiate(prefabList[prefabIndex]);
-                        FindObjectOfType<SoundManager>().play("ObtainReport");
-                        Debug.Log("Gen0 Note");
-                    }
-                    break;
 
-                case "Gen1":
-                    if (random <= dropChance1)
-                    {
-                        int prefabIndex = Random.Range(0, 4);
-                        Instantiate(prefabList[prefabIndex]);
-                        FindObjectOfType<SoundManager>().play("ObtainReport");
-                        Debug.Log("Gen1 Note");
-                    }
-                    break;
+                int prefabIndex;
+
+                do
+                    prefabIndex = Random.Range(0, group0.Notes.Length); //and this
+                while (DroppableNotes[prefabIndex] == 0);
+
+                        
+                Instantiate(Groups[GroupDropIndex].Notes[prefabIndex]); //and this
+                //PlaySound
+                FindObjectOfType<SoundManager>().play("ObtainReport");
+                Debug.Log("Group0 Note");
             }
         }
     }
