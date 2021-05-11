@@ -52,7 +52,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 605ca19b1227cb84f9676f9f6f811016, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DmgModifier: 3
+  DmgModifier: 0
+  DMG_values:
+  - 1.8
+  - 1.3
+  - 0.8
 --- !u!60 &2159190479328284843
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -208,7 +212,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 605ca19b1227cb84f9676f9f6f811016, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DmgModifier: 3
+  DmgModifier: 0
+  DMG_values:
+  - 1.8
+  - 1.3
+  - 0.8
 --- !u!60 &2159190479415388528
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -377,7 +385,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 605ca19b1227cb84f9676f9f6f811016, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DmgModifier: 1
+  DmgModifier: 2
+  DMG_values:
+  - 1.8
+  - 1.3
+  - 0.8
 --- !u!60 &2159190479438060526
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -545,7 +557,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 605ca19b1227cb84f9676f9f6f811016, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DmgModifier: 3
+  DmgModifier: 0
+  DMG_values:
+  - 1.8
+  - 1.3
+  - 0.8
 --- !u!60 &2159190480084731421
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -701,7 +717,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 605ca19b1227cb84f9676f9f6f811016, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DmgModifier: 1
+  DmgModifier: 2
+  DMG_values:
+  - 1.8
+  - 1.3
+  - 0.8
 --- !u!60 &2159190480088460261
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -885,7 +905,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 605ca19b1227cb84f9676f9f6f811016, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DmgModifier: 3
+  DmgModifier: 0
+  DMG_values:
+  - 1.8
+  - 1.3
+  - 0.8
 --- !u!60 &2159190480179741750
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -1123,7 +1147,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 605ca19b1227cb84f9676f9f6f811016, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DmgModifier: 0
+  DmgModifier: 2
+  DMG_values:
+  - 1.8
+  - 1.3
+  - 0.8
 --- !u!60 &2159190480935902503
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -1290,7 +1318,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 605ca19b1227cb84f9676f9f6f811016, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DmgModifier: 2
+  DmgModifier: 1
+  DMG_values:
+  - 1.8
+  - 1.3
+  - 0.8
 --- !u!60 &2159190481131460602
 PolygonCollider2D:
   m_ObjectHideFlags: 0

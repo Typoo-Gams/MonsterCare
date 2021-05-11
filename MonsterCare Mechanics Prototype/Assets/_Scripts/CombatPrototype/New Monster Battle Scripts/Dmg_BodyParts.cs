@@ -9,9 +9,17 @@ public class Dmg_BodyParts : MonoBehaviour
     GameObject Overlay;
 
     bool currentlyAttacking;
-    public float DmgModifier;
+    public WeaknessType DmgModifier;
+    public float[] DMG_values = {1.8f, 1.3f, 0.8f };
+    int dmg_index;
     float Counter;
     bool tapped;
+
+    public enum WeaknessType {
+        Weak,
+        Moderate,
+        Strong
+    }
 
     private void Start()
     {
@@ -21,6 +29,22 @@ public class Dmg_BodyParts : MonoBehaviour
         Overlay = gameObject.transform.GetChild(gameObject.transform.childCount - 1).gameObject;
 
         Debug.Log(Overlay.GetComponent<Image>().color);
+
+        switch (DmgModifier)
+        {
+            case WeaknessType.Strong:
+                dmg_index = 0;
+                break;
+
+            case WeaknessType.Moderate:
+                dmg_index = 1;
+                break;
+
+            case WeaknessType.Weak:
+                dmg_index = 2;
+                break;
+        }
+
     }
         
 
@@ -45,7 +69,7 @@ public class Dmg_BodyParts : MonoBehaviour
 
         if (currentlyAttacking == true)
         {
-            manager.EnemyMonster.DealDmg(1 * DmgModifier);
+            manager.EnemyMonster.DealDmg(1 * DMG_values[dmg_index]);
             FindObjectOfType<SoundManager>().play("SwordSwing");
         }
         
@@ -54,17 +78,20 @@ public class Dmg_BodyParts : MonoBehaviour
             currentlyAttacking = false;
         }
 
-        if(DmgModifier == 1)
+
+        switch (DmgModifier)
         {
-            Overlay.GetComponent<Image>().color = new Color(1, 0.92f, 0.016f, 0.5f);
-        }
-        if(DmgModifier == 2)
-        {
-            Overlay.GetComponent<Image>().color = new Color(1, 0.5f, 0, 0.5f);
-        }
-        if(DmgModifier == 3)
-        {
-            Overlay.GetComponent<Image>().color = new Color(1, 0, 0, 0.5f);
+            case WeaknessType.Strong:
+                Overlay.GetComponent<Image>().color = new Color(1, 0.92f, 0.016f, 0.5f);
+                break;
+
+            case WeaknessType.Moderate:
+                Overlay.GetComponent<Image>().color = new Color(1, 0.5f, 0, 0.5f);
+                break;
+
+            case WeaknessType.Weak:
+                Overlay.GetComponent<Image>().color = new Color(1, 0, 0, 0.5f);
+                break;
         }
     }
 }
