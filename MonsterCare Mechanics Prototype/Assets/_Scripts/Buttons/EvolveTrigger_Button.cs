@@ -34,6 +34,10 @@ public class EvolveTrigger_Button : MonoBehaviour
 
     private void Update()
     {
+        if (EvolveEnergyCost != manager.ActiveMonster.GetEvolveCost)
+        {
+            EvolveEnergyCost = (int)manager.ActiveMonster.GetEvolveCost;
+        }
         if (manager.ActiveMonster.Element != MonsterElement.None && manager.ActiveMonster.EnergyStatus > EvolveEnergyCost && !manager.ActiveMonster.IsSleepingStatus)
         {
             ShowEvolveButton.SetBool("Active", true);
