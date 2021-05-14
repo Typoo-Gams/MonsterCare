@@ -339,6 +339,11 @@ MonoBehaviour:
   - {fileID: 1397777971}
   SceneNumber: 0
   SceneName: MonsterHome
+  hideIdems:
+  - {fileID: 587463885}
+  - {fileID: 1397777969}
+  - {fileID: 336641564}
+  - {fileID: 233085104}
 --- !u!61 &199789153
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -950,9 +955,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'TAP TO
-
-    PLAY'
+  m_Text: TAP THE BOX
 --- !u!222 &587463888
 CanvasRenderer:
   m_ObjectHideFlags: 0

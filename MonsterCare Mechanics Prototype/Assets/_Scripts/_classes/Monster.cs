@@ -110,7 +110,7 @@ public class Monster
     readonly float Playfull_MaxHappiness = 20000;
     readonly float Playfull_HappinessDegration = 0.0306f; //10% slower
 
-/**/
+    /**/
 
     //Health Bar
     GameObject HealthBar;
@@ -409,7 +409,7 @@ public class Monster
             UpdateHealth(HealthStatus - HealthRegen);
         }
 
-        if (Hunger > 50)
+        if (Hunger > MaxHunger * 0.5f)
             UpdateHealth(HealthStatus + HealthRegen);
     }
 
@@ -447,20 +447,21 @@ public class Monster
             //Adds sleep
             float gainedSleep = SleepDegration * modifier;
             Sleep += gainedSleep;
-            if (Hunger < 25)
+            float lowerMargin = MaxHunger * 0.33f;
+            float higherMargin = MaxHunger * 0.66f;
+
+            if (Hunger < lowerMargin)
             {
                 Energy += gainedSleep * SleepHungry;
-                Debug.Log(gainedSleep * SleepHungry);
             }
-            else if (Hunger > 75)
+            else if (Hunger > higherMargin)
             {
                 Energy += gainedSleep * SleepFull;
                 Debug.Log(gainedSleep * SleepFull);
             }
-            else if (Hunger > 25 && Hunger < 75)
+            else if (Hunger > lowerMargin && Hunger < higherMargin)
             {
                 Energy += gainedSleep * SleepMedium;
-                Debug.Log(gainedSleep * SleepMedium);
             }
             if (Energy > MaxEnergy)
                 Energy = MaxEnergy;
@@ -511,6 +512,8 @@ public class Monster
     /// </summary>
     public void UpdateHappiness()
     {
+        float lowerMargin = MaxHappiness * 0.33f;
+        float higherMargin = MaxHappiness * 0.66f;
 
         if (!(IsSleeping && _PersonalityType.Equals(MonsterType.Sleepy))) 
         {
@@ -518,17 +521,17 @@ public class Monster
         }
 
 
-        if (Happiness > 75)
+        if (Happiness > higherMargin)
         {
             HungerDegration = 0.083f * 0.9f;
             SleepDegration = 0.083f * 0.9f;
         }
-        if (Happiness < 75 && Happiness > 25)
+        if (Happiness < higherMargin && Happiness > lowerMargin)
         {
             HungerDegration = 0.083f;
             SleepDegration = 0.083f;
         }
-        if (Happiness < 25)
+        if (Happiness < lowerMargin)
         {
             HungerDegration = 0.083f * 1.1f;
             SleepDegration = 0.083f * 1.1f;

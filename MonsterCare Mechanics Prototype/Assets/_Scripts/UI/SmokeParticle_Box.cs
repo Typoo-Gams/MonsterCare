@@ -19,6 +19,8 @@ public class SmokeParticle_Box : MonoBehaviour
     int tapCounter;
     bool canTap = true;
 
+    public GameObject[] hideIdems;
+
     private void Start()
     {
         manager = GameObject.Find("__app").GetComponentInChildren<GameManager>();
@@ -44,7 +46,7 @@ public class SmokeParticle_Box : MonoBehaviour
                 found.gameObject.SetActive(false);
             }
 
-            if (openAnimCnt > Open.GetCurrentAnimatorStateInfo(0).length)
+            if (openAnimCnt > Open.GetCurrentAnimatorStateInfo(0).length && Open.GetCurrentAnimatorStateInfo(0).IsName("BoxOpened"))
             {
                 fadeAnimCnt += Time.deltaTime;
                 Fade.Play("FadeOut");
@@ -73,6 +75,15 @@ public class SmokeParticle_Box : MonoBehaviour
             FindObjectOfType<SoundManager>().play("BoxTapp");
             Smoke();
             tapCounter++;
+            Open.Play("BoxTap");
+
+            if (tapCounter == 1)
+            {
+                foreach(GameObject found in hideIdems)
+                {
+                    found.SetActive(false);
+                }
+            }
         }
     }
 

@@ -22,7 +22,6 @@ public class FoodManager_FoodObject : MonoBehaviour
     public Sprite[] SpecialFoodSprites = new Sprite[4];
     Sprite ThisSprite;
 
-
     public Text UI;
 
     GameObject parent;
@@ -113,9 +112,9 @@ public class FoodManager_FoodObject : MonoBehaviour
                 MonsterAnim.SetBool("Eating", true);
 
             if (manager.ActiveMonster.Personality.Equals(MonsterType.Hungry))
-                manager.ActiveMonster.AddHappiness(20);
+                manager.ActiveMonster.AddHappiness(FoodPower);
             else
-                manager.ActiveMonster.AddHappiness(10);
+                manager.ActiveMonster.AddHappiness(FoodPower/2);
         }
     }
 

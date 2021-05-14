@@ -45,7 +45,7 @@ public class GameManager : MonoBehaviour
     public Food FoodReward;
 
     //Remember if this is a new game.
-    public bool NewSave;
+    public bool NewSave, Tutorial;
 
     //Hide UI
     public bool HideUI;
@@ -53,6 +53,7 @@ public class GameManager : MonoBehaviour
     //Awake is called when the script instance is being loaded
     private void Awake()
     {
+        Tutorial = !Save.IsTutorialDone();
         GameVersion = "19.1";
         Debug.LogWarning("GameVersion is V." + GameVersion);
         FoodInventory = new Food[]{
@@ -107,10 +108,11 @@ public class GameManager : MonoBehaviour
 
             if (Input.GetKeyDown(KeyCode.O))
             {
-                ActiveMonster.UpdateHealth(1);
-                ActiveMonster.UpdateHunger(0);
+                ActiveMonster.HealthStatus = 100;
+                //ActiveMonster.UpdateHealth(1);
+                //ActiveMonster.UpdateHunger(0);
+                ActiveMonster.HungerStatus = 0;
                 ActiveMonster.EnergyStatus = 0;
-                Save.PrintObtainedMonsters();
                 Debug.Log("Cheat O activated");
             }
 
