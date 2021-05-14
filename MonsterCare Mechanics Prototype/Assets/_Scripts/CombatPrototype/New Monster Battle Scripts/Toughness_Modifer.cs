@@ -60,7 +60,7 @@ public class Toughness_Modifer : MonoBehaviour
         manager.ActiveMonster.CombatActive(true);
 
         //this controlls the chance of getting the goblin after battle
-        spawner = Random.Range(1, 6);
+        //spawner = Random.Range(1, 6);
 
             //this checks which scene you are using and then spawns the correct enemy
         switch (scene)
@@ -119,7 +119,7 @@ public class Toughness_Modifer : MonoBehaviour
             }
        }
         //Generating random chance for goblin (1% chance?) bigger chance when he has an inventory
-        if (spawner == 1)
+        /*if (spawner == 1)
         {
             if (manager.Enemy == null && !isCreated)
             {
@@ -130,7 +130,7 @@ public class Toughness_Modifer : MonoBehaviour
                 Destroy(GameObject.FindGameObjectWithTag("Food"));
             }
         }
-        Debug.LogWarning(spawner);
+        Debug.LogWarning(spawner);*/
     }
 
     public void SpawnEnemy()
