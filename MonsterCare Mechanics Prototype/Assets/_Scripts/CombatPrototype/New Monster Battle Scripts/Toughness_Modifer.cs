@@ -59,7 +59,8 @@ public class Toughness_Modifer : MonoBehaviour
 
         manager.ActiveMonster.CombatActive(true);
 
-        spawner = Random.Range(1, 2);
+        //this controlls the chance of getting the goblin after battle
+        spawner = Random.Range(1, 6);
 
             //this checks which scene you are using and then spawns the correct enemy
         switch (scene)
