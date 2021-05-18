@@ -188,6 +188,22 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1828280872, guid: 40193650ec9cf7e4189cc7b3202955b8, type: 3}
+      propertyPath: ShowInfo
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1828280872, guid: 40193650ec9cf7e4189cc7b3202955b8, type: 3}
+      propertyPath: OverWrite
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1828280872, guid: 40193650ec9cf7e4189cc7b3202955b8, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1828280872, guid: 40193650ec9cf7e4189cc7b3202955b8, type: 3}
+      propertyPath: ShowElement
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1715573245476508915, guid: 40193650ec9cf7e4189cc7b3202955b8, type: 3}
       propertyPath: m_LocalScale.x
       value: 132.0765
@@ -376,7 +392,8 @@ PrefabInstance:
       propertyPath: m_Colors.m_DisabledColor.a
       value: 0.78431374
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1828280872, guid: 40193650ec9cf7e4189cc7b3202955b8, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 40193650ec9cf7e4189cc7b3202955b8, type: 3}
 --- !u!114 &1354948474 stripped
 MonoBehaviour:

@@ -79,6 +79,7 @@ public class StatController : MonoBehaviour
 
         if (manager.ActiveMonster.Element != currentElement)
         {
+            //this can be improved
             switch (manager.ActiveMonster.Element)
             {
                 case MonsterElement.Air:
@@ -89,7 +90,7 @@ public class StatController : MonoBehaviour
                     currentElement = MonsterElement.Air;
                     Elementinfo.ShowInfo = true;
                     Anims[5].Play("NewElementAnim");
-                    ElementStat.GetComponent<OnHoverGetInfo>().OverWrite = false;
+                    //ElementStat.GetComponent<OnHoverGetInfo>().OverWrite = false;
                     break;
 
                 case MonsterElement.Earth:
@@ -100,7 +101,7 @@ public class StatController : MonoBehaviour
                     currentElement = MonsterElement.Earth;
                     Elementinfo.ShowInfo = true;
                     Anims[5].Play("NewElementAnim");
-                    ElementStat.GetComponent<OnHoverGetInfo>().OverWrite = false;
+                    //ElementStat.GetComponent<OnHoverGetInfo>().OverWrite = false;
                     break;
 
                 case MonsterElement.Fire:
@@ -111,7 +112,7 @@ public class StatController : MonoBehaviour
                     currentElement = MonsterElement.Fire;
                     Elementinfo.ShowInfo = true;
                     Anims[5].Play("NewElementAnim");
-                    ElementStat.GetComponent<OnHoverGetInfo>().OverWrite = false;
+                    //ElementStat.GetComponent<OnHoverGetInfo>().OverWrite = false;
                     break;
 
                 case MonsterElement.Water:
@@ -122,7 +123,7 @@ public class StatController : MonoBehaviour
                     currentElement = MonsterElement.Water;
                     Elementinfo.ShowInfo = true;
                     Anims[5].Play("NewElementAnim");
-                    ElementStat.GetComponent<OnHoverGetInfo>().OverWrite = false;
+                    //ElementStat.GetComponent<OnHoverGetInfo>().OverWrite = false;
                     break;
 
                 case MonsterElement.None:
@@ -132,7 +133,7 @@ public class StatController : MonoBehaviour
                     ElementStat.GetComponent<Image>().color = new Color(0, 0, 0, 0);
                     currentElement = MonsterElement.None;
                     Elementinfo.ShowInfo = false;
-                    ElementStat.GetComponent<OnHoverGetInfo>().OverWrite = true;
+                    //ElementStat.GetComponent<OnHoverGetInfo>().OverWrite = true;
                     break;
             }
         }

@@ -18,6 +18,6 @@ public class BattleCounter_Map : MonoBehaviour
     void Update()
     {
         double battles = Math.Truncate(manager.ActiveMonster.EnergyStatus / 100); 
-        myText.text = "Remaining energy: " + battles;
+        myText.text = "Remaining battles: " + battles;
     }
 }

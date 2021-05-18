@@ -67,7 +67,7 @@ public class ChildGen0_MonsterController : MonoBehaviour
 
         //ths is where stat changes happen
         cnt += Time.deltaTime;
-        if (cnt > 0.1f) 
+        if (cnt > manager.MonsterUpdateSpeed) 
         {
             monster.DegradeHunger();
             monster.UpdateHappiness();
@@ -211,7 +211,6 @@ public class ChildGen0_MonsterController : MonoBehaviour
                     GameObject Spawned = Instantiate(NextEvolution);
                     Spawned.transform.SetParent(transform.parent, false);
                     manager.ActiveMonster.PreviousEvolution = prefabLocation;
-                    Debug.Log(manager.ActiveMonster.Name + ": " + manager.ActiveMonster.PreviousEvolution);
                 }
             }
         }
@@ -241,7 +240,7 @@ public class ChildGen0_MonsterController : MonoBehaviour
     //Send this monster to the GameManager
     void SendMonster() 
     {
-        SendMessageUpwards("GetMonster", monster);
-        SendMessageUpwards("GetMonster", gameObject);
+        SendMessageUpwards("GetActiveMonster", monster);
+        SendMessageUpwards("GetObjMonster", gameObject);
     }
 }

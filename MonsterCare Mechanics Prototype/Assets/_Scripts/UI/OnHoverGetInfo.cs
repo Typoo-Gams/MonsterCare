@@ -10,8 +10,8 @@ public class OnHoverGetInfo : MonoBehaviour
     GameObject spawn;
     public string TextToDisplay;
     private string startText;
-    public bool ShowInfo = true, OverWrite;
-    Image fill;
+    public bool ShowInfo = true, OverWrite, ShowElement;
+    Image fill, element;
 
 
     // Start is called before the first frame update
@@ -19,14 +19,29 @@ public class OnHoverGetInfo : MonoBehaviour
     {
         startText = TextToDisplay;
 
-        for (int i = 0; i < transform.childCount; i++)
+        if (!ShowElement)
         {
-            if (transform.GetChild(i).name.Equals("Fill"))
+            for (int i = 0; i < transform.childCount; i++)
             {
-                fill = transform.GetChild(i).GetComponent<Image>();
-                break;
+                if (transform.GetChild(i).name.Equals("Fill"))
+                {
+                    fill = transform.GetChild(i).GetComponent<Image>();
+                    break;
+                }
             }
         }
+        else
+        {
+            for (int i = 0; i < transform.childCount; i++)
+            {
+                if (transform.GetChild(i).name.Equals("ElementStat"))
+                {
+                    element = transform.GetChild(i).GetComponent<Image>();
+                    break;
+                }
+            }
+        }
+        
     }
 
     private void OnMouseEnter()
@@ -45,13 +60,38 @@ public class OnHoverGetInfo : MonoBehaviour
 
     private void OnMouseOver()
     {
-        if (ShowInfo && !OverWrite)
+        if (ShowInfo && !OverWrite && !ShowElement)
         {
             string persentage = Math.Truncate(fill.fillAmount * 100) + ""; // fill.fillAmount * 100 + "";
 
             spawn = Instantiate(Panel);
             spawn.transform.SetParent(gameObject.transform, false);
             spawn.GetComponentInChildren<Text>().text = TextToDisplay + ": " + persentage + "%";
+            spawn.transform.localPosition = new Vector3(-4f, 0, 0);
+            ShowInfo = false;
+        }
+        if (ShowInfo && !OverWrite && ShowElement)
+        {
+            spawn = Instantiate(Panel);
+            spawn.transform.SetParent(gameObject.transform, false);
+            switch (element.sprite.name)
+            {
+                case "FireIcon":
+                    spawn.GetComponentInChildren<Text>().text = "Fire";
+                    break;
+
+                case "waaterIcon":
+                    spawn.GetComponentInChildren<Text>().text = "Water";
+                    break;
+
+                case "AirIcon":
+                    spawn.GetComponentInChildren<Text>().text = "Air";
+                    break;
+
+                case "EarthIcon":
+                    spawn.GetComponentInChildren<Text>().text = "Earth";
+                    break;
+            }
             spawn.transform.localPosition = new Vector3(-4f, 0, 0);
             ShowInfo = false;
         }

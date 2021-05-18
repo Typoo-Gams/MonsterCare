@@ -90,6 +90,7 @@ public class EvolveTrigger_Button : MonoBehaviour
             CntEolutionReport += Time.deltaTime;
             if (CntEolutionReport > 2 && !Saver.MonsterObtainedBefore(manager.ActiveMonster.Name)) 
             {
+                Debug.Log(manager.ActiveMonster.Name);
                 GameObject spawn = null;
                 if (manager.ActiveMonster.GetReport() != null)
                 {

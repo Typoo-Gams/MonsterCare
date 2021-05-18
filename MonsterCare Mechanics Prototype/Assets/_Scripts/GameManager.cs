@@ -26,6 +26,8 @@ public class GameManager : MonoBehaviour
     //Currently Active Monster
     public Monster ActiveMonster;
     public GameObject MonsterObject;
+    [HideInInspector]
+    public float MonsterUpdateSpeed = 0.1f;
 
     //Currently Active Enemy Monster
     public GameObject Enemy;
@@ -54,7 +56,7 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         Tutorial = !Save.IsTutorialDone();
-        GameVersion = "19.1";
+        GameVersion = "20.1";
         Debug.LogWarning("GameVersion is V." + GameVersion);
         FoodInventory = new Food[]{
             new Food(true),
@@ -108,7 +110,7 @@ public class GameManager : MonoBehaviour
 
             if (Input.GetKeyDown(KeyCode.O))
             {
-                ActiveMonster.HealthStatus = 100;
+                ActiveMonster.HealthStatus = 1;
                 //ActiveMonster.UpdateHealth(1);
                 //ActiveMonster.UpdateHunger(0);
                 ActiveMonster.HungerStatus = 0;
@@ -130,6 +132,8 @@ public class GameManager : MonoBehaviour
                 Save.SaveNote(3, 1);
                 Save.SaveNote(4, 1);
             }
+
+
         }
     }
 
@@ -217,7 +221,7 @@ public class GameManager : MonoBehaviour
     /// Set the active monster
     /// </summary>
     /// <param name="yourMonster">Your monster</param>
-    public void GetMonster(Monster yourMonster) 
+    public void GetActiveMonster(Monster yourMonster) 
     {
         ActiveMonster = yourMonster;
     }
@@ -228,7 +232,7 @@ public class GameManager : MonoBehaviour
     /// set the gameobject for the active monster
     /// </summary>
     /// <param name="yourMonster">your monster gameobject</param>
-    public void GetMonster(GameObject yourMonster)
+    public void GetObjMonster(GameObject yourMonster)
     {
         MonsterObject = yourMonster;
     }

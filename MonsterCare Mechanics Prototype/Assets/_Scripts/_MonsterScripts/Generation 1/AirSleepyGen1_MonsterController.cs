@@ -61,7 +61,7 @@ public class AirSleepyGen1_MonsterController : MonoBehaviour
     void Update()
     {
         cnt += Time.deltaTime;
-        if (cnt >= 0.1f)
+        if (cnt >= manager.MonsterUpdateSpeed)
         {
             monster.DegradeHunger();
             monster.UpdateHappiness();
@@ -208,7 +208,7 @@ public class AirSleepyGen1_MonsterController : MonoBehaviour
                 {
                     //This is what happens when the monster is fainted.
                     //Destroy the current monster object. spawn in the new monster. needs to load the new evolved monster when the game is reopened after being closed. clears the save file with an empty monster
-                    Monster empty = new Monster("empty", "None");
+                    Monster empty = new Monster("Child_Gen0", "Prefabs/MonsterStuff/Monsters/Gen 0/Child_Gen0");
                     Saver.SaveMonster(empty);
                     GameObject NextEvolution = Resources.Load<GameObject>("Prefabs/MonsterStuff/Monsters/Gen 0/Child_Gen0");
                     GameObject Parent = GameObject.Find("__app").GetComponentInChildren<GameManager>().gameObject;
@@ -224,7 +224,7 @@ public class AirSleepyGen1_MonsterController : MonoBehaviour
     //Send this monster to the GameManager
     void SendMonster()
     {
-        SendMessageUpwards("GetMonster", monster);
-        SendMessageUpwards("GetMonster", gameObject);
+        SendMessageUpwards("GetActiveMonster", monster);
+        SendMessageUpwards("GetObjMonster", gameObject);
     }
 }
