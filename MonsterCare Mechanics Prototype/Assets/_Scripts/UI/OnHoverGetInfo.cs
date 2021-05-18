@@ -18,7 +18,6 @@ public class OnHoverGetInfo : MonoBehaviour
     void Start()
     {
         startText = TextToDisplay;
-
         if (!ShowElement)
         {
             for (int i = 0; i < transform.childCount; i++)
@@ -30,18 +29,6 @@ public class OnHoverGetInfo : MonoBehaviour
                 }
             }
         }
-        else
-        {
-            for (int i = 0; i < transform.childCount; i++)
-            {
-                if (transform.GetChild(i).name.Equals("ElementStat"))
-                {
-                    element = transform.GetChild(i).GetComponent<Image>();
-                    break;
-                }
-            }
-        }
-        
     }
 
     private void OnMouseEnter()
@@ -74,7 +61,7 @@ public class OnHoverGetInfo : MonoBehaviour
         {
             spawn = Instantiate(Panel);
             spawn.transform.SetParent(gameObject.transform, false);
-            switch (element.sprite.name)
+            switch (gameObject.GetComponent<Image>().sprite.name)
             {
                 case "FireIcon":
                     spawn.GetComponentInChildren<Text>().text = "Fire";
