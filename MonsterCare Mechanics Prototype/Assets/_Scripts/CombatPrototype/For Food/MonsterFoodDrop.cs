@@ -104,7 +104,6 @@ public class MonsterFoodDrop : MonoBehaviour
 
         int random = Random.Range(0, foodPrefab.Length);
         int dropRate = Random.Range(1, 5);
-        Debug.Log(dropRate + "_" + specialFoodChance);
 
         if (isCreated == true)
         {

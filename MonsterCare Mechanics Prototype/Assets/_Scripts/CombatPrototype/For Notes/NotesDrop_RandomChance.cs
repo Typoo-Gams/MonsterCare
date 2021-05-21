@@ -18,7 +18,7 @@ public class NotesDrop_RandomChance : MonoBehaviour
     //Note Goups
     List<NoteGroup> Groups = new List<NoteGroup>();
     [SerializeField] public NoteGroup group0; // Notes 1-4
-    [SerializeField] public NoteGroup group1; // Notes 5-8
+    //[SerializeField] public NoteGroup group1; // Notes 5-8
     public int GroupDropIndex = 0;
     List<int> DroppableNotes = new List<int>();
 
@@ -50,7 +50,7 @@ public class NotesDrop_RandomChance : MonoBehaviour
                     count++;
                     Debug.Log("Note" + j);
                 }
-                if (count == Groups[i].Notes.Length -1)
+                if (count == Groups[i].Notes.Length)
                 {
                     GroupDropIndex++;
                     Debug.LogWarning("Note group " + i + " has been collected");
@@ -59,10 +59,13 @@ public class NotesDrop_RandomChance : MonoBehaviour
             noteIndex += Groups[i].Notes.Length;
         }
 
-        for (int i = Groups[GroupDropIndex].NoteIndexStart; i < Groups[GroupDropIndex].Notes.Length; i++)
+        for (int i = Groups[GroupDropIndex].NoteIndexStart; i < Groups[GroupDropIndex].Notes.Length +1; i++)
         {
-            if (Saver.LoadNote(i) == 1)
-                DroppableNotes.Add(i);
+            if (Saver.LoadNote(i) == 0)
+            {
+                DroppableNotes.Add(i - 1);
+                Debug.Log(i);
+            }
         }
     }
 
@@ -113,9 +116,7 @@ public class NotesDrop_RandomChance : MonoBehaviour
                 //drops a random note that hasnt been found yet. only drops notes from a certain range of predetermined groups of notes.
                 if (random <= Groups[GroupDropIndex].DropChance)
                 {
-                    int prefabIndex;
-
-                    prefabIndex = Random.Range(0, DroppableNotes.Count - 1);
+                    int prefabIndex = DroppableNotes[Random.Range(0, DroppableNotes.Count - 1)];
 
                     if (GroupDropIndex < Groups.Count)
                     {
