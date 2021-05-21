@@ -35,6 +35,7 @@ public class NotesDrop_RandomChance : MonoBehaviour
     {
         manager = GameObject.Find("__app").GetComponentInChildren<GameManager>();
         isCreated = false;
+        group0.DropChance = 1;
         Groups.Add(group0);
         //Groups.Add(group1);
 
@@ -47,12 +48,12 @@ public class NotesDrop_RandomChance : MonoBehaviour
                 if (Saver.LoadNote(j) == 1)
                 {
                     count++;
-                    Debug.LogError("Note" + j);
+                    Debug.Log("Note" + j);
                 }
                 if (count == Groups[i].Notes.Length)
                 {
                     GroupDropIndex++;
-                    Debug.LogError("Note group " + i + " has been collected");
+                    Debug.LogWarning("Note group " + i + " has been collected");
                 }
             }
             noteIndex += Groups[i].Notes.Length;
@@ -98,12 +99,17 @@ public class NotesDrop_RandomChance : MonoBehaviour
                 CurrentDeath = DeathAnimsObject.transform.GetChild(DeathAnimIndex).GetComponent<Animator>();
             }
             animCnt += Time.deltaTime;
+            manager.EnemyMonster.CombatActive(false);
+            manager.Enemy.SetActive(false);
+
             if (CurrentDeath.GetCurrentAnimatorStateInfo(0).length < animCnt)
             {
                 //Debug.LogError("enemy has now died");
                 float random = Random.Range(0f, 1f);
                 EnemyDead = true;
-                
+                //Debug.LogError((random <= Groups[GroupDropIndex].DropChance) + ": " + random + " <= " + Groups[GroupDropIndex].DropChance); 
+
+
                 //drops a random note that hasnt been found yet. only drops notes from a certain range of predetermined groups of notes.
                 if (random <= Groups[GroupDropIndex].DropChance)
                 {
@@ -112,7 +118,11 @@ public class NotesDrop_RandomChance : MonoBehaviour
                     prefabIndex = Random.Range(0, DroppableNotes.Count - 1);
 
                     if (GroupDropIndex < Groups.Count)
-                        Instantiate(Groups[GroupDropIndex].Notes[prefabIndex]);
+                    {
+                        GameObject spawn = Instantiate(Groups[GroupDropIndex].Notes[prefabIndex]);
+                        spawn.transform.SetParent(gameObject.transform, false);
+                        spawn.transform.SetAsLastSibling();
+                    }
                     else
                         Debug.Log("All Current notes have been obtained");
                     //PlaySound

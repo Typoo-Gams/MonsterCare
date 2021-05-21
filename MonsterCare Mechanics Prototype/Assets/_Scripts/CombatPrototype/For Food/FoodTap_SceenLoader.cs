@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class FoodTap_SceenLoader : MonoBehaviour
 {
@@ -50,7 +51,7 @@ public class FoodTap_SceenLoader : MonoBehaviour
         {
             Fade.Play("FadeOut");
             clicked = true;
-            gameObject.GetComponent<SpriteRenderer>().enabled = false;
+            gameObject.GetComponent<Image>().enabled = false;
         }
         Debug.Log("Food Pickup");
     }

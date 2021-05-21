@@ -117,6 +117,8 @@ public class MonsterFoodDrop : MonoBehaviour
                     {
                         GameObject spawn = Instantiate(specialPrefab[element]);
                         spawn.transform.SetParent(GameObject.FindGameObjectWithTag("CanvasFighting").transform, false);
+                        spawn.transform.SetAsLastSibling();
+                        spawn.transform.SetSiblingIndex(spawn.transform.GetSiblingIndex() - 1);
                         manager.FoodInventory[i] = new Food(spawnElement);
                         manager.FoodReward = manager.FoodInventory[i];
                         Debug.Log("Special food");
@@ -125,6 +127,8 @@ public class MonsterFoodDrop : MonoBehaviour
                     {
                         GameObject spawn = Instantiate(foodPrefab[random]);
                         spawn.transform.SetParent(GameObject.FindGameObjectWithTag("CanvasFighting").transform, false);
+                        spawn.transform.SetAsLastSibling();
+                        spawn.transform.SetSiblingIndex(spawn.transform.GetSiblingIndex() - 1);
                         manager.FoodInventory[i] = new Food(false);
                         manager.FoodReward = manager.FoodInventory[i];
                         Debug.Log("Normal food");
@@ -144,6 +148,8 @@ public class MonsterFoodDrop : MonoBehaviour
 
                         GameObject spawn = Instantiate(FullInventory);
                         spawn.transform.SetParent(GameObject.FindGameObjectWithTag("CanvasFighting").transform, false);
+                        spawn.transform.SetAsLastSibling();
+                        spawn.transform.SetSiblingIndex(spawn.transform.GetSiblingIndex() - 1);
                         Destroy(manager.Enemy.gameObject);
                         Destroy(manager.ActiveMonster.GetHealthbar());
                         manager.EnemyMonster = null;
