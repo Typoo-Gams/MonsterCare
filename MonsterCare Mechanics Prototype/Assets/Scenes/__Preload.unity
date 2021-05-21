@@ -1975,6 +1975,10 @@ PrefabInstance:
       propertyPath: SoundMuted
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5268706205060699684, guid: 09aecba300f3e334cb0dd45b32d85186, type: 3}
+      propertyPath: Sounds.Array.data[0].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 689948de97eec214f836146856348cff, type: 3}
     - target: {fileID: 5268706205060699685, guid: 09aecba300f3e334cb0dd45b32d85186, type: 3}
       propertyPath: m_RootOrder
       value: 1
