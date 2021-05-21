@@ -62,8 +62,6 @@ public class NotesDrop_RandomChance : MonoBehaviour
         {
             if (Saver.LoadNote(i) == 1)
                 DroppableNotes.Add(i);
-            else
-                DroppableNotes.Add(0);
         }
     }
 
@@ -102,19 +100,16 @@ public class NotesDrop_RandomChance : MonoBehaviour
             animCnt += Time.deltaTime;
             if (CurrentDeath.GetCurrentAnimatorStateInfo(0).length < animCnt)
             {
-                Debug.LogError("enemy has now died");
+                //Debug.LogError("enemy has now died");
                 float random = Random.Range(0f, 1f);
                 EnemyDead = true;
-                /*
+                
                 //drops a random note that hasnt been found yet. only drops notes from a certain range of predetermined groups of notes.
                 if (random <= Groups[GroupDropIndex].DropChance)
                 {
-
                     int prefabIndex;
 
-                    do
-                        prefabIndex = Random.Range(0, Groups[GroupDropIndex].Notes.Length - 1);
-                    while (DroppableNotes[prefabIndex] == 0);
+                    prefabIndex = Random.Range(0, DroppableNotes.Count - 1);
 
                     if (GroupDropIndex < Groups.Count)
                         Instantiate(Groups[GroupDropIndex].Notes[prefabIndex]);
@@ -124,7 +119,7 @@ public class NotesDrop_RandomChance : MonoBehaviour
                     FindObjectOfType<SoundManager>().play("ObtainReport");
                     Debug.Log("Group0 Note");
                 }
-                */
+                
             }
         }
     }
