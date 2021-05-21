@@ -165,7 +165,7 @@ public class GameManager : MonoBehaviour
                 Save.SaveMonster(ActiveMonster);
                 Save.SaveFood(FoodInventory);
                 Save.SaveGameVersion(GameVersion);
-                Debug.Log("Saved with pause");
+                //Debug.Log("Saved with pause");
             }
             catch
             {
@@ -184,7 +184,7 @@ public class GameManager : MonoBehaviour
                 Save.SaveMonster(ActiveMonster);
                 Save.SaveFood(FoodInventory);
                 Save.SaveGameVersion(GameVersion);
-                Debug.Log("Saved with pause");
+                //Debug.Log("Saved with pause");
             }
             catch
             {
@@ -212,7 +212,7 @@ public class GameManager : MonoBehaviour
             }
         }
 
-        Debug.Log("previous scene: " + PreviousSecene);
+        //Debug.Log("previous scene: " + PreviousSecene);
     }
 
 

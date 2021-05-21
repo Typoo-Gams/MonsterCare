@@ -9,6 +9,7 @@ public class NotesDrop_RandomChance : MonoBehaviour
     GameSaver Saver = new GameSaver();
 
     private bool isCreated;
+    public bool EnemyDead;
 
     //This chooses the dropchance for the different generations
     //const float dropChance0 = 1f / 3f;
@@ -23,6 +24,11 @@ public class NotesDrop_RandomChance : MonoBehaviour
 
     public Image AbilityIcon1;
     public Image AbilityIcon2;
+
+    int DeathAnimIndex;
+    public float animCnt;
+    public GameObject DeathAnimsObject;
+    Animator CurrentDeath;
 
     // Start is called before the first frame update
     void Start()
@@ -69,12 +75,17 @@ public class NotesDrop_RandomChance : MonoBehaviour
             //Checks if the enemy has died to know if its gonna create a note
             if (manager.EnemyMonster.DeathStatus && isCreated == false)
             {
+                DeathAnimIndex = GetComponent<Toughness_Modifer>().ActiveMonster;
+
                 AbilityIcon1.enabled = false;
                 AbilityIcon2.enabled = false;
 
                 isCreated = true;
-                EnemyHasDied();
             }
+        }
+        if (isCreated && !EnemyDead)
+        {
+            EnemyHasDied();
         }
     }
 
@@ -83,25 +94,37 @@ public class NotesDrop_RandomChance : MonoBehaviour
     {
         if (isCreated == true)
         {
-            float random = Random.Range(0f, 1f);
-
-            //checks if it has evolved and then changes the dropchance accordingly
-            if (random <= Groups[GroupDropIndex].DropChance)
+            if (!EnemyDead) 
             {
+                DeathAnimsObject.transform.GetChild(DeathAnimIndex).gameObject.SetActive(true);
+                CurrentDeath = DeathAnimsObject.transform.GetChild(DeathAnimIndex).GetComponent<Animator>();
+            }
+            animCnt += Time.deltaTime;
+            if (CurrentDeath.GetCurrentAnimatorStateInfo(0).length < animCnt)
+            {
+                Debug.LogError("enemy has now died");
+                float random = Random.Range(0f, 1f);
+                EnemyDead = true;
+                /*
+                //drops a random note that hasnt been found yet. only drops notes from a certain range of predetermined groups of notes.
+                if (random <= Groups[GroupDropIndex].DropChance)
+                {
 
-                int prefabIndex;
+                    int prefabIndex;
 
-                do
-                    prefabIndex = Random.Range(0, group0.Notes.Length -1);
-                while (DroppableNotes[prefabIndex] == 0);
+                    do
+                        prefabIndex = Random.Range(0, Groups[GroupDropIndex].Notes.Length - 1);
+                    while (DroppableNotes[prefabIndex] == 0);
 
-                if (GroupDropIndex < Groups.Count)
-                    Instantiate(Groups[GroupDropIndex].Notes[prefabIndex]);
-                else
-                    Debug.Log("All Current notes have been obtained");
-                //PlaySound
-                FindObjectOfType<SoundManager>().play("ObtainReport");
-                Debug.Log("Group0 Note");
+                    if (GroupDropIndex < Groups.Count)
+                        Instantiate(Groups[GroupDropIndex].Notes[prefabIndex]);
+                    else
+                        Debug.Log("All Current notes have been obtained");
+                    //PlaySound
+                    FindObjectOfType<SoundManager>().play("ObtainReport");
+                    Debug.Log("Group0 Note");
+                }
+                */
             }
         }
     }

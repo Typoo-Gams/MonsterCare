@@ -21,7 +21,7 @@ public class Toughness_Modifer : MonoBehaviour
                                    "Prefabs/MonsterStuff/Enemy Monsters/WaterEnemyPrefab"}; //5
 
     string monsterPrefab;
-    int pathLengths;
+    public int ActiveMonster;
 
     //checking if its active so that it only spawns the monster once
     bool isActive;
@@ -39,10 +39,12 @@ public class Toughness_Modifer : MonoBehaviour
     public GameObject sprikes, gadient, HealthBar;
     Image rend_Sprikes, rend_Gradient;
 
+    /*
     public GameObject GoblinPrefab;
 
     private int spawner;
     bool isCreated;
+    */
 
     private void Start()
     {
@@ -50,7 +52,6 @@ public class Toughness_Modifer : MonoBehaviour
         rend_Sprikes = sprikes.GetComponent<Image>();
         rend_Gradient = gadient.GetComponent<Image>();
         canvas = GameObject.FindGameObjectWithTag("CanvasFighting");
-        pathLengths = Random.Range(0, enemyMonsterPaths.Length);
 
         manager = GameObject.Find("__app").GetComponentInChildren<GameManager>();
         isActive = false;
@@ -66,19 +67,24 @@ public class Toughness_Modifer : MonoBehaviour
         switch (scene)
         {
             case "Savannah_FS":
-                monsterPrefab = enemyMonsterPaths[0];
+                ActiveMonster = 0;
+                monsterPrefab = enemyMonsterPaths[ActiveMonster];
                 break;
             case "Desert_FS":
-                monsterPrefab = enemyMonsterPaths[1];
+                ActiveMonster = 1;
+                monsterPrefab = enemyMonsterPaths[ActiveMonster];
                 break;
             case "Mountain_FS":
-                monsterPrefab = enemyMonsterPaths[2];
+                ActiveMonster = 2;
+                monsterPrefab = enemyMonsterPaths[ActiveMonster];
                 break;
             case "Forest_FS":
-                monsterPrefab = enemyMonsterPaths[Random.Range(3, 5)];
+                ActiveMonster = Random.Range(3, 5);
+                monsterPrefab = enemyMonsterPaths[ActiveMonster];
                 break;
             case "Ice_FS":
-                monsterPrefab = enemyMonsterPaths[5];
+                ActiveMonster = 5;
+                monsterPrefab = enemyMonsterPaths[ActiveMonster];
                 break;
         }
         

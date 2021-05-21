@@ -58,17 +58,20 @@ public class Fainting_OurMonster : MonoBehaviour
 
     private IEnumerator Wait()
     {
-        yield return new WaitForSeconds(1);
-        black.SetActive(true);
-        text.gameObject.SetActive(true);
-        timer.gameObject.SetActive(true);
-        //manager.ActiveMonster.GetHealthbar().SetActive(false);
-        manager.EnemyMonster.GetHealthbar().SetActive(false);
-        manager.Enemy.SetActive(false);
-        for (int i = 0; i < UI.Length; i++) 
+        if (manager.EnemyMonster != null)
         {
-            UI[i].SetActive(false);
-        }        
+            yield return new WaitForSeconds(1);
+            black.SetActive(true);
+            text.gameObject.SetActive(true);
+            timer.gameObject.SetActive(true);
+            //manager.ActiveMonster.GetHealthbar().SetActive(false);
+            manager.EnemyMonster.GetHealthbar().SetActive(false);
+            manager.Enemy.SetActive(false);
+            for (int i = 0; i < UI.Length; i++)
+            {
+                UI[i].SetActive(false);
+            }
+        }
     }
 
     public void Fainting()

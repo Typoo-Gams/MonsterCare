@@ -30,7 +30,7 @@ public class MonsterManager_AttackPrototype : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        TTKTimer = GameObject.FindGameObjectWithTag("TTKTimer").GetComponent<Text>();
+        //TTKTimer = GameObject.FindGameObjectWithTag("TTKTimer").GetComponent<Text>();
 
         manager = GameObject.Find("__app").GetComponentInChildren<GameManager>();
         sceneElement = SceneManager.GetActiveScene().name;
@@ -85,8 +85,8 @@ public class MonsterManager_AttackPrototype : MonoBehaviour
         }
         else
         {
-            TTKcnt += Time.deltaTime;
-            TTKTimer.text = TTKcnt.ToString();
+            //TTKcnt += Time.deltaTime;
+            //TTKTimer.text = TTKcnt.ToString();
         }
     }
  

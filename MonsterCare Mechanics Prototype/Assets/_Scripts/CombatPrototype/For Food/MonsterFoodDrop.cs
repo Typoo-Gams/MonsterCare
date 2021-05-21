@@ -89,8 +89,11 @@ public class MonsterFoodDrop : MonoBehaviour
         
         if (!slideBar && isCreated == false)
         {
-            isCreated = true;
-            FoodDrop();
+            if (GetComponent<NotesDrop_RandomChance>().EnemyDead)
+            {
+                isCreated = true;
+                FoodDrop();
+            }
         }
     }
 

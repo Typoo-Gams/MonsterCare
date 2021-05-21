@@ -161,7 +161,7 @@ public class GameSaver
         }
         else
         {
-            loadedTime = new DateTime(0, 0, 0, 0, 0, 0);
+            loadedTime = DateTime.Now;
         }
         return loadedTime;
     }
@@ -192,6 +192,9 @@ public class GameSaver
         return PlayerPrefs.GetFloat(fullIndex);
     }
 
+    //might need an update
+    //   |
+    //  \/
 
     //saves the inputed monster
     /// <summary>
@@ -218,7 +221,7 @@ public class GameSaver
             {
                 PlayerPrefs.SetFloat(MonsterSaveIndex + StatIndex[i], Stats[i]);
             }
-            Debug.Log("Monster Was Saved");
+            //Debug.Log("Monster Was Saved");
         }
         catch
         {
@@ -260,7 +263,6 @@ public class GameSaver
         yourMonster.PlayfullStatus = PlayerPrefs.GetFloat(MonsterSaveIndex + StatIndex[4]);
         yourMonster.ToughnessStatus = PlayerPrefs.GetFloat(MonsterSaveIndex + StatIndex[5]);
         yourMonster.EnergyStatus = PlayerPrefs.GetFloat(MonsterSaveIndex + StatIndex[6]);
-
     }
 
 
@@ -278,7 +280,7 @@ public class GameSaver
             string fullIndex = ObtainedSaveIndex + Name;
             PrintLog += fullIndex + ": " + PlayerPrefs.GetInt(fullIndex) + "\n";
         }
-        Debug.Log(PrintLog);
+        //Debug.Log(PrintLog);
     }
 
 
@@ -531,7 +533,7 @@ public class GameSaver
                 PlayerPrefs.SetInt(SaveIndex + "_SpritePath", -1);
             }
         }
-        Debug.Log(inv);
+        //Debug.Log(inv);
     }
 
 
@@ -563,7 +565,7 @@ public class GameSaver
             load[i].Sprite = SpriteIndex;
             inv += "\nInventory Slot " + i + ": Type: " + load[i].FoodType + ", Element: " + load[i].Element + ", Power: " + load[i].Power + ", Sprite: " + load[i].Sprite;
         }
-        Debug.Log(inv);
+        //Debug.Log(inv);
         return load;
     }
 

@@ -20,7 +20,7 @@ public class MonsterLoader : MonoBehaviour
         manager = GameObject.Find("__app").GetComponentInChildren<GameManager>();
         //Finds the prefab path.
         string path = Saver.GetMonsterPrefab();
-        Debug.Log("Loaded Path: " + path);
+        //Debug.Log("Loaded Path: " + path);
 
         //if the game version doesnt match the current one, wipe the save
         if (Saver.LoadgameVersion() == "")
@@ -41,7 +41,7 @@ public class MonsterLoader : MonoBehaviour
         else
         {
             SavedMonster = Resources.Load<GameObject>(path);
-            Debug.Log("loaded Monster");
+            //Debug.Log("loaded Monster");
         }
         //create the monster that was loaded.
         if (SavedMonster != null) 

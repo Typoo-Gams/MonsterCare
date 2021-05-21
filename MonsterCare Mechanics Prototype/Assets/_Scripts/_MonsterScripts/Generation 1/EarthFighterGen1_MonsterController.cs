@@ -46,7 +46,7 @@ public class EarthFighterGen1_MonsterController : MonoBehaviour
         //Sends the monster object to the gamemanager so that other scripts can easily reference it.
 
         SendMonster();
-        Debug.Log("Current monster: " + this);
+        //Debug.Log("Current monster: " + this);
 
         monster.SetReport(Report);
 

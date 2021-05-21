@@ -50,7 +50,7 @@ public class ChildGen0_MonsterController : MonoBehaviour
         }
         //Sends the monster object to the gamemanager so that other scripts can easily reference it.
         SendMonster();
-        Debug.Log("Current monster: " + this);
+        //Debug.Log("Current monster: " + this);
 
         monster.DebugMonster();
         monster.SetReport(Report);
