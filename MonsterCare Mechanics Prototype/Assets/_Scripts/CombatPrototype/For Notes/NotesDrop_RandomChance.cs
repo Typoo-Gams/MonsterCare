@@ -50,7 +50,7 @@ public class NotesDrop_RandomChance : MonoBehaviour
                     count++;
                     Debug.Log("Note" + j);
                 }
-                if (count == Groups[i].Notes.Length)
+                if (count == Groups[i].Notes.Length -1)
                 {
                     GroupDropIndex++;
                     Debug.LogWarning("Note group " + i + " has been collected");

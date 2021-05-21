@@ -80,6 +80,8 @@ public class GameManager : MonoBehaviour
         FoodInventory[4] = new Food(MonsterElement.Water);
         Save.SaveFood(FoodInventory);
         Save.PrintObtainedMonsters();
+
+        Time.timeScale = 100;
     }
 
 
