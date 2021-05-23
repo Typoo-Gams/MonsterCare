@@ -26,25 +26,21 @@ public class LoadingScene : MonoBehaviour
         count += Time.deltaTime;
         if (isLoaded == true)
         {
-            if (count > 2)
+            if (count > 16)
             {
                 text.gameObject.SetActive(true);
-                if (Input.GetMouseButtonDown(0))
+                //If there is no spesificed scene name to load then load the scene with index scene name.
+                if (manager.sceneName == "")
                 {
-                    //If there is no spesificed scene name to load then load the scene with index scene name.
-                    if (manager.sceneName == "")
-                    {
-                        SceneManager.LoadScene(manager.sceneNumber);
-                        manager.sceneNumber = 0;
-                        Fade.Play("FadeIn");
-                    }
-                    else
-                    {
-
-                        SceneManager.LoadScene(manager.sceneName);
-                        manager.sceneName = "";
-                        Fade.Play("FadeIn");
-                    }
+                    SceneManager.LoadScene(manager.sceneNumber);
+                    manager.sceneNumber = 0;
+                    Fade.Play("FadeIn");
+                }
+                else
+                {
+                    SceneManager.LoadScene(manager.sceneName);
+                    manager.sceneName = "";
+                    Fade.Play("FadeIn");
                 }
             }
         }
