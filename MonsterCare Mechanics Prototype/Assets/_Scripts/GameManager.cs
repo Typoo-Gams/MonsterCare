@@ -56,7 +56,7 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         Tutorial = !Save.IsTutorialDone();
-        GameVersion = "20.1";
+        GameVersion = "21.1";
         Debug.LogWarning("GameVersion is V." + GameVersion);
         FoodInventory = new Food[]{
             new Food(true),

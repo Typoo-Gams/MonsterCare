@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class LoadedNotes_Button : MonoBehaviour
 {
-    public GameObject NotePrefab;
+    public GameObject NotePrefab, HasNotBeenSeen;
     public int NoteNumber;
     bool IsObtained;
     public Transform currentPage;
@@ -20,6 +20,10 @@ public class LoadedNotes_Button : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if (!Saver.GetSeenNote(NoteNumber) && Saver.LoadNote(NoteNumber) == 1)
+        {
+            HasNotBeenSeen.SetActive(true);
+        }
         myButton = GetComponent<Button>();
         myButton.onClick.AddListener(TaskOnClick);
         ButtonNumber = GetComponentInChildren<Text>();
@@ -52,6 +56,8 @@ public class LoadedNotes_Button : MonoBehaviour
     {
         if (IsObtained && CurrentView == null)
         {
+            Saver.SetSeenNote(NoteNumber, true);
+            HasNotBeenSeen.SetActive(false);
             CurrentView = Instantiate(NotePrefab);
             CurrentView.transform.SetParent(currentPage, false);
         }

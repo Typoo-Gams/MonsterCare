@@ -34,6 +34,11 @@ public class ToggleSleep_Button : MonoBehaviour
         manager.ActiveMonster.IsSleepingStatus = toggle;
         SleepZs.SetActive(toggle);
 
+        foreach (Button disable in Disabled)
+        {
+            disable.interactable = !toggle;
+        }
+
         NightTime.transform.SetParent(GameObject.FindGameObjectWithTag("Canvas").transform, false);
         NightTime.transform.localPosition = new Vector3(-14, 4, -74);
         //adds the sleep toggle method to the button's on click trigger.

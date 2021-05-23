@@ -8,7 +8,7 @@ public class GameSaver
 
     public DateTime Time = DateTime.Now;
 
-    private int NumberOfNotes = 4;
+    public readonly int NumberOfNotes = 4;
 
     //Sets the savefile version number.
     /// <summary>
@@ -101,6 +101,7 @@ public class GameSaver
         for (int i = 0; i <= NumberOfNotes; i++)
         {
             SaveNote(i, 0);
+            SetSeenNote(i, false);
         }
 
         Debug.LogWarning("Save was wiped");
@@ -393,6 +394,39 @@ public class GameSaver
         }
         Debug.LogError("Couldnt load note number: " + NoteNumber + ", because it was out of index range.");
         return 2;
+    }
+
+    /// <summary>
+    /// Returns true if the note has been looked at.
+    /// </summary>
+    /// <param name="NoteNumber"></param>
+    /// <returns></returns>
+    public bool GetSeenNote(int NoteNumber)
+    {
+        string NoteIndex = "ObtainedNote_" + NoteNumber + "_HasbeenSeen";
+        if (NoteNumber > NumberOfNotes)
+        {
+            Debug.LogError("GetSeenNote: NoteNumber was out of range. Must be non negative and smaller than " + NumberOfNotes);
+            return false;
+        }
+        if (PlayerPrefs.GetInt(NoteIndex) == 1)
+            return true;
+        else
+            return false;
+    }
+
+    /// <summary>
+    /// Sets if a note has been looked at before.
+    /// </summary>
+    /// <param name="NoteNumber"></param>
+    /// <param name="HasBeenSeen"></param>
+    public void SetSeenNote(int NoteNumber, bool HasBeenSeen)
+    {
+        string NoteIndex = "ObtainedNote_" + NoteNumber + "_HasbeenSeen";
+        if(HasBeenSeen)
+            PlayerPrefs.SetInt(NoteIndex, 1);
+        else
+            PlayerPrefs.SetInt(NoteIndex, 0);
     }
 
     //Saves one new food into the goblin inventory

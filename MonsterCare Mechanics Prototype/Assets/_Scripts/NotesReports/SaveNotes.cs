@@ -6,10 +6,12 @@ public class SaveNotes : MonoBehaviour
 {
     public int NoteNumber;
     GameSaver Saver = new GameSaver();
+    GameManager manager;
 
     // Start is called before the first frame update
     void Start()
     {
+
         Saver.SaveNote(NoteNumber, 1);
     }
 }

@@ -28,7 +28,7 @@ public class Fainting_OurMonster : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (manager.ActiveMonster.DeathStatus == true)
+        if (manager.ActiveMonster.DeathStatus == true && manager.Enemy != null)
         {
             Fainting();
 

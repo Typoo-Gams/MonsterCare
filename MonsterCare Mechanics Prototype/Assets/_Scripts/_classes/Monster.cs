@@ -27,6 +27,7 @@ public class Monster
 
     //UpdateSpeed
     readonly float UpdateSpeed = 0.1f;
+    private bool EndOfEvolution;
 
     //Monster variables
     private string MonsterName;
@@ -148,7 +149,7 @@ public class Monster
     /// <param name="prefabLocation">Where the monster is being loaded from.</param>
     /// <param name="type">Type of monster. changes its behavior.</param>
     /// <param name="IsEvolution">If this monster just evolved.</param>
-    public Monster(string name, string prefabLocation, MonsterType type = MonsterType.Basic, bool IsEvolution = false)
+    public Monster(string name, string prefabLocation, MonsterType type = MonsterType.Basic, bool IsEvolution = false, bool IsLastEvolution = false)
     {
         _PersonalityType = type;
 
@@ -196,6 +197,7 @@ public class Monster
         IsMedicated = false;
         UpdateHunger(Hunger);
         PreviousEvolution = "";
+        EndOfEvolution = IsLastEvolution;
     }
 
 
@@ -833,6 +835,11 @@ public class Monster
     public MonsterType Personality
     {
         get => _PersonalityType;
+    }
+
+    public bool GetEndOfEvolution
+    {
+        get => EndOfEvolution;
     }
 
 }

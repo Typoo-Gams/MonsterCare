@@ -50,7 +50,7 @@ public class NotesDrop_RandomChance : MonoBehaviour
                     count++;
                     Debug.Log("Note" + j);
                 }
-                if (count == Groups[i].Notes.Length)
+                if (count == Groups[i].Notes.Length && GroupDropIndex + 1 != Groups.Count)
                 {
                     GroupDropIndex++;
                     Debug.LogWarning("Note group " + i + " has been collected");
@@ -114,7 +114,7 @@ public class NotesDrop_RandomChance : MonoBehaviour
 
 
                 //drops a random note that hasnt been found yet. only drops notes from a certain range of predetermined groups of notes.
-                if (random <= Groups[GroupDropIndex].DropChance)
+                if (random <= Groups[GroupDropIndex].DropChance && DroppableNotes.Count != 0)
                 {
                     int prefabIndex = DroppableNotes[Random.Range(0, DroppableNotes.Count - 1)];
 
