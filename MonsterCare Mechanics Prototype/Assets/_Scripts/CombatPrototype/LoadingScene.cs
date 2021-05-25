@@ -26,9 +26,8 @@ public class LoadingScene : MonoBehaviour
         count += Time.deltaTime;
         if (isLoaded == true)
         {
-            if (count > 16)
+            if (count > 16 || Input.GetMouseButtonUp(0))
             {
-                text.gameObject.SetActive(true);
                 //If there is no spesificed scene name to load then load the scene with index scene name.
                 if (manager.sceneName == "")
                 {

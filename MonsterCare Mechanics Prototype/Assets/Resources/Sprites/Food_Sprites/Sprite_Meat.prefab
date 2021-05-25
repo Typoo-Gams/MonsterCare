@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: -8884178251218149523}
   - component: {fileID: 1341056947937691407}
   - component: {fileID: 9044648884953843588}
+  - component: {fileID: -6258853675953639081}
   m_Layer: 0
   m_Name: Sprite_Meat
   m_TagString: Food
@@ -29,7 +30,7 @@ RectTransform:
   m_GameObject: {fileID: 3747097593398587226}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -1630}
-  m_LocalScale: {x: 73.23071, y: 73.23071, z: 73.23071}
+  m_LocalScale: {x: 2.3861496, y: 2.3861496, z: 2.3861496}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -116,3 +117,29 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!61 &-6258853675953639081
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3747097593398587226}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.4621048, y: -0.9242153}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 3.0003211, y: 2.62}
+    newSize: {x: 3.0003211, y: 2.62}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 91.72551, y: 96.8905}
+  m_EdgeRadius: 0
