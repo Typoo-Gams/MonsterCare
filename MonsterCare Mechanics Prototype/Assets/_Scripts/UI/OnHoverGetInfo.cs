@@ -59,28 +59,32 @@ public class OnHoverGetInfo : MonoBehaviour
         }
         if (ShowInfo && !OverWrite && ShowElement)
         {
-            spawn = Instantiate(Panel);
-            spawn.transform.SetParent(gameObject.transform, false);
-            switch (gameObject.GetComponent<Image>().sprite.name)
+            if (gameObject.GetComponent<Image>() != null)
             {
-                case "FireIcon":
-                    spawn.GetComponentInChildren<Text>().text = "Fire";
-                    break;
+                spawn = Instantiate(Panel);
+                spawn.transform.SetParent(gameObject.transform, false);
 
-                case "waaterIcon":
-                    spawn.GetComponentInChildren<Text>().text = "Water";
-                    break;
+                switch (gameObject.GetComponent<Image>().sprite.name)
+                {
+                    case "FireIcon":
+                        spawn.GetComponentInChildren<Text>().text = "Fire";
+                        break;
 
-                case "AirIcon":
-                    spawn.GetComponentInChildren<Text>().text = "Air";
-                    break;
+                    case "waaterIcon":
+                        spawn.GetComponentInChildren<Text>().text = "Water";
+                        break;
 
-                case "EarthIcon":
-                    spawn.GetComponentInChildren<Text>().text = "Earth";
-                    break;
+                    case "AirIcon":
+                        spawn.GetComponentInChildren<Text>().text = "Air";
+                        break;
+
+                    case "EarthIcon":
+                        spawn.GetComponentInChildren<Text>().text = "Earth";
+                        break;
+                }
+                spawn.transform.localPosition = new Vector3(-4f, 0, 0);
+                ShowInfo = false;
             }
-            spawn.transform.localPosition = new Vector3(-4f, 0, 0);
-            ShowInfo = false;
         }
     }
 }
