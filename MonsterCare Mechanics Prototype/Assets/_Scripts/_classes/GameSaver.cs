@@ -36,14 +36,17 @@ public class GameSaver
     /// Sets the state of the tutorial
     /// </summary>
     /// <param name="state"></param>
-    public void IsTutorialDone(bool state)
+    public void IsTutorialDone(int state)
     {
-        if (state)
-            PlayerPrefs.SetInt("Tutorial_Done", 1);
-        else
-            PlayerPrefs.SetInt("Tutorial_Done", 0);
+        Debug.LogError(state);
+        PlayerPrefs.SetInt("Tutorial_Done", state);
     }
 
+
+    public int GetTutorialStage()
+    {
+        return PlayerPrefs.GetInt("Tutorial_Done");
+    }
 
     /// <summary>
     /// returns from the save file if the tutorial is done or not
@@ -53,7 +56,7 @@ public class GameSaver
     {
         int save = PlayerPrefs.GetInt("Tutorial_Done");
 
-        if (save == 1)
+        if (save == 3)
             return true;
         return false;
     }
@@ -65,6 +68,7 @@ public class GameSaver
     public void WipeSave()
     {
         SaveGameVersion("");
+        IsTutorialDone(0);
         string[] TimeIndex =
             {"Hour", "Minutes", "Seconds", "Day", "Month", "Year"};
         for (int i = 0; i < TimeIndex.Length; i++)

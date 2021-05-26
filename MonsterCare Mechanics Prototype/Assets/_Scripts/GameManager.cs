@@ -48,6 +48,8 @@ public class GameManager : MonoBehaviour
 
     //Remember if this is a new game.
     public bool NewSave, Tutorial;
+    bool TutorialIsActive, tutorialReturned;
+    public GameObject RadioTutorial;
 
     //Hide UI
     public bool HideUI;
@@ -56,7 +58,7 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         Tutorial = !Save.IsTutorialDone();
-        GameVersion = "21.1";
+        GameVersion = "21.5";
         Debug.LogWarning("GameVersion is V." + GameVersion);
         FoodInventory = new Food[]{
             new Food(true),
@@ -133,7 +135,60 @@ public class GameManager : MonoBehaviour
                 Save.SaveNote(4, 1);
             }
 
+            //Second part of the tutorial
+            if (!Save.IsTutorialDone())
+            {
+                if (Save.GetTutorialStage() == 2 && !TutorialIsActive)
+                {
+                    TutorialIsActive = true;
+                    Animator Notes = null;
+                    foreach (GameObject found in GameObject.FindGameObjectsWithTag("Tutorial"))
+                    {
+                        if (found.GetComponent<Button>() != null && !found.name.Equals("NotesButton"))
+                            found.GetComponent<Button>().interactable = false;
+                    }
+                    foreach (GameObject found in GameObject.FindGameObjectsWithTag("Tutorial"))
+                    {
+                        if (found.name.Equals("NotesButton"))
+                            Notes = found.GetComponent<Animator>();
+                    }
+                    if(Notes != null)
+                        Notes.SetBool("Pointer", true);
+                }
+            }
 
+            //Returns tutorial to where the player left of if it wasnt completed
+            if (!tutorialReturned)
+            {
+                Debug.Log(Save.GetTutorialStage());
+                tutorialReturned = true;
+                switch (Save.GetTutorialStage())
+                {
+                    case 0:
+                        HideUI = true;
+                        foreach (GameObject found in GameObject.FindGameObjectsWithTag("Tutorial"))
+                        {
+                            if (found.GetComponent<Button>() != null)
+                            {
+                                found.GetComponent<Button>().interactable = false;
+                            }
+                        }
+                        break;
+
+                    case 1:
+                        HideUI = true;
+                        foreach (GameObject found in GameObject.FindGameObjectsWithTag("Tutorial"))
+                        {
+                            if (found.GetComponent<Button>() != null)
+                            {
+                                found.GetComponent<Button>().interactable = false;
+                            }
+                        }
+                        HideUI = true;
+                        Instantiate(RadioTutorial).transform.SetParent(GameObject.FindGameObjectWithTag("Canvas").transform, false);
+                        break;
+                }
+            }
         }
     }
 

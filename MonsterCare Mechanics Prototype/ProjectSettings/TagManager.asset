@@ -28,6 +28,8 @@ TagManager:
   - Tip
   - EnemyMonster
   - TTKTimer
+  - Tutorial
+  - HomeUI
   layers:
   - Default
   - TransparentFX

@@ -129,6 +129,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Monster: {fileID: 6334183884661785621, guid: 100a4ed44447a644faaa607d720395fe, type: 3}
+  KeepHiddenUI: 1
+  tutorial: {fileID: 61597249261991302, guid: 5f2d6a611277cfa47a18dd3ca3ad1474, type: 3}
 --- !u!95 &5832462543140788172
 Animator:
   serializedVersion: 3

@@ -39,6 +39,9 @@ public class FolderViewer_Button : MonoBehaviour
 
     public Sprite[] background = new Sprite[5];
 
+    public bool Tutorial;
+    Animator Pointer;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -46,11 +49,17 @@ public class FolderViewer_Button : MonoBehaviour
         myButton.onClick.AddListener(TaskOnClick);
         NotObtained = myButton.image.sprite;
 
+        if (Tutorial && !Saver.IsTutorialDone())
+        {
+            Pointer = GetComponent<Animator>();
+            Pointer.SetBool("Pointer", true);
+        }
+
     }
 
     private void Update()
     {
-        if (!Selection.Equals(Monsters.Empty))
+        if (!Selection.Equals(Monsters.Empty) && !Tutorial)
         {
             if (Saver.MonsterObtainedBefore(Selection.ToString()) && NotObtained == myButton.image.sprite)
             {
@@ -80,6 +89,12 @@ public class FolderViewer_Button : MonoBehaviour
             }
         }
 
+        if (Tutorial)
+        {
+            transform.GetChild(0).gameObject.SetActive(true);
+            myButton.image.sprite = background[4];
+        }
+
         if (CurrentView == null)
         {
             CurrentView = null;
@@ -95,11 +110,21 @@ public class FolderViewer_Button : MonoBehaviour
 
     private void TaskOnClick()
     {
-        if (CurrentView == null && Saver.MonsterObtainedBefore(Selection.ToString()))
+        if(!Tutorial)
+        {
+            if (CurrentView == null && Saver.MonsterObtainedBefore(Selection.ToString()))
+            {
+                GameObject spawn = Instantiate(viewItem);
+                CurrentView = spawn;
+                spawn.transform.SetParent(currentPage, false);
+            }
+        }
+        else if(CurrentView == null)
         {
             GameObject spawn = Instantiate(viewItem);
             CurrentView = spawn;
             spawn.transform.SetParent(currentPage, false);
+            Pointer.SetBool("Pointer", false);
         }
     }
 }
