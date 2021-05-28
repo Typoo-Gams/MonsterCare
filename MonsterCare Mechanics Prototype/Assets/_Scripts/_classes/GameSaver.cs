@@ -76,26 +76,25 @@ public class GameSaver
             string FullIndex = "SavedTime_" + TimeIndex[i];
             PlayerPrefs.SetFloat(FullIndex, 0);
         }
-        string[] StatIndex =
-            {"Health", "Hunger", "Sleep", "Happiness", "Playfull", "Toughness", "Energy"};
         string MonsterSaveIndex = "SavedMonster_";
 
         PlayerPrefs.SetString(MonsterSaveIndex + "MonsterName", "None");
         PlayerPrefs.SetString(MonsterSaveIndex + "PrefabLocation", "None");
         PlayerPrefs.SetString(MonsterSaveIndex + "LastEatenElement", "None");
+        PlayerPrefs.SetFloat(MonsterSaveIndex + "Health", new Monster().GetMaxHealth);
+        PlayerPrefs.SetFloat(MonsterSaveIndex + "Hunger", new Monster().GetMaxHunger);
+        PlayerPrefs.SetFloat(MonsterSaveIndex + "Sleep", new Monster().GetMaxSleep);
+        PlayerPrefs.SetFloat(MonsterSaveIndex + "Happiness", new Monster().GetMaxHappiness);
+        PlayerPrefs.SetFloat(MonsterSaveIndex + "Energy", new Monster().GetMaxEnergy);
 
-        for (int i = 0; i < StatIndex.Length; i++)
-        {
-            PlayerPrefs.SetFloat(MonsterSaveIndex + StatIndex[i], 0);
-        }
 
         //Sets empty inventory slots
         Food[] cleanInv =
-            { new Food(true),
-              new Food(true),
-              new Food(true),
-              new Food(true),
-              new Food(true),
+            { new Food(),
+              new Food(),
+              new Food(),
+              new Food(),
+              new Food(),
             };
         SaveFood(cleanInv);
 
@@ -212,9 +211,9 @@ public class GameSaver
         try
         {
             string[] StatIndex =
-            {"Health", "Hunger", "Sleep", "Happiness", "Playfull", "Toughness", "Energy"};
+            {"Health", "Hunger", "Sleep", "Happiness", "Energy"};
             float[] Stats =
-                {yourMonster.HealthStatus, yourMonster.HungerStatus, yourMonster.SleepStatus, yourMonster.HappinessStatus, yourMonster.PlayfullStatus, yourMonster.ToughnessStatus, yourMonster.EnergyStatus};
+                {yourMonster.HealthStatus, yourMonster.HungerStatus, yourMonster.SleepStatus, yourMonster.HappinessStatus, yourMonster.EnergyStatus};
 
             string MonsterSaveIndex = "SavedMonster_";
 
@@ -257,7 +256,7 @@ public class GameSaver
     public void LoadMonster(Monster yourMonster)
     {
         string[] StatIndex =
-            {"Health", "Hunger", "Sleep", "Happiness", "Playfull", "Toughness", "Energy"};
+            {"Health", "Hunger", "Sleep", "Happiness", "Energy"};
 
         string MonsterSaveIndex = "SavedMonster_";
 
@@ -272,9 +271,7 @@ public class GameSaver
         yourMonster.HungerStatus = PlayerPrefs.GetFloat(MonsterSaveIndex + StatIndex[1]);
         yourMonster.SleepStatus = PlayerPrefs.GetFloat(MonsterSaveIndex + StatIndex[2]);
         yourMonster.HappinessStatus = PlayerPrefs.GetFloat(MonsterSaveIndex + StatIndex[3]);
-        yourMonster.PlayfullStatus = PlayerPrefs.GetFloat(MonsterSaveIndex + StatIndex[4]);
-        yourMonster.ToughnessStatus = PlayerPrefs.GetFloat(MonsterSaveIndex + StatIndex[5]);
-        yourMonster.EnergyStatus = PlayerPrefs.GetFloat(MonsterSaveIndex + StatIndex[6]);
+        yourMonster.EnergyStatus = PlayerPrefs.GetFloat(MonsterSaveIndex + StatIndex[4]);
 
         bool IsSleeping = false;
         if (PlayerPrefs.GetInt(MonsterSaveIndex + "IsSleeping") == 1)

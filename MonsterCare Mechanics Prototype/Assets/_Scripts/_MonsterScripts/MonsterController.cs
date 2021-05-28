@@ -40,7 +40,7 @@ abstract public class MonsterController : MonoBehaviour
             //Gets the game ready to spawn a report
             SpawnReport = true;
             //Keeps previous evolution's stats
-            Saver.SaveMonster(monster);
+            Saver.LoadMonster(monster);
         }
         manager = GameObject.Find("__app").GetComponentInChildren<GameManager>();
         thisAnimator = GetComponent<Animator>();
@@ -155,9 +155,6 @@ abstract public class MonsterController : MonoBehaviour
             Debug.LogWarning("Could not save. There was no monster.");
     }
 
-    //Abstract so that monsters can have different evolution conditions
-    abstract public void Evolution();
-
     public bool IsEvolutionAnimDone()
     {
         if (monster.CanEvolveStatus)
@@ -189,25 +186,17 @@ abstract public class MonsterController : MonoBehaviour
         return false;
     }
 
-    private void Devolution()
-    {
-        if (monster.DeathStatus)
-        {
-            //This is what happens when the monster is fainted.
-            //Destroy the current monster object. spawn in the new monster. needs to load the new evolved monster when the game is reopened after being closed. clears the save file with an empty monster
-            Monster empty = new Monster(devolutionName, devolutionPath);
-            empty.DebugMonster();
-            Saver.SaveMonster(empty);
-            GameObject NextEvolution = Resources.Load<GameObject>(devolutionPath);
-            GameObject Parent = GameObject.Find("__app").GetComponentInChildren<GameManager>().gameObject;
-            Destroy(gameObject);
-            GameObject SpawnedMonster = Instantiate(NextEvolution);
-            SpawnedMonster.transform.SetParent(Parent.transform, false);
-            //Saver.SaveMonster(SpawnedMonster.GetComponent<ChildGen0_MonsterController>().monster);
-            manager.ActiveMonster.PreviousEvolution = _prefabLocation;
-            Debug.Log("Monster died and devolved");
-        }
-    }
+    //Abstract so that monsters can have different evolution conditions
+    /// <summary>
+    /// This is what happens when the monster evolves
+    /// </summary>
+    abstract public void Evolution();
+
+    /// <summary>
+    /// This is what happens when the monster is fainted.
+    /// </summary>
+    abstract public void Devolution();
+
 
 
     //Send this monster to the GameManager

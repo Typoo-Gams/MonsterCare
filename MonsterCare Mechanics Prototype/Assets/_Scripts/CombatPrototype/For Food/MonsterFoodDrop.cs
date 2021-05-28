@@ -128,7 +128,7 @@ public class MonsterFoodDrop : MonoBehaviour
                         spawn.transform.SetParent(GameObject.FindGameObjectWithTag("CanvasFighting").transform, false);
                         spawn.transform.SetAsLastSibling();
                         spawn.transform.SetSiblingIndex(spawn.transform.GetSiblingIndex() - 1);
-                        manager.FoodInventory[i] = new Food(false);
+                        manager.FoodInventory[i] = new Food(-1);
                         manager.FoodReward = manager.FoodInventory[i];
                         Debug.Log("Normal food");
                     }

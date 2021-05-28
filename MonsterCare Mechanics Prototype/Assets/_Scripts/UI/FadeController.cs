@@ -32,7 +32,7 @@ public class FadeController : MonoBehaviour
             foreach (Button found in FindObjectsOfType<Button>())
             {
                 found.interactable = false;
-                Debug.Log(found.gameObject.name);
+                //Debug.Log(found.gameObject.name);
             }
         }
         if (anim.GetCurrentAnimatorStateInfo(0).IsName("EvolutionFadeIn") && StateChanged)
@@ -41,7 +41,7 @@ public class FadeController : MonoBehaviour
             foreach (Button found in FindObjectsOfType<Button>())
             {
                 found.interactable = true;
-                Debug.Log(found.gameObject.name);
+                //Debug.Log(found.gameObject.name);
             }
         }
     }

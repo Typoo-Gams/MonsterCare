@@ -140,17 +140,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39d2ab8c8d0ccf6408fea18879e0c68e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &408962300 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 666866568, guid: 40193650ec9cf7e4189cc7b3202955b8, type: 3}
-  m_PrefabInstance: {fileID: 1354948473}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e6085dee6924eb5439a8bd92032ec6c0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &961505688
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -174,34 +163,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1387702578091771138, guid: 40193650ec9cf7e4189cc7b3202955b8, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1387702578091771138, guid: 40193650ec9cf7e4189cc7b3202955b8, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1387702578091771138, guid: 40193650ec9cf7e4189cc7b3202955b8, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1387702578091771138, guid: 40193650ec9cf7e4189cc7b3202955b8, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 2164.19
-      objectReference: {fileID: 0}
-    - target: {fileID: 1387702578091771138, guid: 40193650ec9cf7e4189cc7b3202955b8, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 4385.87
-      objectReference: {fileID: 0}
-    - target: {fileID: 1387702578091771138, guid: 40193650ec9cf7e4189cc7b3202955b8, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 1080.5103
-      objectReference: {fileID: 0}
-    - target: {fileID: 2268469435900996519, guid: 40193650ec9cf7e4189cc7b3202955b8, type: 3}
-      propertyPath: Elementinfo
-      value: 
-      objectReference: {fileID: 408962300}
     - target: {fileID: 8129942001750182336, guid: 40193650ec9cf7e4189cc7b3202955b8, type: 3}
       propertyPath: m_Pivot.x
       value: 0

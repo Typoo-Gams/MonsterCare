@@ -12,28 +12,26 @@ public class Food : InventoryItem
     /// <summary>
     /// Create a normal/empty Food item.
     /// </summary>
-    public Food(bool empty, int sprite = -1)
+    public Food(int sprite)
     {
-        if (!empty) 
-        {
             path = "Prefabs/FeedingPrototype/FOOD";
             foodType = "Normal";
             Type = "Food";
             element = MonsterElement.None;
             foodPower = 1250;
             SpriteIndex = sprite;
-        }
-        else 
-        {
-            path = "None";
-            foodType = "None";
-            Type = "Food";
-            element = MonsterElement.None;
-            foodPower = 0;
-            SpriteIndex = -1;
-        }
     }
 
+
+    public Food()
+    {
+        path = "None";
+        foodType = "None";
+        Type = "Food";
+        element = MonsterElement.None;
+        foodPower = 0;
+        SpriteIndex = -1;
+    }
 
     /// <summary>
     /// Create a special food item with an element type.

@@ -135,8 +135,8 @@ public class Monster
         Hunger = MaxHunger;
         Sleep = MaxSleep;
         Happiness = MaxHappiness;
-        Playfull = 0;
-        Toughness = 1;
+        //Playfull = 0;
+        //Toughness = 1;
         IsSleepDeprived = false;
         IsMedicated = false;
         UpdateHunger(Hunger);
@@ -192,8 +192,8 @@ public class Monster
         Hunger = MaxHunger;
         Sleep = MaxSleep;
         Happiness = MaxHappiness;
-        Playfull = 0;
-        Toughness = 1;
+        //Playfull = 0;
+        //Toughness = 1;
         IsSleepDeprived = false;
         IsMedicated = false;
         UpdateHunger(Hunger);
@@ -216,8 +216,8 @@ public class Monster
         Hunger = MaxHunger;
         Sleep = MaxSleep;
         Happiness = MaxHappiness;
-        Playfull = 0;
-        Toughness = 1;
+        //Playfull = 0;
+        //Toughness = 1;
         IsSleepDeprived = false;
         IsMedicated = false;
         UpdateHunger(Hunger);

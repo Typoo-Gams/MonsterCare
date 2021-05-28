@@ -42,7 +42,7 @@ public class FoodManager_FoodObject : MonoBehaviour
         //checks what type of food it was and sets its sprite.
         if (FoodCategory == "Normal") 
         {
-            ThisFood = new Food(false);
+            ThisFood = new Food(-1);
             ThisSprite = NormalFoodSprites[SpriteIndex];
         }
         //Special Food types get particles colored to their element, sets the sprite.
@@ -103,7 +103,7 @@ public class FoodManager_FoodObject : MonoBehaviour
 
             //destroys the food
             Destroy(gameObject);
-            manager.FoodInventory[inventorySpace] = new Food(true);
+            manager.FoodInventory[inventorySpace] = new Food();
             //adds the last special food element to the monster
             if (ThisFood.FoodType == "Special")
                 manager.ActiveMonster.Element = ThisFood.Element;
