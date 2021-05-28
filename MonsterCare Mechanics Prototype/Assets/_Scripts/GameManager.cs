@@ -1,8 +1,9 @@
 using System;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-using UnityEngine.AI;
 
 
 public class GameManager : MonoBehaviour
@@ -74,16 +75,12 @@ public class GameManager : MonoBehaviour
     //Start is called just before any of the Update methods is called the first time
     private void Start()
     {
-        if (NewSave)
-        {
-            FoodInventory[0] = new Food(1);
-            FoodInventory[1] = new Food(2);
-            FoodInventory[2] = new Food();
-            FoodInventory[3] = new Food();
-            FoodInventory[4] = new Food();
-            Save.SaveFood(FoodInventory);
-        }
-   
+        FoodInventory[0] = new Food(UnityEngine.Random.Range(0, 12));
+        FoodInventory[1] = new Food(UnityEngine.Random.Range(0, 12));
+        FoodInventory[2] = new Food(MonsterElement.Fire);
+        FoodInventory[3] = new Food();
+        FoodInventory[4] = new Food();
+        Save.SaveFood(FoodInventory);
     }
 
 

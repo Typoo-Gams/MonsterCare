@@ -13,6 +13,7 @@ abstract public class MonsterController : MonoBehaviour
     private float cnt = 0;
     [HideInInspector] public Animator thisAnimator;
     [HideInInspector] public float cntAnimation;
+    [HideInInspector] public GameObject NextEvolution = null;
 
     //These needs to be something
     [HideInInspector]
@@ -34,6 +35,8 @@ abstract public class MonsterController : MonoBehaviour
         {
             //loads the monster stats.
             Saver.LoadMonster(monster);
+            monster.Name = MonsterName;
+            monster.PrefabLocation = _prefabLocation;
         }
         else
         {
@@ -41,6 +44,8 @@ abstract public class MonsterController : MonoBehaviour
             SpawnReport = true;
             //Keeps previous evolution's stats
             Saver.LoadMonster(monster);
+            monster.Name = MonsterName;
+            monster.PrefabLocation = _prefabLocation;
         }
         manager = GameObject.Find("__app").GetComponentInChildren<GameManager>();
         thisAnimator = GetComponent<Animator>();
@@ -197,7 +202,40 @@ abstract public class MonsterController : MonoBehaviour
     /// </summary>
     abstract public void Devolution();
 
+    /// <summary>
+    /// destroy the current then instantiate the next evolution. checks if devolution anim is done.
+    /// </summary>
+    public void _InstantiateEvolution()
+    {
+        if (thisAnimator.GetCurrentAnimatorStateInfo(0).length < cntAnimation)
+        {
+            //Destroy the old monster
+            Destroy(gameObject);
+            //Create the next evolution
+            GameObject Spawned = Instantiate(NextEvolution);
+            Spawned.transform.SetParent(transform.parent, false);
+            manager.ActiveMonster.PreviousEvolution = _prefabLocation;
+            cntAnimation = 0;
+        }
+        cntAnimation += Time.deltaTime;
+    }
 
+    /// <summary>
+    /// transfers the current monster's stats to the devolution monster. sets health to max. triggers devolution anim.
+    /// </summary>
+    public void TransferMonsterStats(MonsterType __type = MonsterType.Basic)
+    {
+        Monster empty = new Monster(devolutionName, devolutionPath, __type);
+        empty.DebugMonster();
+        Saver.LoadMonster(empty);
+        monster.Name = devolutionName;
+        monster.PrefabLocation = devolutionPath;
+        empty.UpdateHealth(empty.GetMaxHealth);
+        Saver.SaveMonster(empty);
+        thisAnimator.SetBool("Deevolving", true);
+        if(!thisAnimator.GetBool("Deevolving"))
+            cntAnimation = 0;
+    }
 
     //Send this monster to the GameManager
     void SendMonster()

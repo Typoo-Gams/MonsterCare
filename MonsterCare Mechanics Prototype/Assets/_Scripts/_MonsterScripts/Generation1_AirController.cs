@@ -2,34 +2,30 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Generation1Controller : MonsterController
+public class Generation1_AirController : MonsterController
 {
     bool evolved;
-    //Gen 1 evolutions
-    public string fireEvoPath, waterEvoPath, airEvoPath, earthEvoPath;
+    //Air monster Gen 1 evolutions
+    public string waterEvoPath, airEvoPath;
     public override void Evolution()
     {
-        if(!evolved)
+        if (evolved)
         {
-            evolved = true;
-
             switch (monster.Element)
             {
                 case MonsterElement.Air:
-                break;
-
-                case MonsterElement.Earth:
-                    break;
-
-                case MonsterElement.Fire:
                     break;
 
                 case MonsterElement.Water:
                     break;
+
+                default:
+                    Debug.Log("This Monster Cant Evolve into this element");
+                    break;
             }
+            _InstantiateEvolution();
         }
     }
-
 
     public override void Devolution()
     {

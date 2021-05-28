@@ -1,10 +1,8 @@
 using UnityEngine;
-using System;
 
 /// <summary>
 /// Type Of Monster. Decides what bonuses it has
 /// </summary>
-/// i would like to restructure the monster scripts to easier handle enemies/player monsters and personalities better but there is no time.
 public enum MonsterType
 {
     Playfull,

@@ -82,16 +82,16 @@ public class GameSaver
         PlayerPrefs.SetString(MonsterSaveIndex + "PrefabLocation", "None");
         PlayerPrefs.SetString(MonsterSaveIndex + "LastEatenElement", "None");
         PlayerPrefs.SetFloat(MonsterSaveIndex + "Health", new Monster().GetMaxHealth);
-        PlayerPrefs.SetFloat(MonsterSaveIndex + "Hunger", new Monster().GetMaxHunger);
-        PlayerPrefs.SetFloat(MonsterSaveIndex + "Sleep", new Monster().GetMaxSleep);
+        PlayerPrefs.SetFloat(MonsterSaveIndex + "Hunger", new Monster().GetMaxHunger / 2);
+        PlayerPrefs.SetFloat(MonsterSaveIndex + "Sleep", new Monster().GetMaxSleep * 0.8f);
         PlayerPrefs.SetFloat(MonsterSaveIndex + "Happiness", new Monster().GetMaxHappiness);
-        PlayerPrefs.SetFloat(MonsterSaveIndex + "Energy", new Monster().GetMaxEnergy);
+        PlayerPrefs.SetFloat(MonsterSaveIndex + "Energy", new Monster().GetMaxEnergy * 0.8f);
 
-
+        
         //Sets empty inventory slots
         Food[] cleanInv =
-            { new Food(),
-              new Food(),
+            { new Food(UnityEngine.Random.Range(0, 12)),
+              new Food(UnityEngine.Random.Range(0, 12)),
               new Food(),
               new Food(),
               new Food(),
