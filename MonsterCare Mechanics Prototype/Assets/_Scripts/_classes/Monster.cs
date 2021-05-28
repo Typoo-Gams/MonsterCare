@@ -4,6 +4,7 @@ using System;
 /// <summary>
 /// Type Of Monster. Decides what bonuses it has
 /// </summary>
+/// i would like to restructure the monster scripts to easier handle enemies/player monsters and personalities better but there is no time.
 public enum MonsterType
 {
     Playfull,
@@ -83,9 +84,9 @@ public class Monster
 
 
     //Monster Degradation Modifiers
-    private float HungerDegration = 0.017f; //  10000 max / 57600 sec in 16 hours = 0.17 per second
-    private float SleepDegration = 0.017f; // update: 10 times a sec -> 0.017
-    private float HappinessDegration = 0.034f;
+    private float HungerDegration = 0.092f;    //10000 max / 10800 sec in 3 hours = 0.92 per second -> update: 10 times a sec -> 0.092
+    private float SleepDegration = 0.138f;     //10000 max / 7200 sec in 2 hours = 1.38 per second -> update: 10 times a sec -> 0.138
+    private float HappinessDegration = 0.092f; //10000 max / 10800 sec in 3 hours = 0.92 per second -> update: 10 times a sec -> 0.092
     // 10000 max / 28800 sec in 8 hours = 0.34 per second
     // update: 10 times a sec -> 0.034
 
@@ -94,11 +95,11 @@ public class Monster
 
     //Fighter
     readonly float Fighter_MaxHealth = 20000;
-    readonly float Fighter_HungerDegration = 0.0187f; //10% faster 
+    readonly float Fighter_HungerDegration = 0.10f; //10% faster ( HungerDegration * 1.1f )
 
     //Hungry
     readonly float Hungry_MaxHunger = 20000;
-    readonly float Hungry_HungerDegration = 0.0153f; //10% slower
+    readonly float Hungry_HungerDegration = 0.082f; //10% slower ( HungerDegration * 0.9f )
     //more passive health regen?
 
     //Sleepy
@@ -109,7 +110,7 @@ public class Monster
 
     //Playfull
     readonly float Playfull_MaxHappiness = 20000;
-    readonly float Playfull_HappinessDegration = 0.0306f; //10% slower
+    readonly float Playfull_HappinessDegration = 0.082f; //10% slower
 
     /**/
 
@@ -253,7 +254,7 @@ public class Monster
     /// </summary>
     public void DebugMonster()
     {
-        Debug.Log(MonsterName + " Status: \nHealth: " + Health + "\nEnergy: " + Energy + "\nHunger: " + Hunger + "\nHappiness: " + HappinessStatus + "\nStarving: " + IsStarving + "\nFull: " + IsFull + "\nSleepyness: " + Sleep + "\nSleep Deprived: " + IsSleepDeprived + "\nRested: " + IsRested + "\nOver Rested: " + IsOverRested + "\nIsDead: " + IsDead + "\nCanEvolve: " + CanEvolveStatus);
+        Debug.Log(MonsterName + " Status: \nHealth: " + Health + "\nEnergy: " + Energy + "\nHunger: " + Hunger + "\nHappiness: " + HappinessStatus + "\nStarving: " + IsStarving + "\nFull: " + IsFull + "\nSleepyness: " + Sleep + "\nIsSleep: " + IsSleeping + "\nRested: " + IsRested + "\nOver Rested: " + IsOverRested + "\nIsDead: " + IsDead + "\nCanEvolve: " + CanEvolveStatus);
     }
 
 
@@ -558,6 +559,7 @@ public class Monster
     public string PrefabLocation
     {
         get => loadLocation;
+        set => loadLocation = value;
     }
 
     /// <summary>
@@ -835,6 +837,7 @@ public class Monster
     public MonsterType Personality
     {
         get => _PersonalityType;
+        set => value = _PersonalityType;
     }
 
     public bool GetEndOfEvolution

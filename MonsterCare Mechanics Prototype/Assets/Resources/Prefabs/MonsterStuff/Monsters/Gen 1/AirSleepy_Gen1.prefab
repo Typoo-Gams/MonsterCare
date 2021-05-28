@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1406299578847469508}
   - component: {fileID: 3836208657919210217}
-  - component: {fileID: 3588111690072695632}
+  - component: {fileID: 6691546173499028455}
   - component: {fileID: -3090616801651056219}
   - component: {fileID: 2810012643503004631}
   m_Layer: 0
@@ -85,7 +85,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &3588111690072695632
+--- !u!114 &6691546173499028455
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -94,11 +94,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 5682688059733375149}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 30de7fe56c35ea247b54f9c69e14c689, type: 3}
+  m_Script: {fileID: 11500000, guid: 1130e7778a95bbf448cacc1b2b69374c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Report: {fileID: 4284519912671932249, guid: 9f440e8845324fa44b66432577495cd7, type: 3}
+  manager: {fileID: 0}
+  thisAnimator: {fileID: 0}
+  cntAnimation: 0
+  _type: 2
+  MonsterName: AirSleepy_Gen1
+  _prefabLocation: Prefabs/MonsterStuff/Monsters/Gen 1/AirSleepy_Gen1
+  devolutionName: Child_Gen0
+  devolutionPath: Prefabs/MonsterStuff/Monsters/Gen 0/Child_Gen0
   Smoke: {fileID: 4618042962419636357, guid: 366d77313b49ea744930f1d9c5a96c69, type: 3}
+  Report: {fileID: 4284519912671932249, guid: 9f440e8845324fa44b66432577495cd7, type: 3}
 --- !u!60 &-3090616801651056219
 PolygonCollider2D:
   m_ObjectHideFlags: 0

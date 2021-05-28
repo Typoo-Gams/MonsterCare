@@ -38,7 +38,6 @@ public class GameSaver
     /// <param name="state"></param>
     public void IsTutorialDone(int state)
     {
-        Debug.LogError(state);
         PlayerPrefs.SetInt("Tutorial_Done", state);
     }
 
@@ -55,10 +54,11 @@ public class GameSaver
     public bool IsTutorialDone()
     {
         int save = PlayerPrefs.GetInt("Tutorial_Done");
-
+        //Debug.LogError(save);
         if (save == 3)
             return true;
-        return false;
+        else
+            return false;
     }
 
 
@@ -118,11 +118,11 @@ public class GameSaver
     /// <returns>Total seconds that have passed.</returns>c
     public double FindTimeDifference()
     {
+
         DateTime ThisFrame = DateTime.Now;
         DateTime LastTime = LoadTime();
-
+        //Debug.LogError(LastTime + " was last save");
         TimeSpan Subtraction = ThisFrame.Subtract(LastTime);
-
         return Subtraction.TotalSeconds;
     }
 
@@ -131,6 +131,7 @@ public class GameSaver
     /// </summary>
     public void SaveTime()
     {
+        Time = DateTime.Now;
         string[] TimeIndex =
             {"Hour", "Minutes", "Seconds", "Day", "Month", "Year"};
         float[] TimeTable =
@@ -143,7 +144,7 @@ public class GameSaver
 
         //debug
         //string TimeSaved = TimeTable[0] + ":" + TimeTable[1] + ":" + TimeTable[2] + "   " + TimeTable[3] + "/" + TimeTable[4] + "/" + TimeTable[5];
-        //Debug.Log(TimeSaved);
+        //Debug.Log(TimeSaved + " was saved");
     }
 
 
@@ -221,6 +222,12 @@ public class GameSaver
             PlayerPrefs.SetString(MonsterSaveIndex + "PrefabLocation", yourMonster.PrefabLocation);
             PlayerPrefs.SetString(MonsterSaveIndex + "LastEatenElement", yourMonster.Element.ToString());
 
+            int IsSleeping = 0;
+            if (yourMonster.IsSleepingStatus)
+                IsSleeping = 1;
+            PlayerPrefs.SetInt(MonsterSaveIndex + "IsSleeping", IsSleeping);
+
+
 
             for (int i = 0; i < StatIndex.Length; i++)
             {
@@ -268,6 +275,11 @@ public class GameSaver
         yourMonster.PlayfullStatus = PlayerPrefs.GetFloat(MonsterSaveIndex + StatIndex[4]);
         yourMonster.ToughnessStatus = PlayerPrefs.GetFloat(MonsterSaveIndex + StatIndex[5]);
         yourMonster.EnergyStatus = PlayerPrefs.GetFloat(MonsterSaveIndex + StatIndex[6]);
+
+        bool IsSleeping = false;
+        if (PlayerPrefs.GetInt(MonsterSaveIndex + "IsSleeping") == 1)
+            IsSleeping = true;
+        yourMonster.IsSleepingStatus = IsSleeping;
     }
 
 

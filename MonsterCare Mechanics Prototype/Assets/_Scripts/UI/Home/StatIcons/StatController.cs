@@ -41,7 +41,6 @@ public class StatController : MonoBehaviour
     void Update()
     { 
         UpdateIcons();
-
     }
 
     void UpdateIcons() 

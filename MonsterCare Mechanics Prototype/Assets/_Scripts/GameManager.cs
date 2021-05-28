@@ -58,7 +58,7 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         Tutorial = !Save.IsTutorialDone();
-        GameVersion = "21.5";
+        GameVersion = "21.8_focusTest";
         Debug.LogWarning("GameVersion is V." + GameVersion);
         FoodInventory = new Food[]{
             new Food(true),
@@ -160,7 +160,6 @@ public class GameManager : MonoBehaviour
             //Returns tutorial to where the player left of if it wasnt completed
             if (!tutorialReturned)
             {
-                Debug.Log(Save.GetTutorialStage());
                 tutorialReturned = true;
                 switch (Save.GetTutorialStage())
                 {
@@ -216,6 +215,7 @@ public class GameManager : MonoBehaviour
         {
             try
             {
+                Debug.LogError("Saved");
                 Save.SaveTime();
                 Save.SaveMonster(ActiveMonster);
                 Save.SaveFood(FoodInventory);
@@ -227,14 +227,21 @@ public class GameManager : MonoBehaviour
                 Debug.LogError("Something went wrong when saving");
             }
         }
+        else
+        {
+            //Debug.LogError("resumed pause: " + Save.FindTimeDifference());
+            ActiveMonster.AtGameWakeUp(Save.FindTimeDifference());
+        }
     }
 
+    /*
     private void OnApplicationFocus(bool focus)
     {
         if (!focus)
         {
             try
             {
+                Debug.LogError("Saved");
                 Save.SaveTime();
                 Save.SaveMonster(ActiveMonster);
                 Save.SaveFood(FoodInventory);
@@ -246,7 +253,13 @@ public class GameManager : MonoBehaviour
                 Debug.LogError("Something went wrong when saving");
             }
         }
+        else
+        {
+            Debug.LogError("resumed focus: " + Save.FindTimeDifference());
+            ActiveMonster.AtGameWakeUp(Save.FindTimeDifference());
+        }
     }
+    */
 
     //Called when a new scene is loaded.
     private void OnLevelWasLoaded(int level)

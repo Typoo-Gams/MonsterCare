@@ -3,35 +3,32 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-/* 
- *  This script is mean to be a temporary monster for testing the mechanics and the functionality  and properties of the monster class.
- *  this script will most likely become a template for how we create all monster scripts in the future.
- * 
- *  these monster scripts might end up being children of the monster class instead of having monster objects in them.
- */
-
-public class ChildGen0_MonsterController : MonoBehaviour
+abstract public class MonsterController : MonoBehaviour
 {
-    public GameObject Report;
+
+    [HideInInspector] public GameSaver Saver = new GameSaver();
     private GameObject ReportRefference;
     private bool SpawnReport;
+    [HideInInspector] public GameManager manager;
+    private float cnt = 0;
+    [HideInInspector] public Animator thisAnimator;
+    [HideInInspector] public float cntAnimation;
 
-    private string prefabLocation = "Prefabs/MonsterStuff/Monsters/Gen 0/Child_Gen0";
-    public Monster monster;
-    GameSaver Saver = new GameSaver();
-    GameManager manager;
-    float cnt = 0;
-    Animator thisAnimator;
-    float cntAnimation;
+    //These needs to be something
+    [HideInInspector]
+    public Monster monster; // Monster should be handled by the monster script. the rest should be set in the inspector
+    public MonsterType _type;
+    public string MonsterName;
+    public string _prefabLocation = "Set Me To Something";
+    public string devolutionName, devolutionPath;
     public GameObject Smoke;
+    public GameObject Report;
+
 
     // Start is called before the first frame update
     void Start()
     {
-        manager = GameObject.Find("__app").GetComponentInChildren<GameManager>();
-        thisAnimator = GetComponent<Animator>();
-        //Creates a new monster object.
-        monster = new Monster("Child_Gen0", prefabLocation);
+        monster = new Monster(MonsterName, _prefabLocation, _type);
         //loads the monster stats.
         if (Saver.MonsterObtainedBefore(monster.Name))
         {
@@ -40,13 +37,15 @@ public class ChildGen0_MonsterController : MonoBehaviour
         }
         else
         {
+            //Gets the game ready to spawn a report
             SpawnReport = true;
-            //Overwrites the previous monsters saved stats
+            //Keeps previous evolution's stats
             Saver.SaveMonster(monster);
-          // monster.EnergyStatus = 10;
-          // monster.HungerStatus = 100;
-          // monster.SleepStatus = 100;
         }
+        manager = GameObject.Find("__app").GetComponentInChildren<GameManager>();
+        thisAnimator = GetComponent<Animator>();
+        //Creates a new monster object.
+
         //Sends the monster object to the gamemanager so that other scripts can easily reference it.
         SendMonster();
         //Debug.Log("Current monster: " + this);
@@ -54,7 +53,7 @@ public class ChildGen0_MonsterController : MonoBehaviour
         monster.DebugMonster();
         monster.SetReport(Report);
 
-        if (!manager.NewSave && Saver.FindTimeDifference() > 0 && monster.PreviousEvolution == "") 
+        if (!manager.NewSave && Saver.FindTimeDifference() > 0 && monster.PreviousEvolution == "")
         {
             monster.AtGameWakeUp(Saver.FindTimeDifference());
         }
@@ -66,7 +65,7 @@ public class ChildGen0_MonsterController : MonoBehaviour
 
         //ths is where stat changes happen
         cnt += Time.deltaTime;
-        if (cnt > manager.MonsterUpdateSpeed) 
+        if (cnt > manager.MonsterUpdateSpeed)
         {
             monster.DegradeHunger();
             monster.UpdateHappiness();
@@ -75,7 +74,7 @@ public class ChildGen0_MonsterController : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.Mouse0)) Destroy(ReportRefference);
 
-        
+
         if (SceneManager.GetActiveScene().name == "MonsterHome")
         {
             //checks for devolution
@@ -94,7 +93,7 @@ public class ChildGen0_MonsterController : MonoBehaviour
             }
         }
 
-        
+
         //changes the sleeping anim state.
         if (monster.IsSleepingStatus)
             gameObject.GetComponent<Animator>().SetBool("Sleeping", monster.IsSleepingStatus);
@@ -117,9 +116,9 @@ public class ChildGen0_MonsterController : MonoBehaviour
     //Save the monster's stats when the gameobject is destroyed.
     private void OnDestroy()
     {
-        try 
+        try
         {
-            if (gameObject.GetComponentInParent<GameManager>().ActiveMonster.PrefabLocation == prefabLocation)
+            if (gameObject.GetComponentInParent<GameManager>().ActiveMonster.PrefabLocation == _prefabLocation)
             {
                 try
                 {
@@ -131,7 +130,7 @@ public class ChildGen0_MonsterController : MonoBehaviour
                 }
             }
         }
-        catch 
+        catch
         {
             Debug.LogWarning("The this monster was destroyed and couldnt use it's gameObject");
         }
@@ -150,19 +149,17 @@ public class ChildGen0_MonsterController : MonoBehaviour
     //when the application is paused save the monster.
     private void OnApplicationPause(bool focus)
     {
-        if(monster != null)
+        if (monster != null)
             Saver.SaveMonster(monster);
         else
             Debug.LogWarning("Could not save. There was no monster.");
     }
 
+    //Abstract so that monsters can have different evolution conditions
+    abstract public void Evolution();
 
-    //Simple prototype example of evolution. these will be different for each monster.
-    //Each monster should have the same Evolution() method so that it can be called with sendMessage when the evolution trigger is activated.
-    private void Evolution()
+    public bool IsEvolutionAnimDone()
     {
-        //This is what happens when the monster is evolving.
-        //Destroy the current monster object. spawn in the new monster. needs to load the new evolved monster when the game is reopened after being closed.
         if (monster.CanEvolveStatus)
         {
             if (!thisAnimator.GetBool("Evolve"))
@@ -174,7 +171,7 @@ public class ChildGen0_MonsterController : MonoBehaviour
                 manager.Fade.Play("EvolutionFadeOut");
             }
 
-            if (!thisAnimator.GetBool("Eating") && !thisAnimator.GetBool("Sleeping")) 
+            if (!thisAnimator.GetBool("Eating") && !thisAnimator.GetBool("Sleeping"))
             {
                 cntAnimation += Time.deltaTime;
                 if (thisAnimator.GetCurrentAnimatorStateInfo(0).length < cntAnimation)
@@ -184,35 +181,12 @@ public class ChildGen0_MonsterController : MonoBehaviour
                         GameObject spawn = Instantiate(Smoke);
                         spawn.transform.SetParent(transform.parent, false);
                         spawn.transform.position = transform.position;
+                        return true;
                     }
-                    //Destroy the old monster
-                    Destroy(gameObject);
-                    //create the new monster
-                    GameObject NextEvolution = null;
-                    switch (monster.Element)
-                    {
-                        case MonsterElement.Fire:
-                            NextEvolution = Resources.Load<GameObject>("Prefabs/MonsterStuff/Monsters/Gen 1/FireSleepy_Gen1");
-                            break;
-
-                        case MonsterElement.Water:
-                            NextEvolution = Resources.Load<GameObject>("Prefabs/MonsterStuff/Monsters/Gen 1/WaterPlayful_Gen1");
-                            break;
-
-                        case MonsterElement.Earth:
-                            NextEvolution = Resources.Load<GameObject>("Prefabs/MonsterStuff/Monsters/Gen 1/BeefMaster_Gen1");
-                            break;
-
-                        case MonsterElement.Air:
-                            NextEvolution = Resources.Load<GameObject>("Prefabs/MonsterStuff/Monsters/Gen 1/AirSleepy_Gen1");
-                            break;
-                    }
-                    GameObject Spawned = Instantiate(NextEvolution);
-                    Spawned.transform.SetParent(transform.parent, false);
-                    manager.ActiveMonster.PreviousEvolution = prefabLocation;
                 }
             }
         }
+        return false;
     }
 
     private void Devolution()
@@ -221,23 +195,23 @@ public class ChildGen0_MonsterController : MonoBehaviour
         {
             //This is what happens when the monster is fainted.
             //Destroy the current monster object. spawn in the new monster. needs to load the new evolved monster when the game is reopened after being closed. clears the save file with an empty monster
-            Monster empty = new Monster("Child_Gen0", "Prefabs/MonsterStuff/Monsters/Gen 0/Child_Gen0");
+            Monster empty = new Monster(devolutionName, devolutionPath);
             empty.DebugMonster();
             Saver.SaveMonster(empty);
-            GameObject NextEvolution = Resources.Load<GameObject>("Prefabs/MonsterStuff/Monsters/Gen 0/Child_Gen0");
+            GameObject NextEvolution = Resources.Load<GameObject>(devolutionPath);
             GameObject Parent = GameObject.Find("__app").GetComponentInChildren<GameManager>().gameObject;
             Destroy(gameObject);
             GameObject SpawnedMonster = Instantiate(NextEvolution);
             SpawnedMonster.transform.SetParent(Parent.transform, false);
             //Saver.SaveMonster(SpawnedMonster.GetComponent<ChildGen0_MonsterController>().monster);
-            manager.ActiveMonster.PreviousEvolution = prefabLocation;
+            manager.ActiveMonster.PreviousEvolution = _prefabLocation;
             Debug.Log("Monster died and devolved");
         }
     }
 
 
     //Send this monster to the GameManager
-    void SendMonster() 
+    void SendMonster()
     {
         SendMessageUpwards("GetActiveMonster", monster);
         SendMessageUpwards("GetObjMonster", gameObject);

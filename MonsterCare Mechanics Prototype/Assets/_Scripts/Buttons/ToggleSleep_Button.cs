@@ -11,13 +11,16 @@ public class ToggleSleep_Button : MonoBehaviour
     public GameManager manager;
     Button thisButton;
     float counter;
-    bool toggle;
+    bool toggle, loaded;
     GameSaver saver = new GameSaver();
     public GameObject SleepZs;
 
     public Animator foodInv;
 
     public Button[] Disabled;
+    
+
+
 
 
     // Start is called before the first frame update
@@ -25,7 +28,11 @@ public class ToggleSleep_Button : MonoBehaviour
     {
         //finds the __app in order to reference the gamemanager.
         manager = GameObject.Find("__app").GetComponentInChildren<GameManager>();
-        if(manager.PreviousSecene == 11)
+        if (manager.ActiveMonster.IsSleepingStatus)
+        {
+            manager.SleepMemory = manager.ActiveMonster.IsSleepingStatus;
+        }
+        if (manager.PreviousSecene == 11)
             toggle = manager.SleepMemory;
         //creates the shade and sets it to inactive, parents it under the canvas and transforms its position under the new parent.
         NightTime = Instantiate(NightTime);
@@ -44,6 +51,19 @@ public class ToggleSleep_Button : MonoBehaviour
         //adds the sleep toggle method to the button's on click trigger.
         thisButton = gameObject.GetComponent<Button>();
         thisButton.onClick.AddListener(TaskOnClick);
+    }
+
+    private void LateUpdate()
+    {
+        if (!loaded)
+        {
+            if (manager.SleepMemory)
+            {
+                manager.ActiveMonster.IsSleepingStatus = manager.SleepMemory;
+                TaskOnClick();
+            }
+            loaded = true;
+        }
     }
 
 

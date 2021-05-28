@@ -93,7 +93,7 @@ public class FoodManager_FoodObject : MonoBehaviour
             FindObjectOfType<SoundManager>().play("MunchSound");
             //Testing to heal when given special food.
 
-            manager.ActiveMonster.UpdateHealth(manager.ActiveMonster.HealthStatus + ThisFood.Power - 10);
+            manager.ActiveMonster.UpdateHealth(manager.ActiveMonster.HealthStatus + ThisFood.Power - (ThisFood.Power/2));
 
             //spawns temporary feedback UI
             Text spawn = Instantiate(UI);

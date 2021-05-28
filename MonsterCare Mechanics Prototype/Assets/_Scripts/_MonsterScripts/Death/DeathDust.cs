@@ -31,7 +31,7 @@ public class DeathDust : MonoBehaviour
       //  smokeParticlesPrefab.transform.position = new Vector3(0f, -143f, 0f);
 
         // DeathPoff.Play();
-        Debug.Log("Poof!");
+        //Debug.Log("Poof!");
         //smokeParticlesPrefab.transform.SetParent(gameObject.transform, true);
         gameObject.SetActive(false);
     }
