@@ -1,11 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine;
 
 abstract public class MonsterController : MonoBehaviour
 {
-
+    #region //-----Declearation-----
     [HideInInspector] public GameSaver Saver = new GameSaver();
     private GameObject ReportRefference;
     private bool SpawnReport;
@@ -24,8 +22,9 @@ abstract public class MonsterController : MonoBehaviour
     public string devolutionName, devolutionPath;
     public GameObject Smoke;
     public GameObject Report;
+    #endregion
 
-
+    #region //-----Start & Update-----
     // Start is called before the first frame update
     void Start()
     {
@@ -58,7 +57,7 @@ abstract public class MonsterController : MonoBehaviour
         monster.DebugMonster();
         monster.SetReport(Report);
 
-        if (!manager.NewSave && Saver.FindTimeDifference() > 0 && monster.PreviousEvolution == "")
+        if (!manager.NewSave && Saver.FindTimeDifference() > 0 && monster.PreviousEvolution() == "")
         {
             monster.AtGameWakeUp(Saver.FindTimeDifference());
         }
@@ -117,7 +116,9 @@ abstract public class MonsterController : MonoBehaviour
         }
 
     }
+    #endregion
 
+    #region //-----Saving-----
     //Save the monster's stats when the gameobject is destroyed.
     private void OnDestroy()
     {
@@ -141,7 +142,6 @@ abstract public class MonsterController : MonoBehaviour
         }
     }
 
-
     //when the application is closed try to save.
     private void OnApplicationQuit()
     {
@@ -159,7 +159,9 @@ abstract public class MonsterController : MonoBehaviour
         else
             Debug.LogWarning("Could not save. There was no monster.");
     }
+    #endregion
 
+    #region //-----Methods that makes the scripts looks better-----
     public bool IsEvolutionAnimDone()
     {
         if (monster.CanEvolveStatus)
@@ -214,7 +216,7 @@ abstract public class MonsterController : MonoBehaviour
             //Create the next evolution
             GameObject Spawned = Instantiate(NextEvolution);
             Spawned.transform.SetParent(transform.parent, false);
-            manager.ActiveMonster.PreviousEvolution = _prefabLocation;
+            manager.ActiveMonster.PreviousEvolution(_prefabLocation, MonsterName);
             cntAnimation = 0;
         }
         cntAnimation += Time.deltaTime;
@@ -236,6 +238,7 @@ abstract public class MonsterController : MonoBehaviour
         if(!thisAnimator.GetBool("Deevolving"))
             cntAnimation = 0;
     }
+    #endregion
 
     //Send this monster to the GameManager
     void SendMonster()

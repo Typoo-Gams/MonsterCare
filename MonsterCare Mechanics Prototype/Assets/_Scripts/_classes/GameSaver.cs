@@ -197,10 +197,6 @@ public class GameSaver
         return PlayerPrefs.GetFloat(fullIndex);
     }
 
-    //might need an update
-    //   |
-    //  \/
-
     //saves the inputed monster
     /// <summary>
     /// Save the floats and name of a monster
@@ -220,6 +216,8 @@ public class GameSaver
             PlayerPrefs.SetString(MonsterSaveIndex + "MonsterName", yourMonster.Name);
             PlayerPrefs.SetString(MonsterSaveIndex + "PrefabLocation", yourMonster.PrefabLocation);
             PlayerPrefs.SetString(MonsterSaveIndex + "LastEatenElement", yourMonster.Element.ToString());
+            PlayerPrefs.SetString(MonsterSaveIndex + "DevolutionPath", yourMonster.GetDevolutionPath);
+            PlayerPrefs.SetString(MonsterSaveIndex + "DevolutionName", yourMonster.GetDevolutionName);
 
             int IsSleeping = 0;
             if (yourMonster.IsSleepingStatus)
@@ -256,7 +254,7 @@ public class GameSaver
     public void LoadMonster(Monster yourMonster)
     {
         string[] StatIndex =
-            {"Health", "Hunger", "Sleep", "Happiness", "Energy"};
+            {"Health", "Hunger", "Sleep", "Happiness", "Energy", "DevolutionPath", "DevolutionName"};
 
         string MonsterSaveIndex = "SavedMonster_";
 
@@ -272,6 +270,8 @@ public class GameSaver
         yourMonster.SleepStatus = PlayerPrefs.GetFloat(MonsterSaveIndex + StatIndex[2]);
         yourMonster.HappinessStatus = PlayerPrefs.GetFloat(MonsterSaveIndex + StatIndex[3]);
         yourMonster.EnergyStatus = PlayerPrefs.GetFloat(MonsterSaveIndex + StatIndex[4]);
+        yourMonster.GetDevolutionPath = PlayerPrefs.GetString(MonsterSaveIndex + StatIndex[5]);
+        yourMonster.GetDevolutionName = PlayerPrefs.GetString(MonsterSaveIndex + StatIndex[6]);
 
         bool IsSleeping = false;
         if (PlayerPrefs.GetInt(MonsterSaveIndex + "IsSleeping") == 1)

@@ -1,5 +1,6 @@
 using UnityEngine;
 
+#region //-------Enums------
 /// <summary>
 /// Type Of Monster. Decides what bonuses it has
 /// </summary>
@@ -20,10 +21,11 @@ public enum MonsterElement
     Earth,
     Water
 }
+#endregion
 
 public class Monster
 {
-
+    #region *Monster Stats & States*
     //UpdateSpeed
     readonly float UpdateSpeed = 0.1f;
     private bool EndOfEvolution;
@@ -31,6 +33,7 @@ public class Monster
     //Monster variables
     private string MonsterName;
     private string EvolvedFrom;
+    private string DevolutionPath, DevolutionName;
     private float Health;
     private float HealthRegen;
     private float Hunger;
@@ -70,8 +73,9 @@ public class Monster
      * IsPoisoned
      * 
      * */
+    #endregion
 
-
+    #region *Max Values & Base Degradation Values*
     //Max & Min Values
     private float MaxHealth = 10000;
     private float MaxHunger = 10000;
@@ -85,12 +89,13 @@ public class Monster
     private float HungerDegration = 0.092f;    //10000 max / 10800 sec in 3 hours = 0.92 per second -> update: 10 times a sec -> 0.092
     private float SleepDegration = 0.138f;     //10000 max / 7200 sec in 2 hours = 1.38 per second -> update: 10 times a sec -> 0.138
     private float HappinessDegration = 0.092f; //10000 max / 10800 sec in 3 hours = 0.92 per second -> update: 10 times a sec -> 0.092
-    // 10000 max / 28800 sec in 8 hours = 0.34 per second
-    // update: 10 times a sec -> 0.034
+                                               // 10000 max / 28800 sec in 8 hours = 0.34 per second
+                                               // update: 10 times a sec -> 0.034
+    #endregion
 
-    //-----------------Personality Degradation Values----------------
-    /**/
+    #region //-----------------Personality Degradation Values----------------
 
+    #region *Personality Values*
     //Fighter
     readonly float Fighter_MaxHealth = 20000;
     readonly float Fighter_HungerDegration = 0.10f; //10% faster ( HungerDegration * 1.1f )
@@ -109,17 +114,16 @@ public class Monster
     //Playfull
     readonly float Playfull_MaxHappiness = 20000;
     readonly float Playfull_HappinessDegration = 0.082f; //10% slower
+    #endregion
 
-    /**/
-
+    #region *Enemy Monster Things*
     //Health Bar
     GameObject HealthBar;
+    #endregion
+    #endregion
 
+    #region //------------------Monster Class Constructor---------------------
 
-    //------------------Monster Class Constructor---------------------
-
-
-    //Constructor for no arguments
     /// <summary>
     /// Create a new monster Object with default values. (testing purposes)
     /// </summary>
@@ -138,7 +142,7 @@ public class Monster
         IsSleepDeprived = false;
         IsMedicated = false;
         UpdateHunger(Hunger);
-        PreviousEvolution = "";
+        PreviousEvolution("", "", false);
     }
 
     /// <summary>
@@ -195,7 +199,7 @@ public class Monster
         IsSleepDeprived = false;
         IsMedicated = false;
         UpdateHunger(Hunger);
-        PreviousEvolution = "";
+        PreviousEvolution("", "", false);
         EndOfEvolution = IsLastEvolution;
     }
 
@@ -219,12 +223,13 @@ public class Monster
         IsSleepDeprived = false;
         IsMedicated = false;
         UpdateHunger(Hunger);
-        PreviousEvolution = "";
+        PreviousEvolution("", "", false);
     }
+    #endregion
 
-    //------------------------Properties------------------------
+    #region //------------------------Properties------------------------
 
-
+    #region *Reports*
     /// <summary>
     /// Sets the monster report that shows when the player evolves a new monster
     /// </summary>
@@ -244,8 +249,9 @@ public class Monster
     {
         return MonsterReport;
     }
+    #endregion 
 
-
+    #region *Debugging*
     //Print All Statuses
     /// <summary>
     /// Prints out all monster variables in the console.
@@ -254,11 +260,9 @@ public class Monster
     {
         Debug.Log(MonsterName + " Status: \nHealth: " + Health + "\nEnergy: " + Energy + "\nHunger: " + Hunger + "\nHappiness: " + HappinessStatus + "\nStarving: " + IsStarving + "\nFull: " + IsFull + "\nSleepyness: " + Sleep + "\nIsSleep: " + IsSleeping + "\nRested: " + IsRested + "\nOver Rested: " + IsOverRested + "\nIsDead: " + IsDead + "\nCanEvolve: " + CanEvolveStatus);
     }
+    #endregion
 
-
-    //------------Combat------------
-    
-
+    #region //------------Combat------------
     //Check Combat Status
     /// <summary>
     /// Returns bool IsInCombat.
@@ -351,9 +355,9 @@ public class Monster
         else
             IsDead = true;
     }
+    #endregion
 
-    //----------- Updates------------
-
+    #region //----------- Updates------------
     //Updates all the stat changes when the game opens after being closed.
     /// <summary>
     /// Updates every stat based on how many seconds have passed (Basically time travel)
@@ -516,7 +520,7 @@ public class Monster
         float lowerMargin = MaxHappiness * 0.33f;
         float higherMargin = MaxHappiness * 0.66f;
 
-        if (!(IsSleeping && _PersonalityType.Equals(MonsterType.Sleepy))) 
+        if (!(IsSleeping && _PersonalityType.Equals(MonsterType.Sleepy)))
         {
             Happiness = Mathf.Clamp(Happiness -= HappinessDegration, 0, MaxHappiness);
         }
@@ -548,11 +552,11 @@ public class Monster
     {
         Happiness += Ammount;
     }
+    #endregion
 
+    #region //------------Get/Set------------
 
-    //------------Get/Set------------
-
-
+    #region *Paths & Names*
     //Get loadLocation
     public string PrefabLocation
     {
@@ -560,15 +564,39 @@ public class Monster
         set => loadLocation = value;
     }
 
+
     /// <summary>
-    /// Set get the previous evolution
+    /// get the previous evolution
     /// </summary>
-    public string PreviousEvolution
+    public string PreviousEvolution()
     {
-        get => EvolvedFrom;
-        set => EvolvedFrom = value;
+        return EvolvedFrom;
     }
 
+    /// <summary>
+    /// Set the previous evolution
+    /// </summary>
+    public void PreviousEvolution(string Path, string MonsterName, bool Evoled = true)
+    {
+        EvolvedFrom = Path;
+        if (Evoled)
+        {
+            DevolutionPath = EvolvedFrom;
+            DevolutionName = MonsterName;
+        }
+    }
+
+    public string GetDevolutionPath
+    {
+        get => DevolutionPath;
+        set => DevolutionPath = value;
+    }
+
+    public string GetDevolutionName
+    {
+        get => DevolutionName;
+        set => DevolutionName = value;
+    }
 
     //Get/set Name
     /// <summary>
@@ -580,7 +608,13 @@ public class Monster
         set => MonsterName = value;
     }
 
+    public bool GetEndOfEvolution
+    {
+        get => EndOfEvolution;
+    }
+    #endregion
 
+    #region *Monster Stats & States*
     //Gets the slider used for the healthbar
     /// <summary>
     /// Get the healthbar GameObject
@@ -807,6 +841,14 @@ public class Monster
         set => elementEaten = value;
     }
 
+    public MonsterType Personality
+    {
+        get => _PersonalityType;
+        set => value = _PersonalityType;
+    }
+    #endregion
+
+    #region *Max Values*
     public float GetMaxHealth 
     {
         get => MaxHealth;
@@ -831,16 +873,7 @@ public class Monster
     {
         get => EvolveCost;
     }
-
-    public MonsterType Personality
-    {
-        get => _PersonalityType;
-        set => value = _PersonalityType;
-    }
-
-    public bool GetEndOfEvolution
-    {
-        get => EndOfEvolution;
-    }
-
+    #endregion
+    #endregion
+    #endregion
 }
