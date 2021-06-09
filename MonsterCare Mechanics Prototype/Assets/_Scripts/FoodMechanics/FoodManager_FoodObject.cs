@@ -80,6 +80,7 @@ public class FoodManager_FoodObject : MonoBehaviour
 
     private void Update()
     {
+        //sometimes doesnt work in start so its here in update
         if(manager.MonsterObject.GetComponent<Animator>() != MonsterAnim)
             MonsterAnim = manager.MonsterObject.GetComponent<Animator>();
     }
@@ -95,11 +96,13 @@ public class FoodManager_FoodObject : MonoBehaviour
 
             manager.ActiveMonster.UpdateHealth(manager.ActiveMonster.HealthStatus + ThisFood.Power - (ThisFood.Power/2));
 
+            /*
             //spawns temporary feedback UI
             Text spawn = Instantiate(UI);
             spawn.text = "+" + ThisFood.Power;
             spawn.transform.SetParent(parent.transform, false);
             spawn.transform.localPosition = new Vector3(347f, 276f, 60f);
+            */
 
             //destroys the food
             Destroy(gameObject);

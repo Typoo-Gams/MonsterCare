@@ -85,12 +85,33 @@ public class Monster
     private float EvolveCost = 800;
 
 
+    /* Intended speed values
+     
+    hunger //10000 max / 10800 sec in 3 hours = 0.92 per second -> update: 10 times a sec -> 0.092
+    sleep  //10000 max / 7200 sec in 2 hours = 1.38 per second -> update: 10 times a sec -> 0.138
+    happi  //10000 max / 10800 sec in 3 hours = 0.92 per second -> update: 10 times a sec -> 0.092
+    dont remember // 10000 max / 28800 sec in 8 hours = 0.34 per second
+                  // update: 10 times a sec -> 0.034
+     
+     */
+
+
+    /* Test FAST Speed Values
+     
+   hunger //10000 max / 300 sec in 5 min = 33.33 per second -> update: 10 times a sec -> 3.33
+   sleep  //10000 max / 180 sec in 3 min = 55.55 per second -> update: 10 times a sec -> 5.55
+   happi  //10000 max / 300 sec in 5 min = 33.33 per second -> update: 10 times a sec -> 3.33
+    dont remember // 10000 max / 28800 sec in 8 hours = 0.34 per second
+                  // update: 10 times a sec -> 0.034
+
+     */
+
     //Monster Degradation Modifiers
-    private float HungerDegration = 0.092f;    //10000 max / 10800 sec in 3 hours = 0.92 per second -> update: 10 times a sec -> 0.092
-    private float SleepDegration = 0.138f;     //10000 max / 7200 sec in 2 hours = 1.38 per second -> update: 10 times a sec -> 0.138
-    private float HappinessDegration = 0.092f; //10000 max / 10800 sec in 3 hours = 0.92 per second -> update: 10 times a sec -> 0.092
-                                               // 10000 max / 28800 sec in 8 hours = 0.34 per second
-                                               // update: 10 times a sec -> 0.034
+    private float HungerDegration = 3.33f;    
+    private float SleepDegration = 5.55f;     
+    private float HappinessDegration = 3.33f; 
+                                               
+                                               
     #endregion
 
     #region //-----------------Personality Degradation Values----------------
@@ -98,11 +119,11 @@ public class Monster
     #region *Personality Values*
     //Fighter
     readonly float Fighter_MaxHealth = 20000;
-    readonly float Fighter_HungerDegration = 0.10f; //10% faster ( HungerDegration * 1.1f )
+    readonly float Fighter_HungerDegration = 3.663f; //10% faster ( HungerDegration * 1.1f )
 
     //Hungry
     readonly float Hungry_MaxHunger = 20000;
-    readonly float Hungry_HungerDegration = 0.082f; //10% slower ( HungerDegration * 0.9f )
+    readonly float Hungry_HungerDegration = 2.997f; //10% slower ( HungerDegration * 0.9f )
     //more passive health regen?
 
     //Sleepy
@@ -113,7 +134,7 @@ public class Monster
 
     //Playfull
     readonly float Playfull_MaxHappiness = 20000;
-    readonly float Playfull_HappinessDegration = 0.082f; //10% slower
+    readonly float Playfull_HappinessDegration = 2.997f; //10% slower
     #endregion
 
     #region *Enemy Monster Things*

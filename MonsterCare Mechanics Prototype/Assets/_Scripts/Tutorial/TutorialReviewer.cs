@@ -24,6 +24,15 @@ public class TutorialReviewer : MonoBehaviour
         }
     }
 
+    private void Update()
+    {
+        //i dont know why but sometimes these saves dont save so im doing this instead temporary
+        if (Saver.GetTutorialStage() != 3)
+        {
+            Saver.IsTutorialDone(3);
+        }
+    }
+
     private void OnMouseDown()
     {
         //All Pages have been viewed

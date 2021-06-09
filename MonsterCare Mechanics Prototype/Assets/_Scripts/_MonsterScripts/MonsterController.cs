@@ -11,7 +11,7 @@ abstract public class MonsterController : MonoBehaviour
     private float cnt = 0;
     [HideInInspector] public Animator thisAnimator;
     [HideInInspector] public float cntAnimation;
-    [HideInInspector] public GameObject NextEvolution = null;
+    [HideInInspector] public GameObject NextEvolution;
 
     //These needs to be something
     [HideInInspector]
@@ -20,6 +20,7 @@ abstract public class MonsterController : MonoBehaviour
     public string MonsterName;
     public string _prefabLocation = "Set Me To Something";
     public string devolutionName, devolutionPath;
+    //could load smoke from resources but dont have time to fix this yet
     public GameObject Smoke;
     public GameObject Report;
     #endregion
@@ -87,6 +88,7 @@ abstract public class MonsterController : MonoBehaviour
             //Checks for evolution
             Evolution();
 
+            
             //checks if a report should be spawned
             if (SpawnReport && manager.Fade.GetCurrentAnimatorStateInfo(0).IsName("New State") && monster.GetReport() != null)
             {
@@ -234,9 +236,10 @@ abstract public class MonsterController : MonoBehaviour
         monster.PrefabLocation = devolutionPath;
         empty.UpdateHealth(empty.GetMaxHealth);
         Saver.SaveMonster(empty);
-        thisAnimator.SetBool("Deevolving", true);
         if(!thisAnimator.GetBool("Deevolving"))
             cntAnimation = 0;
+        thisAnimator.SetBool("Deevolving", true);
+        
     }
     #endregion
 

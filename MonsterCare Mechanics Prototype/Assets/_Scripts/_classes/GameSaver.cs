@@ -54,7 +54,7 @@ public class GameSaver
     public bool IsTutorialDone()
     {
         int save = PlayerPrefs.GetInt("Tutorial_Done");
-        //Debug.LogError(save);
+        Debug.LogError(save);
         if (save == 3)
             return true;
         else
@@ -279,6 +279,26 @@ public class GameSaver
         yourMonster.IsSleepingStatus = IsSleeping;
     }
 
+    //done it this way so we dont need to remember the save index to save whenever we need to.
+    /// <summary>
+    /// Save the monster the player evolved from. (this can be used if a monster has multiple ways to evolve into the same monster)
+    /// </summary>
+    /// <param name="path">path to the monster the new evolution should devolve into</param>
+    /// <returns>current path saved, or succsessfull feedback</returns>
+    public void SaveMonsterDevolution(string path)
+    {
+        PlayerPrefs.SetString("MonsterDevolution_Path", path);
+    }
+
+    /// <summary>
+    /// load the previous monster evolution path
+    /// </summary>
+    /// <param name="pathOrName"></param>
+    /// <returns></returns>
+    public string LoadMonsterDevolution()
+    {
+        return PlayerPrefs.GetString("MonsterDevolution_Path");
+    }
 
     /// <summary>
     /// Prints The list of obtainable monsters and if they have been obtained.
@@ -308,7 +328,7 @@ public class GameSaver
         bool indexFound = false;
         bool IsObtained = false;
         string[] MonsterIndex =
-            {"Child_Gen0", "AirSleepy_Gen1", "BeefMaster_Gen1", "FireSleepy_Gen1", "WaterPlayful_Gen1" };
+            {"Child_Gen0", "AirSleepy_Gen1", "BeefMaster_Gen1", "FireSleepy_Gen1", "WaterPlayful_Gen1", "Placeholder_Gen2_Air", "Placeholder_Gen2_Earth", "Placeholder_Gen2_Fire", "Placeholder_Gen2_Water" };
         string ObtainedSaveIndex = "ObatainedMonster_";
         foreach (string Name in MonsterIndex)
         {

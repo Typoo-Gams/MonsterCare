@@ -9,8 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1244984002225440146}
+  - component: {fileID: 3151317729536122447}
   - component: {fileID: 1244984002225440145}
-  - component: {fileID: 8909383126756365253}
   - component: {fileID: -4108199054294796844}
   - component: {fileID: -8004788469322888676}
   m_Layer: 0
@@ -34,6 +34,33 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3151317729536122447
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1244984002225440159}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9d62090240a0d24a9a29ffcc1f545be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  manager: {fileID: 0}
+  thisAnimator: {fileID: 0}
+  cntAnimation: 0
+  NextEvolution: {fileID: 0}
+  _type: 3
+  MonsterName: FireSleepy_Gen1
+  _prefabLocation: Prefabs/MonsterStuff/Monsters/Gen 1/FireSleepy_Gen1
+  devolutionName: Child_Gen0
+  devolutionPath: Prefabs/MonsterStuff/Monsters/Gen 0/Child_Gen0
+  Smoke: {fileID: 4618042962419636357, guid: 366d77313b49ea744930f1d9c5a96c69, type: 3}
+  Report: {fileID: 4400649856864467054, guid: cdf0730fa0a0b0d46b6d4c28294c5732, type: 3}
+  Evo1Path: Prefabs/MonsterStuff/Monsters/Gen 2/Placeholder_Gen2_Earth
+  Evo2Path: Prefabs/MonsterStuff/Monsters/Gen 2/Placeholder_Gen2_Fire
+  Evo1: 3
+  Evo2: 2
 --- !u!212 &1244984002225440145
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -85,28 +112,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &8909383126756365253
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1244984002225440159}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1130e7778a95bbf448cacc1b2b69374c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  manager: {fileID: 0}
-  thisAnimator: {fileID: 0}
-  cntAnimation: 0
-  _type: 3
-  MonsterName: FireSleepy_Gen1
-  _prefabLocation: Prefabs/MonsterStuff/Monsters/Gen 1/FireSleepy_Gen1
-  devolutionName: Child_Gen0
-  devolutionPath: Prefabs/MonsterStuff/Monsters/Gen 0/Child_Gen0
-  Smoke: {fileID: 4618042962419636357, guid: 366d77313b49ea744930f1d9c5a96c69, type: 3}
-  Report: {fileID: 4400649856864467054, guid: cdf0730fa0a0b0d46b6d4c28294c5732, type: 3}
 --- !u!60 &-4108199054294796844
 PolygonCollider2D:
   m_ObjectHideFlags: 0

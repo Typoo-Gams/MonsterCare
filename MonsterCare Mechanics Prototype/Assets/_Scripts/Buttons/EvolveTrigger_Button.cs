@@ -94,8 +94,13 @@ public class EvolveTrigger_Button : MonoBehaviour
                 GameObject spawn = null;
                 if (manager.ActiveMonster.GetReport() != null)
                 {
-                    spawn = Instantiate(manager.ActiveMonster.GetReport());
-                    manager.HideUI = true;
+                    /* doubble report spawned
+                    if (GameObject.FindGameObjectWithTag("Report") != null)
+                    {
+                        spawn = Instantiate(manager.ActiveMonster.GetReport());
+                        manager.HideUI = true;
+                    }
+                    */
                 }
                 else
                     manager.HideUI = false;

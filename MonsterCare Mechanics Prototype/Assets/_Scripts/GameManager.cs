@@ -59,7 +59,8 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         Tutorial = !Save.IsTutorialDone();
-        GameVersion = "21.8_focusTest";
+        Debug.LogError(Save.IsTutorialDone());
+        GameVersion = "23.2_SemesterHandIn";
         Debug.LogWarning("GameVersion is V." + GameVersion);
         FoodInventory = new Food[]{
             new Food(),
@@ -75,12 +76,15 @@ public class GameManager : MonoBehaviour
     //Start is called just before any of the Update methods is called the first time
     private void Start()
     {
+        /*
+        //two random foods on new game
         FoodInventory[0] = new Food(UnityEngine.Random.Range(0, 12));
-        FoodInventory[1] = new Food(UnityEngine.Random.Range(0, 12));
+        FoodInventory[1] = new Food(MonsterElement.Water);
         FoodInventory[2] = new Food(MonsterElement.Fire);
-        FoodInventory[3] = new Food();
-        FoodInventory[4] = new Food();
+        FoodInventory[3] = new Food(MonsterElement.Air);
+        FoodInventory[4] = new Food(MonsterElement.Earth);
         Save.SaveFood(FoodInventory);
+        */
     }
 
 
@@ -91,13 +95,13 @@ public class GameManager : MonoBehaviour
             //Dev cheats
             if (Input.GetKeyDown(KeyCode.I))
             {
-                ActiveMonster.UpdateHealth(10000);
-                ActiveMonster.HappinessStatus = 10000;
+                ActiveMonster.UpdateHealth(ActiveMonster.GetMaxHealth);
+                ActiveMonster.HappinessStatus = ActiveMonster.GetMaxHappiness;
                 ActiveMonster.UpdateHappiness();
-                ActiveMonster.UpdateHunger(10000);
-                ActiveMonster.SleepStatus = 10000;
+                ActiveMonster.UpdateHunger(ActiveMonster.GetMaxHunger);
+                ActiveMonster.SleepStatus = ActiveMonster.GetMaxSleep;
                 ActiveMonster.UpdateSleeping(false);
-                ActiveMonster.EnergyStatus = 1000;
+                ActiveMonster.EnergyStatus = ActiveMonster.GetMaxEnergy;
 
                 FoodInventory[0] = new Food(12);
                 FoodInventory[1] = new Food(MonsterElement.Air);
@@ -134,7 +138,7 @@ public class GameManager : MonoBehaviour
             }
 
             //Second part of the tutorial
-            if (!Save.IsTutorialDone())
+            if (Tutorial)
             {
                 if (Save.GetTutorialStage() == 2 && !TutorialIsActive)
                 {
@@ -268,13 +272,32 @@ public class GameManager : MonoBehaviour
             {
                 //change to renderer so that stats can change while in other scenes?
                 MonsterObject.GetComponent<SpriteRenderer>().enabled = true;
+                if (MonsterObject.transform.childCount > 0)
+                {
+                    for (int i = 0; i < MonsterObject.transform.childCount; i++)
+                    {
+                        if (MonsterObject.transform.GetChild(i) != null)
+                        {
+                            MonsterObject.transform.GetChild(i).gameObject.SetActive(true);
+                        }
+                    }
+                }
             }
             else
             {
 
                 //change to renderer so that stats can change while in other scenes?
                 MonsterObject.GetComponent<SpriteRenderer>().enabled = false;
-
+                if (MonsterObject.transform.childCount > 0)
+                {
+                    for (int i = 0; i < MonsterObject.transform.childCount; i++)
+                    {
+                        if (MonsterObject.transform.GetChild(i) != null)
+                        {
+                            MonsterObject.transform.GetChild(i).gameObject.SetActive(false);
+                        }
+                    }
+                }
             }
         }
 

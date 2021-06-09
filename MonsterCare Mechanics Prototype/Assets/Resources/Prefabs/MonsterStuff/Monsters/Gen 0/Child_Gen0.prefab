@@ -9,8 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6829362575786079707}
-  - component: {fileID: 3443623198860835149}
   - component: {fileID: -2078813862626164601}
+  - component: {fileID: 3443623198860835149}
   - component: {fileID: 4158619150106705293}
   - component: {fileID: 5861584760677831097}
   m_Layer: 0
@@ -35,6 +35,33 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &-2078813862626164601
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6334183884661785621}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31f38adb5d430e4458ea4e5824084f23, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  manager: {fileID: 0}
+  thisAnimator: {fileID: 0}
+  cntAnimation: 0
+  NextEvolution: {fileID: 0}
+  _type: 4
+  MonsterName: Child_Gen0
+  _prefabLocation: Prefabs/MonsterStuff/Monsters/Gen 0/Child_Gen0
+  devolutionName: Child_Gen0
+  devolutionPath: Prefabs/MonsterStuff/Monsters/Gen 0/Child_Gen0
+  Smoke: {fileID: 4618042962419636357, guid: 366d77313b49ea744930f1d9c5a96c69, type: 3}
+  Report: {fileID: 4824636592189579572, guid: 73a0ce0ce71f54d418826dfb5a045f02, type: 3}
+  fireEvoPath: Prefabs/MonsterStuff/Monsters/Gen 1/FireSleepy_Gen1
+  waterEvoPath: Prefabs/MonsterStuff/Monsters/Gen 1/WaterPlayful_Gen1
+  airEvoPath: Prefabs/MonsterStuff/Monsters/Gen 1/AirSleepy_Gen1
+  earthEvoPath: Prefabs/MonsterStuff/Monsters/Gen 1/BeefMaster_Gen1
 --- !u!212 &3443623198860835149
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -86,32 +113,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &-2078813862626164601
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6334183884661785621}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 31f38adb5d430e4458ea4e5824084f23, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  manager: {fileID: 0}
-  thisAnimator: {fileID: 0}
-  cntAnimation: 0
-  _type: 4
-  MonsterName: Child_Gen0
-  _prefabLocation: Prefabs/MonsterStuff/Monsters/Gen 0/Child_Gen0
-  devolutionName: Child_Gen0
-  devolutionPath: Prefabs/MonsterStuff/Monsters/Gen 0/Child_Gen0
-  Smoke: {fileID: 4618042962419636357, guid: 366d77313b49ea744930f1d9c5a96c69, type: 3}
-  Report: {fileID: 4824636592189579572, guid: 73a0ce0ce71f54d418826dfb5a045f02, type: 3}
-  fireEvoPath: Prefabs/MonsterStuff/Monsters/Gen 1/FireSleepy_Gen1
-  waterEvoPath: Prefabs/MonsterStuff/Monsters/Gen 1/WaterPlayful_Gen1
-  airEvoPath: Prefabs/MonsterStuff/Monsters/Gen 1/AirSleepy_Gen1
-  earthEvoPath: Prefabs/MonsterStuff/Monsters/Gen 1/BeefMaster_Gen1
 --- !u!95 &4158619150106705293
 Animator:
   serializedVersion: 3

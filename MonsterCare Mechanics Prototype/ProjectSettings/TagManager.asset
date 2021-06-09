@@ -30,6 +30,7 @@ TagManager:
   - TTKTimer
   - Tutorial
   - HomeUI
+  - EvolveButtonAnim
   layers:
   - Default
   - TransparentFX

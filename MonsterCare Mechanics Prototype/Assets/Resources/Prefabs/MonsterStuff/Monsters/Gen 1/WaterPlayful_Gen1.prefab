@@ -9,8 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7509034745708694436}
+  - component: {fileID: 2108520298505688371}
   - component: {fileID: 4172169165122185097}
-  - component: {fileID: 289305708902886459}
   - component: {fileID: 8276249412440985776}
   - component: {fileID: 3143831003484593061}
   m_Layer: 0
@@ -34,6 +34,33 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2108520298505688371
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7969396542658477384}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9d62090240a0d24a9a29ffcc1f545be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  manager: {fileID: 0}
+  thisAnimator: {fileID: 0}
+  cntAnimation: 0
+  NextEvolution: {fileID: 0}
+  _type: 0
+  MonsterName: WaterPlayful_Gen1
+  _prefabLocation: Prefabs/MonsterStuff/Monsters/Gen 1/WaterPlayful_Gen1
+  devolutionName: Child_Gen0
+  devolutionPath: Prefabs/MonsterStuff/Monsters/Gen 0/Child_Gen0
+  Smoke: {fileID: 4618042962419636357, guid: 366d77313b49ea744930f1d9c5a96c69, type: 3}
+  Report: {fileID: 2334369555746745422, guid: 43779fa5fa73ebd43abc861589976de2, type: 3}
+  Evo1Path: Prefabs/MonsterStuff/Monsters/Gen 2/Placeholder_Gen2_Air
+  Evo2Path: Prefabs/MonsterStuff/Monsters/Gen 2/Placeholder_Gen2_Water
+  Evo1: 1
+  Evo2: 4
 --- !u!212 &4172169165122185097
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -85,28 +112,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &289305708902886459
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7969396542658477384}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1130e7778a95bbf448cacc1b2b69374c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  manager: {fileID: 0}
-  thisAnimator: {fileID: 0}
-  cntAnimation: 0
-  _type: 0
-  MonsterName: WaterPlayful_Gen1
-  _prefabLocation: Prefabs/MonsterStuff/Monsters/Gen 1/WaterPlayful_Gen1
-  devolutionName: Child_Gen0
-  devolutionPath: Prefabs/MonsterStuff/Monsters/Gen 0/Child_Gen0
-  Smoke: {fileID: 4618042962419636357, guid: 366d77313b49ea744930f1d9c5a96c69, type: 3}
-  Report: {fileID: 2334369555746745422, guid: 43779fa5fa73ebd43abc861589976de2, type: 3}
 --- !u!60 &8276249412440985776
 PolygonCollider2D:
   m_ObjectHideFlags: 0

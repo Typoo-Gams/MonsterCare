@@ -42,6 +42,8 @@ public class Generation0Controller : MonsterController
     {
         if (monster.DeathStatus)
         {
+            //resets the devolution path so in case something goes wrong the monster doesnt deevolve into a higher level monster
+            Saver.SaveMonsterDevolution("");
             TransferMonsterStats();
             NextEvolution = Resources.Load<GameObject>(devolutionPath);
             _InstantiateEvolution();
