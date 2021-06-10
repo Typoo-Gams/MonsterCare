@@ -14,12 +14,13 @@ public class Food : InventoryItem
     /// </summary>
     public Food(int sprite)
     {
-            path = "Prefabs/FeedingPrototype/FOOD";
-            foodType = "Normal";
-            Type = "Food";
-            element = MonsterElement.None;
-            foodPower = 1250;
-            SpriteIndex = sprite;
+        path = "Prefabs/FeedingPrototype/FOOD";
+        foodType = "Normal";
+        Type = "Food";
+        element = MonsterElement.None;
+        //max hunger = 20000
+        foodPower = 20000 / 3;        
+        SpriteIndex = sprite;
     }
 
 
@@ -43,7 +44,7 @@ public class Food : InventoryItem
         foodType = "Special";
         Type = "Food";
         element = elementType;
-        foodPower = 1250*2;
+        foodPower = 20000 / 3 * 2;
     }
 
 

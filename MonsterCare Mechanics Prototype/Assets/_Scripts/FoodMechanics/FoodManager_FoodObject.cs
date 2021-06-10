@@ -94,8 +94,7 @@ public class FoodManager_FoodObject : MonoBehaviour
             FindObjectOfType<SoundManager>().play("MunchSound");
             //Testing to heal when given special food.
 
-            manager.ActiveMonster.UpdateHealth(manager.ActiveMonster.HealthStatus + ThisFood.Power - (ThisFood.Power/2));
-
+            
             /*
             //spawns temporary feedback UI
             Text spawn = Instantiate(UI);
@@ -114,10 +113,17 @@ public class FoodManager_FoodObject : MonoBehaviour
             if (MonsterAnim != null)
                 MonsterAnim.SetBool("Eating", true);
 
+            //Personality dependancies
             if (manager.ActiveMonster.Personality.Equals(MonsterType.Hungry))
                 manager.ActiveMonster.AddHappiness(FoodPower);
             else
                 manager.ActiveMonster.AddHappiness(FoodPower/2);
+
+            if (manager.ActiveMonster.Personality != MonsterType.Fighter)
+                manager.ActiveMonster.UpdateHealth(manager.ActiveMonster.HealthStatus + manager.ActiveMonster.GetMaxHealth / 3);
+            else
+                manager.ActiveMonster.UpdateHealth(manager.ActiveMonster.HealthStatus + manager.ActiveMonster.GetMaxHealth / 5);
+
         }
     }
 

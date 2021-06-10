@@ -153,7 +153,8 @@ public class Monster
         MonsterName = "Default";
         elementEaten = MonsterElement.None;
         Health = MaxHealth;
-        HealthRegen = 0.01f;
+        //regular was 0.01f
+        HealthRegen = 1f;
         Energy = MaxEnergy;
         Hunger = MaxHunger;
         Sleep = MaxSleep;

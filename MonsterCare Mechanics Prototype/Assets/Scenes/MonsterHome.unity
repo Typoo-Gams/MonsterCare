@@ -163,6 +163,42 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2268469435900996519, guid: 40193650ec9cf7e4189cc7b3202955b8, type: 3}
+      propertyPath: EnergyIcons.Array.data[0]
+      value: 
+      objectReference: {fileID: 21300000, guid: 916bce6f5d89afe428d5b2c45f6fd6fe, type: 3}
+    - target: {fileID: 2268469435900996519, guid: 40193650ec9cf7e4189cc7b3202955b8, type: 3}
+      propertyPath: EnergyIcons.Array.data[1]
+      value: 
+      objectReference: {fileID: 21300000, guid: a877a89aea6a233439a8ce288d762010, type: 3}
+    - target: {fileID: 2268469435900996519, guid: 40193650ec9cf7e4189cc7b3202955b8, type: 3}
+      propertyPath: EnergyIcons.Array.data[2]
+      value: 
+      objectReference: {fileID: 21300000, guid: 40ca952e7b49ffe4a8f67d8675f313cd, type: 3}
+    - target: {fileID: 3275209722979855915, guid: 40193650ec9cf7e4189cc7b3202955b8, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 40ca952e7b49ffe4a8f67d8675f313cd, type: 3}
+    - target: {fileID: 3603284399623216613, guid: 40193650ec9cf7e4189cc7b3202955b8, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.9026764
+      objectReference: {fileID: 0}
+    - target: {fileID: 3603284399623216613, guid: 40193650ec9cf7e4189cc7b3202955b8, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.9026764
+      objectReference: {fileID: 0}
+    - target: {fileID: 3603284399623216613, guid: 40193650ec9cf7e4189cc7b3202955b8, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.9026764
+      objectReference: {fileID: 0}
+    - target: {fileID: 3603284399623216613, guid: 40193650ec9cf7e4189cc7b3202955b8, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -0.07
+      objectReference: {fileID: 0}
+    - target: {fileID: 3603284399623216613, guid: 40193650ec9cf7e4189cc7b3202955b8, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -0
+      objectReference: {fileID: 0}
     - target: {fileID: 8129942001750182336, guid: 40193650ec9cf7e4189cc7b3202955b8, type: 3}
       propertyPath: m_Pivot.x
       value: 0

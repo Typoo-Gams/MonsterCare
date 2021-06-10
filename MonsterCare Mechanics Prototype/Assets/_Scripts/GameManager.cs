@@ -59,8 +59,8 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         Tutorial = !Save.IsTutorialDone();
-        Debug.LogError(Save.IsTutorialDone());
-        GameVersion = "23.2_SemesterHandIn";
+        //Debug.LogError(Save.IsTutorialDone());
+        GameVersion = "23.4_SemesterHandIn";
         Debug.LogWarning("GameVersion is V." + GameVersion);
         FoodInventory = new Food[]{
             new Food(),
@@ -93,6 +93,7 @@ public class GameManager : MonoBehaviour
         if (SceneManager.GetActiveScene().name == "MonsterHome")
         {
             //Dev cheats
+            /*
             if (Input.GetKeyDown(KeyCode.I))
             {
                 ActiveMonster.UpdateHealth(ActiveMonster.GetMaxHealth);
@@ -136,6 +137,7 @@ public class GameManager : MonoBehaviour
                 Save.SaveNote(3, 1);
                 Save.SaveNote(4, 1);
             }
+            */
 
             //Second part of the tutorial
             if (Tutorial)
@@ -232,7 +234,8 @@ public class GameManager : MonoBehaviour
         else
         {
             //Debug.LogError("resumed pause: " + Save.FindTimeDifference());
-            ActiveMonster.AtGameWakeUp(Save.FindTimeDifference());
+            if (ActiveMonster != null)
+                ActiveMonster.AtGameWakeUp(Save.FindTimeDifference());
         }
     }
 

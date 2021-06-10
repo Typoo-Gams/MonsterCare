@@ -2013,7 +2013,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5268706205060699684, guid: 09aecba300f3e334cb0dd45b32d85186, type: 3}
       propertyPath: SoundMuted
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5268706205060699684, guid: 09aecba300f3e334cb0dd45b32d85186, type: 3}
       propertyPath: Sounds.Array.data[0].clip

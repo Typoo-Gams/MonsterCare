@@ -54,7 +54,7 @@ public class GameSaver
     public bool IsTutorialDone()
     {
         int save = PlayerPrefs.GetInt("Tutorial_Done");
-        Debug.LogError(save);
+        //Debug.LogError(save);
         if (save == 3)
             return true;
         else
